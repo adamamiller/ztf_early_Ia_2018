@@ -170,3 +170,77 @@ def multifilter_lnposterior(theta, f, t, f_err, filt_arr):
         return -np.inf
     return lnl + lnp
 
+def fit_lc(lc_df, t0=0, z=0, t_fl=18):
+    '''Perform an MCMC fit to the light curve'''
+    
+    obs = np.where((lc_df['programid'] == 2.0) & 
+                   (lc_df['nbaseline'] > 30))
+    
+    
+    time = (lc_df['jdobs'].iloc[obs].values - t0)/(1+z)
+    flux = lc_df['Fpsf'].iloc[obs].values
+    flux_unc = lc_df['eFpsf'].iloc[obs].values
+    filt_arr = lc_df['filter'].iloc[obs].values
+
+    guess_0 = [-t_fl, 
+               0, 2*np.max(flux[filt_arr == 'g']), 18, 2, 2, 2, 1,
+               0, 2*np.max(flux[filt_arr == 'r']), 18, 2, 2, 2, 1
+              ]
+    
+    pre_sec_peak = np.where(time <= 7)
+    f_data = flux[pre_sec_peak]
+    t_data = time[pre_sec_peak]
+    f_unc_data = flux_unc[pre_sec_peak]
+    filt_data = filt_arr[pre_sec_peak]
+    
+    ml_res = minimize(multifilter_nll, guess_0, method='Powell', # Powell method does not need derivatives
+                      args=(f_data, t_data, f_unc_data, filt_data))
+    ml_guess = ml_res.x
+    print(ml_guess)
+
+    # sig_0 is meaningless from the ML result
+    ml_guess[7::7] = 3
+
+    ml_guess[0] += t_fl
+    
+    #number of walkers
+    nwalkers = 500
+    nfac = np.ones_like(ml_guess)*5e-3
+    ndim = len(ml_guess) 
+
+    # file to save samples
+    filename = "ZTF_SN.h5"
+    backend = emcee.backends.HDFBackend(filename)
+    backend.reset(nwalkers, ndim)
+
+    #initial position of walkers
+    pos = [ml_guess + nfac * np.random.randn(ndim) for i in range(nwalkers)]
+
+    #run initial burn-in
+    sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                    multifilter_lnposterior, 
+                                    args=(f_data, t_data + t_fl, 
+                                          f_unc_data, filt_data),
+                                    backend=backend)
+    max_samples = 15000
+
+    index = 0
+    autocorr = np.empty(max_samples)
+    old_tau = np.inf
+    check_tau = 50000
+    for sample in sampler.sample(pos, iterations=max_samples):
+        if sampler.iteration % check_tau:
+            continue
+        tau = sampler.get_autocorr_time(tol=0)
+        autocorr[index] = np.mean(tau)
+        index += 1
+
+        # Check convergence
+        converged = np.all(tau * 100 < sampler.iteration)
+        converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
+        if converged:
+            break
+        old_tau = tau
+    
+    print("Model ran {} steps with a final tau: {}".format(sampler.iteration, tau))
+    
