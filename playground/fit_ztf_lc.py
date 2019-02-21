@@ -3,6 +3,7 @@ import pandas as pd
 import emcee
 import corner
 from scipy.optimize import minimize
+from multiprocessing import Pool
 
 def calc_t_p(t_b, alpha_d, alpha_r, s):
     '''Calculate the time to peak based on model parameters
@@ -216,31 +217,32 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18):
     #initial position of walkers
     pos = [ml_guess + nfac * np.random.randn(ndim) for i in range(nwalkers)]
 
-    #run initial burn-in
-    sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                    multifilter_lnposterior, 
-                                    args=(f_data, t_data + t_fl, 
-                                          f_unc_data, filt_data),
-                                    backend=backend)
-    max_samples = 15000
+    with Pool() as pool:
+        sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                        multifilter_lnposterior, 
+                                        args=(f_data, t_data + t_fl, 
+                                              f_unc_data, filt_data),
+                                        backend=backend,
+                                        pool=pool)
+        max_samples = 15000
 
-    index = 0
-    autocorr = np.empty(max_samples)
-    old_tau = np.inf
-    check_tau = 50000
-    for sample in sampler.sample(pos, iterations=max_samples):
-        if sampler.iteration % check_tau:
-            continue
-        tau = sampler.get_autocorr_time(tol=0)
-        autocorr[index] = np.mean(tau)
-        index += 1
+        index = 0
+        autocorr = np.empty(max_samples)
+        old_tau = np.inf
+        check_tau = 50000
+        for sample in sampler.sample(pos, iterations=max_samples):
+            if sampler.iteration % check_tau:
+                continue
+            tau = sampler.get_autocorr_time(tol=0)
+            autocorr[index] = np.mean(tau)
+            index += 1
 
-        # Check convergence
-        converged = np.all(tau * 100 < sampler.iteration)
-        converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
-        if converged:
-            break
-        old_tau = tau
+            # Check convergence
+            converged = np.all(tau * 100 < sampler.iteration)
+            converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
+            if converged:
+                break
+            old_tau = tau
     
     print("Model ran {} steps with a final tau: {}".format(sampler.iteration, tau))
     
