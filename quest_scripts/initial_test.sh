@@ -5,7 +5,8 @@
 #MSUB -M my_email_address
 #MSUB -j oe
 #MSUB -N ztf_2018_snIa
-#MSUB -l nodes=1:ppn=4
+#MSUB -l mem=120gb
+#MSUB -l nodes=1:ppn=28
 #MSUB -l partition=quest6
 
 # add a project directory to your PATH (if needed)
