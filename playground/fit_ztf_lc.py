@@ -171,7 +171,7 @@ def multifilter_lnposterior(theta, f, t, f_err, filt_arr):
         return -np.inf
     return lnl + lnp
 
-def fit_lc(lc_df, t0=0, z=0, t_fl=18):
+def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
@@ -197,7 +197,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18):
     ml_res = minimize(multifilter_nll, guess_0, method='Powell', # Powell method does not need derivatives
                       args=(f_data, t_data, f_unc_data, filt_data))
     ml_guess = ml_res.x
-    print(ml_guess)
 
     # sig_0 is meaningless from the ML result
     ml_guess[7::7] = 3
@@ -210,7 +209,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18):
     ndim = len(ml_guess) 
 
     # file to save samples
-    filename = "ZTF_SN.h5"
+    filename = mcmc_h5_file
     backend = emcee.backends.HDFBackend(filename)
     backend.reset(nwalkers, ndim)
 
@@ -224,7 +223,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18):
                                               f_unc_data, filt_data),
                                         backend=backend,
                                         pool=pool)
-        max_samples = 15000
+        max_samples = 2000000
 
         index = 0
         autocorr = np.empty(max_samples)
