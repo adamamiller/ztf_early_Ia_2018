@@ -2,7 +2,7 @@ import fit_ztf_lc
 import pandas as pd
 
 sn = 'ZTF18aaxsioa'
-data_path = "../../Marshall_data/growth_marshall_lcs/"
+data_path = "/projects/p30796/ZTF/2018/early_Ia/"
 lc_df = pd.read_csv(data_path + "forced_lightcurves/{}.csv".format(sn))
 salt_df = pd.read_csv(data_path + "MB_SALT_020419.csv")
 
