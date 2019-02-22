@@ -6,6 +6,7 @@
 #MSUB -j oe
 #MSUB -N ztf_2018_snIa
 #MSUB -l nodes=1:ppn=4
+#MSUB -l partition=quest6
 
 # add a project directory to your PATH (if needed)
 export PATH=$PATH:/projects/p30796/tools/
