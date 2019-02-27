@@ -211,7 +211,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
     # file to save samples
     filename = mcmc_h5_file
     backend = emcee.backends.HDFBackend(filename)
-    backend.reset(nwalkers, ndim)
+    backend.reset(nwalkers, ndim)        
 
     #initial position of walkers
     pos = [ml_guess + nfac * np.random.randn(ndim) for i in range(nwalkers)]
@@ -223,7 +223,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
                                               f_unc_data, filt_data),
                                         backend=backend,
                                         pool=pool)
-        max_samples = 2000000
+        max_samples = 20000
 
         index = 0
         autocorr = np.empty(max_samples)
@@ -243,5 +243,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
                 break
             old_tau = tau
     
-    print("Model ran {} steps with a final tau: {}".format(sampler.iteration, tau))
+    if old_tau != np.inf:
+        print("Model ran {} steps with a final tau: {}".format(sampler.iteration, tau))
     
