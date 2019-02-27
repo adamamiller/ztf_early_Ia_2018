@@ -1,6 +1,9 @@
 import fit_ztf_lc
 import pandas as pd
 
+import os
+os.environ["OMP_NUM_THREADS"] = "1"
+
 sn = 'ZTF18aaxsioa'
 data_path = "/projects/p30796/ZTF/2018/early_Ia/"
 lc_df = pd.read_csv(data_path + "forced_lightcurves/{}.csv".format(sn))
