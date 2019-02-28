@@ -171,7 +171,9 @@ def multifilter_lnposterior(theta, f, t, f_err, filt_arr):
         return -np.inf
     return lnl + lnp
 
-def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
+def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
+           mcmc_h5_file="ZTF_SN.h5",
+           max_samples=2e6):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
@@ -223,7 +225,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18, mcmc_h5_file="ZTF_SN.h5"):
                                               f_unc_data, filt_data),
                                         backend=backend,
                                         pool=pool)
-        max_samples = 20000
+        max_samples = max_samples
 
         index = 0
         autocorr = np.empty(max_samples)
