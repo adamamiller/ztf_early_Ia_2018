@@ -173,7 +173,7 @@ def multifilter_lnposterior(theta, f, t, f_err, filt_arr):
 
 def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
-           max_samples=2e6):
+           max_samples=int(2e6)):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
