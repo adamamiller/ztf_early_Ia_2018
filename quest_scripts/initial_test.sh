@@ -1,7 +1,7 @@
 #!/bin/bash
 #MSUB -A p30796
-#MSUB -q short
-#MSUB -l walltime=04:00:00
+#MSUB -q normal
+#MSUB -l walltime=24:00:00
 #MSUB -M my_email_address
 #MSUB -j oe
 #MSUB -N ztf_2018_snIa
