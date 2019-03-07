@@ -153,12 +153,12 @@ def multifilter_lnlikelihood(theta, f, t, f_err, filt_arr):
 
 def multifilter_lnlikelihood_no_sig0(theta, f, t, f_err, filt_arr):
     
-    if len(theta) % 7 != 1:
+    if len(theta) % 6 != 1:
         raise RuntimeError('The correct number of parameters were not included')
     
     ln_l = 0
     for filt_num, filt in enumerate(np.unique(filt_arr)):
-        theta_filt = np.append(theta[0], theta[1+7*filt_num:7+7*filt_num])
+        theta_filt = np.append(theta[0], theta[1+6*filt_num:7+6*filt_num])
         filt_obs = np.where(filt_arr == filt)
         f_filt = f[filt_obs]
         t_filt = t[filt_obs]
@@ -225,8 +225,8 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     filt_arr = lc_df['filter'].iloc[obs].values
 
     guess_0 = [-t_fl, 
-               0, 2*np.max(flux[filt_arr == 'g']), 18, 2, 2, 2, 1,
-               0, 2*np.max(flux[filt_arr == 'r']), 18, 2, 2, 2, 1
+               0, 2*np.max(flux[filt_arr == 'g']), 18, 2, 2, 2,
+               0, 2*np.max(flux[filt_arr == 'r']), 18, 2, 2, 2
               ]
     
     pre_sec_peak = np.where(time <= 7)
