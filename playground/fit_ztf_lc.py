@@ -162,9 +162,29 @@ def multifilter_prior(theta, filt_arr):
         ln_p += lnprior(theta_filt)
     return ln_p
 
+def multifilter_prior_no_sig0(theta, filt_arr):
+    
+    if len(theta) % 6 != 1:
+        raise RuntimeError('The correct number of parameters were not included')
+    
+    ln_p = 0
+    for filt_num, filt in enumerate(np.unique(filt_arr)):
+        theta_filt = np.append(theta[0], theta[1+6*filt_num:7+6*filt_num])
+        ln_p += lnprior_no_sig0(theta_filt)
+    return ln_p
+
 def multifilter_lnposterior(theta, f, t, f_err, filt_arr):
     lnp = multifilter_prior(theta, filt_arr)
     lnl = multifilter_lnlikelihood(theta, f, t, f_err, filt_arr)
+    if not np.isfinite(lnl):
+        return -np.inf
+    if not np.isfinite(lnp):
+        return -np.inf
+    return lnl + lnp
+
+def multifilter_lnposterior_no_sig0(theta, f, t, f_err, filt_arr):
+    lnp = multifilter_prior_no_sig0(theta, filt_arr)
+    lnl = multifilter_lnlikelihood_no_sig0(theta, f, t, f_err, filt_arr)
     if not np.isfinite(lnl):
         return -np.inf
     if not np.isfinite(lnp):
@@ -201,10 +221,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                       args=(f_data, t_data, f_unc_data, filt_data))
     ml_guess = ml_res.x
 
-    # sig_0 is meaningless from the ML result
-    ml_guess[7::7] = 3
-
-    ml_guess[0] += t_fl
     
     #number of walkers
     nwalkers = nwalkers
@@ -221,8 +237,8 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
 
     with Pool() as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                        multifilter_lnposterior, 
-                                        args=(f_data, t_data + t_fl, 
+                                        multifilter_lnposterior_no_sig0, 
+                                        args=(f_data, t_data, 
                                               f_unc_data, filt_data),
                                         backend=backend,
                                         pool=pool)
