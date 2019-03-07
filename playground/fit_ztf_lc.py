@@ -108,9 +108,27 @@ def lnprior(theta):
         return 0.0
     return -np.inf
 
+def lnprior_no_sig0(theta):
+    t_0, a, a_prime, t_b, alpha_r, alpha_d, s = theta
+    if (-1e8 < t_0 < 1e8 and 0 < alpha_r < 1e8 and 
+        0 < alpha_d < 1e8 and
+        -1e8 < a < 1e8 and  0 < t_b < 1e8 and 
+        0 < s < 1e8 and 0 < a_prime < 1e8):
+        return 0.0
+    return -np.inf
+
 def lnposterior(theta, f, t, f_err):
     lnp = lnprior(theta)
     lnl = lnlikelihood(theta, f, t, f_err)
+    if not np.isfinite(lnl):
+        return -np.inf
+    if not np.isfinite(lnp):
+        return -np.inf
+    return lnl + lnp
+
+def lnposterior_no_sig0(theta, f, t, f_err):
+    lnp = lnprior_no_sig0(theta)
+    lnl = lnlikelihood_no_sig0(theta, f, t, f_err)
     if not np.isfinite(lnl):
         return -np.inf
     if not np.isfinite(lnp):
