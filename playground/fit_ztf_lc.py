@@ -286,7 +286,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
 def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
-           nwalkers=2000):
+           nwalkers=2000, ztf_filt='g'):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
@@ -302,10 +302,10 @@ def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18,
                0, 2*np.max(flux[filt_arr == 'g']), 18, 2, 2, 2,
               ]
     
-    pre_sec_peak = np.where(time <= 7)
-    f_data = flux[pre_sec_peak][np.where(filt_arr == 'g')]
-    t_data = time[pre_sec_peak][np.where(filt_arr == 'g')]
-    f_unc_data = flux_unc[pre_sec_peak][np.where(filt_arr == 'g')]
+    pre_sec_peak = np.where((time <= 7) & (filt_arr == ztf_filt))
+    f_data = flux[pre_sec_peak]
+    t_data = time[pre_sec_peak]
+    f_unc_data = flux_unc[pre_sec_peak]
     
     ml_res = minimize(nll, guess_0, method='Powell', # Powell method does not need derivatives
                       args=(f_data, t_data, f_unc_data))
