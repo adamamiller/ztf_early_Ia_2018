@@ -229,7 +229,9 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                0, 2*np.max(flux[filt_arr == 'r']), 18, 2, 2, 2
               ]
     
-    pre_sec_peak = np.where(time <= 7)
+    # select a longer sequence of g-band observations than r-band
+    pre_sec_peak = np.where(((time <= 7) & (filt_arr == 'r')) | 
+                            ((time <= 25) & (filt_arr == 'g')))
     f_data = flux[pre_sec_peak]
     t_data = time[pre_sec_peak]
     f_unc_data = flux_unc[pre_sec_peak]
