@@ -302,7 +302,11 @@ def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18,
                0, 2*np.max(flux[filt_arr == 'g']), 18, 2, 2, 2,
               ]
     
-    pre_sec_peak = np.where((time <= 7) & (filt_arr == ztf_filt))
+    if ztf_filt == 'g':
+        post_peak = 28
+    elif ztf_filt == 'r':
+        post_peak = 7
+    pre_sec_peak = np.where((time <= post_peak) & (filt_arr == ztf_filt))
     f_data = flux[pre_sec_peak]
     t_data = time[pre_sec_peak]
     f_unc_data = flux_unc[pre_sec_peak]
