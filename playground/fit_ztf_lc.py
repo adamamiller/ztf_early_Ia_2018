@@ -274,6 +274,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
             tau = sampler.get_autocorr_time(tol=0)
             autocorr[index] = np.mean(tau)
             index += 1
+            print(index*check_tau, tau)
 
             # Check convergence
             converged = np.all(tau * 100 < sampler.iteration)
@@ -350,7 +351,7 @@ def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18,
             tau = sampler.get_autocorr_time(tol=0)
             autocorr[index] = np.mean(tau)
             index += 1
-
+            print(index*check_tau, tau)
             # Check convergence
             converged = np.all(tau * 100 < sampler.iteration)
             converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
