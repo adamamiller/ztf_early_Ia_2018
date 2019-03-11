@@ -212,7 +212,9 @@ def multifilter_lnposterior_no_sig0(theta, f, t, f_err, filt_arr):
 def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
-           nwalkers=2000):
+           nwalkers=2000,
+           t_r_max = 7, 
+           t_g_max = 28):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
@@ -230,8 +232,8 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
               ]
     
     # select a longer sequence of g-band observations than r-band
-    pre_sec_peak = np.where(((time <= 7) & (filt_arr == 'r')) | 
-                            ((time <= 25) & (filt_arr == 'g')))
+    pre_sec_peak = np.where(((time <= t_r_max) & (filt_arr == 'r')) | 
+                            ((time <= t_g_max) & (filt_arr == 'g')))
     f_data = flux[pre_sec_peak]
     t_data = time[pre_sec_peak]
     f_unc_data = flux_unc[pre_sec_peak]
@@ -274,7 +276,11 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
             tau = sampler.get_autocorr_time(tol=0)
             autocorr[index] = np.mean(tau)
             index += 1
-            print(index*check_tau, tau)
+            steps_so_far = index*check_tau
+            print('''After {:d} steps, acceptance fraction = {:.4f}, and
+                     tau = {}'''.format(steps_so_far, 
+                                        np.mean(sampler.acceptance_fraction), 
+                                        tau))
 
             # Check convergence
             converged = np.all(tau * 100 < sampler.iteration)
@@ -289,7 +295,9 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
 def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
-           nwalkers=2000, ztf_filt='g'):
+           nwalkers=2000, ztf_filt='g',
+           t_r_max = 7, 
+           t_g_max = 28):
     '''Perform an MCMC fit to the light curve'''
     
     obs = np.where((lc_df['programid'] == 2.0) & 
@@ -306,9 +314,9 @@ def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18,
               ]
     
     if ztf_filt == 'g':
-        post_peak = 28
+        post_peak = t_g_max
     elif ztf_filt == 'r':
-        post_peak = 7
+        post_peak = t_r_max
     pre_sec_peak = np.where((time <= post_peak) & (filt_arr == ztf_filt))
     f_data = flux[pre_sec_peak]
     t_data = time[pre_sec_peak]
@@ -351,7 +359,11 @@ def fit_single_filter_lc(lc_df, t0=0, z=0, t_fl=18,
             tau = sampler.get_autocorr_time(tol=0)
             autocorr[index] = np.mean(tau)
             index += 1
-            print(index*check_tau, tau)
+            steps_so_far = index*check_tau
+            print('''After {:d} steps, acceptance fraction = {:.4f}, and
+                     tau = {}'''.format(steps_so_far, 
+                                        np.mean(sampler.acceptance_fraction), 
+                                        tau))
             # Check convergence
             converged = np.all(tau * 100 < sampler.iteration)
             converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
