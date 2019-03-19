@@ -12,7 +12,7 @@ info_path="/projects/p30796/ZTF/early_Ia/2018/info/"
 
 source_files = glob.glob(info_path+'force_phot*.fits')
 for source_file in source_files:
-    source = source_file.split('_')[2]
+    source = source_file.split('/')[-1].split('_')[2]
     
     with open('{}_force_phot.sh'.format(source), 'w') as fw:
         print('''#!/bin/bash
