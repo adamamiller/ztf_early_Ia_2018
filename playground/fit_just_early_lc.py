@@ -174,12 +174,13 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
 
         old_tau = np.inf
         check_tau = 2500
-        for sample in sampler.sample(pos, iterations=max_samples, progress=True):
+        for sample in sampler.sample(pos, iterations=max_samples, progress=False):
             if (sampler.iteration < 10000) and sampler.iteration % 2500:
                 continue
             elif (10000 < sampler.iteration < 50000) and sampler.iteration % 10000:
                 continue
             elif (50000 < sampler.iteration < 250000) and sampler.iteration % 25000:
+                continue
     
             tstart = time.time()
             tau = sampler.get_autocorr_time(tol=0)
@@ -199,5 +200,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
             if converged:
                 break
             old_tau = tau
-    if old_tau != np.inf:
-        print("Model ran {} steps with a final tau: {}".format(sampler.iteration, tau))
+
+
+    print("Model ran {} steps with a final tau: {}".format(steps_so_far, tau))
