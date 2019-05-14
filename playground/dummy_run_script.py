@@ -24,6 +24,7 @@ salt_df = pd.read_csv("../../MB_SALT_020419.csv")
 t0 = float(salt_df['t0'][salt_df['sn'] == sn].values) + 2400000.5
 z = float(salt_df['z'][salt_df['sn'] == sn].values)
 
-fit_just_early_lc.fit_lc(lc_df, t0=t0, z=z,
-           mcmc_h5_file=data_path + "/mcmc_nob_ref_base/{}_emcee.h5".format(sn)),
-           max_samples=int(2e4))
+fit_just_early_lc.fit_lc(lc_df, 
+                         t0=t0, z=z, 
+                         mcmc_h5_file=data_path + "/mcmc_nob_ref_base/{}_emcee.h5".format(sn), 
+                         max_samples=int(2e4))
