@@ -19,7 +19,7 @@ os.environ["OMP_NUM_THREADS"] = "1"
 sn = 'ZTF18aaxsioa'
 data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves"
 lc_df = pd.read_hdf(data_path + "/mcmc_nob_ref_base/{}_force_phot.h5".format(sn))
-salt_df = pd.read_csv("../../MB_SALT_020419.csv")
+salt_df = pd.read_csv(data_path + "../MB_SALT_020419.csv")
 
 t0 = float(salt_df['t0'][salt_df['sn'] == sn].values) + 2400000.5
 z = float(salt_df['z'][salt_df['sn'] == sn].values)
