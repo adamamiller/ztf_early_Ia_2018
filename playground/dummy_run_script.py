@@ -17,7 +17,7 @@ os.environ["OMP_NUM_THREADS"] = "1"
 
 
 sn = 'ZTF18aaxsioa'
-data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves"
+data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/"
 lc_df = pd.read_hdf(data_path + "/mcmc_nob_ref_base/{}_force_phot.h5".format(sn))
 salt_df = pd.read_csv(data_path + "../MB_SALT_020419.csv")
 
