@@ -3,7 +3,7 @@ import pandas as pd
 import emcee
 import corner
 from scipy.optimize import minimize
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 import time
 
 def f_t(times, amplitude=25, t_0=0, alpha_r=2):
@@ -107,8 +107,12 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
            nwalkers=100,
-           g_rel_flux_cutoff = 0.5):
+           g_rel_flux_cutoff = 0.5,
+           ncores=None):
     '''Perform an MCMC fit to the light curve'''
+    
+    if ncores == None:
+        ncores = cpu_count() - 1
     
     g_obs = np.where( (lc_df['programid'] == 2.0) & 
                       (lc_df['offset'] > -999) & 
