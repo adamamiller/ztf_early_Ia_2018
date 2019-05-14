@@ -168,7 +168,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     backend = emcee.backends.HDFBackend(filename)
     backend.reset(nwalkers, ndim)        
 
-    with Pool() as pool:
+    with Pool(ncores) as pool:
         sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                         multifilter_lnposterior_simple, 
                                         args=(f_data, t_data, 
