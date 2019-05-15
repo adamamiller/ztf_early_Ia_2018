@@ -110,6 +110,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            g_rel_flux_cutoff = 0.5,
            ncores=None):
     '''Perform an MCMC fit to the light curve'''
+    t_mcmc_start = time.time()
     
     if ncores == None:
         ncores = cpu_count() - 1
@@ -179,11 +180,15 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         old_tau = np.inf
         check_tau = 2500
         for sample in sampler.sample(pos, iterations=max_samples, progress=False):
-            if (sampler.iteration < 10000) and sampler.iteration % 2500:
+            if (sampler.iteration <= 10000) and sampler.iteration % 2500:
                 continue
-            elif (10000 < sampler.iteration < 50000) and sampler.iteration % 10000:
+            elif (10000 < sampler.iteration <= 50000) and sampler.iteration % 10000:
                 continue
-            elif (50000 < sampler.iteration < 250000) and sampler.iteration % 25000:
+            elif (50000 < sampler.iteration <= 150000) and sampler.iteration % 25000:
+                continue
+            elif (150000 < sampler.iteration <= 500000) and sampler.iteration % 100000:
+                continue
+            elif (500000 < sampler.iteration) and sampler.iteration % 250000:
                 continue
     
             tstart = time.time()
@@ -207,3 +212,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
 
 
     print("Model ran {} steps with a final tau: {}".format(steps_so_far, tau))
+    t_mcmc_end = time.time()
+    print("All in = {:.2f} s to run on {} cores".format(t_mcmc_end - t_mcmc_start, 
+                                                        ncores))
