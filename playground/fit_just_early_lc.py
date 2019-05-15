@@ -5,6 +5,7 @@ import corner
 from scipy.optimize import minimize
 from multiprocessing import Pool, cpu_count
 import time
+import sys
 
 def f_t(times, amplitude=25, t_0=0, alpha_r=2):
     '''Calculate the flux of an exponential rise explosion at time t
@@ -215,3 +216,20 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     t_mcmc_end = time.time()
     print("All in = {:.2f} s to run on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                         ncores))
+
+if __name__== "__main__":
+    ztf_name = str(sys.argv[1])
+
+    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
+
+    lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
+    salt_df = pd.read_csv(data_path + "../../MB_SALT_020419.csv")
+
+    t0 = float(salt_df['t0'][salt_df['sn'] == ztf_name].values) + 2400000.5
+    z = float(salt_df['z'][salt_df['sn'] == ztf_name].values)
+
+    fit_lc(lc_df, 
+           t0=t0, z=z, 
+           mcmc_h5_file=data_path + "/{}_emcee.h5".format(ztf_name), 
+           max_samples=int(1e6), 
+           ncores=28)
