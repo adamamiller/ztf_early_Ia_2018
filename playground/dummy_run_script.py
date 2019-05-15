@@ -27,5 +27,5 @@ z = float(salt_df['z'][salt_df['sn'] == sn].values)
 fit_just_early_lc.fit_lc(lc_df, 
                          t0=t0, z=z, 
                          mcmc_h5_file=data_path + "/mcmc_nob_ref_base/{}_emcee.h5".format(sn), 
-                         max_samples=int(1e6), 
-                         ncores=28)
+                         max_samples=int(2e5), 
+                         ncores=26)
