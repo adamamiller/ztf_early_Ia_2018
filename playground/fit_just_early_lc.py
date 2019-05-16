@@ -219,6 +219,13 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
 
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
+    ncores = 27
+    nsteps = int(1e6)
+    if len(sys.argv) > 2:
+        ncores = int(sys.argv[2])
+    elif len(sys.argv) > 3:
+        nsteps = int(sys.argv[3])
+    
 
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
 
@@ -231,5 +238,5 @@ if __name__== "__main__":
     fit_lc(lc_df, 
            t0=t0, z=z, 
            mcmc_h5_file=data_path + "/{}_emcee.h5".format(ztf_name), 
-           max_samples=int(1e6), 
-           ncores=28)
+           max_samples=nsteps, 
+           ncores=ncores)
