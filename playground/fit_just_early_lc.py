@@ -175,7 +175,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
                                         multifilter_lnposterior_simple, 
                                         args=(f_data, t_data, 
                                               f_unc_data, filt_data),
-                                        pool=pool)
+                                        pool=pool, backend=backend)
         max_samples = max_samples
 
         old_tau = np.inf
@@ -183,13 +183,11 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         for sample in sampler.sample(pos, iterations=max_samples, progress=False):
             if (sampler.iteration <= 10000) and sampler.iteration % 2500:
                 continue
-            elif (10000 < sampler.iteration <= 50000) and sampler.iteration % 10000:
+            elif (10000 < sampler.iteration <= 100000) and sampler.iteration % 10000:
                 continue
-            elif (50000 < sampler.iteration <= 150000) and sampler.iteration % 25000:
+            elif (100000 < sampler.iteration <= 1000000) and sampler.iteration % 100000:
                 continue
-            elif (150000 < sampler.iteration <= 500000) and sampler.iteration % 100000:
-                continue
-            elif (500000 < sampler.iteration) and sampler.iteration % 250000:
+            elif (1000000 < sampler.iteration) and sampler.iteration % 200000:
                 continue
     
             tstart = time.time()
@@ -223,7 +221,7 @@ if __name__== "__main__":
     nsteps = int(1e6)
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
-    elif len(sys.argv) > 3:
+    if len(sys.argv) > 3:
         nsteps = int(sys.argv[3])
     
 
