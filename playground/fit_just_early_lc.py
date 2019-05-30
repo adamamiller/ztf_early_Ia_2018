@@ -109,7 +109,8 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            max_samples=int(2e6),
            nwalkers=100,
            g_rel_flux_cutoff = 0.5,
-           ncores=None):
+           ncores=None,
+           use_emcee_backend=True):
     '''Perform an MCMC fit to the light curve'''
     t_mcmc_start = time.time()
     
@@ -171,11 +172,19 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     backend.reset(nwalkers, ndim)        
 
     with Pool(ncores) as pool:
-        sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                        multifilter_lnposterior_simple, 
-                                        args=(f_data, t_data, 
-                                              f_unc_data, filt_data),
-                                        pool=pool, backend=backend)
+        if use_emcee_backend:
+            sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                            multifilter_lnposterior_simple, 
+                                            args=(f_data, t_data, 
+                                                  f_unc_data, filt_data),
+                                            pool=pool, backend=backend)
+        else:
+            sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                            multifilter_lnposterior_simple, 
+                                            args=(f_data, t_data, 
+                                                  f_unc_data, filt_data),
+                                            pool=pool)
+            
         max_samples = max_samples
 
         old_tau = np.inf
@@ -219,11 +228,13 @@ if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     ncores = 27
     nsteps = int(1e6)
+    use_emcee_backend = True
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
     if len(sys.argv) > 3:
         nsteps = int(sys.argv[3])
-    
+    if len(sys.argv) > 4:
+        use_emcee_backend = False  
 
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
 
@@ -237,4 +248,5 @@ if __name__== "__main__":
            t0=t0, z=z, 
            mcmc_h5_file=data_path + "/{}_emcee.h5".format(ztf_name), 
            max_samples=nsteps, 
-           ncores=ncores)
+           ncores=ncores,
+           use_emcee_backend=use_emcee_backend)
