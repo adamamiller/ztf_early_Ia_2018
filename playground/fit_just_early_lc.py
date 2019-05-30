@@ -238,7 +238,7 @@ if __name__== "__main__":
     if len(sys.argv) > 3:
         nsteps = int(sys.argv[3])
     if len(sys.argv) > 4:
-        backend_filename = sys.argv[4]
+        backend_filename = str(sys.argv[4])
     if len(sys.argv) > 5:
         use_emcee_backend = False  
 
