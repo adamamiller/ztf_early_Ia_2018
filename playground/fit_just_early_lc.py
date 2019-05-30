@@ -188,15 +188,16 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         max_samples = max_samples
 
         old_tau = np.inf
-        check_tau = 2500
-        for sample in sampler.sample(pos, iterations=max_samples, progress=False):
-            if (sampler.iteration <= 10000) and sampler.iteration % 2500:
+        for sample in sampler.sample(pos, 
+                                     iterations=max_samples, 
+                                     thin_by=100, progress=False):
+            if (sampler.iteration <= 100) and sampler.iteration % 25:
                 continue
-            elif (10000 < sampler.iteration <= 100000) and sampler.iteration % 10000:
+            elif (100 < sampler.iteration <= 1000) and sampler.iteration % 100:
                 continue
-            elif (100000 < sampler.iteration <= 1000000) and sampler.iteration % 100000:
+            elif (1000 < sampler.iteration <= 10000) and sampler.iteration % 1000:
                 continue
-            elif (1000000 < sampler.iteration) and sampler.iteration % 200000:
+            elif (10000 < sampler.iteration) and sampler.iteration % 2000:
                 continue
     
             tstart = time.time()
@@ -228,15 +229,19 @@ if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     ncores = 27
     nsteps = int(1e6)
+    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
+    backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
+    
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
     if len(sys.argv) > 3:
         nsteps = int(sys.argv[3])
     if len(sys.argv) > 4:
+        backend_filename = sys.argv[4]
+    if len(sys.argv) > 5:
         use_emcee_backend = False  
 
-    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
 
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
     salt_df = pd.read_csv(data_path + "../../MB_SALT_020419.csv")
@@ -246,7 +251,7 @@ if __name__== "__main__":
 
     fit_lc(lc_df, 
            t0=t0, z=z, 
-           mcmc_h5_file=data_path + "/{}_emcee.h5".format(ztf_name), 
+           mcmc_h5_file=backend_filename, 
            max_samples=nsteps, 
            ncores=ncores,
            use_emcee_backend=use_emcee_backend)
