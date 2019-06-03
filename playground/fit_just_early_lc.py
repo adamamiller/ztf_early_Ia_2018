@@ -110,7 +110,8 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            nwalkers=100,
            g_rel_flux_cutoff = 0.5,
            ncores=None,
-           use_emcee_backend=True):
+           use_emcee_backend=True,
+           thin_by=1):
     '''Perform an MCMC fit to the light curve'''
     t_mcmc_start = time.time()
     
@@ -166,13 +167,13 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     #initial position of walkers
     pos = [ml_guess + ml_guess * nfac * np.random.randn(ndim) for i in range(nwalkers)]
 
-    # file to save samples
-    filename = mcmc_h5_file
-    backend = emcee.backends.HDFBackend(filename)
-    backend.reset(nwalkers, ndim)        
-
     with Pool(ncores) as pool:
         if use_emcee_backend:
+            # file to save samples
+            filename = mcmc_h5_file
+            backend = emcee.backends.HDFBackend(filename)
+            backend.reset(nwalkers, ndim)        
+
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                             multifilter_lnposterior_simple, 
                                             args=(f_data, t_data, 
@@ -190,7 +191,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         old_tau = np.inf
         for sample in sampler.sample(pos, 
                                      iterations=max_samples, 
-                                     thin_by=100, progress=False):
+                                     thin_by=thin_by, progress=False):
             if (sampler.iteration <= 100) and sampler.iteration % 25:
                 continue
             elif (100 < sampler.iteration <= 1000) and sampler.iteration % 100:
@@ -229,6 +230,7 @@ if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     ncores = 27
     nsteps = int(1e6)
+    thin_by = int(1)
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
@@ -238,8 +240,10 @@ if __name__== "__main__":
     if len(sys.argv) > 3:
         nsteps = int(sys.argv[3])
     if len(sys.argv) > 4:
-        backend_filename = str(sys.argv[4])
+        thin_by = int(sys.argv[4])
     if len(sys.argv) > 5:
+        backend_filename = str(sys.argv[5])
+    if len(sys.argv) > 6:
         use_emcee_backend = False  
 
 
@@ -254,4 +258,5 @@ if __name__== "__main__":
            mcmc_h5_file=backend_filename, 
            max_samples=nsteps, 
            ncores=ncores,
-           use_emcee_backend=use_emcee_backend)
+           use_emcee_backend=use_emcee_backend,
+           thin_by=thin_by)
