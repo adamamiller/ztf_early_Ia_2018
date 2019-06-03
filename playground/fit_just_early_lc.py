@@ -221,7 +221,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
             old_tau = tau
 
 
-    print("Model ran {} steps with a final tau: {}".format(steps_so_far, tau))
+    print("Model ran {} steps with a final tau: {}".format(steps_so_far*thin_by, tau))
     t_mcmc_end = time.time()
     print("All in = {:.2f} s to run on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                         ncores))
@@ -231,7 +231,7 @@ if __name__== "__main__":
     ncores = 27
     nsteps = int(1e6)
     thin_by = int(1)
-    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/mcmc_nob_ref_base/"
+    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
     
@@ -248,9 +248,9 @@ if __name__== "__main__":
 
 
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
-    salt_df = pd.read_csv(data_path + "../../MB_SALT_020419.csv")
+    salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
 
-    t0 = float(salt_df['t0'][salt_df['sn'] == ztf_name].values) + 2400000.5
+    t0 = float(salt_df['t0_adopted'][salt_df['sn'] == ztf_name].values) + 2400000.5
     z = float(salt_df['z'][salt_df['sn'] == ztf_name].values)
 
     fit_lc(lc_df, 
