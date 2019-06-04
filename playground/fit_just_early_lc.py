@@ -118,23 +118,17 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     if ncores == None:
         ncores = cpu_count() - 1
     
-    g_obs = np.where( (lc_df['programid'] <= 2.0) & 
-                      (lc_df['offset'] > -999) & 
-                      (lc_df['filter'] == b'g')
-                     )
-    r_obs = np.where( (lc_df['programid'] <= 2.0) & 
-                      (lc_df['offset'] > -999) & 
-                      (lc_df['filter'] == b'r')
-                     )
     obs = np.where( (lc_df['programid'] <= 2.0) & 
                     (lc_df['offset'] > -999)  
                   )
-    
-    
+
+    g_obs = np.where(lc_df.iloc[obs]['filter'] == b'g')
+    r_obs = np.where(lc_df.iloc[obs]['filter'] == b'r')
+
     time_rf = (lc_df['jdobs'].iloc[obs].values - t0)/(1+z)
     flux = lc_df['Fratio'].iloc[obs].values
-    g_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
-    r_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
+    g_max = np.max(lc_df['Fratio'].iloc[obs[0][g_obs]].values)
+    r_max = np.max(lc_df['Fratio'].iloc[obs[0][r_obs]].values)
     flux[g_obs] = flux[g_obs]/g_max
     flux[r_obs] = flux[r_obs]/r_max
     flux_unc = lc_df['Fratio_unc'].iloc[obs].values
@@ -245,7 +239,6 @@ if __name__== "__main__":
         backend_filename = str(sys.argv[5])
     if len(sys.argv) > 6:
         use_emcee_backend = False  
-
 
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
     salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
