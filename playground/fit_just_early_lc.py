@@ -192,13 +192,13 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         for sample in sampler.sample(pos, 
                                      iterations=max_samples, 
                                      thin_by=thin_by, progress=False):
-            if (sampler.iteration <= 100) and sampler.iteration % 25:
+            if (sampler.iteration <= int(10000/thin_by)) and sampler.iteration % int(2500/thin_by):
                 continue
-            elif (100 < sampler.iteration <= 1000) and sampler.iteration % 100:
+            elif (int(10000/thin_by) < sampler.iteration <= int(100000/thin_by)) and sampler.iteration % int(10000/thin_by):
                 continue
-            elif (1000 < sampler.iteration <= 10000) and sampler.iteration % 1000:
+            elif (int(100000/thin_by) < sampler.iteration <= int(1000000/thin_by)) and sampler.iteration % int(100000/thin_by):
                 continue
-            elif (10000 < sampler.iteration) and sampler.iteration % 2000:
+            elif (int(1000000/thin_by) < sampler.iteration) and sampler.iteration % int(200000/thin_by):
                 continue
     
             tstart = time.time()
