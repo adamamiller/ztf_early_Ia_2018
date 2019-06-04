@@ -118,15 +118,15 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     if ncores == None:
         ncores = cpu_count() - 1
     
-    g_obs = np.where( (lc_df['programid'] == 2.0) & 
+    g_obs = np.where( (lc_df['programid'] <= 2.0) & 
                       (lc_df['offset'] > -999) & 
                       (lc_df['filter'] == b'g')
                      )
-    r_obs = np.where( (lc_df['programid'] == 2.0) & 
+    r_obs = np.where( (lc_df['programid'] <= 2.0) & 
                       (lc_df['offset'] > -999) & 
                       (lc_df['filter'] == b'r')
                      )
-    obs = np.where( (lc_df['programid'] == 2.0) & 
+    obs = np.where( (lc_df['programid'] <= 2.0) & 
                     (lc_df['offset'] > -999)  
                   )
     
