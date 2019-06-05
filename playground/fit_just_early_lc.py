@@ -111,7 +111,9 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            g_rel_flux_cutoff = 0.5,
            ncores=None,
            use_emcee_backend=True,
-           thin_by=1):
+           thin_by=1,
+           g_max=1,
+           r_max=1):
     '''Perform an MCMC fit to the light curve'''
     t_mcmc_start = time.time()
     
@@ -127,8 +129,10 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
 
     time_rf = (lc_df['jdobs'].iloc[obs].values - t0)/(1+z)
     flux = lc_df['Fratio'].iloc[obs].values
-    g_max = np.max(lc_df['Fratio'].iloc[obs[0][g_obs]].values)
-    r_max = np.max(lc_df['Fratio'].iloc[obs[0][r_obs]].values)
+    if g_max == 1:
+        g_max = np.max(lc_df['Fratio'].iloc[obs[0][g_obs]].values)
+    if r_max == 1:
+        r_max = np.max(lc_df['Fratio'].iloc[obs[0][r_obs]].values)
     flux[g_obs] = flux[g_obs]/g_max
     flux[r_obs] = flux[r_obs]/r_max
     flux_unc = lc_df['Fratio_unc'].iloc[obs].values
@@ -159,7 +163,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     nfac = [1e-2]*ndim
 
     #initial position of walkers
-    pos = [ml_guess + ml_guess * nfac * np.random.randn(ndim) for i in range(nwalkers)]
+    pos = [ml_guess*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
 
     with Pool(ncores) as pool:
         if use_emcee_backend:
@@ -186,13 +190,17 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
         for sample in sampler.sample(pos, 
                                      iterations=max_samples, 
                                      thin_by=thin_by, progress=False):
-            if (sampler.iteration <= int(10000/thin_by)) and sampler.iteration % int(2500/thin_by):
+            if ((sampler.iteration <= int(1e4/thin_by)) and 
+                 sampler.iteration % int(2500/thin_by)):
                 continue
-            elif (int(10000/thin_by) < sampler.iteration <= int(100000/thin_by)) and sampler.iteration % int(10000/thin_by):
+            elif ((int(1e4/thin_by) < sampler.iteration <= int(1e5/thin_by)) 
+                  and sampler.iteration % int(1e4/thin_by)):
                 continue
-            elif (int(100000/thin_by) < sampler.iteration <= int(1000000/thin_by)) and sampler.iteration % int(100000/thin_by):
+            elif ((int(1e5/thin_by) < sampler.iteration <= int(1e6/thin_by)) 
+                  and sampler.iteration % int(1e5/thin_by)):
                 continue
-            elif (int(1000000/thin_by) < sampler.iteration) and sampler.iteration % int(200000/thin_by):
+            elif ((int(1e6/thin_by) < sampler.iteration) and 
+                  sampler.iteration % int(2e5/thin_by)):
                 continue
     
             tstart = time.time()
@@ -215,10 +223,10 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
             old_tau = tau
 
 
-    print("Model ran {} steps with a final tau: {}".format(steps_so_far*thin_by, tau))
+    print("Ran {} steps; final tau= {}".format(steps_so_far*thin_by, tau))
     t_mcmc_end = time.time()
-    print("All in = {:.2f} s to run on {} cores".format(t_mcmc_end - t_mcmc_start, 
-                                                        ncores))
+    print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
+                                                 ncores))
 
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
@@ -245,11 +253,17 @@ if __name__== "__main__":
 
     t0 = float(salt_df['t0_adopted'][salt_df['name'] == ztf_name].values)
     z = float(salt_df['z_adopt'][salt_df['name'] == ztf_name].values)
-
+    g_mag_max = float(salt_df.g_app0[salt_df.name == ztf_name].values) + 2.57634*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)
+    r_mag_max = float(salt_df.r_app0[salt_df.name == ztf_name].values) + 1.7823*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)    
+    g_max = 10**(-0.4 * g_mag_max)
+    r_max = 10**(-0.4 * r_mag_max)
+    
     fit_lc(lc_df, 
            t0=t0, z=z, 
            mcmc_h5_file=backend_filename, 
            max_samples=nsteps, 
            ncores=ncores,
            use_emcee_backend=use_emcee_backend,
-           thin_by=thin_by)
+           thin_by=thin_by,
+           g_max=g_max,
+           r_max=r_max)
