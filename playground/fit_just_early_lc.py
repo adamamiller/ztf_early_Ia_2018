@@ -253,11 +253,8 @@ if __name__== "__main__":
 
     t0 = float(salt_df['t0_g_adopted'][salt_df['name'] == ztf_name].values)
     z = float(salt_df['z_adopt'][salt_df['name'] == ztf_name].values)
-    dist_mod = np.array(salt_df.g_app0 - salt_df.g_abs0_adopt)[salt_df.name == ztf_name]
-    g_mag_max = float(salt_df.g_app0[salt_df.name == ztf_name].values) + 3.655730969791824*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)
-    r_mag_max = dist_mod + float(salt_df.r_abs0_adopt[salt_df.name == ztf_name].values) + 2.602659967686094*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)    
-    g_max = 10**(-0.4 * g_mag_max)
-    r_max = 10**(-0.4 * r_mag_max)
+    g_max = float(salt_df['fratio_gmax_2adam'][salt_df['name'] == ztf_name].values)
+    r_max = float(salt_df['fratio_rmax_2adam'][salt_df['name'] == ztf_name].values)
     
     fit_lc(lc_df, 
            t0=t0, z=z, 
