@@ -233,7 +233,7 @@ if __name__== "__main__":
     ncores = 27
     nsteps = int(1e6)
     thin_by = int(1)
-    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc/"
+    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
     
@@ -251,11 +251,11 @@ if __name__== "__main__":
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
     salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
 
-    t0 = float(salt_df['t0_adopted'][salt_df['name'] == ztf_name].values)
+    t0 = float(salt_df['t0_g_adopted'][salt_df['name'] == ztf_name].values)
     z = float(salt_df['z_adopt'][salt_df['name'] == ztf_name].values)
     dist_mod = np.array(salt_df.g_app0 - salt_df.g_abs0_adopt)[salt_df.name == ztf_name]
-    g_mag_max = float(salt_df.g_app0[salt_df.name == ztf_name].values) + 2.57634*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)
-    r_mag_max = dist_mod + float(salt_df.r_abs0_adopt[salt_df.name == ztf_name].values) + 1.7823*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)    
+    g_mag_max = float(salt_df.g_app0[salt_df.name == ztf_name].values) + 3.655730969791824*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)
+    r_mag_max = dist_mod + float(salt_df.r_abs0_adopt[salt_df.name == ztf_name].values) + 2.602659967686094*float(salt_df.E_B_V_SandF[salt_df.name == ztf_name].values)    
     g_max = 10**(-0.4 * g_mag_max)
     r_max = 10**(-0.4 * r_mag_max)
     
