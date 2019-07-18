@@ -108,7 +108,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
            nwalkers=100,
-           g_rel_flux_cutoff = 0.5,
+           rel_flux_cutoff = 0.5,
            ncores=None,
            use_emcee_backend=True,
            thin_by=1,
@@ -120,25 +120,21 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     if ncores == None:
         ncores = cpu_count() - 1
     
-    obs = np.where( (lc_df['programid'] <= 2.0) & 
-                    (lc_df['offset'] > -999)  
-                  )
+    g_obs = np.where(lc_df['filter'] == b'g')
+    r_obs = np.where(lc_df['filter'] == b'r')
 
-    g_obs = np.where(lc_df.iloc[obs]['filter'] == b'g')
-    r_obs = np.where(lc_df.iloc[obs]['filter'] == b'r')
-
-    time_rf = (lc_df['jdobs'].iloc[obs].values - t0)/(1+z)
-    flux = lc_df['Fratio'].iloc[obs].values
+    time_rf = (lc_df['jdobs'].values - t0)/(1+z)
+    flux = lc_df['Fratio'].values
     if g_max == 1:
-        g_max = np.max(lc_df['Fratio'].iloc[obs[0][g_obs]].values)
+        g_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
     if r_max == 1:
-        r_max = np.max(lc_df['Fratio'].iloc[obs[0][r_obs]].values)
+        r_max = np.max(lc_df['Fratio'].iloc[r_obs].values)
     flux[g_obs] = flux[g_obs]/g_max
     flux[r_obs] = flux[r_obs]/r_max
-    flux_unc = lc_df['Fratio_unc'].iloc[obs].values
+    flux_unc = lc_df['Fratio_unc'].values
     flux_unc[g_obs] = flux_unc[g_obs]/g_max
     flux_unc[r_obs] = flux_unc[r_obs]/r_max
-    filt_arr = lc_df['filter'].iloc[obs].values
+    filt_arr = lc_df['filter'].values
 
     t_fl = 18
 
@@ -147,8 +143,11 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
                0, 6e-3, 2
               ]    
 
-    half_max_g = np.where((flux[g_obs] < g_rel_flux_cutoff) & (time_rf[g_obs] < 0))
-    early_obs = np.where(time_rf <= time_rf[g_obs][np.max(half_max_g[0])])
+    early_g = np.where((time_rf[g_obs] < 0) & 
+                       (flux[g_obs] < rel_flux_cutoff))
+    early_r = np.where((time_rf[r_obs] < 0) & 
+                       (flux[r_obs] < rel_flux_cutoff))
+    early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
     f_data = flux[early_obs]
     t_data = time_rf[early_obs]
