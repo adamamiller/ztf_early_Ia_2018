@@ -1,8 +1,9 @@
-import fit_just_early_lc
+import numpy as np
 import pandas as pd
-
-import os
-os.environ["OMP_NUM_THREADS"] = "1"
+import emcee
+from multiprocessing import Pool, cpu_count
+import time
+import sys
 
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
