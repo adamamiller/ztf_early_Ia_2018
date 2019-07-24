@@ -104,7 +104,7 @@ def multifilter_lnposterior_simple(theta, f, t, f_err, filt_arr):
         return -np.inf
     return lnl + lnp
     
-def fit_lc(lc_df, t0=0, z=0, t_fl=17, 
+def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
            nwalkers=100,
@@ -135,8 +135,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     flux_unc[g_obs] = flux_unc[g_obs]/g_max
     flux_unc[r_obs] = flux_unc[r_obs]/r_max
     filt_arr = lc_df['filter'].values
-
-    t_fl = 18
 
     guess_0 = [-t_fl, 
                0, 6e-3, 2,
@@ -227,7 +225,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                  ncores))
 
-def continue_chains(lc_df, t0=0, z=0, t_fl=17,
+def continue_chains(lc_df, t0=0, z=0,
                     mcmc_h5_file="ZTF_SN.h5"
                     max_samples=int(2e6),
                     rel_flux_cutoff = 0.5,
