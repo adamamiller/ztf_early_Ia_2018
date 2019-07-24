@@ -226,7 +226,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                                                  ncores))
 
 def continue_chains(lc_df, t0=0, z=0,
-                    mcmc_h5_file="ZTF_SN.h5"
+                    mcmc_h5_file="ZTF_SN.h5",
                     max_samples=int(2e6),
                     rel_flux_cutoff = 0.5,
                     ncores=None,
