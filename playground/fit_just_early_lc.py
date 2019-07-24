@@ -280,36 +280,36 @@ def continue_chains(lc_df, t0=0, z=0,
         max_samples = max_samples
 
         old_tau = np.inf
-        for sample in sampler.sample(None, 
+        for sample in new_sampler.sample(None, 
                                      iterations=max_samples, 
                                      thin_by=thin_by, progress=False):
-            if ((sampler.iteration <= int(1e3/thin_by)) and 
-                 sampler.iteration % int(250/thin_by)):
+            if ((new_sampler.iteration <= int(1e3/thin_by)) and 
+                 new_sampler.iteration % int(250/thin_by)):
                 continue
-            elif ((int(1e3/thin_by) < sampler.iteration <= int(1e4/thin_by)) 
-                  and sampler.iteration % int(1e3/thin_by)):
+            elif ((int(1e3/thin_by) < new_sampler.iteration <= int(1e4/thin_by)) 
+                  and new_sampler.iteration % int(1e3/thin_by)):
                 continue
-            elif ((int(1e4/thin_by) < sampler.iteration <= int(1e5/thin_by)) 
-                  and sampler.iteration % int(1e4/thin_by)):
+            elif ((int(1e4/thin_by) < new_sampler.iteration <= int(1e5/thin_by)) 
+                  and new_sampler.iteration % int(1e4/thin_by)):
                 continue
-            elif ((int(1e5/thin_by) < sampler.iteration) and 
-                  sampler.iteration % int(2e4/thin_by)):
+            elif ((int(1e5/thin_by) < new_sampler.iteration) and 
+                  new_sampler.iteration % int(2e4/thin_by)):
                 continue
     
             tstart = time.time()
-            tau = sampler.get_autocorr_time(tol=0)
+            tau = new_sampler.get_autocorr_time(tol=0)
             tend = time.time()
-            steps_so_far = sampler.iteration
+            steps_so_far = new_sampler.iteration
             print('''After {:d} steps, 
     autocorrelation takes {:.3f} s ({} total FFTs)                
     acceptance fraction = {:.4f}, and
     tau = {}'''.format(steps_so_far, 
                        tend-tstart, nwalkers*ndim,
-                       np.mean(sampler.acceptance_fraction), 
+                       np.mean(new_sampler.acceptance_fraction), 
                        tau))
 
             # Check convergence
-            converged = np.all(tau * 100 < sampler.iteration)
+            converged = np.all(tau * 100 < new_sampler.iteration)
             converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
             if converged:
                 break
