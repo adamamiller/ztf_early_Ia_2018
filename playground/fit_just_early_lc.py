@@ -227,6 +227,102 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=17,
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                  ncores))
 
+def continue_chains(lc_df, t0=0, z=0, t_fl=17,
+                    mcmc_h5_file="ZTF_SN.h5"
+                    max_samples=int(2e6),
+                    rel_flux_cutoff = 0.5,
+                    ncores=None,
+                    thin_by=1,
+                    g_max=1,
+                    r_max=1):
+    '''Run MCMC for longer than initial fit'''
+    t_mcmc_start = time.time()
+    
+    if ncores == None:
+        ncores = cpu_count() - 1
+    
+    g_obs = np.where(lc_df['filter'] == b'g')
+    r_obs = np.where(lc_df['filter'] == b'r')
+
+    time_rf = (lc_df['jdobs'].values - t0)/(1+z)
+    flux = lc_df['Fratio'].values
+    if g_max == 1:
+        g_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
+    if r_max == 1:
+        r_max = np.max(lc_df['Fratio'].iloc[r_obs].values)
+    flux[g_obs] = flux[g_obs]/g_max
+    flux[r_obs] = flux[r_obs]/r_max
+    flux_unc = lc_df['Fratio_unc'].values
+    flux_unc[g_obs] = flux_unc[g_obs]/g_max
+    flux_unc[r_obs] = flux_unc[r_obs]/r_max
+    filt_arr = lc_df['filter'].values
+
+    early_g = np.where((time_rf[g_obs] < 0) & 
+                       (flux[g_obs] < rel_flux_cutoff))
+    early_r = np.where((time_rf[r_obs] < 0) & 
+                       (flux[r_obs] < rel_flux_cutoff))
+    early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
+
+    f_data = flux[early_obs]
+    t_data = time_rf[early_obs]
+    f_unc_data = flux_unc[early_obs]
+    filt_data = filt_arr[early_obs]
+
+    with Pool(ncores) as pool:
+        # file to save samples
+        filename = mcmc_h5_file
+        new_backend = emcee.backends.HDFBackend(filename)
+        _, nwalkers, ndim = np.shape(new_backend.get_chain())
+        new_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                        multifilter_lnposterior_simple,
+                                        args=(f_data, t_data, 
+                                              f_unc_data, filt_data),
+                                        pool=pool, backend=new_backend)
+            
+        max_samples = max_samples
+
+        old_tau = np.inf
+        for sample in sampler.sample(None, 
+                                     iterations=max_samples, 
+                                     thin_by=thin_by, progress=False):
+            if ((sampler.iteration <= int(1e3/thin_by)) and 
+                 sampler.iteration % int(250/thin_by)):
+                continue
+            elif ((int(1e3/thin_by) < sampler.iteration <= int(1e4/thin_by)) 
+                  and sampler.iteration % int(1e3/thin_by)):
+                continue
+            elif ((int(1e4/thin_by) < sampler.iteration <= int(1e5/thin_by)) 
+                  and sampler.iteration % int(1e4/thin_by)):
+                continue
+            elif ((int(1e5/thin_by) < sampler.iteration) and 
+                  sampler.iteration % int(2e4/thin_by)):
+                continue
+    
+            tstart = time.time()
+            tau = sampler.get_autocorr_time(tol=0)
+            tend = time.time()
+            steps_so_far = sampler.iteration
+            print('''After {:d} steps, 
+    autocorrelation takes {:.3f} s ({} total FFTs)                
+    acceptance fraction = {:.4f}, and
+    tau = {}'''.format(steps_so_far, 
+                       tend-tstart, nwalkers*ndim,
+                       np.mean(sampler.acceptance_fraction), 
+                       tau))
+
+            # Check convergence
+            converged = np.all(tau * 100 < sampler.iteration)
+            converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
+            if converged:
+                break
+            old_tau = tau
+
+
+    print("Ran {} steps; final tau= {}".format(steps_so_far*thin_by, tau))
+    t_mcmc_end = time.time()
+    print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
+                                                 ncores))
+
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     ncores = 27
