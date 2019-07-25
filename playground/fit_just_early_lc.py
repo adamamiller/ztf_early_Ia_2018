@@ -275,26 +275,10 @@ def continue_chains(lc_df, t0=0, z=0,
                                         args=(f_data, t_data, 
                                               f_unc_data, filt_data),
                                         pool=pool, backend=new_backend)
-            
         max_samples = max_samples
-
-        old_tau = np.inf
-        for sample in new_sampler.sample(None, 
-                                     iterations=max_samples, 
-                                     thin_by=thin_by, progress=False):
-            if ((new_sampler.iteration <= int(1e3/thin_by)) and 
-                 new_sampler.iteration % int(250/thin_by)):
-                continue
-            elif ((int(1e3/thin_by) < new_sampler.iteration <= int(1e4/thin_by)) 
-                  and new_sampler.iteration % int(1e3/thin_by)):
-                continue
-            elif ((int(1e4/thin_by) < new_sampler.iteration <= int(1e5/thin_by)) 
-                  and new_sampler.iteration % int(1e4/thin_by)):
-                continue
-            elif ((int(1e5/thin_by) < new_sampler.iteration) and 
-                  new_sampler.iteration % int(2e4/thin_by)):
-                continue
-    
+        old_tau = new_sampler.get_autocorr_time(tol=0)
+        for i in range(int(max_samples/(2e4/thin_by))):
+            new_sampler.run_mcmc(None, int(2e4/thin_by), thin_by=thin_by, progress=False)
             tstart = time.time()
             tau = new_sampler.get_autocorr_time(tol=0)
             tend = time.time()
@@ -306,7 +290,6 @@ def continue_chains(lc_df, t0=0, z=0,
                        tend-tstart, nwalkers*ndim,
                        np.mean(new_sampler.acceptance_fraction), 
                        tau))
-
             # Check convergence
             converged = np.all(tau * 100 < new_sampler.iteration)
             converged &= np.all(np.abs(old_tau - tau) / tau < 0.01)
