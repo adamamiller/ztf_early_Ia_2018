@@ -276,17 +276,19 @@ def continue_chains(lc_df, t0=0, z=0,
                                               f_unc_data, filt_data),
                                         pool=pool, backend=new_backend)
         max_samples = max_samples
+        steps_so_far = new_sampler.iteration
         old_tau = new_sampler.get_autocorr_time(tol=0)
         for i in range(int(max_samples/(2e4/thin_by))):
-            new_sampler.run_mcmc(None, int(2e4/thin_by), thin_by=thin_by, progress=False)
+            new_sampler.run_mcmc(None, int(2e4/thin_by), 
+                                 thin_by=thin_by, progress=False)
             tstart = time.time()
             tau = new_sampler.get_autocorr_time(tol=0)
             tend = time.time()
             steps_so_far = new_sampler.iteration
             print('''After {:d} steps, 
-    autocorrelation takes {:.3f} s ({} total FFTs)                
-    acceptance fraction = {:.4f}, and
-    tau = {}'''.format(steps_so_far, 
+                     autocorrelation takes {:.3f} s ({} total FFTs)                
+                     acceptance fraction = {:.4f}, and
+                     tau = {}'''.format(steps_so_far, 
                        tend-tstart, nwalkers*ndim,
                        np.mean(new_sampler.acceptance_fraction), 
                        tau))
