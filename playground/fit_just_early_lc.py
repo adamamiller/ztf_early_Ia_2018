@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import emcee
-import corner
 from scipy.optimize import minimize
 from multiprocessing import Pool, cpu_count
 import time
