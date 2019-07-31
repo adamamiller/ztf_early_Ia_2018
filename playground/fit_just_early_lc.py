@@ -109,6 +109,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
            nwalkers=100,
            rel_flux_cutoff = 0.5,
            ncores=None,
+           emcee_burnin=True,
            use_emcee_backend=True,
            thin_by=1,
            g_max=1,
@@ -161,7 +162,22 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     #initial position of walkers
     pos = [ml_guess*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
 
+        
+
     with Pool(ncores) as pool:
+        if emcee_burnin:
+            burn_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
+                                                multifilter_lnposterior_simple, 
+                                                args=(f_data, t_data, 
+                                                      f_unc_data, filt_data),
+                                                pool=pool)
+            burn_sampler.sample(pos, max_iterations=50, 
+                                  thin_by=thin_by, progress=False))
+            flat_burn_chain = burn_sampler.get_chain(flat=True)
+            flat_burn_prob = np.argmax(burn_sampler.get_log_prob(flat=True))
+            max_aposteriori = flat_burn_chain[flat_burn_prob]
+            pos = [max_aposteriori*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
+
         if use_emcee_backend:
             # file to save samples
             filename = mcmc_h5_file
