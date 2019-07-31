@@ -30,12 +30,12 @@ def lnlike_simple(theta, f, t, f_err):
     t_0, a, a_prime, alpha_r = theta
     
     pre_exp = np.logical_not(t > t_0)
-    model = np.empty_like(f)
+    model = 2*np.ones_like(f)
     model[pre_exp] = a
     
     time_term = (t[~pre_exp] - t_0)
     model[~pre_exp] = a + a_prime * (time_term)**alpha_r
-    
+    assert np.all(model < 1.9),'fewer model values than flux values'
     ln_l = -0.5*np.sum((f - model)**2 / (f_err**2))
     return ln_l
 
