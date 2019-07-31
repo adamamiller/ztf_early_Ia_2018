@@ -141,10 +141,14 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                0, 6e-3, 2
               ]    
 
-    early_g = np.where((time_rf[g_obs] < 0) & 
+    cutoff_g = np.where((time_rf[g_obs] < 0) & 
                        (flux[g_obs] < rel_flux_cutoff))
-    early_r = np.where((time_rf[r_obs] < 0) & 
+    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
+    early_g = np.where(time_rf[g_obs] < t_cut_g)
+    cutoff_r = np.where((time_rf[r_obs] < 0) & 
                        (flux[r_obs] < rel_flux_cutoff))
+    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
+    early_r = np.where(time_rf[r_obs] < t_cut_r)
     early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
     f_data = flux[early_obs]
