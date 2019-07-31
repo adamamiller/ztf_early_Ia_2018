@@ -176,11 +176,11 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                                                       f_unc_data, filt_data),
                                                 pool=pool)
             burn_sampler.sample(pos, max_iterations=50, 
-                                  thin_by=thin_by, progress=False))
+                                  thin_by=thin_by, progress=False)
             flat_burn_chain = burn_sampler.get_chain(flat=True)
             flat_burn_prob = np.argmax(burn_sampler.get_log_prob(flat=True))
-            max_aposteriori = flat_burn_chain[flat_burn_prob]
-            pos = [max_aposteriori*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
+            max_prob = flat_burn_chain[flat_burn_prob]
+            pos = [max_prob*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
 
         if use_emcee_backend:
             # file to save samples
