@@ -175,7 +175,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     nfac = [10**(-2.5)]*ndim
 
     #initial position of walkers
-    rand_pos = [1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
+    rand_pos = [1 + nfac*np.random.randn(ndim) for i in range(nwalkers)]
     pos = ml_guess*rand_pos
 
     with Pool(ncores) as pool:
