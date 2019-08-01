@@ -30,12 +30,12 @@ def lnlike_simple(theta, f, t, f_err):
     t_0, a, a_prime, alpha_r = theta
     
     pre_exp = np.logical_not(t > t_0)
-    model = 2*np.ones_like(f)
+    model = 999*np.ones_like(f)
     model[pre_exp] = a
     
     time_term = (t[~pre_exp] - t_0)
     model[~pre_exp] = a + a_prime * (time_term)**alpha_r
-    assert np.all(model < 1.9),'fewer model values than flux values'
+    assert np.all(model != 999.),'fewer model values than flux values'
     ln_l = -0.5*np.sum((f - model)**2 / (f_err**2))
     return ln_l
 
@@ -64,39 +64,51 @@ def lnposterior_simple(theta, f, t, f_err):
 ## Define likelihood for multi-filter data ##
 #############################################
 
-def multifilter_lnlike_simple(theta, f, t, f_err, filt_arr):
+def multifcqfid_lnlike_simple(theta, f, t, f_err, fcqfid_arr):
     
-    if len(theta) % 3 != 1:
+    n_fcqid = len(np.unique(fcqfid_arr))
+    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+    
+    if len(theta) != 1 + 2*n_filt + n_fcqid:
         raise RuntimeError('The correct number of parameters were not included')
     
     ln_l = 0
-    for filt_num, filt in enumerate(np.unique(filt_arr)):
-        theta_filt = np.append(theta[0], theta[1+3*filt_num:4+3*filt_num])
-        filt_obs = np.where(filt_arr == filt)
-        f_filt = f[filt_obs]
-        t_filt = t[filt_obs]
-        f_err_filt = f_err[filt_obs]
-        ln_l += lnlike_simple(theta_filt, f_filt, t_filt, f_err_filt)
+    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+        filt = int(fcqfid % 10)
+                
+        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + fcqfid_num], 
+                                 theta[2*filt-1], theta[2*filt]])
+        fcqfid_obs = np.where(fcqfid_arr == fcqfid)
+        f_fcqfid = f[fcqfid_obs]
+        t_fcqfid = t[fcqfid_obs]
+        f_err_fcqfid = f_err[fcqfid_obs]
+        ln_l += lnlike_simple(theta_fcqfid, f_fcqfid, t_fcqfid, f_err_fcqfid)
     
     return ln_l
 
-def multifilter_nll_simple(theta, f, t, f_err, filt_arr):
-    return -1*multifilter_lnlike_simple(theta, f, t, f_err, filt_arr)
+def multifcqfid_nll_simple(theta, f, t, f_err, fcqfid_arr):
+    return -1*multifcqfid_lnlike_simple(theta, f, t, f_err, fcqfid_arr)
 
-def multifilter_lnprior_simple(theta, filt_arr):
+def multifcqfid_lnprior_simple(theta, fcqfid_arr):
     
-    if len(theta) % 3 != 1:
+    n_fcqid = len(np.unique(fcqfid_arr))
+    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+    
+    if len(theta) != 1 + 2*n_filt + n_fcqid:
         raise RuntimeError('The correct number of parameters were not included')
     
     ln_p = 0
-    for filt_num, filt in enumerate(np.unique(filt_arr)):
-        theta_filt = np.append(theta[0], theta[1+3*filt_num:4+3*filt_num])
-        ln_p += lnprior_simple(theta_filt)
+    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+        filt = int(fcqfid % 10)
+                
+        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + fcqfid_num], 
+                                 theta[2*filt-1], theta[2*filt]])
+        ln_p += lnprior_simple(theta_fcqfid)
     return ln_p
 
-def multifilter_lnposterior_simple(theta, f, t, f_err, filt_arr):
-    lnp = multifilter_lnprior_simple(theta, filt_arr)
-    lnl = multifilter_lnlike_simple(theta, f, t, f_err, filt_arr)
+def multifcqfid_lnposterior_simple(theta, f, t, f_err, fcqfid_arr):
+    lnp = multifcqfid_lnprior_simple(theta, fcqfid_arr)
+    lnl = multifcqfid_lnlike_simple(theta, f, t, f_err, fcqfid_arr)
     if not np.isfinite(lnl):
         return -np.inf
     if not np.isfinite(lnp):
@@ -134,12 +146,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     flux_unc = lc_df['Fratio_unc'].values
     flux_unc[g_obs] = flux_unc[g_obs]/g_max
     flux_unc[r_obs] = flux_unc[r_obs]/r_max
-    filt_arr = lc_df['filter'].values
-
-    guess_0 = [-t_fl, 
-               0, 6e-3, 2,
-               0, 6e-3, 2
-              ]    
+    fcqfid_arr = lc_df['fcqfid'].values
 
     cutoff_g = np.where((time_rf[g_obs] < 0) & 
                        (flux[g_obs] < rel_flux_cutoff))
@@ -154,33 +161,36 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     f_data = flux[early_obs]
     t_data = time_rf[early_obs]
     f_unc_data = flux_unc[early_obs]
-    filt_data = filt_arr[early_obs]
+    fcqfid_data = fcqfid_arr[early_obs]
     
-    ml_res = minimize(multifilter_nll_simple, guess_0, method='Powell', # Powell method does not need derivatives
-                      args=(f_data, t_data, f_unc_data, filt_data))
+    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+    guess_0 = np.append([-t_fl] + [6e-3, 2]*n_filt,
+                        np.zeros(len(np.unique(fcqfid_data))))
+    
+    ml_res = minimize(multifcqfid_nll_simple, guess_0, method='Powell', # Powell method does not need derivatives
+                      args=(f_data, t_data, f_unc_data, fcqfid_data))
     ml_guess = ml_res.x
     
     ndim = len(ml_guess)
-    nfac = [1e-2]*ndim
+    nfac = [10**(-2.5)]*ndim
 
     #initial position of walkers
-    pos = [ml_guess*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
-
-        
+    rand_pos = [1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
+    pos = ml_guess*rand_pos
 
     with Pool(ncores) as pool:
         if emcee_burnin:
             burn_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                                multifilter_lnposterior_simple, 
+                                                multifcqfid_lnposterior_simple, 
                                                 args=(f_data, t_data, 
-                                                      f_unc_data, filt_data),
+                                                      f_unc_data, fcqfid_data),
                                                 pool=pool)
             burn_sampler.sample(pos, max_iterations=50, 
                                   thin_by=thin_by, progress=False)
             flat_burn_chain = burn_sampler.get_chain(flat=True)
             flat_burn_prob = np.argmax(burn_sampler.get_log_prob(flat=True))
             max_prob = flat_burn_chain[flat_burn_prob]
-            pos = [max_prob*(1 + nfac*np.random.randn(ndim)) for i in range(nwalkers)]
+            pos = max_prob*rand_pos
 
         if use_emcee_backend:
             # file to save samples
@@ -189,15 +199,15 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
             backend.reset(nwalkers, ndim)        
 
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                            multifilter_lnposterior_simple, 
+                                            multifcqfid_lnposterior_simple, 
                                             args=(f_data, t_data, 
-                                                  f_unc_data, filt_data),
+                                                  f_unc_data, fcqfid_data),
                                             pool=pool, backend=backend)
         else:
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                            multifilter_lnposterior_simple, 
+                                            multifcqfid_lnposterior_simple, 
                                             args=(f_data, t_data, 
-                                                  f_unc_data, filt_data),
+                                                  f_unc_data, fcqfid_data),
                                             pool=pool)
             
         max_samples = max_samples
@@ -238,7 +248,6 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                 break
             old_tau = tau
 
-
     print("Ran {} steps; final tau= {}".format(steps_so_far*thin_by, tau))
     t_mcmc_end = time.time()
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
@@ -272,18 +281,22 @@ def continue_chains(lc_df, t0=0, z=0,
     flux_unc = lc_df['Fratio_unc'].values
     flux_unc[g_obs] = flux_unc[g_obs]/g_max
     flux_unc[r_obs] = flux_unc[r_obs]/r_max
-    filt_arr = lc_df['filter'].values
+    fcqfid_arr = lc_df['fcqfid'].values
 
-    early_g = np.where((time_rf[g_obs] < 0) & 
+    cutoff_g = np.where((time_rf[g_obs] < 0) & 
                        (flux[g_obs] < rel_flux_cutoff))
-    early_r = np.where((time_rf[r_obs] < 0) & 
+    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
+    early_g = np.where(time_rf[g_obs] < t_cut_g)
+    cutoff_r = np.where((time_rf[r_obs] < 0) & 
                        (flux[r_obs] < rel_flux_cutoff))
+    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
+    early_r = np.where(time_rf[r_obs] < t_cut_r)
     early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
     f_data = flux[early_obs]
     t_data = time_rf[early_obs]
     f_unc_data = flux_unc[early_obs]
-    filt_data = filt_arr[early_obs]
+    fcqfid_data = fcqfid_arr[early_obs]
 
     with Pool(ncores) as pool:
         # file to save samples
@@ -291,9 +304,9 @@ def continue_chains(lc_df, t0=0, z=0,
         new_backend = emcee.backends.HDFBackend(filename)
         _, nwalkers, ndim = np.shape(new_backend.get_chain())
         new_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                        multifilter_lnposterior_simple,
+                                        multifcqfid_lnposterior_simple,
                                         args=(f_data, t_data, 
-                                              f_unc_data, filt_data),
+                                              f_unc_data, fcqfid_data),
                                         pool=pool, backend=new_backend)
         max_samples = max_samples
         steps_so_far = new_sampler.iteration
