@@ -230,12 +230,20 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
             else:
                 ax = axes[i, i]
         # Plot the histograms.
+#         if i == 0:
+#             color = 'k'
+#         elif 1 <= i <= 3:
+#             color = 'MediumAquaMarine'
+#         elif 4 <= i <= 7:
+#             color = 'Crimson'
         if i == 0:
             color = 'k'
-        elif 1 <= i <= 3:
+        elif 1 <= i <= 2:
             color = 'MediumAquaMarine'
-        elif 4 <= i <= 7:
+        elif 3 <= i <= 5:
             color = 'Crimson'
+
+            
 #         hist_kwargs["color"] = hist_kwargs.get("color", color)
         hist_kwargs["lw"] = hist_kwargs.get("lw", 2)
         
@@ -349,15 +357,26 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
             if hasattr(y, "compressed"):
                 y = y.compressed()
 
+#             if j == 0:
+#                 color = 'k'
+#             elif 1 <= j <= 3 and 1 <= i <= 3:
+#                 color = 'LightSeaGreen'
+#             elif 4 <= j <= 7 and 4 <= i <= 7:
+#                 color = 'Crimson'
+#             elif 1 <= j <= 3 and 4 <= i <= 7:
+# #                 color = '#143cdb'
+#                 color = '#db8214'
+
             if j == 0:
                 color = 'k'
-            elif 1 <= j <= 3 and 1 <= i <= 3:
+            elif 1 <= j <= 2 and 1 <= i <= 2:
                 color = 'LightSeaGreen'
-            elif 4 <= j <= 7 and 4 <= i <= 7:
+            elif 3 <= j <= 5 and 3 <= i <= 5:
                 color = 'Crimson'
-            elif 1 <= j <= 3 and 4 <= i <= 7:
+            elif 1 <= j <= 2 and 3 <= i <= 5:
 #                 color = '#143cdb'
                 color = '#db8214'
+
 
             hist2d(y, x, ax=ax, range=[range[j], range[i]], weights=weights,
                    color=color, smooth=smooth, bins=[bins[j], bins[i]],
