@@ -185,7 +185,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
                                                 args=(f_data, t_data, 
                                                       f_unc_data, fcqfid_data),
                                                 pool=pool)
-            burn_sampler.sample(pos, iterations=50, 
+            burn_sampler.run_mcmc(pos, iterations=50, 
                                 thin_by=thin_by, progress=False)
             flat_burn_chain = burn_sampler.get_chain(flat=True)
             flat_burn_prob = np.argmax(burn_sampler.get_log_prob(flat=True))
