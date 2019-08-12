@@ -346,6 +346,7 @@ if __name__== "__main__":
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
+    rel_flux_cutoff=0.5
     
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
@@ -356,6 +357,8 @@ if __name__== "__main__":
     if len(sys.argv) > 5:
         backend_filename = str(sys.argv[5])
     if len(sys.argv) > 6:
+        rel_flux_cutoff = float(sys.argv[6])  
+    if len(sys.argv) > 7:
         use_emcee_backend = False  
 
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
@@ -373,5 +376,6 @@ if __name__== "__main__":
            ncores=ncores,
            use_emcee_backend=use_emcee_backend,
            thin_by=thin_by,
+           rel_flux_cutoff=rel_flux_cutoff,
            g_max=g_max,
            r_max=r_max)
