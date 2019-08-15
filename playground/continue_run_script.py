@@ -13,7 +13,7 @@ if __name__== "__main__":
     thin_by = int(1)
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
-    use_emcee_backend = True
+    rel_flux_cutoff=0.5
     
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
@@ -24,7 +24,7 @@ if __name__== "__main__":
     if len(sys.argv) > 5:
         backend_filename = str(sys.argv[5])
     if len(sys.argv) > 6:
-        use_emcee_backend = False  
+        rel_flux_cutoff = float(sys.argv[6])  
 
     lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
     salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
@@ -39,5 +39,6 @@ if __name__== "__main__":
                     max_samples=nsteps, 
                     ncores=ncores,
                     thin_by=thin_by,
+                    rel_flux_cutoff=rel_flux_cutoff,
                     g_max=g_max,
                     r_max=r_max)
