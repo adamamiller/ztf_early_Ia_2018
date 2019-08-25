@@ -114,7 +114,97 @@ def multifcqfid_lnposterior_simple(theta, f, t, f_err, fcqfid_arr):
     if not np.isfinite(lnp):
         return -np.inf
     return lnl + lnp
+
+# multiplier term for the uncertainties
+def lnlike_big_unc(theta, f, t, f_err):
+    t_0, a, a_prime, alpha_r, f_sigma = theta
+
+    pre_exp = np.logical_not(t > t_0)
+    model = 999999999*np.ones_like(f)
+    model[pre_exp] = a
     
+    time_term = (t[~pre_exp] - t_0)
+    model[~pre_exp] = a + a_prime * (time_term)**alpha_r
+    assert np.all(model < 999999999),"fewer model values than flux values\n{}\n{}\na{}A'{}alpha{}f_sigma{}".format(model, time_term,a,a_prime,alpha_r,f_sigma)
+    
+    ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(np.sqrt(2*np.pi))
+    return ln_l
+
+def nll_big_unc(theta, flux, time, flux_err):
+    return -1*lnlike_big_unc(theta, flux, time, flux_err)
+
+#Define priors on parameters  
+def lnprior_big_unc(theta):
+    t_0, a, a_prime, alpha_r, f_sigma = theta
+    if (-100 < t_0 < 0 and 0 < alpha_r < 1e8 and 
+        -1e8 < a < 1e8 and 
+        0 < a_prime < 1e8 and
+        0 < f_sigma < 1e8):
+        return 0.0
+    return -np.inf
+
+def lnposterior_big_unc(theta, flux, time, flux_err):
+    lnp = lnprior_big_unc(theta)
+    if not np.isfinite(lnp):
+        return -np.inf
+    lnl = lnlike_big_unc(theta, flux, time, flux_err)
+    if not np.isfinite(lnl):
+        return -np.inf
+    return lnl + lnp
+
+def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr):
+    
+    n_fcqid = len(np.unique(fcqfid_arr))
+    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+
+    if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+        raise RuntimeError('The correct number of parameters were not included')
+
+    ln_l = 0
+    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+        filt = int(fcqfid % 10)
+
+        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + 2*fcqfid_num], 
+                                 theta[2*filt-1], theta[2*filt],
+                                 theta[2 + 2*n_filt + 2*fcqfid_num]])
+        fcqfid_obs = np.where(fcqfid_arr == fcqfid)
+        f_fcqfid = f[fcqfid_obs]
+        t_fcqfid = t[fcqfid_obs]
+        f_err_fcqfid = f_err[fcqfid_obs]
+        ln_l += lnlike_big_unc(theta_fcqfid, f_fcqfid, t_fcqfid, f_err_fcqfid)
+    
+    return ln_l
+
+def multifcqfid_nll_big_unc(theta, f, t, f_err, fcqfid_arr):
+    return -1*multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr)
+
+def multifcqfid_lnprior_big_unc(theta, fcqfid_arr):
+    
+    n_fcqid = len(np.unique(fcqfid_arr))
+    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+
+    if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+        raise RuntimeError('The correct number of parameters were not included')
+
+    ln_p = 0
+    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+        filt = int(fcqfid % 10)
+
+        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + 2*fcqfid_num], 
+                                 theta[2*filt-1], theta[2*filt],
+                                 theta[2 + 2*n_filt + 2*fcqfid_num]])
+        ln_p += lnprior_big_unc(theta_fcqfid)
+    return ln_p
+
+def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr):
+    lnp = multifcqfid_lnprior_big_unc(theta, fcqfid_arr)
+    if not np.isfinite(lnp):
+        return -np.inf
+    lnl = multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr)
+    if not np.isfinite(lnl):
+        return -np.inf
+    return lnl + lnp
+
 def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
@@ -164,10 +254,10 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     fcqfid_data = fcqfid_arr[early_obs]
     
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
-    guess_0 = np.append([-t_fl] + [6e-3, 2]*n_filt,
-                        np.zeros(len(np.unique(fcqfid_data))))
+    guess_0 = np.append([-t_fl] + [6e-1, 2]*n_filt,
+                        [1,1]*len(np.unique(fcqfid_data)))
     
-    ml_res = minimize(multifcqfid_nll_simple, guess_0, method='Powell', # Powell method does not need derivatives
+    ml_res = minimize(multifcqfid_nll_big_unc, guess_0, method='Powell', # Powell method does not need derivatives
                       args=(f_data, t_data, f_unc_data, fcqfid_data))
     ml_guess = ml_res.x
     
@@ -181,7 +271,7 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     with Pool(ncores) as pool:
         if emcee_burnin:
             burn_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                                multifcqfid_lnposterior_simple, 
+                                                multifcqfid_lnposterior_big_unc, 
                                                 args=(f_data, t_data, 
                                                       f_unc_data, fcqfid_data),
                                                 pool=pool)
@@ -199,13 +289,13 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
             backend.reset(nwalkers, ndim)        
 
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                            multifcqfid_lnposterior_simple, 
+                                            multifcqfid_lnposterior_big_unc, 
                                             args=(f_data, t_data, 
                                                   f_unc_data, fcqfid_data),
                                             pool=pool, backend=backend)
         else:
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                            multifcqfid_lnposterior_simple, 
+                                            multifcqfid_lnposterior_big_unc, 
                                             args=(f_data, t_data, 
                                                   f_unc_data, fcqfid_data),
                                             pool=pool)
@@ -304,7 +394,7 @@ def continue_chains(lc_df, t0=0, z=0,
         new_backend = emcee.backends.HDFBackend(filename)
         _, nwalkers, ndim = np.shape(new_backend.get_chain())
         new_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
-                                        multifcqfid_lnposterior_simple,
+                                        multifcqfid_lnposterior_big_unc,
                                         args=(f_data, t_data, 
                                               f_unc_data, fcqfid_data),
                                         pool=pool, backend=new_backend)
