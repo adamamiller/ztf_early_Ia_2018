@@ -248,9 +248,9 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
     early_r = np.where(time_rf[r_obs] < t_cut_r)
     early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
-    f_data = flux[early_obs]
+    f_data = flux[early_obs]*100
     t_data = time_rf[early_obs]
-    f_unc_data = flux_unc[early_obs]
+    f_unc_data = flux_unc[early_obs]*100
     fcqfid_data = fcqfid_arr[early_obs]
     
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
