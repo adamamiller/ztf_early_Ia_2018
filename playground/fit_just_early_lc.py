@@ -30,12 +30,12 @@ def lnlike_simple(theta, f, t, f_err):
     t_0, a, a_prime, alpha_r = theta
     
     pre_exp = np.logical_not(t > t_0)
-    model = 999*np.ones_like(f)
+    model = -999*np.ones_like(f)
     model[pre_exp] = a
     
     time_term = (t[~pre_exp] - t_0)
     model[~pre_exp] = a + a_prime * (time_term)**alpha_r
-    assert np.all(model != 999.),'fewer model values than flux values'
+    assert np.all(model > 999.),'fewer model values than flux values'
     ln_l = -0.5*np.sum((f - model)**2 / (f_err**2))
     return ln_l
 
@@ -120,12 +120,12 @@ def lnlike_big_unc(theta, f, t, f_err):
     t_0, a, a_prime, alpha_r, f_sigma = theta
 
     pre_exp = np.logical_not(t > t_0)
-    model = 999999999*np.ones_like(f)
+    model = -999999999*np.ones_like(f)
     model[pre_exp] = a
     
     time_term = (t[~pre_exp] - t_0)
     model[~pre_exp] = a + a_prime * (time_term)**alpha_r
-    assert np.all(model < 999999999),"fewer model values than flux values\n{}\n{}\na{}A'{}alpha{}f_sigma{}".format(model, time_term,a,a_prime,alpha_r,f_sigma)
+    assert np.all(model > -999999999),"fewer model values than flux values\n{}\n{}\na{}A'{}alpha{}f_sigma{}".format(model, time_term,a,a_prime,alpha_r,f_sigma)
     
     ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(np.sqrt(2*np.pi))
     return ln_l
