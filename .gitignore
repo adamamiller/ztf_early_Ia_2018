@@ -131,7 +131,9 @@ venv.bak/
 *.mtc1
 *.out
 *.synctex.gz
-*.pdf
+*.lb
+*.fdb_latexmk
+*.fls
 
 # Mac IDE files
 *.swp
