@@ -118,6 +118,7 @@
 
 \newcommand{\rztf}{$r_\mathrm{ZTF}$}
 \newcommand{\gztf}{$g_\mathrm{ZTF}$}
+\newcommand{\tfl}{$t_\mathrm{fl}$}
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -295,17 +296,140 @@
 
 \section{Introduction}
 
-\section{ZTF Data}
+\section{ZTF Photometry}
 
-The sample of 127 SNe Ia utilized in this study was defined in \citet{Yao19}, for the full details on how the sample was created we refer the reader to that paper. Briefly, the SNe studied herein were discovered in observations taken for the high-cadence extragalactic experiment conducted by the ZTF partnership in 2018 \citep{Bellm19a}. This experiment monitors $\sim$3000\,\deg$^2$ on a nightly basis (over the 9 month period when the fields are visible), with the aim of obtaining 3 \gztf\ and 3 \rztf\ observations every night. In total, there were 247 spectroscopically confirmed SNe Ia discovered within these fields. Following cuts to limit the sample to only those SNe that were discovered ``early'' (defined as 10\,d or more, in the SN rest frame, prior to the time of maximum light in the \gztf-band) and have high quality light curves, the sample was reduced to 127 SNe (see \citealt{Yao19} for the full details). 
+The sample of 127 SNe Ia utilized in this study was defined in \citet{Yao19},
+for the full details on how the sample was created we refer the reader to
+that paper. Briefly, the SNe studied herein were discovered in observations
+taken for the high-cadence extragalactic experiment conducted by the ZTF
+partnership in 2018 \citep{Bellm19a}. This experiment monitors
+$\sim$3000\,$\deg^2$ on a nightly basis (over the 9 month period when the
+fields are visible), with the aim of obtaining 3 \gztf\ and 3 \rztf\
+observations every night. In total, there were 247 spectroscopically
+confirmed SNe Ia discovered within these fields. Following cuts to limit the
+sample to only those SNe that were discovered ``early'' (defined as 10\,d or
+more, in the SN rest frame, prior to the time of maximum light in the
+\gztf-band) and have high quality light curves, the sample was reduced to 127
+SNe (see \citealt{Yao19} for the full details).
 
-In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF) photometry for each of the 127 SNe on every image where the SN was observed. Briefly, the PSF model was generated as part of the ZTF real-time image subtraction pipeline \citep{Masci19}, which uses an image-differencing technique based on \citet{} \todo{add ZOGY ref}. The forced PSF photometry procedure fixes the position of each SN and measures the PSF flux in all images that contain the SN position, even in epochs where the SN is not detected (i.e., the signal-to-noise ratio [SNR] $\la$1). For this study, we normalize the SN flux to relative flux measurements by dividing out the peak observed flux in the \gztf- and \rztf-bands, respectively (peak fluxes were determined using \texttt{SALT2} \citealt{}; see \citealt{Yao19} for our implementation details). The relative fluxes produced via this procedure are unique for every ZTF reference image (hereafter fcqf\,ID following the nomenclature in \citealt{Yao19}), as discussed below, we account for these differences in modeling the SNe in cases where a SN was observed on multiple fcqf\,IDs in the same filter. In \citet{Yao19} we advocate for the use of corrective factors $C$, which accounts for a non-zero baseline in the pre-SN flux measurements, and $\chi^2_{\nu}$, which accounts for underestimated uncertainties in the flux measurements, when using the results of our forced photometry. For this study, we ignore the corrections suggested in \citet{Yao19} and instead incorporate these values into our model so they can be marginalized over and effectively ignored.
+In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF)
+photometry for each of the 127 SNe on every image where the SN was observed.
+Briefly, the PSF model was generated as part of the ZTF real-time image
+subtraction pipeline \citep{Masci19}, which uses an image-differencing
+technique based on \citet{Zackay16}. The forced PSF photometry procedure
+fixes the position of each SN and measures the PSF flux in all images that
+contain the SN position, even in epochs where the SN is not detected (i.e.,
+the signal-to-noise ratio [SNR] $\la$1). For this study, we normalize the SN
+flux to relative flux measurements by dividing out the peak observed flux in
+the \gztf- and \rztf-bands, respectively (peak fluxes were determined using
+\texttt{SALT2} \citealt{Guglielmo93}; see \citealt{Yao19} for our
+implementation details). The relative fluxes produced via this procedure are
+unique for every ZTF reference image (hereafter fcqf\,ID following the
+nomenclature in \citealt{Yao19}), as discussed below, we account for these
+differences in modeling the SNe in cases where a SN was observed on multiple
+fcqf\,IDs in the same filter. In \citet{Yao19} we advocate for the use of
+corrective factors $C$, which accounts for a non-zero baseline in the pre-SN
+flux measurements, and $\chi^2_{\nu}$, which accounts for underestimated
+uncertainties in the flux measurements, when using the results of our forced
+photometry. For this study, we ignore the corrections suggested in
+\citet{Yao19} and instead incorporate these values into our model so they can
+be marginalized over and effectively ignored.
 
 \section{Modeling the Early Rise of SNe Ia}
 
+Assuming an ideal, expanding fireball with constant temperature,
+\citet{Arnett82} derives $f \propto t^2$, where $f$ is the SN flux in the
+days after explosion and $t$ is time. While these idealized conditions are
+not met in nature (early spectra of SNe Ia show significant changes in
+temperature), \todo{re-write previous sentences about Reiss+99} it has
+nevertheless been found in many studies of large samples that in the blue
+optical filters $f \propto t^2$ to within the uncertainties (e.g.,
+\citealt{Conley06, Hayden10, Ganeshalingam11}). At the same time, several
+recent studies of individual, low-redshift SNe Ia show strong evidence that a
+power-law model for the SN flux only reproduces the data if the power-law
+index, $\alpha$, is significantly lower than 2 (e.g.,
+\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}). For this study, we
+will characterize the early emission in a single filter from a SN Ia as a
+power law:
+%
+\begin{equation}
+    f_b(t) = C + H[t_\mathrm{fl}] A_b (t - t_\mathrm{fl})^{\alpha_b},
+    \label{eqn:flux_model}
+\end{equation}
+%
+where $f_b(t)$ is the flux in filter $b$ as a function of time $t$, $C$ is a
+constant representing the baseline flux present in the reference image prior
+to the SN, $t_\mathrm{fl}$ is the time of first light (i.e., not the time of
+explosion, but rather the time when optical emission begins for the SN, as
+the observed emission due to radioactive decay in the interior of the SN
+ejecta must first diffuse through the photosphere, see e.g.,
+\citealt{Piro13,Piro14}), $H[t_\mathrm{fl}]$ is the heavyside function equal
+to 0 for $t < t_\mathrm{fl}$ and 1 for $t \ge t_\mathrm{fl}$, $A_b$ is a
+constant of proportionality in filter $b$, and $\alpha_b$ is the power-law
+index describing the rise in filter $b$.
 
+For ZTF, observations are obtained in the \gztf- and \rztf-bands, and, thus
+it is possible to model the evolution in both filters simultaneously, as
+\tfl\ does not depend upon the choice of filter used to observe the SN. As
+discussed in \citet{Yao19}, $C$ depends on the reference co-addition used in
+image subtraction, and thus is not strictly a function of filter. Instead, it
+is a function of fcqf\,ID, which represents both the filter and ZTF field ID (see above). The ZTF field grid includes some overlap, and SNe that occur in overlap regions will have multiple fcqf\,ID for a single filter. These light curves need to be treated separately in the model fitting, with independent values of $C$.
 
+If we assume the observed deviations between the model flux and the data are the result of Gaussian scatter, the log-likelihood for the data is:
+%
+\begin{equation}
+    \ln \mathscr{L} = \sum_{d,i} \frac{[f_{d,i} - f_d(t_i)]^2}{(\beta_d \sigma_{d,i})^2},
+\end{equation}
+%
+where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$ is the $i^\mathrm{th}$ flux measurement with corresponding uncertainty $\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that the uncertainties are underestimated (see \citealt{Yao19}). Finally, $f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the individual fcqf\,ID,q and $A_b$ and $\alpha_b$ replaced by $A_{d,b}$ and $\alpha_{d,b}$, respectively, as these terms depend on fcqf\,ID, but only the filter $b$ and not the field ID.
 
+Ultimately, we only care about 3 model parameters: \tfl, and the power-law
+index describing the rise in the \gztf\ and \rztf\ filters, hereafter
+$\alpha_g$ and $\alpha_r$, respectively. Following Bayes' Law, we multiply
+the likelihood by a prior and use an affine-invariant, ensemble Markov Chain
+Monte Carlo (MCMC) technique \citep{Goodman10} to approximate the model
+posterior. We adopt wide and flat priors on each of the model parameters (see
+Table~\ref{tab:priors}), and perform the MCMC integration using
+\texttt{emcee} \citep{Foreman-Mackey13}. Within the ensemble, we use 100
+walkers, each of which is run until convergence or 3 million steps, whichever
+comes first. We test for convergence by examining the average autocorrelation
+length of the individual chains $\tau$ after every 20,000 steps, and consider
+the chains converged if $\tau > 100 \,n_\mathrm{steps}$, where
+$n_\mathrm{steps}$ is the total number of steps in each chain, and the change
+in $\tau$ relative to the previous estimate has changed by $<1\%$.
+
+A key decision in modeling the early evolution of SNe Ia light curves is
+deciding what is meant by ``early.'' While the simplistic power-law models
+adopted here and elsewhere can describe the flux of SNe Ia shortly after
+explosion, it is obvious that these models cannot explain the full evolution
+of SNe Ia as they never turn over and decay. Throughout the literature there
+are various definitions of early, ranging from some studies defining early
+relative to the amount of time that has passed following the epoch of
+discovery (e.g., \citealt{Zheng13,Miller18}), to others defining it relative
+to the time of $B$-band maximum (e.g., \citealt{Riess99a,Conley06}), while
+others define early in terms of the fractional flux relative to maximum light
+(e.g., \citealt{Olling15,Firth15,Fausnaugh19}). Here we adopt the latter
+definition to be consistent with recent work using extremely high-cadence,
+high-precision light curves from the space-based \textit{Kepler} K2
+\citep{Howell14} and the Trasiting Exoplanet Survey Satellite (\textit{TESS};
+\citealt{Ricker15}) missions (e.g., \citealt{Olling15,Fausnaugh19}). As in
+\citet{Olling15}, we only include observations up to 40\% of the peak
+amplitude of the SN.\footnote{We do this separately in the \gztf\ and \rztf\ filters. In practice, if a single night of observation includes any observations with $f \le 0.4 f_\mathrm{max}$ we keep all the observations from that night.} This choice, 40\% instead of 30\% or 50\%, does affect the final inference that is made for individual SNe as discussed in further detail in \S\ref{sec:systematics}.
+
+\section{Systematics\label{sec:systematics}}
+
+\acknowledgements
+
+Dan F-M? Will Farr?
+
+\software{
+         % \texttt{astropy} \citep{Astropy-Collaboration13},
+          \texttt{scipy} \citep{Jones01}, 
+          \texttt{matplotlib} \citep{Hunter07},
+          \texttt{pandas} \citep{McKinney10},
+          \texttt{emcee} \citep{Foreman-Mackey13},
+          \texttt{corner} \citep{Foreman-Mackey16}
+          }
 
 %% For this sample we use BibTeX plus aasjournals.bst to generate the
 %% the bibliography. The sample63.bib file was populated from ADS. To
