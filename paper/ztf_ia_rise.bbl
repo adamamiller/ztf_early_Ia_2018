@@ -1,0 +1,148 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\href{#1}{#1}}
+
+\bibitem[{{Arnett}(1982)}]{Arnett82}
+{Arnett}, W.~D. 1982, \apj, 253, 785
+
+\bibitem[{{Bellm} {et~al.}(2019){Bellm}, {Kulkarni}, {Barlow}, {Feindt},
+  {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince}, {Riddle},
+  {Walters}, \& {Ye}}]{Bellm19a}
+{Bellm}, E.~C., {Kulkarni}, S.~R., {Barlow}, T., {et~al.} 2019, \pasp, 131,
+  068003
+
+\bibitem[{{Conley} {et~al.}(2006){Conley}, {Howell}, {Howes}, {Sullivan},
+  {Astier}, {Balam}, {Basa}, {Carlberg}, {Fouchez}, {Guy}, {Hook}, {Neill},
+  {Pain}, {Perrett}, {Pritchet}, {Regnault}, {Rich}, {Taillet}, {Aubourg},
+  {Bronder}, {Ellis}, {Fabbro}, {Filiol}, {Le Borgne}, {Palanque-Delabrouille},
+  {Perlmutter}, \& {Ripoche}}]{Conley06}
+{Conley}, A., {Howell}, D.~A., {Howes}, A., {et~al.} 2006, \aj, 132, 1707
+
+\bibitem[{{Fausnaugh} {et~al.}(2019){Fausnaugh}, {Vallely}, {Kochanek},
+  {Shappee}, {Stanek}, {Tucker}, {Ricker}, {Vanderspek}, {Latham}, {Seager},
+  {Winn}, {Jenkins}, {Daylan}, {Doty}, {Furesz}, {Levine}, {Morris}, {Pal},
+  {Sha}, {Ting}, \& {Wohler}}]{Fausnaugh19}
+{Fausnaugh}, M.~M., {Vallely}, P.~J., {Kochanek}, C.~S., {et~al.} 2019, arXiv
+  e-prints, arXiv:1904.02171
+
+\bibitem[{{Firth} {et~al.}(2015){Firth}, {Sullivan}, {Gal-Yam}, {Howell},
+  {Maguire}, {Nugent}, {Piro}, {Baltay}, {Feindt}, {Hadjiyksta}, {McKinnon},
+  {Ofek}, {Rabinowitz}, \& {Walker}}]{Firth15}
+{Firth}, R.~E., {Sullivan}, M., {Gal-Yam}, A., {et~al.} 2015, \mnras, 446, 3895
+
+\bibitem[{Foreman-Mackey(2016)}]{Foreman-Mackey16}
+Foreman-Mackey, D. 2016, The Journal of Open Source Software, 24,
+  doi:10.21105/joss.00024.
+\newblock \url{http://dx.doi.org/10.5281/zenodo.45906}
+
+\bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
+  {Goodman}}]{Foreman-Mackey13}
+{Foreman-Mackey}, D., {Hogg}, D.~W., {Lang}, D., \& {Goodman}, J. 2013, \pasp,
+  125, 306
+
+\bibitem[{{Ganeshalingam} {et~al.}(2011){Ganeshalingam}, {Li}, \&
+  {Filippenko}}]{Ganeshalingam11}
+{Ganeshalingam}, M., {Li}, W., \& {Filippenko}, A.~V. 2011, \mnras, 416, 2607
+
+\bibitem[{{Goodman} \& {Weare}(2010)}]{Goodman10}
+{Goodman}, J., \& {Weare}, J. 2010, Communications in Applied Mathematics and
+  Computational Science, 5, 65
+
+\bibitem[{{Guglielmo} {et~al.}(1993){Guglielmo}, {Epchtein}, {Le Bertre},
+  {Fouque}, {Hron}, {Kerschbaum}, \& {Lepine}}]{Guglielmo93}
+{Guglielmo}, F., {Epchtein}, N., {Le Bertre}, T., {et~al.} 1993, \aaps, 99, 31
+
+\bibitem[{{Hayden} {et~al.}(2010){Hayden}, {Garnavich}, {Kessler}, {Frieman},
+  {Jha}, {Bassett}, {Cinabro}, {Dilday}, {Kasen}, {Marriner}, {Nichol},
+  {Riess}, {Sako}, {Schneider}, {Smith}, \& {Sollerman}}]{Hayden10}
+{Hayden}, B.~T., {Garnavich}, P.~M., {Kessler}, R., {et~al.} 2010, \apj, 712,
+  350
+
+\bibitem[{{Howell} {et~al.}(2014){Howell}, {Sobeck}, {Haas}, {Still},
+  {Barclay}, {Mullally}, {Troeltzsch}, {Aigrain}, {Bryson}, {Caldwell},
+  {Chaplin}, {Cochran}, {Huber}, {Marcy}, {Miglio}, {Najita}, {Smith},
+  {Twicken}, \& {Fortney}}]{Howell14}
+{Howell}, S.~B., {Sobeck}, C., {Haas}, M., {et~al.} 2014, \pasp, 126, 398
+
+\bibitem[{Hunter(2007)}]{Hunter07}
+Hunter, J.~D. 2007, Computing In Science \& Engineering, 9, 90
+
+\bibitem[{Jones {et~al.}(2001--)Jones, Oliphant, Peterson, {et~al.}}]{Jones01}
+Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
+  scientific tools for {Python}, , , [Online; accessed <today>].
+\newblock \url{http://www.scipy.org/}
+
+\bibitem[{{Masci} {et~al.}(2019){Masci}, {Laher}, {Rusholme}, {Shupe}, {Groom},
+  {Surace}, {Jackson}, {Monkewitz}, {Beck}, {Flynn}, {Terek}, {Landry},
+  {Hacopians}, {Desai}, {Howell}, {Brooke}, {Imel}, {Wachter}, {Ye}, {Lin},
+  {Cenko}, {Cunningham}, {Rebbapragada}, {Bue}, {Miller}, {Mahabal}, {Bellm},
+  {Patterson}, {Juri{\'c}}, {Golkhou}, {Ofek}, {Walters}, {Graham}, {Kasliwal},
+  {Dekany}, {Kupfer}, {Burdge}, {Cannella}, {Barlow}, {Van Sistine}, {Giomi},
+  {Fremling}, {Blagorodnova}, {Levitan}, {Riddle}, {Smith}, {Helou}, {Prince},
+  \& {Kulkarni}}]{Masci19}
+{Masci}, F.~J., {Laher}, R.~R., {Rusholme}, B., {et~al.} 2019, \pasp, 131,
+  018003
+
+\bibitem[{McKinney(2010)}]{McKinney10}
+McKinney, W. 2010, in Proceedings of the 9th Python in Science Conference, ed.
+  S.~van~der Walt \& J.~Millman, 51 -- 56
+
+\bibitem[{{Miller} {et~al.}(2018){Miller}, {Cao}, {Piro}, {Blagorodnova},
+  {Bue}, {Cenko}, {Dhawan}, {Ferretti}, {Fox}, {Fremling}, {Goobar}, {Howell},
+  {Hosseinzadeh}, {Kasliwal}, {Laher}, {Lunnan}, {Masci}, {McCully}, {Nugent},
+  {Sollerman}, {Taddia}, \& {Kulkarni}}]{Miller18}
+{Miller}, A.~A., {Cao}, Y., {Piro}, A.~L., {et~al.} 2018, \apj, 852, 100
+
+\bibitem[{{Olling} {et~al.}(2015){Olling}, {Mushotzky}, {Shaya}, {Rest},
+  {Garnavich}, {Tucker}, {Kasen}, {Margheim}, \& {Filippenko}}]{Olling15}
+{Olling}, R.~P., {Mushotzky}, R., {Shaya}, E.~J., {et~al.} 2015, \nat, 521, 332
+
+\bibitem[{{Piro} \& {Nakar}(2013)}]{Piro13}
+{Piro}, A.~L., \& {Nakar}, E. 2013, \apj, 769, 67
+
+\bibitem[{{Piro} \& {Nakar}(2014)}]{Piro14}
+---. 2014, \apj, 784, 85
+
+\bibitem[{{Ricker} {et~al.}(2015){Ricker}, {Winn}, {Vanderspek}, {Latham},
+  {Bakos}, {Bean}, {Berta-Thompson}, {Brown}, {Buchhave}, {Butler}, {Butler},
+  {Chaplin}, {Charbonneau}, {Christensen-Dalsgaard}, {Clampin}, {Deming},
+  {Doty}, {De Lee}, {Dressing}, {Dunham}, {Endl}, {Fressin}, {Ge}, {Henning},
+  {Holman}, {Howard}, {Ida}, {Jenkins}, {Jernigan}, {Johnson}, {Kaltenegger},
+  {Kawai}, {Kjeldsen}, {Laughlin}, {Levine}, {Lin}, {Lissauer}, {MacQueen},
+  {Marcy}, {McCullough}, {Morton}, {Narita}, {Paegert}, {Palle}, {Pepe},
+  {Pepper}, {Quirrenbach}, {Rinehart}, {Sasselov}, {Sato}, {Seager},
+  {Sozzetti}, {Stassun}, {Sullivan}, {Szentgyorgyi}, {Torres}, {Udry}, \&
+  {Villasenor}}]{Ricker15}
+{Ricker}, G.~R., {Winn}, J.~N., {Vanderspek}, R., {et~al.} 2015, Journal of
+  Astronomical Telescopes, Instruments, and Systems, 1, 014003
+
+\bibitem[{{Riess} {et~al.}(1999){Riess}, {Filippenko}, {Li}, {Treffers},
+  {Schmidt}, {Qiu}, {Hu}, {Armstrong}, {Faranda}, {Thouvenot}, \&
+  {Buil}}]{Riess99a}
+{Riess}, A.~G., {Filippenko}, A.~V., {Li}, W., {et~al.} 1999, \aj, 118, 2675
+
+\bibitem[{{Shappee} {et~al.}(2016){Shappee}, {Piro}, {Holoien}, {Prieto},
+  {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper}, {Basu},
+  {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong}, {Falco},
+  {Grupe}, {Hsiao}, {Kiyota}, {Morrell}, {Nicolas}, {Phillips}, {Pojmanski},
+  {Simonian}, {Stritzinger}, {Szczygie{\l}}, {Taddia}, {Thompson},
+  {Thorstensen}, {Wagner}, \& {Wo{\'z}niak}}]{Shappee16}
+{Shappee}, B.~J., {Piro}, A.~L., {Holoien}, T.~W.-S., {et~al.} 2016, \apj, 826,
+  144
+
+\bibitem[{{Zackay} {et~al.}(2016){Zackay}, {Ofek}, \& {Gal-Yam}}]{Zackay16}
+{Zackay}, B., {Ofek}, E.~O., \& {Gal-Yam}, A. 2016, \apj, 830, 27
+
+\bibitem[{{Zheng} {et~al.}(2013){Zheng}, {Silverman}, {Filippenko}, {Kasen},
+  {Nugent}, {Graham}, {Wang}, {Valenti}, {Ciabattari}, {Kelly}, {Fox},
+  {Shivvers}, {Clubb}, {Cenko}, {Balam}, {Howell}, {Hsiao}, {Li}, {Marion},
+  {Sand}, {Vinko}, {Wheeler}, \& {Zhang}}]{Zheng13}
+{Zheng}, W., {Silverman}, J.~M., {Filippenko}, A.~V., {et~al.} 2013, \apjl,
+  778, L15
+
+\bibitem[{{Zheng} {et~al.}(2014){Zheng}, {Shivvers}, {Filippenko}, {Itagaki},
+  {Clubb}, {Fox}, {Graham}, {Kelly}, \& {Mauerhan}}]{Zheng14}
+{Zheng}, W., {Shivvers}, I., {Filippenko}, A.~V., {et~al.} 2014, \apjl, 783,
+  L24
+
+\end{thebibliography}
