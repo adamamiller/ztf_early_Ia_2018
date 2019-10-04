@@ -386,7 +386,7 @@ where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$ is th
 Ultimately, we only care about 3 model parameters: \tfl, and the power-law
 index describing the rise in the \gztf\ and \rztf\ filters, hereafter
 $\alpha_g$ and $\alpha_r$, respectively. Following Bayes' Law, we multiply
-the likelihood by a prior and use an affine-invariant, ensemble Markov Chain
+the likelihood by a prior and use an affine-invariant, ensemble Markov chain
 Monte Carlo (MCMC) technique \citep{Goodman10} to approximate the model
 posterior. We adopt wide and flat priors on each of the model parameters (see
 Table~\ref{tab:priors}), and perform the MCMC integration using
@@ -414,7 +414,14 @@ high-precision light curves from the space-based \textit{Kepler} K2
 \citep{Howell14} and the Trasiting Exoplanet Survey Satellite (\textit{TESS};
 \citealt{Ricker15}) missions (e.g., \citealt{Olling15,Fausnaugh19}). As in
 \citet{Olling15}, we only include observations up to 40\% of the peak
-amplitude of the SN.\footnote{We do this separately in the \gztf\ and \rztf\ filters. In practice, if a single night of observation includes any observations with $f \le 0.4 f_\mathrm{max}$ we keep all the observations from that night.} This choice, 40\% instead of 30\% or 50\%, does affect the final inference that is made for individual SNe as discussed in further detail in \S\ref{sec:systematics}.
+amplitude of the SN.\footnote{We do this separately in the \gztf\ and \rztf\
+filters. In practice, if a single night of observation includes any
+observations with $f \le 0.4 f_\mathrm{max}$ we keep all the observations
+from that night.} This choice, 40\% instead of 30\% or 50\%, does affect the
+final inference that is made for individual SNe as discussed in further
+detail in \S\ref{sec:systematics}.
+
+Of the 127 SNe Ia in our sample, we find that the MCMC chains do not converge for 15 SNe, as summarized in Table~\ref{tab:no_results}. Most of these SNe feature gaps in coverage during the critical portion of the photometric evolution: when the SN is increasing in brightness from 0 to 40\% of the peak flux. For the remaining 112 SNe the MCMC chains converge, thereby providing constraints on \tfl, $\alpha_g$, and $\alpha_r$. 
 
 \section{Systematics\label{sec:systematics}}
 
