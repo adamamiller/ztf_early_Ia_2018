@@ -421,7 +421,66 @@ from that night.} This choice, 40\% instead of 30\% or 50\%, does affect the
 final inference that is made for individual SNe as discussed in further
 detail in \S\ref{sec:systematics}.
 
-Of the 127 SNe Ia in our sample, we find that the MCMC chains do not converge for 15 SNe, as summarized in Table~\ref{tab:no_results}. Most of these SNe feature gaps in coverage during the critical portion of the photometric evolution: when the SN is increasing in brightness from 0 to 40\% of the peak flux. For the remaining 112 SNe the MCMC chains converge, thereby providing constraints on \tfl, $\alpha_g$, and $\alpha_r$. 
+Of the 127 SNe Ia in our sample, we find that the MCMC chains do not converge
+for 15 SNe, as summarized in Table~\ref{tab:no_results}. Most of these SNe
+feature gaps in coverage during the critical portion of the photometric
+evolution: when the SN is increasing in brightness from 0 to 40\% of the peak
+flux. For the remaining 112 SNe the MCMC chains converge, thereby providing
+constraints on \tfl, $\alpha_g$, and $\alpha_r$. We show example corner plots
+illustrating good, median, and poor fits of the model in
+Figures~\ref{fig:good_corner},~\ref{fig:median_corner},
+and~\ref{fig:bad_corner}, where we have defined good, median, and poor
+relative to the width of the 90\% credible region ($\mathrm{CR}_{90}$) for
+\tfl. Roughly, the good models have $\mathrm{CR}_{90} < 1$\,d, the median
+models have $\mathrm{CR}_{90} \approx 2$\,d, and the poor models have
+$\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is clear that there is
+a very strong covariance between $\alpha$ and $A$. Also, as might be
+expected, there is a positive correlation between $\alpha_g$ and $\alpha_r$,
+which makes sense given the relatively similar regions of the spectral energy
+distribution traced by these filters. Finally, \tfl\ exhibits significant
+covariance with each of the $\alpha$ and $A$ parameters. While we report marginalized confidence intervals on all the model parameters below, we note that the full posterior samples should be used for any downstream analysis given the strong covariance between the parameters.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18aasdted_corner.png}
+    %
+    \caption{Corner plot showing the posterior constraints on \tfl,
+    $\alpha_g$, $\alpha_r$, and the respective constants of proportionality,
+    $A_g$ and $A_r$ for ZTF18aasdted, a SN that is well-fit by the model. For
+    clarity the $C_d$ and $\beta_d$ terms are excluded (in general they do
+    not exhibit strong covariance with the parameters shown here as they are
+    tightly constrained by the pre-SN observations). Marginalized
+    one-dimentional distributions are shown along the diagonal, along with
+    the median estimate and the 68\% credible region (shown with vertical
+    dashed lines).}
+    %
+    \label{fig:good_corner}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18abukmty_corner.png}
+    %
+    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18abukmty, a typical
+    SN within our sample.}
+    %
+    \label{fig:median_corner}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18abkigee_corner.png}
+    %
+    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18abkigee, a SN with
+    poor constraints on the model parameters. The vast majority of SNe with
+    poor model constraints feature a multimodal posterior for \tfl, typically
+    due to a small gap in observations around the expected time of first
+    light. }
+    %
+    \label{fig:bad_corner}
+\end{figure}
+
+
 
 \section{Systematics\label{sec:systematics}}
 
