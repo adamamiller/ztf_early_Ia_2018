@@ -280,9 +280,22 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
             if title_fmt is not None:
                 # Compute the quantiles for the title. This might redo
                 # unneeded computation but who cares.
-                q_16, q_50, q_84 = quantile(x, [0.16, 0.5, 0.84],
-                                            weights=weights)
-                q_m, q_p = q_50-q_16, q_84-q_50
+                if len(quantiles) == 3:
+                    q_low, q_mid, q_high = quantile(x, [quantiles[0], 
+                                                        quantiles[1], 
+                                                        quantiles[2]],
+                                                    weights=weights)
+                    q_m, q_p = q_mid-q_low, q_high-q_mid
+                elif len(quantiles) == 2:
+                    q_low, q_50, q_high = quantile(x, [quantiles[0], 
+                                                       0.5, 
+                                                       quantiles[1]],
+                                                   weights=weights)
+                    q_m, q_p = q_50-q_low, q_high-q_50
+                else:
+                    q_16, q_50, q_84 = quantile(x, [0.16, 0.5, 0.84],
+                                                weights=weights)
+                    q_m, q_p = q_50-q_16, q_84-q_50
 
                 # Format the quantile display.
                 fmt = "{{0:{0}}}".format(title_fmt).format
