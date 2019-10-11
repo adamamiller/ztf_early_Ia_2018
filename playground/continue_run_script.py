@@ -26,15 +26,23 @@ if __name__== "__main__":
     if len(sys.argv) > 6:
         rel_flux_cutoff = float(sys.argv[6])  
 
-    lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
+    lc_hdf = data_path + "/{}_force_phot.h5".format(ztf_name)
     salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
 
     t0 = float(salt_df['t0_g_adopted'][salt_df['name'] == ztf_name].values)
     z = float(salt_df['z_adopt'][salt_df['name'] == ztf_name].values)
     g_max = float(salt_df['fratio_gmax_2adam'][salt_df['name'] == ztf_name].values)
     r_max = float(salt_df['fratio_rmax_2adam'][salt_df['name'] == ztf_name].values)
+    
+    
+    t_data, f_data, f_unc_data, fcqfid_data = prep_light_curve(lc_hdf,
+                                                               t_max=t0, 
+                                                               z=z,
+                                                               g_max=g_max,
+                                                               r_max=r_max,
+                                                               rel_flux_cutoff=rel_flux_cutoff)
                
-    continue_chains(lc_df, t0=t0, z=z,
+    continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
                     mcmc_h5_file=backend_filename, 
                     max_samples=nsteps, 
                     ncores=ncores,
