@@ -205,7 +205,8 @@ def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr):
         return -np.inf
     return lnl + lnp
 
-def fit_lc(f_data, t_data, f_unc_data, fcqfid_data, 
+def fit_lc(t_data, f_data, f_unc_data, fcqfid_data, 
+           t_fl=18,
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
            nwalkers=100,
@@ -310,14 +311,12 @@ def fit_lc(f_data, t_data, f_unc_data, fcqfid_data,
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                  ncores))
 
-def continue_chains(lc_df, t0=0, z=0,
+def continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
                     mcmc_h5_file="ZTF_SN.h5",
                     max_samples=int(2e6),
                     rel_flux_cutoff = 0.5,
                     ncores=None,
-                    thin_by=1,
-                    g_max=1,
-                    r_max=1):
+                    thin_by=1):
     '''Run MCMC for longer than initial fit'''
     t_mcmc_start = time.time()
     
@@ -326,34 +325,6 @@ def continue_chains(lc_df, t0=0, z=0,
     
     g_obs = np.where(lc_df['filter'] == b'g')
     r_obs = np.where(lc_df['filter'] == b'r')
-
-    time_rf = (lc_df['jdobs'].values - t0)/(1+z)
-    flux = lc_df['Fratio'].values
-    if g_max == 1:
-        g_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
-    if r_max == 1:
-        r_max = np.max(lc_df['Fratio'].iloc[r_obs].values)
-    flux[g_obs] = flux[g_obs]/g_max
-    flux[r_obs] = flux[r_obs]/r_max
-    flux_unc = lc_df['Fratio_unc'].values
-    flux_unc[g_obs] = flux_unc[g_obs]/g_max
-    flux_unc[r_obs] = flux_unc[r_obs]/r_max
-    fcqfid_arr = lc_df['fcqfid'].values
-
-    cutoff_g = np.where((time_rf[g_obs] < 0) & 
-                       (flux[g_obs] < rel_flux_cutoff))
-    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
-    early_g = np.where(time_rf[g_obs] < t_cut_g)
-    cutoff_r = np.where((time_rf[r_obs] < 0) & 
-                       (flux[r_obs] < rel_flux_cutoff))
-    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
-    early_r = np.where(time_rf[r_obs] < t_cut_r)
-    early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
-
-    f_data = flux[early_obs]*100
-    t_data = time_rf[early_obs]
-    f_unc_data = flux_unc[early_obs]*100
-    fcqfid_data = fcqfid_arr[early_obs]
 
     with Pool(ncores) as pool:
         # file to save samples
@@ -395,6 +366,67 @@ def continue_chains(lc_df, t0=0, z=0,
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                  ncores))
 
+
+def prep_light_curve(lc_hdf,
+                     t_max=0, 
+                     z=0,
+                     g_max=1,
+                     r_max=1,
+                     rel_flux_cutoff=0.4, flux_scale = 100):
+    
+    # light curve data
+    lc_df = pd.read_hdf(lc_hdf)
+    g_obs = np.where(lc_df['filter'] == b'g')
+    r_obs = np.where(lc_df['filter'] == b'r')
+    time_rf = (lc_df['jdobs'].values - t_max)/(1+z)        
+    baseline = np.where(time_rf < -20)
+    has_baseline = np.ones_like(time_rf).astype(bool)
+    fmcmc = lc_df['Fmcmc'].values
+    fmcmc_unc = lc_df['Fmcmc_unc'].values
+    zp = lc_df.zp.values
+    zp_unc = lc_df.ezp.values
+    
+    f_zp = np.zeros_like(fmcmc)
+    f_zp_unc = np.zeros_like(fmcmc)
+    zp_base = np.zeros_like(fmcmc)
+    
+    for fcqfid in np.unique(lc_df.fcqfid.values):
+        this_chip = np.where(lc_df.fcqfid.values == fcqfid)
+        this_baseline = np.intersect1d(baseline, this_chip)
+        
+        if len(this_baseline) >= 1:
+            zp_base[this_chip] = np.median(fmcmc[this_baseline]/10**(0.4*zp[this_baseline]))
+
+            f_zp[this_chip] = fmcmc[this_chip]/10**(0.4*zp[this_chip])
+            f_zp_unc[this_chip] = np.hypot(fmcmc_unc[this_chip]/10**(0.4*zp[this_chip]), 
+                                             np.log(10)/2.5*fmcmc[this_chip]*zp_unc[this_chip]/10**(0.4*zp[this_chip]))
+        else:
+            has_baseline[this_chip] = 0
+            print(sn, fcqfid, np.unique(lc_df.fcqfid.values))
+            
+
+    f_zp[g_obs] = f_zp[g_obs]/g_max
+    f_zp[r_obs] = f_zp[r_obs]/r_max
+    f_zp_unc[g_obs] = f_zp_unc[g_obs]/g_max
+    f_zp_unc[r_obs] = f_zp_unc[r_obs]/r_max
+    
+    cutoff_g = np.where((time_rf[g_obs] < -5) & 
+                       (f_zp[g_obs]-zp_base[g_obs]/g_max < rel_flux_cutoff))
+    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
+    early_g = np.where(time_rf[g_obs] < t_cut_g)
+    cutoff_r = np.where((time_rf[r_obs] < -5) & 
+                       (f_zp[r_obs]-zp_base[r_obs]/r_max < rel_flux_cutoff))
+    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
+    early_r = np.where(time_rf[r_obs] < t_cut_r)
+    early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
+
+    return_obs = np.intersect1d(np.where(has_baseline > 0), early_obs)
+    not_included = np.setdiff1d(range(len(f_zp)), return_obs)
+    
+
+    return time_rf[return_obs], f_zp[return_obs]*flux_scale, f_zp_unc[return_obs]*flux_scale, lc_df.fcqfid.values[return_obs]
+
+
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     ncores = 27
@@ -418,7 +450,7 @@ if __name__== "__main__":
     if len(sys.argv) > 7:
         use_emcee_backend = False  
 
-    lc_df = pd.read_hdf(data_path + "/{}_force_phot.h5".format(ztf_name))
+    lc_hdf = data_path + "/{}_force_phot.h5".format(ztf_name)
     salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
 
     t0 = float(salt_df['t0_g_adopted'][salt_df['name'] == ztf_name].values)
@@ -426,8 +458,15 @@ if __name__== "__main__":
     g_max = float(salt_df['fratio_gmax_2adam'][salt_df['name'] == ztf_name].values)
     r_max = float(salt_df['fratio_rmax_2adam'][salt_df['name'] == ztf_name].values)
     
-    fit_lc(lc_df, 
-           t0=t0, z=z, 
+    
+    t_data, f_data, f_unc_data, fcqfid_data = prep_light_curve(lc_hdf,
+                                                               t_max=t0, 
+                                                               z=z,
+                                                               g_max=g_max,
+                                                               r_max=r_max,
+                                                               rel_flux_cutoff=rel_flux_cutoff)
+    
+    fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
            mcmc_h5_file=backend_filename, 
            max_samples=nsteps, 
            ncores=ncores,
