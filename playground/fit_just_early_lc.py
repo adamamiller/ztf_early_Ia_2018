@@ -205,7 +205,7 @@ def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr):
         return -np.inf
     return lnl + lnp
 
-def fit_lc(lc_df, t0=0, z=0, t_fl=18, 
+def fit_lc(f_data, t_data, f_unc_data, fcqfid_data, 
            mcmc_h5_file="ZTF_SN.h5",
            max_samples=int(2e6),
            nwalkers=100,
@@ -213,45 +213,12 @@ def fit_lc(lc_df, t0=0, z=0, t_fl=18,
            ncores=None,
            emcee_burnin=True,
            use_emcee_backend=True,
-           thin_by=1,
-           g_max=1,
-           r_max=1):
+           thin_by=1):
     '''Perform an MCMC fit to the light curve'''
     t_mcmc_start = time.time()
     
     if ncores == None:
         ncores = cpu_count() - 1
-    
-    g_obs = np.where(lc_df['filter'] == b'g')
-    r_obs = np.where(lc_df['filter'] == b'r')
-
-    time_rf = (lc_df['jdobs'].values - t0)/(1+z)
-    flux = lc_df['Fratio'].values
-    if g_max == 1:
-        g_max = np.max(lc_df['Fratio'].iloc[g_obs].values)
-    if r_max == 1:
-        r_max = np.max(lc_df['Fratio'].iloc[r_obs].values)
-    flux[g_obs] = flux[g_obs]/g_max
-    flux[r_obs] = flux[r_obs]/r_max
-    flux_unc = lc_df['Fratio_unc'].values
-    flux_unc[g_obs] = flux_unc[g_obs]/g_max
-    flux_unc[r_obs] = flux_unc[r_obs]/r_max
-    fcqfid_arr = lc_df['fcqfid'].values
-
-    cutoff_g = np.where((time_rf[g_obs] < 0) & 
-                       (flux[g_obs] < rel_flux_cutoff))
-    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
-    early_g = np.where(time_rf[g_obs] < t_cut_g)
-    cutoff_r = np.where((time_rf[r_obs] < 0) & 
-                       (flux[r_obs] < rel_flux_cutoff))
-    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
-    early_r = np.where(time_rf[r_obs] < t_cut_r)
-    early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
-
-    f_data = flux[early_obs]*100
-    t_data = time_rf[early_obs]
-    f_unc_data = flux_unc[early_obs]*100
-    fcqfid_data = fcqfid_arr[early_obs]
     
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
     guess_0 = np.append([-t_fl] + [6e-1, 2]*n_filt,
