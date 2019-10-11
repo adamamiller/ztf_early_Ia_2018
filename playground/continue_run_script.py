@@ -47,6 +47,5 @@ if __name__== "__main__":
                     max_samples=nsteps, 
                     ncores=ncores,
                     thin_by=thin_by,
-                    rel_flux_cutoff=rel_flux_cutoff,
-                    g_max=g_max,
-                    r_max=r_max)
+                    rel_flux_cutoff=rel_flux_cutoff
+                    )

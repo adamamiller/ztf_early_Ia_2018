@@ -472,6 +472,5 @@ if __name__== "__main__":
            ncores=ncores,
            use_emcee_backend=use_emcee_backend,
            thin_by=thin_by,
-           rel_flux_cutoff=rel_flux_cutoff,
-           g_max=g_max,
-           r_max=r_max)
+           rel_flux_cutoff=rel_flux_cutoff
+           )
