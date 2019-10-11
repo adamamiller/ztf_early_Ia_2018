@@ -221,7 +221,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
     if ncores == None:
         ncores = cpu_count() - 1
     
-    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+    n_filt = len(np.unique(np.unique(fcqfid_data) % 10))
     guess_0 = np.append([-t_fl] + [6e-1, 2]*n_filt,
                         [1,1]*len(np.unique(fcqfid_data)))
     
@@ -323,9 +323,6 @@ def continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
     if ncores == None:
         ncores = cpu_count() - 1
     
-    g_obs = np.where(lc_df['filter'] == b'g')
-    r_obs = np.where(lc_df['filter'] == b'r')
-
     with Pool(ncores) as pool:
         # file to save samples
         filename = mcmc_h5_file
