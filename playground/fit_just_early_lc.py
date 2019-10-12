@@ -398,9 +398,7 @@ def prep_light_curve(lc_hdf,
             f_zp_unc[this_chip] = np.hypot(fmcmc_unc[this_chip]/10**(0.4*zp[this_chip]), 
                                              np.log(10)/2.5*fmcmc[this_chip]*zp_unc[this_chip]/10**(0.4*zp[this_chip]))
         else:
-            has_baseline[this_chip] = 0
-            print(sn, fcqfid, np.unique(lc_df.fcqfid.values))
-            
+            has_baseline[this_chip] = 0            
 
     f_zp[g_obs] = f_zp[g_obs]/g_max
     f_zp[r_obs] = f_zp[r_obs]/r_max
