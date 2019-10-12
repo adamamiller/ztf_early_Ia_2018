@@ -4,7 +4,7 @@ import emcee
 from multiprocessing import Pool, cpu_count
 import time
 import sys
-from fit_just_early_lc import continue_chains
+from fit_just_early_lc import continue_chains, prep_light_curve
 
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
