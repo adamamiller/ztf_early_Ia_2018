@@ -38,8 +38,8 @@ def plot_both_filt(theta,
     axPlot = plt.axes([0.15, 0.37, 0.82, 0.60])
     axRes = plt.axes([0.15, 0.11, 0.82, 0.25], sharex=axPlot)
     
-    n_fcqid = len(np.unique(fcqfid_arr))
-    n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
+    n_fcqid = len(np.unique(fcqfid_arr[obs_for_model]))
+    n_filt = len(np.unique(np.unique(fcqfid_arr[obs_for_model]) % 10))
 
     if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
         raise RuntimeError('The correct number of parameters were not included')
