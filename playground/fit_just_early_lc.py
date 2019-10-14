@@ -363,13 +363,14 @@ def continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
     print("All in = {:.2f} s on {} cores".format(t_mcmc_end - t_mcmc_start, 
                                                  ncores))
 
-
 def prep_light_curve(lc_hdf,
                      t_max=0, 
                      z=0,
                      g_max=1,
                      r_max=1,
-                     rel_flux_cutoff=0.4, flux_scale = 100):
+                     rel_flux_cutoff=0.4, 
+                     flux_scale = 100,
+                     return_masked=False):
     
     # light curve data
     lc_df = pd.read_hdf(lc_hdf)
@@ -398,7 +399,9 @@ def prep_light_curve(lc_hdf,
             f_zp_unc[this_chip] = np.hypot(fmcmc_unc[this_chip]/10**(0.4*zp[this_chip]), 
                                              np.log(10)/2.5*fmcmc[this_chip]*zp_unc[this_chip]/10**(0.4*zp[this_chip]))
         else:
-            has_baseline[this_chip] = 0            
+            has_baseline[this_chip] = 0
+            print(sn, fcqfid, np.unique(lc_df.fcqfid.values))
+            
 
     f_zp[g_obs] = f_zp[g_obs]/g_max
     f_zp[r_obs] = f_zp[r_obs]/r_max
@@ -416,10 +419,12 @@ def prep_light_curve(lc_hdf,
     early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
     return_obs = np.intersect1d(np.where(has_baseline > 0), early_obs)
-    not_included = np.setdiff1d(range(len(f_zp)), return_obs)
-    
+    not_included = np.setdiff1d(range(len(f_zp)), return_obs)    
 
-    return time_rf[return_obs], f_zp[return_obs]*flux_scale, f_zp_unc[return_obs]*flux_scale, lc_df.fcqfid.values[return_obs]
+    if not return_masked:
+        return time_rf[return_obs], f_zp[return_obs]*flux_scale, f_zp_unc[return_obs]*flux_scale, lc_df.fcqfid.values[return_obs]
+    else:
+        return time_rf, f_zp*flux_scale, f_zp_unc*flux_scale, lc_df.fcqfid.values, return_obs
 
 
 if __name__== "__main__":
