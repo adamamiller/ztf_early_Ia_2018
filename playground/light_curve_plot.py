@@ -40,16 +40,16 @@ def plot_both_filt(theta,
     
     n_fcqid = len(np.unique(fcqfid_arr[obs_for_model]))
     n_filt = len(np.unique(np.unique(fcqfid_arr[obs_for_model]) % 10))
-
+    
     if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
         raise RuntimeError('The correct number of parameters were not included')
 
-    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+    for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr[obs_for_model])):
         filt_int = int(fcqfid % 10)
-        filt = filt_dict[filt_int]
         theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + 2*fcqfid_num], 
                                  theta[2*filt_int-1], theta[2*filt_int],
                                  theta[2 + 2*n_filt + 2*fcqfid_num]])
+        filt = filt_dict[filt_int]
 
         fcqfid_obs = np.where(fcqfid_arr == fcqfid)
         f_fcqfid = f[fcqfid_obs]
@@ -79,7 +79,7 @@ def plot_both_filt(theta,
         res_range = np.where((t > -30) & (t < np.max(t[fit_data]) ))
         plot_points = np.intersect1d(plot_range, fcqfid_obs)
         res_points = np.intersect1d(res_range, fcqfid_obs)
-        
+
         if len(plot_points) > 0:
             plot_min = np.min([min(f[plot_points] - theta_fcqfid[1] + offset_dict[filt]), plot_min])
         axPlot.set_ylim(plot_min-5, 110)
@@ -89,16 +89,6 @@ def plot_both_filt(theta,
         residuals = np.append(f[~after_exp] - theta_fcqfid[1], 
                               f[after_exp] - (theta_fcqfid[1] + f_t(t[after_exp], theta_fcqfid[2], theta_fcqfid[0], theta_fcqfid[3]))  
                              )
-        # plot residuals
-#         axRes.errorbar(t_fcqfid[half_max], residuals[half_max] + offset_dict[filt], f_err_fcqfid[half_max],
-#                        fmt = sym_dict[filt], color=mark_color_dict[filt], ecolor=color_dict[filt],
-#                        mec=mec_dict[filt], mew=mew_dict[filt])
-#         axRes.errorbar(t_fcqfid[~half_max], residuals[~half_max] + offset_dict[filt], f_err_fcqfid[~half_max],
-#                        fmt = sym_dict[filt], color=mark_color_dict[filt], ecolor=color_dict[filt],
-#                        mec=mec_dict[filt], mew=mew_dict[filt], alpha=0.2)
-#         axRes.plot([-5000,10000], [offset_dict[filt], offset_dict[filt]], '-', color=color_dict[filt])
-#         axRes.set_ylim(min(residuals[half_max]) - 0.1, max(residuals[half_max]) + 0.1)
-
         #plot pull
         axRes.plot(t[fit_data], residuals[fit_data]/(f_unc[fit_data]*theta_fcqfid[4]),
                        sym_dict[filt], color=mark_color_dict[filt], 
@@ -141,13 +131,12 @@ def plot_both_filt(theta,
     
     for samp_num in samp_nums:
         theta_samp = samples[samp_num]
-        for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
+        for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr[obs_for_model])):
             filt_int = int(fcqfid % 10)
             filt = filt_dict[filt_int]
             theta_fcqfid = np.array([theta_samp[0], theta_samp[1 + 2*n_filt + 2*fcqfid_num], 
                                      theta_samp[2*filt_int-1], theta_samp[2*filt_int],
                                      theta_samp[2 + 2*n_filt + 2*fcqfid_num]])
-
         
             t_post = np.linspace(theta_fcqfid[0], 80, 1000)
             t_pre = np.linspace(-80, theta_fcqfid[0], 1000)
