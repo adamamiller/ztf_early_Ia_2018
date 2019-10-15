@@ -124,7 +124,7 @@ def lnlike_big_unc(theta, f, t, f_err):
     model[pre_exp] = a
     
     time_term = (t[~pre_exp] - t_0)
-    model[~pre_exp] = a + a_prime * (time_term)**alpha_r
+    model[~pre_exp] = a + a_prime * (time_term)**alpha_r * 10.**(-alpha_r)
     assert np.all(model > -np.inf),"fewer model values than flux values\n{}\n{}\na{}A'{}alpha{}f_sigma{}".format(model, time_term,a,a_prime,alpha_r,f_sigma)
     
     ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(np.sqrt(2*np.pi))
@@ -136,12 +136,17 @@ def nll_big_unc(theta, flux, time, flux_err):
 #Define priors on parameters  
 def lnprior_big_unc(theta):
     t_0, a, a_prime, alpha_r, f_sigma = theta
-    if (-100 < t_0 < 0 and 0 < alpha_r < 1e8 and 
-        -1e8 < a < 1e8 and 
-        0 < a_prime < 1e8 and
-        0 < f_sigma < 1e8):
-        return 0.0
-    return -np.inf
+    if (a_prime < 0 or 
+        f_sigma < 0 or 
+        t_0 < -100 or
+        t_0 > 0 or 
+        alpha_r < 0 or
+        alpha_r > 1e8 or
+        a < -1e8 or
+        a > 1e8):
+        return -np.inf
+    else:
+        return -np.log(a_prime) - np.log(f_sigma) - alpha_r*np.log(10)
 
 def lnposterior_big_unc(theta, flux, time, flux_err):
     lnp = lnprior_big_unc(theta)
@@ -222,7 +227,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         ncores = cpu_count() - 1
     
     n_filt = len(np.unique(np.unique(fcqfid_data) % 10))
-    guess_0 = np.append([-t_fl] + [6e-1, 2]*n_filt,
+    guess_0 = np.append([-t_fl] + [6e1, 2]*n_filt,
                         [1,1]*len(np.unique(fcqfid_data)))
     
     ml_res = minimize(multifcqfid_nll_big_unc, guess_0, method='Powell', # Powell method does not need derivatives
@@ -274,8 +279,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         for sample in sampler.sample(pos, 
                                      iterations=max_samples, 
                                      thin_by=thin_by, progress=False):
-            if ((sampler.iteration <= int(1e3/thin_by)) and 
-                 sampler.iteration % int(250/thin_by)):
+            if ((sampler.iteration <= int(1e3/thin_by)):
                 continue
             elif ((int(1e3/thin_by) < sampler.iteration <= int(1e4/thin_by)) 
                   and sampler.iteration % int(1e3/thin_by)):
