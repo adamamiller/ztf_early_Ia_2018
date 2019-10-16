@@ -59,7 +59,10 @@ def plot_both_filt(theta,
         
         t_post = np.linspace(theta[0], 80, 1000)
         t_pre = np.linspace(min(t_fcqfid), theta[0], 1000)
-        model_flux = f_t(t_post, theta_fcqfid[2], theta_fcqfid[0], theta_fcqfid[3]) # remove baseline from model
+        model_flux = f_t(t_post, 
+                         theta_fcqfid[2]*10**(-theta_fcqfid[3]),
+                         theta_fcqfid[0], 
+                         theta_fcqfid[3]) # remove baseline from model
         
         fit_data = np.intersect1d(obs_for_model, fcqfid_obs)
         no_fit = np.setdiff1d(fcqfid_obs, fit_data)
@@ -140,7 +143,10 @@ def plot_both_filt(theta,
         
             t_post = np.linspace(theta_fcqfid[0], 80, 1000)
             t_pre = np.linspace(-80, theta_fcqfid[0], 1000)
-            model_flux =  f_t(t_post, theta_fcqfid[2], theta_fcqfid[0], theta_fcqfid[3])
+            model_flux =  f_t(t_post, 
+                              theta_fcqfid[2]*10**(-theta_fcqfid[3]), 
+                              theta_fcqfid[0], 
+                              theta_fcqfid[3])            
             axPlot.plot(t_post, model_flux + offset_dict[filt], '--', 
                         color=color_dict[filt], zorder=10,
                         alpha=0.4)
