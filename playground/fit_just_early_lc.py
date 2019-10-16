@@ -279,7 +279,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         for sample in sampler.sample(pos, 
                                      iterations=max_samples, 
                                      thin_by=thin_by, progress=False):
-            if ((sampler.iteration <= int(1e3/thin_by)):
+            if sampler.iteration <= int(1e3/thin_by):
                 continue
             elif ((int(1e3/thin_by) < sampler.iteration <= int(1e4/thin_by)) 
                   and sampler.iteration % int(1e3/thin_by)):
