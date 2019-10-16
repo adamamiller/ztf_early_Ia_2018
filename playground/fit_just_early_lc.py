@@ -239,7 +239,10 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
 
     #initial position of walkers
     rand_pos = [1 + nfac*np.random.randn(ndim) for i in range(nwalkers)]
-    pos = ml_guess*rand_pos
+    if ml_guess[0] < -5:
+        pos = ml_guess*rand_pos
+    else:
+        pos = guess_0*rand_pos
 
     with Pool(ncores) as pool:
         if emcee_burnin:
