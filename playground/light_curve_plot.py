@@ -90,7 +90,10 @@ def plot_both_filt(theta,
         after_exp = t >= theta_fcqfid[0]
 
         residuals = np.append(f[~after_exp] - theta_fcqfid[1], 
-                              f[after_exp] - (theta_fcqfid[1] + f_t(t[after_exp], theta_fcqfid[2], theta_fcqfid[0], theta_fcqfid[3]))  
+                              f[after_exp] - (theta_fcqfid[1] + f_t(t[after_exp], 
+                                                                    theta_fcqfid[2]*10**(-theta_fcqfid[3]),
+                                                                    theta_fcqfid[0], 
+                                                                    theta_fcqfid[3]))  
                              )
         #plot pull
         axRes.plot(t[fit_data], residuals[fit_data]/(f_unc[fit_data]*theta_fcqfid[4]),
