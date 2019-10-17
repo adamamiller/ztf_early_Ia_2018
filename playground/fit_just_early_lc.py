@@ -381,8 +381,6 @@ def prep_light_curve(lc_hdf,
     
     # light curve data
     lc_df = pd.read_hdf(lc_hdf)
-    g_obs = np.where(lc_df['filter'] == b'g')
-    r_obs = np.where(lc_df['filter'] == b'r')
     time_rf = (lc_df['jdobs'].values - t_max)/(1+z)        
     baseline = np.where(time_rf < -20)
     has_baseline = np.ones_like(time_rf).astype(bool)
@@ -408,18 +406,52 @@ def prep_light_curve(lc_hdf,
         else:
             has_baseline[this_chip] = 0
             
+    g_obs = np.where((lc_df['filter'] == b'g') & (has_baseline))
+    r_obs = np.where((lc_df['filter'] == b'r') & (has_baseline))
+
     f_zp[g_obs] = f_zp[g_obs]/g_max
     f_zp[r_obs] = f_zp[r_obs]/r_max
     f_zp_unc[g_obs] = f_zp_unc[g_obs]/g_max
     f_zp_unc[r_obs] = f_zp_unc[r_obs]/r_max
     
-    cutoff_g = np.where((time_rf[g_obs] < -5) & 
-                       (f_zp[g_obs]-zp_base[g_obs]/g_max < rel_flux_cutoff))
-    t_cut_g = time_rf[g_obs][cutoff_g[0][-1]] + 0.5
+    new_night = np.append(np.where(np.diff(lc_df['jdobs'].values[has_baseline]) >= 0.6), 
+                          len(lc_df['jdobs'].values[has_baseline])-1)
+
+    mean_rf = np.zeros_like(new_night).astype(float)
+    mean_g = np.zeros_like(new_night).astype(float)
+    mean_r = np.zeros_like(new_night).astype(float)
+
+    for nnumber, nidx in enumerate(new_night + 1):
+        if nnumber == 0:
+            start_idx = 0
+        else:
+            start_idx = new_night[nnumber-1] + 1
+        end_idx = nidx
+
+
+        jd_tonight = lc_df['jdobs'].values[has_baseline][start_idx:end_idx]
+        fcqfid_tonight = lc_df.fcqfid.values[has_baseline][start_idx:end_idx]
+        f_zp_tonight = f_zp[start_idx:end_idx]
+        f_zp_unc_tonight = f_zp_unc[start_idx:end_idx]
+        zp_base_tonight = zp_base[start_idx:end_idx]
+
+        g_tonight = np.array(fcqfid_tonight % 2).astype(bool)
+
+        mean_rf[nnumber] = np.mean((jd_tonight - t_max)/(1+z))
+        if sum(g_tonight) > 0:
+            mean_g[nnumber] = np.average(f_zp_tonight[g_tonight] - zp_base_tonight[g_tonight]/g_max, 
+                                         weights=f_zp_unc_tonight[g_tonight]**(-2))
+        if sum(g_tonight)/len(g_tonight) < 1:
+            mean_r[nnumber] = np.average(f_zp_tonight[~g_tonight] - zp_base_tonight[~g_tonight]/g_max, 
+                                         weights=f_zp_unc_tonight[~g_tonight]**(-2))
+
+    cutoff_g = np.where((mean_rf < 0) & (mean_g > 0) & 
+                       (mean_g < rel_flux_cutoff))
+    t_cut_g = mean_rf[cutoff_g[0][-1]] + 0.5
     early_g = np.where(time_rf[g_obs] < t_cut_g)
-    cutoff_r = np.where((time_rf[r_obs] < -5) & 
-                       (f_zp[r_obs]-zp_base[r_obs]/r_max < rel_flux_cutoff))
-    t_cut_r = time_rf[r_obs][cutoff_r[0][-1]] + 0.5
+    cutoff_r = np.where((mean_rf < 0) & (mean_r > 0) & 
+                       (mean_r < rel_flux_cutoff))
+    t_cut_r = mean_rf[cutoff_r[0][-1]] + 0.5
     early_r = np.where(time_rf[r_obs] < t_cut_r)
     early_obs = np.append(g_obs[0][early_g], r_obs[0][early_r])
 
