@@ -1,15 +1,17 @@
-\begin{deluxetable*}{llc}[htp]
-\tablecaption{Sample Selection Steps\label{tab:selection}}
+\begin{deluxetable}{llc}[htp]
+\tablecaption{Model Parameters $\theta$ and Their Priors \label{tab:priors}}
 \tablehead{
-\colhead{Parameter}
+\colhead{$\theta$}
 & \colhead{Description}
 &\colhead{Prior}
 } 
 \startdata
-$C_d$ & baseline flux per fcqfID & $\mathcal{U}(-10^8,10^8)$ \\
+$C_d$ & baseline flux per fcqfID $d$ & $\mathcal{U}(-10^8,10^8)$ \\
 $t_\mathrm{fl}$ & time of first light & $\mathcal{U}(-100,0)$ \\
-$A^\prime_{b\bar d}$ & proportionality factor & $A^\prime_{b\bar d}^{-1} 10^{-\alpha_{b\bar d}}$ \\
-$\alpha_{b\bar d}$ & rising power-law index & $\mathcal{U}(0,10^8)$ \\
-$\beta_{b\bar d}$ & uncertainty scale factor per fcqfID & $\beta_{b\bar d}^{-1}$ \\
+$A^\prime_{b\mid d}$ & proportionality factor per filter $b$ & $A^\prime_{b\mid d}^{-1} 10^{-\alpha_{b\mid d}}$ \\
+$\alpha_{b\mid d}$ & rising power-law index per filter $b$ & $\mathcal{U}(0,10^8)$ \\
+$\beta_{d}$ & uncertainty scale factor per fcqfID $d$ & $\beta_{d}^{-1}$ \\
 \enddata
-\end{deluxetable*}
+\tablecomments{The factor of $10^{-\alpha_{b\mid d}}$ in the prior for $A^\prime_{b\mid d}$ follows from the change of variables.
+}
+\end{deluxetable}
