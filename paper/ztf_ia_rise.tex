@@ -348,8 +348,7 @@ optical filters $f \propto t^2$ to within the uncertainties (e.g.,
 recent studies of individual, low-redshift SNe Ia show strong evidence that a
 power-law model for the SN flux only reproduces the data if the power-law
 index, $\alpha$, is significantly lower than 2 (e.g.,
-\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}). For this study, we
-will characterize the early emission in a single filter from a SN Ia as a
+\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}). For this study, we characterize the early emission in a single filter from a SN Ia as a
 power law:
 %
 \begin{equation}
@@ -359,11 +358,11 @@ power law:
 %
 where $f_b(t)$ is the flux in filter $b$ as a function of time $t$, $C$ is a
 constant representing the baseline flux present in the reference image prior
-to the SN, $t_\mathrm{fl}$ is the time of first light (i.e., not the time of
+to the SN, $t_\mathrm{fl}$ is the time of first light,\footnote{$t_\mathrm{fl}$ is not the time of
 explosion, but rather the time when optical emission begins for the SN, as
 the observed emission due to radioactive decay in the interior of the SN
 ejecta must first diffuse through the photosphere, see e.g.,
-\citealt{Piro13,Piro14}), $H[t_\mathrm{fl}]$ is the heavyside function equal
+\citet{Piro13,Piro14}.}, $H[t_\mathrm{fl}]$ is the heavyside function equal
 to 0 for $t < t_\mathrm{fl}$ and 1 for $t \ge t_\mathrm{fl}$, $A_b$ is a
 constant of proportionality in filter $b$, and $\alpha_b$ is the power-law
 index describing the rise in filter $b$.
@@ -381,22 +380,31 @@ If we assume the observed deviations between the model flux and the data are the
     \ln \mathscr{L} = \sum_{d,i} \frac{[f_{d,i} - f_d(t_i)]^2}{(\beta_d \sigma_{d,i})^2},
 \end{equation}
 %
-where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$ is the $i^\mathrm{th}$ flux measurement with corresponding uncertainty $\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that the uncertainties are underestimated (see \citealt{Yao19}). Finally, $f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the individual fcqf\,ID,q and $A_b$ and $\alpha_b$ replaced by $A_{d,b}$ and $\alpha_{d,b}$, respectively, as these terms depend on fcqf\,ID, but only the filter $b$ and not the field ID.
+where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$ is the $i^\mathrm{th}$ flux measurement with corresponding uncertainty $\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that the uncertainties are underestim\ated (see \citealt{Yao19}). Finally, $f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the individual fcqf\,ID, and $A_b$ and $\alpha_b$ replaced by $A_{b\mid d}$ and $\alpha_{b\mid d}$, respectively, as these terms depend on fcqf\,ID, but only the filter $b$ and not the field ID.
 
 Ultimately, we only care about 3 model parameters: \tfl, and the power-law
 index describing the rise in the \gztf\ and \rztf\ filters, hereafter
 $\alpha_g$ and $\alpha_r$, respectively. Following Bayes' Law, we multiply
 the likelihood by a prior and use an affine-invariant, ensemble Markov chain
 Monte Carlo (MCMC) technique \citep{Goodman10} to approximate the model
-posterior. We adopt wide and flat priors on each of the model parameters (see
-Table~\ref{tab:priors}), and perform the MCMC integration using
+posterior. 
+
+There is a strong degeneracy between $A_{b\mid d}$ and $\alpha_{b\mid d}$,
+which we find can be removed with the following change of variables
+$A^\prime_{b\mid d} = A_{b\mid d} 10^{\alpha_{b\mid d}}$ in
+Equation~\ref{eqn:flux_model}. We adopt Jeffreys prior \citep{Jeffreys46} for
+the scale invariant parameters $A_{b\mid d}$ and $\beta_d$, and wide flat
+priors for all other model parameters, as summarized in
+Table~\ref{tab:priors}. The MCMC integration is performed using
 \texttt{emcee} \citep{Foreman-Mackey13}. Within the ensemble, we use 100
 walkers, each of which is run until convergence or 3 million steps, whichever
 comes first. We test for convergence by examining the average autocorrelation
 length of the individual chains $\tau$ after every 20,000 steps, and consider
-the chains converged if $\tau > 100 \,n_\mathrm{steps}$, where
+the chains converged if $n_\mathrm{steps} > 100 \,\tau$, where
 $n_\mathrm{steps}$ is the total number of steps in each chain, and the change
 in $\tau$ relative to the previous estimate has changed by $<1\%$.
+
+\input{./tables/prior.tex}
 
 A key decision in modeling the early evolution of SNe Ia light curves is
 deciding what is meant by ``early.'' While the simplistic power-law models
@@ -415,30 +423,36 @@ high-precision light curves from the space-based \textit{Kepler} K2
 \citealt{Ricker15}) missions (e.g., \citealt{Olling15,Fausnaugh19}). As in
 \citet{Olling15}, we only include observations up to 40\% of the peak
 amplitude of the SN.\footnote{We do this separately in the \gztf\ and \rztf\
-filters. In practice, if a single night of observation includes any
-observations with $f \le 0.4 f_\mathrm{max}$ we keep all the observations
-from that night.} This choice, 40\% instead of 30\% or 50\%, does affect the
-final inference that is made for individual SNe as discussed in further
-detail in \S\ref{sec:systematics}.
+filters. In practice, we subtract a preliminary estimate of the flux baseline
+derived from the median flux value for all observations that occured $>20$\,d
+(in the SN rest-frame) prior to the time of \gztf\ maximum light. We then
+divide all flux values by the peak flux determined in \citet{Yao19}. Finally,
+we calculate the inverse-variance weighted mean flux for every night of
+observations, and only retain those nights with $f_\mathrm{mean} \le 0.4
+f_\mathrm{max}$ for model fitting.} This choice, 40\% instead of 30\% or
+50\%, does affect the final inference that is made for individual SNe as
+discussed in further detail in \S\ref{sec:systematics}.
 
-Of the 127 SNe Ia in our sample, we find that the MCMC chains do not converge
-for 15 SNe, as summarized in Table~\ref{tab:no_results}. Most of these SNe
-feature gaps in coverage during the critical portion of the photometric
-evolution: when the SN is increasing in brightness from 0 to 40\% of the peak
-flux. For the remaining 112 SNe the MCMC chains converge, thereby providing
+Of the 127 SNe Ia in our sample, we find that the MCMC chains converge for
+all the SNe but one, ZTF18aaqnrum. Nevertheless, we retain it in our sample
+as $n_\mathrm{steps} \approx 81 \,\tau$ after 3 million steps, suggesting
+several independent sampels within the chain (it will later be excluded from
+the sample, see \S\ref{sec:qa}). From the MCMC chains we can derive
 constraints on \tfl, $\alpha_g$, and $\alpha_r$. We show example corner plots
 illustrating good, median, and poor fits of the model in
 Figures~\ref{fig:good_corner},~\ref{fig:median_corner},
 and~\ref{fig:bad_corner}, where we have defined good, median, and poor
 relative to the width of the 90\% credible region ($\mathrm{CR}_{90}$) for
-\tfl. Roughly, the good models have $\mathrm{CR}_{90} < 1$\,d, the median
-models have $\mathrm{CR}_{90} \approx 2$\,d, and the poor models have
+\tfl. Roughly, the good models have $\mathrm{CR}_{90} \la 1.5$\,d, the median
+models have $\mathrm{CR}_{90} \approx 2.5$\,d, and the poor models have
 $\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is clear that there is
-a very strong covariance between $\alpha$ and $A$. Also, as might be
-expected, there is a positive correlation between $\alpha_g$ and $\alpha_r$,
-which makes sense given the relatively similar regions of the spectral energy
-distribution traced by these filters. Finally, \tfl\ exhibits significant
-covariance with each of the $\alpha$ and $A$ parameters. While we report marginalized confidence intervals on all the model parameters below, we note that the full posterior samples should be used for any downstream analysis given the strong covariance between the parameters.
+a positive correlation between $\alpha_g$ and $\alpha_r$, which makes sense
+given the relatively similar regions of the spectral energy distribution
+traced by these filters. Finally, \tfl\ exhibits significant covariance with
+each of the $\alpha$ parameters. While we report marginalized confidence
+intervals on all the model parameters below, we note that the full posterior
+samples should be used for any downstream analysis given the strong
+covariance between the parameters.
 
 \begin{figure}
     \centering
@@ -451,7 +465,7 @@ covariance with each of the $\alpha$ and $A$ parameters. While we report margina
     not exhibit strong covariance with the parameters shown here as they are
     tightly constrained by the pre-SN observations). Marginalized
     one-dimentional distributions are shown along the diagonal, along with
-    the median estimate and the 68\% credible region (shown with vertical
+    the median estimate and the 90\% credible region (shown with vertical
     dashed lines).}
     %
     \label{fig:good_corner}
@@ -473,9 +487,8 @@ covariance with each of the $\alpha$ and $A$ parameters. While we report margina
     %
     \caption{Same as Figure~\ref{fig:good_corner} for ZTF18abkigee, a SN with
     poor constraints on the model parameters. The vast majority of SNe with
-    poor model constraints feature a multimodal posterior for \tfl, typically
-    due to a small gap in observations around the expected time of first
-    light. }
+    poor model constraints feature gaps in the observational coverage, which
+    in turn makes it difficult to contrain the model parameters. }
     %
     \label{fig:bad_corner}
 \end{figure}
