@@ -335,7 +335,7 @@ photometry. For this study, we ignore the corrections suggested in
 \citet{Yao19} and instead incorporate these values into our model so they can
 be marginalized over and effectively ignored.
 
-\section{Modeling the Early Rise of SNe Ia}
+\section{Modeling the Early Rise of SNe Ia \label{sec:model}}
 
 Assuming an ideal, expanding fireball with constant temperature,
 \citet{Arnett82} derives $f \propto t^2$, where $f$ is the SN flux in the
@@ -514,17 +514,17 @@ These flagged sources are noted in Table~\ref{tab:results}.
     \centering
     \includegraphics[width=1\linewidth]{./figures/ZTF18abgmcmv_model_lc.png}
     %
-    \caption{Light curve of ZTF18abgmcmv showing the \gztf\ (filled, green
-    circles) and \rztf\ (open, red circles) evolution of the SN in the month
-    prior to the time of \gztf-maximum light ($t_{g, \mathrm{max}}$).
-    Observations included in the model fitting (i.e., those with $f \le 0.4
-    f_\mathrm{max}$) are dark and solid, while those that are not included
-    are faint and semi-transparent. The maximum aposteriori model is shown
-    via a thick solid line, while random draws from the posterior are shown
-    with semi-transparent dashed lines. The bottom panel shows residuals
-    relative to the maximum aposteriori model, where there factor $\beta_d$
-    has been included in the calculation of the residuals. \todo{change $t_0$
-    to $t_{g, \mathrm{max}}$ in axis label}}
+    \caption{\todo{add note about vertical lines} Light curve of ZTF18abgmcmv
+    showing the \gztf\ (filled, green circles) and \rztf\ (open, red circles)
+    evolution of the SN in the month prior to the time of \gztf-maximum light
+    ($t_{g, \mathrm{max}}$). Observations included in the model fitting
+    (i.e., those with $f \le 0.4 f_\mathrm{max}$) are dark and solid, while
+    those that are not included are faint and semi-transparent. The maximum
+    aposteriori model is shown via a thick solid line, while random draws
+    from the posterior are shown with semi-transparent dashed lines. The
+    bottom panel shows residuals relative to the maximum aposteriori model,
+    where there factor $\beta_d$ has been included in the calculation of the
+    residuals. \todo{change $t_0$ to $t_{g, \mathrm{max}}$ in axis label}}
     %
     \label{fig:good_lc}
 \end{figure}
@@ -580,6 +580,58 @@ Dan F-M? Will Farr?
 \appendix
 
 \section{Quality Assurance \label{sec:qa}}
+
+As noted in \S\ref{sec:model}, the MCMC model converges for nearly all the
+ZTF SNe within the sample. However, visual inspection of both the corner
+plots and posterior models associated with the models for some SNe quickly
+reveal that while the model has converged, the data are not of high enough
+quality to provide strong constraints on the model parameters (as is the case
+for ZTF18aazabmh shown in Figures~\ref{fig:bad_corner} and~\ref{fig:bad_lc}).
+In the most extreme cases, as shown in Figure~\ref{fig:no_obs}, large gaps in
+the light curve make it nearly impossible to constrain the model parameters.
+For these cases, the model posteriors are essentially identical to the priors.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=3.4in]{./figures/ZTF18aaqffyp_model_lc.png}
+    %
+    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aaqffyp, a SN with observations that place very weak constraints on \tfl\ and cannot constrain $A^\prime$ and $\alpha$. The inability of the data to constrain the model parameters is due to the large gap after the time of first of first light.}
+    %
+    \label{fig:median_lc}
+\end{figure}
+
+To identify SNe with poor observational coverage, or unusual structure in the
+posterior, we visually examine the light curves and corner plots for each of
+the 127 SNe in our sample. We flag the SNe that have large observational gaps
+(either centered on \tfl, immediately before \tfl, or immediately after
+\tfl), that have very sparse coverage, extremely low values of $\alpha$, a
+multi-modal distribution in the posterior for \tfl, or extreme outliers.
+These flagged SNe are not useful for constraining model parameters.
+
+Numerically, the SNe that provide weak constraints on the model parameters
+can, for the most part, be identified by a combination of two criteria: the
+90\% credible region on \tfl, $\mathrm{CR}_{90}$, and the number of nights on
+which the SN was detected. Rather than providing a threshold for detection
+(e.g., $3\sigma$, $5\sigma$, etc.), we count all nights with $f_\mathrm{mean}
+\le 0.4 f_\mathrm{max}$ after the median marginalized posterior value of
+\tfl\ with observations in either the \gztf, \rztf, or both filters, $N_{g,
+\mathrm{det}}$, $N_{r, \mathrm{det}}$, and $N_{gr, \mathrm{det}}$,
+respectively. We take the geometric mean of these three numbers to derive the
+``average'' number of nights on which the SN was detected, $N_\mathrm{det}$.
+A scatter plot showing $N_\mathrm{det}$ vs.\ $\mathrm{CR}_{90}$ is shown in
+Figure~\ref{fig:flagged_sn}.
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/final_sample.pdf}
+    %
+    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aaqffyp, a SN with observations that place very weak constraints on \tfl\ and cannot constrain $A^\prime$ and $\alpha$. The inability of the data to constrain the model parameters is due to the large gap after the time of first of first light.}
+    %
+    \label{fig:flagged_sn}
+\end{figure}
 
 \section{Systematics\label{sec:systematics}}
 
