@@ -456,11 +456,11 @@ covariance between the parameters.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18aasdted_corner.png}
+    \includegraphics[width=1\linewidth]{./figures/ZTF18abgmcmv_corner.png}
     %
     \caption{Corner plot showing the posterior constraints on \tfl,
     $\alpha_g$, $\alpha_r$, and the respective constants of proportionality,
-    $A_g$ and $A_r$ for ZTF18aasdted, a SN that is well-fit by the model. For
+    $A_g$ and $A_r$ for ZTF18abgmcmv, a SN that is well-fit by the model. For
     clarity the $C_d$ and $\beta_d$ terms are excluded (in general they do
     not exhibit strong covariance with the parameters shown here as they are
     tightly constrained by the pre-SN observations). Marginalized
@@ -483,19 +483,77 @@ covariance between the parameters.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18abkigee_corner.png}
+    \includegraphics[width=1\linewidth]{./figures/ZTF18aazabmh_corner.png}
     %
-    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18abkigee, a SN with
-    poor constraints on the model parameters. The vast majority of SNe with
-    poor model constraints feature gaps in the observational coverage, which
-    in turn makes it difficult to contrain the model parameters. }
+    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18aazabmh, a SN with
+    poor constraints on the model parameters.}
     %
     \label{fig:bad_corner}
 \end{figure}
 
+The light curves for the 3 SNe shown in
+Figures~\ref{fig:good_corner},~\ref{fig:median_corner},
+and~\ref{fig:bad_corner} are shown in
+Figures~\ref{fig:good_lc},~\ref{fig:median_lc}, and~\ref{fig:bad_lc},
+respectively. In addition to the data, we also show multiple models based on
+random draws from the posterior, and the residuals of the data relative to
+the maximum aposteriori estimate from the MCMC sampling. Together,
+Figures~\ref{fig:good_corner} and~\ref{fig:good_lc} show that in the limit of
+high SNR, which typically requires low redshift, and good sampling it is
+possible to place tight constraints on the model parameters. As expected, as
+the SNR decreases (Figure~\ref{fig:median_lc}) or the typical interval
+between observations increases (Figure~\ref{fig:bad_lc}), the data eventually
+reach the point where it is not possible to place meaninful constraints on
+\tfl\ or $\alpha$. We visually examine posterior models for each light curve
+and flag those that produce low-quality fits to the data. We use this subset
+of sources to identify SNe that should be excluded from the full sample
+analysis described in \S\ref{sec:analysis} below (see Appendix~\ref{sec:qa}).
+These flagged sources are noted in Table~\ref{tab:results}.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18abgmcmv_model_lc.png}
+    %
+    \caption{Light curve of ZTF18abgmcmv showing the \gztf\ (filled, green
+    circles) and \rztf\ (open, red circles) evolution of the SN in the month
+    prior to the time of \gztf-maximum light ($t_{g, \mathrm{max}}$).
+    Observations included in the model fitting (i.e., those with $f \le 0.4
+    f_\mathrm{max}$) are dark and solid, while those that are not included
+    are faint and semi-transparent. The maximum aposteriori model is shown
+    via a thick solid line, while random draws from the posterior are shown
+    with semi-transparent dashed lines. The bottom panel shows residuals
+    relative to the maximum aposteriori model, where there factor $\beta_d$
+    has been included in the calculation of the residuals. \todo{change $t_0$
+    to $t_{g, \mathrm{max}}$ in axis label}}
+    %
+    \label{fig:good_lc}
+\end{figure}
 
-\section{Systematics\label{sec:systematics}}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18abukmty_model_lc.png}
+    %
+    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18abukmty, a typical
+    SN within our sample.}
+    %
+    \label{fig:median_lc}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/ZTF18aazabmh_model_lc.png}
+    %
+    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aazabmh, a SN with
+    poor constraints on the model parameters. There are large gaps in the
+    observational coverage of ZTF18aazabmh, which in turn leads to poor
+    constraints on \tfl\ and the other model parameters (see
+    Figure~\ref{fig:bad_corner}). Such gaps are typical for the SNe with
+    large uncertainties on \tfl.}
+    %
+    \label{fig:bad_lc}
+\end{figure}
+
+\section{Sample Analysis \label{sec:analysis}}
 
 \acknowledgements
 
@@ -518,6 +576,13 @@ Dan F-M? Will Farr?
 %% bibtext sample63
 %% pdflatex sample63.tex
 %% pdflatex sample63.tex
+
+\appendix
+
+\section{Quality Assurance \label{sec:qa}}
+
+\section{Systematics\label{sec:systematics}}
+
 
 \bibliography{/Users/adamamiller/Documents/tex_stuff/papers}
 \bibliographystyle{aasjournal}
