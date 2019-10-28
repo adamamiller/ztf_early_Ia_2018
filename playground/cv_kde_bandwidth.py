@@ -44,7 +44,7 @@ def get_all_bandwidths(h5_file,
                                    n_jobs=4)
     
     sn = h5_file.split('/')[-1].split('_')[0]
-    with open(data_path + '{}_bandwidth.txt'.format(sn)) as fw:
+    with open(data_path + '{}_bandwidth.txt'.format(sn), 'w') as fw:
         print('{} = bw for time_fl'.format(time_bw))
         print('{} = bw for alpha_g'.format(alpha_g_bw))
         print('{} = bw for alpha_r'.format(alpha_r_bw))
