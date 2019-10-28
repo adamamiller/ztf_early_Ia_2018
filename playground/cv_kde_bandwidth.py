@@ -72,7 +72,7 @@ def opt_bandwidth(marg_samples,
     
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
-    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/"
-    backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
+    data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/big_unc/"
+    backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
 
     get_all_bandwidths(backend_filename, data_path)
