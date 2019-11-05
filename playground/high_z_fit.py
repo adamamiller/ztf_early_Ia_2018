@@ -53,7 +53,7 @@ if __name__== "__main__":
     d_l = Distance(z=z, cosmology=flat_h0_73)
     d_l_target = Distance(z=z_target, cosmology=flat_h0_73)
     snr_factor = (d_l.value/d_l_target.value)**0.5
-    f_data *= snr_factor
+    f_unc_data /= snr_factor
     
     fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
            mcmc_h5_file=backend_filename, 
