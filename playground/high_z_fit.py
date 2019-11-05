@@ -52,10 +52,12 @@ if __name__== "__main__":
     flat_h0_73 = FlatLambdaCDM(H0=73.24,Om0=0.275)
     d_l = Distance(z=z, cosmology=flat_h0_73)
     d_l_target = Distance(z=z_target, cosmology=flat_h0_73)
-    snr_factor = (d_l.value/d_l_target.value)**0.5
-    f_unc_data /= snr_factor
+    snr_factor = (d_l.value/d_l_target.value)**2
     
-    fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
+    shuffle_flux = np.random.normal(f_data, f_unc_data/snr_factor)
+    shuffle_unc = f_unc_data/snr_factor
+    
+    fit_lc(t_data, shuffle_flux, shuffle_unc, fcqfid_data,
            mcmc_h5_file=backend_filename, 
            max_samples=nsteps, 
            ncores=ncores,
