@@ -442,7 +442,7 @@ def prep_light_curve(lc_hdf,
             mean_g[nnumber] = np.average(f_zp_tonight[g_tonight] - zp_base_tonight[g_tonight]/g_max, 
                                          weights=f_zp_unc_tonight[g_tonight]**(-2))
         if sum(g_tonight)/len(g_tonight) < 1:
-            mean_r[nnumber] = np.average(f_zp_tonight[~g_tonight] - zp_base_tonight[~g_tonight]/g_max, 
+            mean_r[nnumber] = np.average(f_zp_tonight[~g_tonight] - zp_base_tonight[~g_tonight]/r_max, 
                                          weights=f_zp_unc_tonight[~g_tonight]**(-2))
 
     cutoff_g = np.where((mean_rf < 0) & (mean_g > 0) & 
