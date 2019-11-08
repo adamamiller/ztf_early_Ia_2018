@@ -34,7 +34,7 @@ if __name__== "__main__":
         z_target = float(sys.argv[7])  
 
     lc_hdf = data_path + "/{}_force_phot.h5".format(ztf_name)
-    salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype.csv")
+    salt_df = pd.read_csv(data_path + "../../Nobs_cut_salt2_spec_subtype_pec.csv")
 
     t0 = float(salt_df['t0_g_adopted'][salt_df['name'] == ztf_name].values)
     z = float(salt_df['z_adopt'][salt_df['name'] == ztf_name].values)
