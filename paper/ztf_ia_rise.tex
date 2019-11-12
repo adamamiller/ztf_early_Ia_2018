@@ -635,10 +635,11 @@ plots and posterior models associated with the models for some SNe quickly
 reveal that while the model has converged, the data are not of high enough
 quality to provide strong constraints on the model parameters (as is the case
 for ZTF18aazabmh shown in Figures~\ref{fig:bad_corner} and~\ref{fig:bad_lc}).
-In the most extreme cases, as shown in Figure~\ref{fig:no_obs}, large gaps in
-the light curve make it nearly impossible to constrain the model parameters.
-For these cases, the model posteriors are essentially identical to the priors.
-
+In the most extreme cases, as shown in Figure~\ref{fig:biggap_lc}, large gaps
+in the light curve make it nearly impossible to constrain the model
+parameters. For these cases, the model posteriors are essentially identical
+to the priors (there is always a weak constraint on \tfl\ from epochs where
+the SN is not detected).
 
 \begin{figure}
     \centering
@@ -646,7 +647,7 @@ For these cases, the model posteriors are essentially identical to the priors.
     %
     \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aaqffyp, a SN with observations that place very weak constraints on \tfl\ and cannot constrain $A^\prime$ and $\alpha$. The inability of the data to constrain the model parameters is due to the large gap after the time of first of first light.}
     %
-    \label{fig:median_lc}
+    \label{fig:biggap_lc}
 \end{figure}
 
 To identify SNe with poor observational coverage, or unusual structure in the
@@ -670,16 +671,39 @@ respectively. We take the geometric mean of these three numbers to derive the
 A scatter plot showing $N_\mathrm{det}$ vs.\ $\mathrm{CR}_{90}$ is shown in
 Figure~\ref{fig:flagged_sn}.
 
-
-
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{./figures/final_sample.pdf}
     %
-    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aaqffyp, a SN with observations that place very weak constraints on \tfl\ and cannot constrain $A^\prime$ and $\alpha$. The inability of the data to constrain the model parameters is due to the large gap after the time of first of first light.}
+    \caption{Scatter plot showing the distribution of the  127  ZTF SNe Ia in the $\mathrm{GM}(N_\mathrm{det})$--$\mathrm{CR}_{90}$ plane. Model fits flagged as reliable (i.e., the positive class)  following visual inspection are shown as $+$ symbols, while  unreliable model fits are shown as circles. The dashed line shows the optimal separation of the classes as determined via support vector machines. Sources that are misclassified following the final automated procedure (see text) are circled.
+    }
     %
     \label{fig:flagged_sn}
 \end{figure}
+
+While the procedure described above is capable of flagging unreliable fits,
+visual inspection is not fully reproducible. To generate a more systematic
+identification of reliable and unreliable model parameters, we aim to
+separate the two classes (reliable and unreliable) via an automated
+procedure. We treat the initial visual classifications as a training set, and
+then determine the optimal boundary for separating the two classes using
+linear support vector machines (SVM, \citealt{Cortes95}) implemented in
+\texttt{scikit-learn} \citep{Pedregosa11}, as shown via the dashed line in
+Figure~\ref{fig:flagged_sn}. Adopting SNe with reliable fits following visual
+inspection as the positive class, each of these sources above the boundary
+separation are considered true positives (TP), while those below the line are
+false negatives (FN). Likewise, for sources flagged with unreliable model
+fits, if they fall above the line we consider them false positives (FP), and
+those below the line are true negatives (TN).
+
+While the SVM boundary does a good job of separating the two classes,
+adopting this boundary as the threshold for classification would result in
+several unreliable model fits being included in the final analysis. In
+addition to SVM separation, we also flag SNe with \textbf{XXX} and
+\textbf{XXX} as unreliable (as shown via the TN above the decision boundary
+in Figure~\ref{fig:flagged_sn}). In the end this procedure identifies
+\textbf{NNN} SNe as reliable, and of these \textbf{NNN} have spectroscopic
+host galaxy redshifts, and \textbf{NNN} SNe as unreliable.
 
 \section{Systematics\label{sec:systematics}}
 
