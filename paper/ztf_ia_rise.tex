@@ -562,19 +562,11 @@ population-level correlations between the model parameters. We can also
 search for correlations between the model parameters and redshift, which, if
 present, could reveal cosmic evolution of SNe Ia progenitors. We show
 correlations between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$ in
-Figure ~\ref{fig:model_parameters}. We show \trise, as opposed to \tfl, to
-account for the uncertainty on the measured time of maximum light in the
-$B$-band, $t_\mathrm{B,max}$. To do this we approximate the probability
-density function (PDF) for \tfl\ via a Gaussian kernel density estimation
-(KDE), where the kernel width is determined via cross validation with
-\texttt{scikit-learn} \citep{Pedregosa11}. The PDF is multiplied by $-1$ and
-convolved with a Gaussian with the same variance as the uncertainties on
-$t_\mathrm{B,max}$ to arrive at the final PDF for \trise. The cumulative
-density function (CDF) of this PDF is used to determine the median and 90\%
-credible region on \trise. There should be no covariance in the uncertainties
-on \tfl\ and $t_\mathrm{B,max}$, as these estimates are made from different
-data, which is why we can convolve the uncertainties in making the final
-estimation of \trise.
+Figure ~\ref{fig:model_parameters}. The top right panel of
+Figure~\ref{fig:model_parameters} shows an extremely tight correlation
+between $\alpha_g$ and $\alpha_r$, so we do not show the correlation between
+$\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as this information is
+effectively redundant.
 
 \begin{figure*}
     \centering
@@ -597,6 +589,31 @@ estimation of \trise.
     %
     \label{fig:model_parameters}
 \end{figure*}
+
+Figure~\ref{fig:model_parameters} shows \trise, however, the model provides
+constraints solely on \tfl. \tfl\ is measured relative to \tbmax, the time of
+maximum light in the $B$-band, which itself has some measurement uncertainty.
+\trise\ accounts for the uncertainties on both \tfl\ and \tbmax. To estimate
+\trise, we use a Gaussian kernel density estimation (KDE) to approximate the
+1-D marginalized probability density function (PDF) for \tfl. The width of
+the kernel is determined via cross validation and the KDE is implemented with
+\texttt{scikit-learn} \citep{Pedregosa11}. The PDF is multiplied by $-1$ and
+convolved with a Gaussian with the same variance as the uncertainties on
+$t_\mathrm{B,max}$ to determine the final PDF for \trise. The cumulative
+density function (CDF) of this PDF is used to determine the median and 90\%
+credible region on \trise. There should be no covariance in the uncertainties
+on \tfl\ and \tbmax, as these estimates are made using independent methods
+and portions of the light curve, which is why we can convolve the
+uncertainties in making the final estimation of \trise.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/high_z_systematic.pdf}
+    %
+    \caption{}
+    %
+    \label{fig:high_z_systematic}
+\end{figure}
 
 \begin{figure}
     \centering
@@ -718,7 +735,6 @@ circles, while $+$ symbols show those that were not flagged.
     \label{fig:flagged_sn}
 \end{figure}
 
-
 The visual inspection procedure described above is not fully reproducible
 (visual inspection is by its very nature subjective). Therefore, we aim to
 separate the SNe into two classes (reliable and unreliable) via an automated,
@@ -726,7 +742,7 @@ systematic procedure. Treating the visually flagged sources as the negative
 class, we view false positives (i.e., visually flagged SNe that are included
 in the final population analysis) particularly harmful. Therefore, we adopt
 %
-$$ \mathrm{GM}(N_\mathrm{det}) \ge 1.9\,\mathrm{CR}_{90} + 1.65$$
+$$ \mathrm{GM}(N_\mathrm{det}) \ge 1.9\,\mathrm{CR}_{90} + 1.65,$$
 %
 as the classification threshold for reliable model fits (as shown via the
 dashed line in Figure~\ref{fig:flagged_sn}). This threshold retains 50 true
