@@ -9,7 +9,7 @@ from sklearn.neighbors import KernelDensity
 
 
 def get_all_bandwidths(h5_file, 
-                       thin_by=250, 
+                       thin_by=100, 
                        data_path = '',
                        **kwargs):
     '''optimal bandwidth for marginilized KDEs
