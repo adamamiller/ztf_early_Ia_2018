@@ -606,14 +606,44 @@ on \tfl\ and \tbmax, as these estimates are made using independent methods
 and portions of the light curve, which is why we can convolve the
 uncertainties in making the final estimation of \trise.
 
+\subsection{Correlations with Redshift}
+
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{./figures/high_z_systematic.pdf}
     %
-    \caption{}
+    \caption{Same as the lower left panel of
+    Figure~\ref{fig:model_parameters}, though all SNe are shown in grey. The
+    large green circle, magenta diamond, orange triangle, and purple $X$ show
+    how marginalized posterior estimates of \trise\ change as the four lowest
+    redshift SNe are observed at $z = 0.05$, 0.075, 0.1, and 0.015 (see text
+    for further details). \trise\ clearly decreases with increasing redshift,
+    showing that the observed correlation between these parameters is due to
+    an observational systematic, namely a $\sim$fixed detection threshold,
+    and not cosmic evolution.}
     %
     \label{fig:high_z_systematic}
 \end{figure}
+
+
+\subsection{Correlations with Light Curve Shape}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/shape_correlations.pdf}
+    %
+    \caption{Correlation between the \texttt{SALT2} $X_1$ shape parameter and
+    $\alpha_g$ (top row) and \trise\ (bottom row). Symbols are the same as
+    Figure~\ref{fig:model_parameters}. \trise\ shows a strong correlation
+    with $X_1$, while there is no correlation between $\alpha_g$ and $X_1$.
+    The second, third, and fourth columns highlight SNe with redshifts $z \le
+    0.04$, $0.04 < z \le 0.065$, and $z > 0.065$, respectively. Dividing the
+    sample into different redshift bins shows that most of the observed
+    scatter in the first column is due to redshift, and not intrinsic scatter
+    in the correlation between \trise\ and $X_1$. }
+    %
+    \label{fig:high_z_systematic}
+\end{figure*}
 
 \begin{figure}
     \centering
