@@ -33,15 +33,15 @@ def get_all_bandwidths(h5_file,
     time_bw = opt_bandwidth(t_fl, 
                             log_min_grid=-1.1,
                             log_max_grid=0.5,
-                            n_jobs=4)
+                            n_jobs=8)
     alpha_g_bw = opt_bandwidth(alpha_g, 
-                               n_jobs=4)
+                               n_jobs=8)
     alpha_r_bw = opt_bandwidth(alpha_r, 
-                               n_jobs=4)
+                               n_jobs=8)
     delta_alpha_bw = opt_bandwidth(delta_alpha, 
                                    log_min_grid=-1.5,
                                    log_max_grid=0.0,
-                                   n_jobs=4)
+                                   n_jobs=8)
     
     sn = h5_file.split('/')[-1].split('_')[0]
     with open(data_path + '{}_bandwidth.txt'.format(sn), 'w') as fw:
