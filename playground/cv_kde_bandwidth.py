@@ -11,6 +11,7 @@ from sklearn.neighbors import KernelDensity
 def get_all_bandwidths(h5_file, 
                        thin_by=100, 
                        data_path = '',
+                       n_cores=8,
                        **kwargs):
     '''optimal bandwidth for marginilized KDEs
     
@@ -33,15 +34,15 @@ def get_all_bandwidths(h5_file,
     time_bw = opt_bandwidth(t_fl, 
                             log_min_grid=-1.1,
                             log_max_grid=0.5,
-                            n_jobs=8)
+                            n_jobs=n_cores)
     alpha_g_bw = opt_bandwidth(alpha_g, 
-                               n_jobs=8)
+                               n_jobs=n_cores)
     alpha_r_bw = opt_bandwidth(alpha_r, 
-                               n_jobs=8)
+                               n_jobs=n_cores)
     delta_alpha_bw = opt_bandwidth(delta_alpha, 
                                    log_min_grid=-1.5,
                                    log_max_grid=0.0,
-                                   n_jobs=8)
+                                   n_jobs=n_cores)
     
     sn = h5_file.split('/')[-1].split('_')[0]
     with open(data_path + '{}_bandwidth.txt'.format(sn), 'w') as fw:
@@ -72,7 +73,11 @@ def opt_bandwidth(marg_samples,
     
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
+    n_cores = 8
+    if len(sys.argv) > 2:
+        n_cores = int(sys.argv[2])
+    
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/big_unc/"
     backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
 
-    get_all_bandwidths(backend_filename, data_path)
+    get_all_bandwidths(backend_filename, data_path, n_cores=n_cores)
