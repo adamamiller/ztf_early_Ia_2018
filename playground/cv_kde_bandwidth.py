@@ -32,16 +32,20 @@ def get_all_bandwidths(h5_file,
     delta_alpha = alpha_r - alpha_g
 
     time_bw = opt_bandwidth(t_fl, 
-                            log_min_grid=-1.1,
-                            log_max_grid=0.5,
+                            log_min_grid=-2.7,
+                            log_max_grid=-0.3,
                             n_jobs=n_cores)
     alpha_g_bw = opt_bandwidth(alpha_g, 
+                               log_min_grid=-2.7,
+                               log_max_grid=-0.3,
                                n_jobs=n_cores)
     alpha_r_bw = opt_bandwidth(alpha_r, 
+                               log_min_grid=-2.7,
+                               log_max_grid=-0.3,
                                n_jobs=n_cores)
     delta_alpha_bw = opt_bandwidth(delta_alpha, 
-                                   log_min_grid=-1.5,
-                                   log_max_grid=0.0,
+                                   log_min_grid=-2.7,
+                                   log_max_grid=-0.3,
                                    n_jobs=n_cores)
     
     sn = h5_file.split('/')[-1].split('_')[0]
