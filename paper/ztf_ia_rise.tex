@@ -339,19 +339,26 @@ be marginalized over and effectively ignored.
 
 \section{Modeling the Early Rise of SNe Ia \label{sec:model}}
 
-Assuming an ideal, expanding fireball with constant temperature,
-\citet{Arnett82} derives $f \propto t^2$, where $f$ is the SN flux in the
-days after explosion and $t$ is time. While these idealized conditions are
-not met in nature (early spectra of SNe Ia show significant changes in
-temperature), \todo{re-write previous sentences about Reiss+99} it has
-nevertheless been found in many studies of large samples that in the blue
-optical filters $f \propto t^2$ to within the uncertainties (e.g.,
-\citealt{Conley06, Hayden10, Ganeshalingam11}). At the same time, several
-recent studies of individual, low-redshift SNe Ia show strong evidence that a
-power-law model for the SN flux only reproduces the data if the power-law
-index, $\alpha$, is significantly lower than 2 (e.g.,
-\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}). For this study, we characterize the early emission in a single filter from a SN Ia as a
-power law:
+Following arguments first laid out in \citet{Goldhaber98a} and
+\citet{Riess99a}, the rest-frame optical flux of a SN Ia should evolve
+$\propto t^2$ shortly after explosion. For an ideal, expanding fireball, the
+observed flux through a passband covering the Rayleigh-Jeans tail of the
+approximately blackbody emission will be $f \propro R^2 T = v^2 t^2 T$, where
+$f$ is the SN flux, $T$ is the blackbody temperature, $R$ is photosphere
+radius, $v$ is the ejecta velocity, and $t$ is time since explosion. While
+these idealized conditions are not perfectly met in nature, $T$ and $v$
+clearly change shortly after explosion (e.g., \citealt{Parrent12}), their
+relative change is small compared to $t$. Thus, the ``$t^2$-law'' should
+approximately hold, and indeed several studies of large samples of SNe Ia
+have shown that in the blue optical filters $f \propto t^2$ to within the
+uncertainties (e.g., \citealt{Conley06, Hayden10, Ganeshalingam11}). At the
+same time, several recent studies of individual, low-redshift SNe Ia show
+strong evidence that a power-law model for the SN flux only reproduces the
+data if the power-law index, $\alpha$, is significantly lower than 2 (e.g.,
+\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}).
+
+For this study, we characterize the early emission in a single filter from a
+SN Ia as a power law:
 %
 \begin{equation}
     f_b(t) = C + H[t_\mathrm{fl}] A_b (t - t_\mathrm{fl})^{\alpha_b},
@@ -441,119 +448,68 @@ as $n_\mathrm{steps} \approx 81 \,\tau$ after 3 million steps, suggesting
 several independent sampels within the chain (it will later be excluded from
 the sample, see \S\ref{sec:qa}). From the MCMC chains we can derive
 constraints on \tfl, $\alpha_g$, and $\alpha_r$. We show example corner plots
-illustrating good, median, and poor fits of the model in
-Figures~\ref{fig:good_corner},~\ref{fig:median_corner},
-and~\ref{fig:bad_corner}, where we have defined good, median, and poor
-relative to the width of the 90\% credible region ($\mathrm{CR}_{90}$) for
-\tfl. Roughly, the good models have $\mathrm{CR}_{90} \la 1.5$\,d, the median
-models have $\mathrm{CR}_{90} \approx 2.5$\,d, and the poor models have
-$\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is clear that there is
-a positive correlation between $\alpha_g$ and $\alpha_r$, which makes sense
-given the relatively similar regions of the spectral energy distribution
-traced by these filters. Finally, \tfl\ exhibits significant covariance with
-each of the $\alpha$ parameters. While we report marginalized confidence
-intervals on all the model parameters below, we note that the full posterior
-samples should be used for any downstream analysis given the strong
-covariance between the parameters.
+illustrating good, typical, and poor constraints on the model parameters in
+Figure~\ref{fig:corner_LC}. In this context good, typical, and poor are
+defined relative to the width of the 90\% credible region for \tfl\
+($\mathrm{CR}_{90}$). Roughly, the good models have $\mathrm{CR}_{90} \la
+1.5$\,d, the median models have $\mathrm{CR}_{90} \approx 2.5$\,d, and the
+poor models have $\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is
+clear that there is a positive correlation between $\alpha_g$ and $\alpha_r$,
+which makes sense given the relatively similar regions of the spectral energy
+distribution traced by these filters. Finally, \tfl\ exhibits significant
+covariance with each of the $\alpha$ parameters. While we report marginalized
+credible regions on all model parameters below, the full posterior samples
+should be used for any analysis utilizing the results of our model fitting. 
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18abgmcmv_corner.pdf}
+    \includegraphics[width=5.75in]{./figures/corner_LC.pdf}
     %
-    \caption{Corner plot showing the posterior constraints on \tfl,
-    $\alpha_g$, $\alpha_r$, and the respective constants of proportionality,
-    $A_g$ and $A_r$ for ZTF18abgmcmv, a SN that is well-fit by the model. For
-    clarity the $C_d$ and $\beta_d$ terms are excluded (in general they do
-    not exhibit strong covariance with the parameters shown here as they are
-    tightly constrained by the pre-SN observations). Marginalized
-    one-dimentional distributions are shown along the diagonal, along with
-    the median estimate and the 90\% credible region (shown with vertical
-    dashed lines). \todo{add note about priors being included in posterior}}
-    %
-    \label{fig:good_corner}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18abukmty_corner.pdf}
-    %
-    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18abukmty, a typical
-    SN within our sample.}
-    %
-    \label{fig:median_corner}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18aazabmh_corner.pdf}
-    %
-    \caption{Same as Figure~\ref{fig:good_corner} for ZTF18aazabmh, a SN with
-    poor constraints on the model parameters.}
-    %
-    \label{fig:bad_corner}
-\end{figure}
-
-The light curves for the 3 SNe shown in
-Figures~\ref{fig:good_corner},~\ref{fig:median_corner},
-and~\ref{fig:bad_corner} are shown in
-Figures~\ref{fig:good_lc},~\ref{fig:median_lc}, and~\ref{fig:bad_lc},
-respectively. In addition to the data, we also show multiple models based on
-random draws from the posterior, and the residuals of the data relative to
-the maximum aposteriori estimate from the MCMC sampling. Together,
-Figures~\ref{fig:good_corner} and~\ref{fig:good_lc} show that in the limit of
-high SNR, which typically requires low redshift, and good sampling it is
-possible to place tight constraints on the model parameters. As expected, as
-the SNR decreases (Figure~\ref{fig:median_lc}) or the typical interval
-between observations increases (Figure~\ref{fig:bad_lc}), the data eventually
-reach the point where it is not possible to place meaninful constraints on
-\tfl\ or $\alpha$. We visually examine posterior models for each light curve
-and flag those that produce unreliable fits to the data. We use this subset
-of sources to identify SNe that should be excluded from the full sample
-analysis described in \S\ref{sec:analysis} below (see Appendix~\ref{sec:qa}).
-These flagged sources are noted in Table~\ref{tab:results}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18abgmcmv_model_lc.pdf}
-    %
-    \caption{\todo{add note about vertical lines} Light curve of ZTF18abgmcmv
+    \caption{\textit{Left column}: Corner plots showing the posterior
+    constraints on \tfl, $\alpha_g$, $\alpha_r$, and the respective constants
+    of proportionality, $A_g$ and $A_r$ for ZTF18abgmcmv (top), a SN that is
+    well fit by the model, ZTF18abukmty (middle), a typical SN in our sample,
+    and ZTF18aazabmh (bottom), a SN that does not significantly constrain the
+    model parameters. For clarity the $C_d$ and $\beta_d$ terms are excluded
+    (in general they do not exhibit strong covariance with the parameters
+    shown here as they are tightly constrained by the pre-SN observations).
+    Marginalized one-dimentional distributions are shown along the diagonal,
+    along with the median estimate and the 90\% credible region (shown with
+    vertical dashed lines). \textit{Right column}: ZTF light curves of
+    ZTF18abgmcmv (top), ZTF18abukmty (middle), and ZTF18aazabmh (bottom)
     showing the \gztf\ (filled, green circles) and \rztf\ (open, red circles)
-    evolution of the SN in the month prior to the time of \gztf-maximum light
-    ($t_{g, \mathrm{max}}$). Observations included in the model fitting
-    (i.e., those with $f \le 0.4 f_\mathrm{max}$) are dark and solid, while
-    those that are not included are faint and semi-transparent. The maximum
-    aposteriori model is shown via a thick solid line, while random draws
-    from the posterior are shown with semi-transparent dashed lines. The
-    bottom panel shows residuals relative to the maximum aposteriori model,
-    where there factor $\beta_d$ has been included in the calculation of the
-    residuals. \todo{change $t_0$ to $t_{g, \mathrm{max}}$ in axis label}}
+    evolution of the SN in the month prior to the time of $B$-band maximum
+    light (\tbmax). Observations included in the model fitting (i.e., those
+    with $f \le 0.4 f_\mathrm{max}$) are dark and solid, while those that are
+    not included are faint and semi-transparent. The maximum aposteriori
+    model is shown via a thick solid line, while random draws from the
+    posterior are shown with semi-transparent dashed lines. The vertical
+    dashed line shows the median 1-D marginalized posterior value of \tfl,
+    while the thin, light grey vertical line shows \tfl\ for the maximum
+    aposteriori model. The bottom panel shows residuals relative to the
+    maximum aposteriori model, where the factor $\beta_d$ has been included
+    in the calculation of the residuals. \todo{change $t_0$ to \tbmax\ in
+    axis label}}
     %
-    \label{fig:good_lc}
-\end{figure}
+    \label{fig:corner_LC}
+\end{figure*}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18abukmty_model_lc.pdf}
-    %
-    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18abukmty, a typical
-    SN within our sample.}
-    %
-    \label{fig:median_lc}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/ZTF18aazabmh_model_lc.pdf}
-    %
-    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aazabmh, a SN with
-    poor constraints on the model parameters. There are large gaps in the
-    observational coverage of ZTF18aazabmh, which in turn leads to poor
-    constraints on \tfl\ and the other model parameters (see
-    Figure~\ref{fig:bad_corner}). Such gaps are typical for the SNe with
-    large uncertainties on \tfl.}
-    %
-    \label{fig:bad_lc}
-\end{figure}
+The light curves used to constrain the model parameters shown in the left
+column of Figure~\ref{fig:corner_LC}, are shown in the right column of the
+same figure. In addition to the data, we also multiple models based on random
+draws from the posterior, and the residuals of the data relative to the
+maximum aposteriori estimate from the MCMC sampling. From the top row of
+Figure~\ref{fig:corner_LC}, it is clear that in the limit of high SNR, which
+typically requires low redshift, and good sampling, it is possible to place
+tight constraints on the model parameters. As expected, as the SNR decreases
+(middle row) or the typical interval between observations increases (bottom
+row), the data eventually reach the point where it is not possible to place
+meaninful constraints on \tfl\ or $\alpha$. We visually examine posterior
+models for each light curve and flag those that produce unreliable parameter
+constraints. We use this subset of sources to identify SNe that should be
+excluded from the full sample analysis described in \S\ref{sec:analysis}
+below (see Appendix~\ref{sec:qa}). These flagged sources are noted in
+Table~\ref{tab:results}.
 
 \section{Sample Analysis \label{sec:analysis}}
 
