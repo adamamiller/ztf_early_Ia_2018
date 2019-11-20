@@ -2,9 +2,6 @@
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\href{#1}{#1}}
 
-\bibitem[{{Arnett}(1982)}]{Arnett82}
-{Arnett}, W.~D. 1982, \apj, 253, 785
-
 \bibitem[{{Bellm} {et~al.}(2019){Bellm}, {Kulkarni}, {Barlow}, {Feindt},
   {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince}, {Riddle},
   {Walters}, \& {Ye}}]{Bellm19a}
@@ -43,6 +40,12 @@ Foreman-Mackey, D. 2016, The Journal of Open Source Software, 24,
 \bibitem[{{Ganeshalingam} {et~al.}(2011){Ganeshalingam}, {Li}, \&
   {Filippenko}}]{Ganeshalingam11}
 {Ganeshalingam}, M., {Li}, W., \& {Filippenko}, A.~V. 2011, \mnras, 416, 2607
+
+\bibitem[{{Goldhaber} \& {Supernova Cosmology Project
+  Collaboration}(1998)}]{Goldhaber98a}
+{Goldhaber}, G., \& {Supernova Cosmology Project Collaboration}. 1998, in
+  American Astronomical Society Meeting Abstracts, Vol. 193, American
+  Astronomical Society Meeting Abstracts, 47.13
 
 \bibitem[{{Goodman} \& {Weare}(2010)}]{Goodman10}
 {Goodman}, J., \& {Weare}, J. 2010, Communications in Applied Mathematics and
@@ -100,6 +103,21 @@ McKinney, W. 2010, in Proceedings of the 9th Python in Science Conference, ed.
 \bibitem[{{Olling} {et~al.}(2015){Olling}, {Mushotzky}, {Shaya}, {Rest},
   {Garnavich}, {Tucker}, {Kasen}, {Margheim}, \& {Filippenko}}]{Olling15}
 {Olling}, R.~P., {Mushotzky}, R., {Shaya}, E.~J., {et~al.} 2015, \nat, 521, 332
+
+\bibitem[{{Parrent} {et~al.}(2012){Parrent}, {Howell}, {Friesen}, {Thomas},
+  {Fesen}, {Milisavljevic}, {Bianco}, {Dilday}, {Nugent}, {Baron}, {Arcavi},
+  {Ben-Ami}, {Bersier}, {Bildsten}, {Bloom}, {Cao}, {Cenko}, {Filippenko},
+  {Gal-Yam}, {Kasliwal}, {Konidaris}, {Kulkarni}, {Law}, {Levitan}, {Maguire},
+  {Mazzali}, {Ofek}, {Pan}, {Polishook}, {Poznanski}, {Quimby}, {Silverman},
+  {Sternberg}, {Sullivan}, {Walker}, {Xu}, {Buton}, \& {Pereira}}]{Parrent12}
+{Parrent}, J.~T., {Howell}, D.~A., {Friesen}, B., {et~al.} 2012, \apjl, 752,
+  L26
+
+\bibitem[{Pedregosa {et~al.}(2011)Pedregosa, Varoquaux, Gramfort, Michel,
+  Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos,
+  Cournapeau, Brucher, Perrot, \& Duchesnay}]{Pedregosa11}
+Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
+  Learning Research, 12, 2825
 
 \bibitem[{{Piro} \& {Nakar}(2013)}]{Piro13}
 {Piro}, A.~L., \& {Nakar}, E. 2013, \apj, 769, 67
