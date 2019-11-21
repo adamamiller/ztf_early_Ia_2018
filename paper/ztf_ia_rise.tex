@@ -584,7 +584,7 @@ reliable-$z_\mathrm{SN}$ group), and SNe with unreliable model parameters
     largely be redundant given the very strong correlation between $\alpha_g$
     and $\alpha_r$ (upper right panel). The sample has been divded into three
     groups: small, light grey circles show SNe with unreliable fits (see
-    \S\ref{sec:qa}), dark blue circles show reliable fits where the host
+    \ref{sec:qa}), dark blue circles show reliable fits where the host
     galaxy redshift is not known, and large orange circles show SNe with
     reliable fits with known host galaxy redshifts. The plots show that
     redshift is correlated with both $t_\mathrm{rise}$ and $\alpha_g$, which
@@ -613,16 +613,57 @@ and $\alpha_r$ is highly significant for the entire population ($\rho >
 0.5$), confirming what can clearly be seen by eye. Restricting the sample to
 SNe with reliable model parameters increases the significance of the
 correlation dramatically ($\rho > 0.9$). Thus, knowledge of the power-lax
-index in either filter strongly predicts the value in the other filter.
-
+index in either filter provides a strong predictor for the power-law index
+in the other filter, which, again is not a surprising result.
 
 \subsection{Correlations with Redshift -- Systematics, Not Cosmic Evolution}
+
+While less prominent, Figure~\ref{fig:model_parameters} additionally shows
+that both \trise\ and $\alpha$ are correlated with redshift. This result
+is somewhat surprising as it suggests some form of cosmic evolution in SNe
+Ia, with SNe at $z \approx 0.08$ having rise times that are several days
+shorter than SNe at $z \approx 0.02$. The small range of redshifts in our
+sample, and several previous studies (e.g., \todo{Riess ref on Ia
+evolution}), render this naive explanation in doubt. Instead, this
+correlation can be understood as the result of building a sample from a
+flux-limited survey.
+
+Given the fixed depth of ZTF observations ($g_\mathrm{lim} \la 21.5$\,mag;
+\citealt{Masci19,Bellm19}), SNe at progressively higher redshifts will be
+discovered later and later in their evolution. The large degeneracies in the
+model presented in Equation~\ref{eqn:flux_model}, namely between \tfl, $A$,
+and $\alpha$, allow for a great deal of flexibility when fitting the data. In
+particular, to match the first detection ($\mathrm{SNR} \ga 3$) in the light
+curve, it is possible to adjust \tfl\ to successively larger values (i.e.,
+shorter rise times), while decreasing $A$ and $\alpha$, such that \tfl\ occurs
+around the epoch of first detection. 
+
+We illustrate the behavior described in the previous paragraph in
+Figure~\ref{fig:high_z_systematic}, which shows the inferred rise time for
+four low-$z$ SNe that have been shifted to successively higher redshifts. To
+simulate these SNe at higher redshift we make the (over-simplified) assumption
+that all detections are in the sky-background dominated regime, and therefore
+in any given epoch the $\mathrm{SNR} \propto d_L^2$, where $d_L$ is the
+luminosity distance. Under this assumption, multiplying the uncertainties by
+the ratio of the simulated distance to the actual distance squared provides
+the SNR for the SN at the simulated redshift.\footnote{Following
+\citet{Yao19}, we adopt a flat $\Lambda$CDM cosmology with $H_0 =
+73.24$\,km\,s$^{-1}$\,Mpc$^{-1}$ \citep{Riess16} and $\Omega_m = 0.275$
+\citep{Amanullah10} to calculate luminosity distances to the SNe.} Using these
+increased uncertainties, we randomly resample the observed flux values from a
+normal distribution with mean equal to the original flux and variance equal to
+the scaled uncertainty squared. This resampling is necessary, as the $\beta_d$
+term in Equation~\ref{eqn:flux_model} would otherwise reverse the increase in
+the uncertainties when maximizing the posterior. We then fit the noisier
+simulated data with the same procedure described in Section~\ref{sec:model}.
+This procedure is repeated at redshifts of $z = 0.05$, 0.075, 0.1, and 0.015.
+Only the models that converge are shown in Figure~\ref{fig:high_z_systematic}.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{./figures/high_z_systematic.pdf}
     %
-    \caption{Same as the lower left panel of
+    \caption{Same as the bottom left panel of
     Figure~\ref{fig:model_parameters}, though all SNe are shown in grey. The
     large green circle, magenta diamond, orange triangle, and purple $X$ show
     how marginalized posterior estimates of \trise\ change as the four lowest
@@ -634,6 +675,24 @@ index in either filter strongly predicts the value in the other filter.
     %
     \label{fig:high_z_systematic}
 \end{figure}
+
+The results of this simulation are clear: as the SN redshift increases, the
+rise time correspondingly decreases. This result is simple to understand as
+higher redshift SNe will not be detected until later in their evolution. A
+stronger prior on any of the model parameters would help to combat this
+effect, though as previously discussed we avoid strong priors due to the wide
+range of $\alpha$ and \tfl\ that has been reported in the literature. This
+effect also explains the correlation seen in the bottom right panel of
+Figure~\ref{fig:model_parameters}. SNe detected later in their evolution will
+be evolving less rapidly as the rate of change in brightness continually
+decreases until the time of maximum light. Hence, a later detection provides a
+lower value of $\alpha$. Indeed, a re-creation of
+Figure~\ref{fig:high_z_systematic} showing $\alpha_g$ instead of \trise\ shows
+$\alpha_g$ decreasing with increasing redshift. Thus, the observed
+correlations with redshift seen in Figure~\ref{fig:model_parameters} can be
+entirely understood as the result of ZTF being a flux-limited survey.
+
+\todo{Well worded paragraph on the implications of this result - the results are quite meaningful}
 
 
 \subsection{Correlations with Light Curve Shape}
