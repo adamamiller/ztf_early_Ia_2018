@@ -23,7 +23,7 @@
 %%
 %%
 %% using aastex version 6.3
-\documentclass[twocolumn]{aastex63}
+\documentclass[twocolumn]{./aastex63}
 
 \usepackage{amsmath}
 \usepackage{empheq}
@@ -343,7 +343,7 @@ Following arguments first laid out in \citet{Goldhaber98a} and
 \citet{Riess99a}, the rest-frame optical flux of a SN Ia should evolve
 $\propto t^2$ shortly after explosion. For an ideal, expanding fireball, the
 observed flux through a passband covering the Rayleigh-Jeans tail of the
-approximately blackbody emission will be $f \propro R^2 T = v^2 t^2 T$, where
+approximately blackbody emission will be $f \propto R^2 T = v^2 t^2 T$, where
 $f$ is the SN flux, $T$ is the blackbody temperature, $R$ is photosphere
 radius, $v$ is the ejecta velocity, and $t$ is time since explosion. While
 these idealized conditions are not perfectly met in nature, $T$ and $v$
@@ -380,8 +380,12 @@ For ZTF, observations are obtained in the \gztf- and \rztf-bands, and, thus
 it is possible to model the evolution in both filters simultaneously, as
 \tfl\ does not depend upon the choice of filter used to observe the SN. As
 discussed in \citet{Yao19}, $C$ depends on the reference co-addition used in
-image subtraction, and thus is not strictly a function of filter. Instead, it
-is a function of fcqf\,ID, which represents both the filter and ZTF field ID (see above). The ZTF field grid includes some overlap, and SNe that occur in overlap regions will have multiple fcqf\,ID for a single filter. These light curves need to be treated separately in the model fitting, with independent values of $C$.
+image subtraction, and thus is not strictly a function of filter. Instead,
+it is a function of fcqf\,ID, which represents both the filter and ZTF field
+ID (see above). The ZTF field grid includes some overlap, and SNe that occur
+in overlap regions will have multiple fcqf\,ID for a single filter. These
+light curves need to be treated separately in the model fitting, with
+independent values of $C$.
 
 If we assume the observed deviations between the model flux and the data are the result of Gaussian scatter, the log-likelihood for the data is:
 %
@@ -389,7 +393,15 @@ If we assume the observed deviations between the model flux and the data are the
     \ln \mathscr{L} = \sum_{d,i} \frac{[f_{d,i} - f_d(t_i)]^2}{(\beta_d \sigma_{d,i})^2},
 \end{equation}
 %
-where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$ is the $i^\mathrm{th}$ flux measurement with corresponding uncertainty $\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that the uncertainties are underestim\ated (see \citealt{Yao19}). Finally, $f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the individual fcqf\,ID, and $A_b$ and $\alpha_b$ replaced by $A_{b\mid d}$ and $\alpha_{b\mid d}$, respectively, as these terms depend on fcqf\,ID, but only the filter $b$ and not the field ID.
+where the sum is over all fcqf\,ID $d$ and all observations $i$. $f_{d,i}$
+is the $i^\mathrm{th}$ flux measurement with corresponding uncertainty
+$\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that
+the uncertainties are underestimated (see \citealt{Yao19}). Finally,
+$f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time
+of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the
+individual fcqf\,ID, and $A_b$ and $\alpha_b$ replaced by $A_{b\mid d}$ and
+$\alpha_{b\mid d}$, respectively, as these terms depend on fcqf\,ID, but
+only the filter $b$ and not the field ID.
 
 Ultimately, we only care about 3 model parameters: \tfl, and the power-law
 index describing the rise in the \gztf\ and \rztf\ filters, hereafter
@@ -549,11 +561,17 @@ is then divided by $10^{-\alpha}$, and then re-normalized to integrate to 1
 on the interval from 0 to 10. This final normalized PDF provides an estimate
 of $\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
 
-The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$ is
-shown in Figure ~\ref{fig:model_parameters}. We do not show the correlation
-between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as this
-information is effectively redundant given the tight correlation between
-$\alpha_g$ and $\alpha_r$ (top right panel).
+The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$
+is shown in Figure ~\ref{fig:model_parameters}. We do not show the
+correlation between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as
+this information is effectively redundant given the tight correlation
+between $\alpha_g$ and $\alpha_r$ (top right panel). We highlight three
+subsets of the sample in Figure~\ref{fig:model_parameters}, SNe with
+reliable model parameters (see Appendix~\ref{sec:qa}) and known host galaxy
+redshifts (hereafter the reliable-$z_\mathrm{host}$ group), SNe with
+reliable model parameters and unknown host galaxy redshifts (hereafter the
+reliable-$z_\mathrm{SN}$ group), and SNe with unreliable model parameters
+(hereafter the unreliable group).
 
 \begin{figure*}
     \centering
@@ -577,9 +595,28 @@ $\alpha_g$ and $\alpha_r$ (top right panel).
     \label{fig:model_parameters}
 \end{figure*}
 
- 
+\subsection{Correlation Between $\alpha_g$ and $\alpha_r$}
 
-\subsection{}
+The most striking, and also least surprising, feature in
+Figure~\ref{fig:model_parameters} is the tight correlation observed between
+$\alpha_g$ and $\alpha_r$. This result is unsurprising because the \gztf\
+and \rztf\ filters sample adjacent portions of the SN spectral energy
+distribution (SED), and thus the evolution should be nearly identical in the
+two filters. SNe with reliable model parameters follow a tight locus around
+$\alpha_g - \alpha_r \approx 0.1$, with the only major outliers from this
+relation being SNe in the unreliable group (for further discussion of the
+early \gztf\ $-$ \rztf\ color evolution of this sample see M.~Bhulla et al.
+2019).
+
+The Spearman rank-ordered correlation coefficient \todo{REF} for $\alpha_g$
+and $\alpha_r$ is highly significant for the entire population ($\rho >
+0.5$), confirming what can clearly be seen by eye. Restricting the sample to
+SNe with reliable model parameters increases the significance of the
+correlation dramatically ($\rho > 0.9$). Thus, knowledge of the power-lax
+index in either filter strongly predicts the value in the other filter.
+
+
+\subsection{Correlations with Redshift -- Systematics, Not Cosmic Evolution}
 
 \begin{figure}
     \centering
