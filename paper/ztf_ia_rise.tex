@@ -514,15 +514,46 @@ Table~\ref{tab:results}.
 \section{Sample Analysis \label{sec:analysis}}
 
 Using the marginalized posteriors from the model fits, we can search for
-population-level correlations between the model parameters. We can also
-search for correlations between the model parameters and redshift, which, if
-present, could reveal cosmic evolution of SNe Ia progenitors. We show
-correlations between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$ in
-Figure ~\ref{fig:model_parameters}. The top right panel of
-Figure~\ref{fig:model_parameters} shows an extremely tight correlation
-between $\alpha_g$ and $\alpha_r$, so we do not show the correlation between
-$\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as this information is
-effectively redundant.
+population-level correlations between the model parameters. These
+correlations may reveal details about the explosion physics of SNe Ia (for
+example, if strong mixing in the SN ejecta leads to low values of $\alpha$,
+as found in \citealt{Piro16}, then any correlations with $\alpha$ may be
+related to ejecta mixing). Alternatively, these correlations may reveal
+inadequacies in the model. We can additionally search for correlations
+between the model parameters and redshift, which, if present, could reveal
+cosmic evolution of SNe Ia progenitors.
+
+The model given in Equation~\ref{eqn:flux_model} constrains \tfl, yet we
+ultimately care about the rise time \trise. \tfl\ is measured relative to
+\tbmax, the time of maximum light in the $B$-band, which itself has some
+measurement uncertainty. An estimate of \trise\ must therefore account for
+the uncertainties on both \tfl\ and \tbmax. To estimate \trise, we use a
+Gaussian kernel density estimation (KDE) to approximate the 1-D marginalized
+probability density function (PDF) for \tfl. The width of the kernel is
+determined via cross validation and the KDE is implemented with
+\texttt{scikit-learn} \citep{Pedregosa11}. The PDF is multiplied by $-1$ and
+convolved with a Gaussian with the same variance as the uncertainties on
+$t_\mathrm{B,max}$ to determine the final PDF for \trise. The cumulative
+density function (CDF) of this PDF is used to determine the median and 90\%
+credible region on \trise. There should be no covariance in the uncertainties
+on \tfl\ and \tbmax, as these estimates are made using independent methods
+and portions of the light curve, which is why we can convolve the
+uncertainties in making the final estimation of \trise.
+
+We use a similar procedure to report the PDF of $\alpha_g$ and $\alpha_r$
+under the assumption of a flat prior. The posterior samples shown in
+Figure~\ref{fig:corner_LC} include a factor of $10^{-\alpha}$ following the
+change of variables from $A$ to $A^\prime$. To remove this factor, we
+estimate the 1-D marginalized PDF of $\alpha$ using a KDE as above. This PDF
+is then divided by $10^{-\alpha}$, and then re-normalized to integrate to 1
+on the interval from 0 to 10. This final normalized PDF provides an estimate
+of $\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
+
+The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$ is
+shown in Figure ~\ref{fig:model_parameters}. We do not show the correlation
+between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as this
+information is effectively redundant given the tight correlation between
+$\alpha_g$ and $\alpha_r$ (top right panel).
 
 \begin{figure*}
     \centering
@@ -546,23 +577,9 @@ effectively redundant.
     \label{fig:model_parameters}
 \end{figure*}
 
-Figure~\ref{fig:model_parameters} shows \trise, however, the model provides
-constraints solely on \tfl. \tfl\ is measured relative to \tbmax, the time of
-maximum light in the $B$-band, which itself has some measurement uncertainty.
-\trise\ accounts for the uncertainties on both \tfl\ and \tbmax. To estimate
-\trise, we use a Gaussian kernel density estimation (KDE) to approximate the
-1-D marginalized probability density function (PDF) for \tfl. The width of
-the kernel is determined via cross validation and the KDE is implemented with
-\texttt{scikit-learn} \citep{Pedregosa11}. The PDF is multiplied by $-1$ and
-convolved with a Gaussian with the same variance as the uncertainties on
-$t_\mathrm{B,max}$ to determine the final PDF for \trise. The cumulative
-density function (CDF) of this PDF is used to determine the median and 90\%
-credible region on \trise. There should be no covariance in the uncertainties
-on \tfl\ and \tbmax, as these estimates are made using independent methods
-and portions of the light curve, which is why we can convolve the
-uncertainties in making the final estimation of \trise.
+ 
 
-\subsection{Correlations with Redshift}
+\subsection{}
 
 \begin{figure}
     \centering
