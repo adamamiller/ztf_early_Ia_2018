@@ -116,9 +116,13 @@ def multifcqfid_lnposterior_simple(theta, f, t, f_err, fcqfid_arr):
     return lnl + lnp
 
 # multiplier term for the uncertainties
-def lnlike_big_unc(theta, f, t, f_err):
-    t_0, a, a_prime, alpha_r, f_sigma = theta
-
+def lnlike_big_unc(theta, f, t, f_err, prior='uniformative'):
+    if prior == 'uniformative':
+        t_0, a, a_prime, alpha_r, f_sigma = theta
+    elif prior == 'delta2':
+        alpha_r = 2
+        t_0, a, a_prime, f_sigma = theta
+        
     pre_exp = np.logical_not(t > t_0)
     model = -np.inf*np.ones_like(f)
     model[pre_exp] = a
@@ -130,12 +134,16 @@ def lnlike_big_unc(theta, f, t, f_err):
     ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(np.sqrt(2*np.pi))
     return ln_l
 
-def nll_big_unc(theta, flux, time, flux_err):
-    return -1*lnlike_big_unc(theta, flux, time, flux_err)
+def nll_big_unc(theta, flux, time, flux_err, prior='uniformative'):
+    return -1*lnlike_big_unc(theta, flux, time, flux_err, prior=prior)
 
 #Define priors on parameters  
-def lnprior_big_unc(theta):
-    t_0, a, a_prime, alpha_r, f_sigma = theta
+def lnprior_big_unc(theta, prior='uniformative'):
+    if prior == 'uniformative':
+        t_0, a, a_prime, alpha_r, f_sigma = theta
+    elif prior == 'delta2':
+        alpha_r = 2
+        t_0, a, a_prime, f_sigma = theta
     if (a_prime < 0 or 
         f_sigma < 0 or 
         t_0 < -100 or
@@ -145,67 +153,99 @@ def lnprior_big_unc(theta):
         a < -1e8 or
         a > 1e8):
         return -np.inf
-    else:
+    elif prior == 'uniformative':
         return -np.log(a_prime) - np.log(f_sigma) - alpha_r*np.log(10)
+    elif prior == 'delta2':
+        return -np.log(a_prime) - np.log(f_sigma)
 
-def lnposterior_big_unc(theta, flux, time, flux_err):
-    lnp = lnprior_big_unc(theta)
+def lnposterior_big_unc(theta, flux, time, flux_err, prior='uniformative'):
+    lnp = lnprior_big_unc(theta, prior=prior)
     if not np.isfinite(lnp):
         return -np.inf
-    lnl = lnlike_big_unc(theta, flux, time, flux_err)
+    lnl = lnlike_big_unc(theta, flux, time, flux_err, prior=prior)
     if not np.isfinite(lnl):
         return -np.inf
     return lnl + lnp
 
-def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr):
+def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr,
+                               prior='uniformative'):
     
     n_fcqid = len(np.unique(fcqfid_arr))
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
 
-    if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
-        raise RuntimeError('The correct number of parameters were not included')
+    if prior == 'uniformative' and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+        raise RuntimeError('Incorrect number of parameters entered')
+    elif prior == 'delta2' and  len(theta) != 1 + n_filt + 2*n_fcqid:
+        raise RuntimeError('Incorrect number of parameters entered')
 
     ln_l = 0
     for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
         filt = int(fcqfid % 10)
 
-        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + 2*fcqfid_num], 
-                                 theta[2*filt-1], theta[2*filt],
-                                 theta[2 + 2*n_filt + 2*fcqfid_num]])
+        if prior == 'uniformative':
+            theta_fcqfid = np.array([theta[0], 
+                                     theta[1 + 2*n_filt + 2*fcqfid_num], 
+                                     theta[2*filt-1], 
+                                     theta[2*filt],
+                                     theta[2 + 2*n_filt + 2*fcqfid_num]])
+        elif prior == 'delta2':
+            theta_fcqfid = np.array([theta[0], 
+                                     theta[1 + n_filt + 2*fcqfid_num], 
+                                     theta[filt],
+                                     theta[2 + n_filt + 2*fcqfid_num]])
+            
         fcqfid_obs = np.where(fcqfid_arr == fcqfid)
         f_fcqfid = f[fcqfid_obs]
         t_fcqfid = t[fcqfid_obs]
         f_err_fcqfid = f_err[fcqfid_obs]
-        ln_l += lnlike_big_unc(theta_fcqfid, f_fcqfid, t_fcqfid, f_err_fcqfid)
+        ln_l += lnlike_big_unc(theta_fcqfid, f_fcqfid, t_fcqfid, f_err_fcqfid,
+                               prior=prior)
     
     return ln_l
 
-def multifcqfid_nll_big_unc(theta, f, t, f_err, fcqfid_arr):
-    return -1*multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr)
+def multifcqfid_nll_big_unc(theta, f, t, f_err, fcqfid_arr,
+                            prior='uniformative'):
+    return -1*multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr, 
+                                         prior=prior)
 
-def multifcqfid_lnprior_big_unc(theta, fcqfid_arr):
+def multifcqfid_lnprior_big_unc(theta, fcqfid_arr,
+                                prior='uniformative'):
     
     n_fcqid = len(np.unique(fcqfid_arr))
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
 
-    if len(theta) != 1 + 2*n_filt + 2*n_fcqid:
-        raise RuntimeError('The correct number of parameters were not included')
+    if prior == 'uniformative' and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+        raise RuntimeError('Incorrect number of parameters entered')
+    elif prior == 'delta2' and  len(theta) != 1 + n_filt + 2*n_fcqid:
+        raise RuntimeError('Incorrect number of parameters entered')
 
     ln_p = 0
     for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
         filt = int(fcqfid % 10)
 
-        theta_fcqfid = np.array([theta[0], theta[1 + 2*n_filt + 2*fcqfid_num], 
-                                 theta[2*filt-1], theta[2*filt],
-                                 theta[2 + 2*n_filt + 2*fcqfid_num]])
-        ln_p += lnprior_big_unc(theta_fcqfid)
+        if prior == 'uniformative':
+            theta_fcqfid = np.array([theta[0], 
+                                     theta[1 + 2*n_filt + 2*fcqfid_num], 
+                                     theta[2*filt-1], 
+                                     theta[2*filt],
+                                     theta[2 + 2*n_filt + 2*fcqfid_num]])
+        elif prior == 'delta2':
+            theta_fcqfid = np.array([theta[0], 
+                                     theta[1 + n_filt + 2*fcqfid_num], 
+                                     theta[filt],
+                                     theta[2 + n_filt + 2*fcqfid_num]])
+        ln_p += lnprior_big_unc(theta_fcqfid, 
+                                prior=prior)
     return ln_p
 
-def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr):
-    lnp = multifcqfid_lnprior_big_unc(theta, fcqfid_arr)
+def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr,
+                                    prior='uniformative'):
+    lnp = multifcqfid_lnprior_big_unc(theta, fcqfid_arr, 
+                                      prior=prior)
     if not np.isfinite(lnp):
         return -np.inf
-    lnl = multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr)
+    lnl = multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr, 
+                                     prior=prior)
     if not np.isfinite(lnl):
         return -np.inf
     return lnl + lnp
@@ -219,7 +259,8 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
            ncores=None,
            emcee_burnin=True,
            use_emcee_backend=True,
-           thin_by=1):
+           thin_by=1, 
+           prior='uniformative'):
     '''Perform an MCMC fit to the light curve'''
     t_mcmc_start = time.time()
     
@@ -227,11 +268,16 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         ncores = cpu_count() - 1
     
     n_filt = len(np.unique(np.unique(fcqfid_data) % 10))
-    guess_0 = np.append([-t_fl] + [6e1, 2]*n_filt,
-                        [1,1]*len(np.unique(fcqfid_data)))
+    if prior == 'uniformative':
+        guess_0 = np.append([-t_fl] + [6e1, 2]*n_filt,
+                            [1,1]*len(np.unique(fcqfid_data)))
+    elif prior == 'delta2':
+        guess_0 = np.append([-t_fl] + [6e1]*n_filt,
+                            [1,1]*len(np.unique(fcqfid_data)))
+        
     
     ml_res = minimize(multifcqfid_nll_big_unc, guess_0, method='Powell', # Powell method does not need derivatives
-                      args=(f_data, t_data, f_unc_data, fcqfid_data))
+                      args=(f_data, t_data, f_unc_data, fcqfid_data, prior))
     ml_guess = ml_res.x
     
     ndim = len(ml_guess)
@@ -239,7 +285,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
 
     #initial position of walkers
     rand_pos = [1 + nfac*np.random.randn(ndim) for i in range(nwalkers)]
-    if ml_guess[0] < -5:
+    if ml_guess[0] < -5 and ml_guess[-1] < 5:
         pos = ml_guess*rand_pos
     else:
         pos = guess_0*rand_pos
@@ -249,7 +295,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
             burn_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                                 multifcqfid_lnposterior_big_unc, 
                                                 args=(f_data, t_data, 
-                                                      f_unc_data, fcqfid_data),
+                                                      f_unc_data, fcqfid_data, prior),
                                                 pool=pool)
             burn_sampler.run_mcmc(pos, nsteps=50, 
                                 thin_by=thin_by, progress=False)
@@ -267,13 +313,13 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                             multifcqfid_lnposterior_big_unc, 
                                             args=(f_data, t_data, 
-                                                  f_unc_data, fcqfid_data),
+                                                  f_unc_data, fcqfid_data, prior),
                                             pool=pool, backend=backend)
         else:
             sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                             multifcqfid_lnposterior_big_unc, 
                                             args=(f_data, t_data, 
-                                                  f_unc_data, fcqfid_data),
+                                                  f_unc_data, fcqfid_data, prior),
                                             pool=pool)
             
         max_samples = max_samples
@@ -323,7 +369,8 @@ def continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
                     max_samples=int(2e6),
                     rel_flux_cutoff = 0.5,
                     ncores=None,
-                    thin_by=1):
+                    thin_by=1,
+                    prior='uniformative'):
     '''Run MCMC for longer than initial fit'''
     t_mcmc_start = time.time()
     
@@ -338,7 +385,7 @@ def continue_chains(t_data, f_data, f_unc_data, fcqfid_data,
         new_sampler = emcee.EnsembleSampler(nwalkers, ndim, 
                                         multifcqfid_lnposterior_big_unc,
                                         args=(f_data, t_data, 
-                                              f_unc_data, fcqfid_data),
+                                              f_unc_data, fcqfid_data, prior),
                                         pool=pool, backend=new_backend)
         max_samples = max_samples
         steps_so_far = new_sampler.iteration
@@ -473,6 +520,7 @@ if __name__== "__main__":
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
     use_emcee_backend = True
     rel_flux_cutoff=0.5
+    prior='uniformative'
     
     if len(sys.argv) > 2:
         ncores = int(sys.argv[2])
@@ -483,8 +531,10 @@ if __name__== "__main__":
     if len(sys.argv) > 5:
         backend_filename = str(sys.argv[5])
     if len(sys.argv) > 6:
-        rel_flux_cutoff = float(sys.argv[6])  
+        rel_flux_cutoff = float(sys.argv[6]) 
     if len(sys.argv) > 7:
+        prior = str(sys.argv[7])
+    if len(sys.argv) > 8:
         use_emcee_backend = False  
 
     lc_hdf = data_path + "/{}_force_phot.h5".format(ztf_name)
@@ -509,5 +559,6 @@ if __name__== "__main__":
            ncores=ncores,
            use_emcee_backend=use_emcee_backend,
            thin_by=thin_by,
-           rel_flux_cutoff=rel_flux_cutoff
+           rel_flux_cutoff=rel_flux_cutoff,
+           prior=prior
            )
