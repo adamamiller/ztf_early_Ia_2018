@@ -12,7 +12,7 @@ def get_all_bandwidths(h5_file,
                        thin_by=100, 
                        data_path = '',
                        n_cores=8,
-                       prior='uniformed'
+                       prior='uniformed',
                        **kwargs):
     '''optimal bandwidth for marginilized KDEs
     
