@@ -525,24 +525,36 @@ Table~\ref{tab:results}.
 
 \section{Sample Analysis \label{sec:analysis}}
 
-Using the marginalized posteriors from the model fits, we can search for
-population-level correlations between the model parameters. These
+Below we examine the results from our model fitting procedure to examine the
+typical characteristics of a \textit{normal} SN Ia. We define normal as those
+SNe that are suitable for inclusion cosmographic measurements, which can be
+defined as $-2 \la X_1 \la 2$, where $X_1$ is the \texttt{SALT2} shape
+parameter. Specifically within the context of our sample, this means we
+exclude the SNe classified as SN\,1986G-like, SN\,2002cx-like, Ia-CSM, and
+super Chandra explosions in \citet{Yao19} from the analysis below. These
+events are specifically addressed in \S\ref{sec:rare}. Following the removal
+of these events, 120 SNe remain in the sample.
+
+ These
 correlations may reveal details about the explosion physics of SNe Ia (for
 example, if strong mixing in the SN ejecta leads to low values of $\alpha$,
 as found in \citealt{Piro16}, then any correlations with $\alpha$ may be
 related to ejecta mixing). Alternatively, these correlations may reveal
 inadequacies in the model. We can additionally search for correlations
 between the model parameters and redshift, which, if present, could reveal
-cosmic evolution of SNe Ia progenitors.
+cosmic evolution of SNe Ia progenitors. \todo{move or remove this paragraph}
 
-The model given in Equation~\ref{eqn:flux_model} constrains \tfl, yet we
-ultimately care about the rise time \trise. \tfl\ is measured relative to
-\tbmax, the time of maximum light in the $B$-band, which itself has some
-measurement uncertainty. An estimate of \trise\ must therefore account for
-the uncertainties on both \tfl\ and \tbmax. To estimate \trise, we use a
-Gaussian kernel density estimation (KDE) to approximate the 1-D marginalized
-probability density function (PDF) for \tfl. The width of the kernel is
-determined via cross validation and the KDE is implemented with
+\subsection{Mean Rise Time of SNe Ia}
+
+From the marginalized 1D posteriors for \tfl, we can examine the typical rise
+time for SNe Ia. The model given in Equation~\ref{eqn:flux_model} constrains
+\tfl, yet we ultimately care about the rise time \trise. \tfl\ is measured
+relative to \tbmax, the time of maximum light in the $B$-band, which itself
+has some measurement uncertainty. An estimate of \trise\ must therefore
+account for the uncertainties on both \tfl\ and \tbmax. To estimate \trise,
+we use a Gaussian kernel density estimation (KDE) to approximate the 1-D
+marginalized probability density function (PDF) for \tfl. The width of the
+kernel is determined via cross validation and the KDE is implemented with
 \texttt{scikit-learn} \citep{Pedregosa11}. The PDF is multiplied by $-1$ and
 convolved with a Gaussian with the same variance as the uncertainties on
 $t_\mathrm{B,max}$ to determine the final PDF for \trise. The cumulative
@@ -551,6 +563,53 @@ credible region on \trise. There should be no covariance in the uncertainties
 on \tfl\ and \tbmax, as these estimates are made using independent methods
 and portions of the light curve, which is why we can convolve the
 uncertainties in making the final estimation of \trise.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/rise_time.pdf}
+    %
+    \caption{Marginalized posterior distribution of the rise time
+    $t_\mathrm{rise}$ for normal SNe Ia in our sample. The sample has been
+    divded into three groups (as described in the text): thin grey lines show
+    SNe from the unreliable group (see \ref{sec:qa}), dark blue lines show
+    SNe from the reliable-$z_\mathrm{SN}$ group, and thick, orange lines show
+    SNe reliable-$z_\mathrm{host}$ group. From the individual PDFs it is
+    clear that there is no support for a single mean $t_\mathrm{rise}$ to
+    describe every SN in the sample.}
+    %
+    \label{fig:rise_time}
+\end{figure}
+
+In Figure~\ref{fig:rise_time} we show the PDF for \trise\ for the 120 normal
+SN in our sample. We highlight three subsets of the normal SNe in
+Figure~\ref{fig:rise_time}, SNe with reliable model parameters (see
+Appendix~\ref{sec:qa}) and known host galaxy redshifts (hereafter the
+reliable-$z_\mathrm{host}$ group), SNe with reliable model parameters and
+unknown host galaxy redshifts (hereafter the reliable-$z_\mathrm{SN}$ group),
+and SNe with unreliable model parameters (hereafter the unreliable group). 
+
+Figure~\ref{fig:rise_time} shows that \trise\ for SNe in the unreliable group
+are biased towards shorter rise times, which serves as additional
+confirmation that data are insufficient for constraining the model parameters
+for these sources. Figure~\ref{fig:rise_time} also shows that the individual
+SNe do not tend towards a single mean value. If all SNe Ia could be described
+with a single rise time, we could estimate that mean value by multiplying
+together all of the PDFs shown in Figure~\ref{fig:rise_time}. The product of
+the individual PDFs provides no support for a single rise time to describe
+all SNe Ia (i.e., it is effectively equal to 0 everywhere). Thus, SNe Ia
+follow a distribution of rise times, as has previously been reported (e.g.,
+\citealt{Riess99a,Ganeshalingam11,Firth15,Zheng17a}).
+
+As a population, SNe Ia have a mean \trise$ \approx 17.4$\,d, where we have
+estimated this value by taking a weighted mean of the median value of the
+\trise\ PDFs, with weights equal to the square of the inverse of the 68\%
+credible region. The mean \trise\ increases to $\approx 18.0$\,d and
+$18.3$\,d when considering only the reliable and reliable-$z_\mathrm{host}$
+subsamples, respectively. The scatter, estimated via the sample standard
+deviation, about these mean values is 1.8\,d, 1.6\,d, and 1.8\,d for the
+full, reliable, and reliable-$z_\mathrm{host}$ subsamples, respectively. These estimates differ significantly from previous work in the literature \todo{cite other estimates of the mean rise time...}
+
+\subsection{Mean Power-Law Index of the Early Rise}
 
 We use a similar procedure to report the PDF of $\alpha_g$ and $\alpha_r$
 under the assumption of a flat prior. The posterior samples shown in
@@ -561,17 +620,13 @@ is then divided by $10^{-\alpha}$, and then re-normalized to integrate to 1
 on the interval from 0 to 10. This final normalized PDF provides an estimate
 of $\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
 
+\subsection{Population correlations}
+
 The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$
 is shown in Figure ~\ref{fig:model_parameters}. We do not show the
 correlation between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as
 this information is effectively redundant given the tight correlation
-between $\alpha_g$ and $\alpha_r$ (top right panel). We highlight three
-subsets of the sample in Figure~\ref{fig:model_parameters}, SNe with
-reliable model parameters (see Appendix~\ref{sec:qa}) and known host galaxy
-redshifts (hereafter the reliable-$z_\mathrm{host}$ group), SNe with
-reliable model parameters and unknown host galaxy redshifts (hereafter the
-reliable-$z_\mathrm{SN}$ group), and SNe with unreliable model parameters
-(hereafter the unreliable group).
+between $\alpha_g$ and $\alpha_r$ (top right panel). 
 
 \begin{figure*}
     \centering
@@ -726,21 +781,7 @@ realistic SN light curves are needed to test this posibility.
     \label{fig:high_z_systematic}
 \end{figure*}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/rise_time.pdf}
-    %
-    \caption{Marginalized posterior distribution of the rise time
-    $t_\mathrm{rise}$ for individual SNe in our sample. The color scheme is
-    the same as in Figure~\ref{fig:model_parameters} (thick orange lines show
-    SNe with reliable fits with known host galaxy redshifts, dark blue
-    lines show reliable fits where the host galaxy redshift is not known,
-    and thin, light grey lines show SNe with unreliable fits). From the
-    individual PDFs it is clear that there is no support for a single mean
-    $t_\mathrm{rise}$ to describe every SN in the sample.}
-    %
-    \label{fig:rise_time}
-\end{figure}
+
 
 \begin{figure}
     \centering
