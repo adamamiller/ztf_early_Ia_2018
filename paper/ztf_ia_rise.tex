@@ -869,7 +869,36 @@ trend that was identified in Figure~\ref{fig:model_parameters}: higher
 redshift SNe have smaller values of $\alpha$ on average for the
 reliable-$z_\mathrm{host}$ group.
 
+\section{Strong Priors}\label{sec:strong_priors}
 
+In our previous effort to model the early evolution of SNe Ia we adopted a
+flexible model allowing $\alpha$ and \tfl\ to simultaneously vary despite
+theoretical \citep{Arnett82,Riess99a} and observational
+\citep{Conley06,Hayden10,Ganeshalingam11} evidence that $\alpha = 2$. Here we
+alter the model by fixing $\alpha_g = \alpha_r = 2$ (hereafter the
+``$\alpha = 2$ prior''), and explore how this decision changes the results
+described in the previous sections. This decision is equivalent to placing an
+infinitely strong prior on the value of $\alpha$.\footnote{There is some
+empirical evidence that the power-law index decreases when moving from the
+blue to the red portion of the SN SED \citep{Shappee16,Zheng17}. The same
+trend is seen in this study (top right panel of
+Figure~\ref{fig:model_parameters}). Thus, strictly enforcing $\alpha_g =
+\alpha_r$ may impose non-physical structure in the models.}
+
+The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in Figure~\ref{fig:tsquared_rise}. As previously noted, the use of a strict prior significantly reduces the flexibility of the model. As a result, there are far fewer SNe with model parameters that can immediately be considered unreliable. When using the $\alpha = 2$ prior, we only flag SNe with an extrapolated flux using the maximum aposteriori model parameters $< 0.9 f_\mathrm{max}$ at \tbmax\ as having unreliable model parameters. Using this criterion we find \todo{add number of reliable SNe} SNe have unreliable model parameters. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/tsquared_rise_time.pdf}
+    %
+    \caption{Same as Figure~\ref{fig:rise_time}, showing the resulting PDFs
+    for the $\alpha = 2$ prior. As was the case when $\alpha$ is allowed to
+    vary, there is no support for a single mean $t_\mathrm{rise}$ to describe
+    every SN in the sample. The $\alpha = 2$ prior results in rise times that
+    are $\sim$2\,d longer on average.}
+    %
+    \label{fig:tsquared_rise}
+\end{figure}
 
 \acknowledgements
 
@@ -946,9 +975,9 @@ plot showing $\mathrm{GM}(N_\mathrm{det})$ vs.\ $\mathrm{CR}_{90}$ is shown
 in Figure~\ref{fig:flagged_sn}. Visually flagged SNe are shown as orange
 circles, while $+$ symbols show those that were not flagged.
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/final_sample.pdf}
+    \includegraphics[width=5in]{./figures/final_sample.pdf}
     %
     \caption{Scatter plot showing the distribution of the 127 ZTF SNe Ia in
     the $\mathrm{GM}(N_\mathrm{det})$--$\mathrm{CR}_{90}$ plane. Models with
@@ -959,7 +988,7 @@ circles, while $+$ symbols show those that were not flagged.
     circled. }
     %
     \label{fig:flagged_sn}
-\end{figure}
+\end{figure*}
 
 The visual inspection procedure described above is not fully reproducible
 (visual inspection is by its very nature subjective). Therefore, we aim to
