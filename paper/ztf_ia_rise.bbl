@@ -17,6 +17,12 @@
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...716..712A}{\color{blue}716},
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...716..712A}{\color{blue}712}
 
+\bibitem[{{Arnett}(1982)}]{Arnett82}
+{Arnett}, W.~D. 1982,
+  \href{http://dx.doi.org/10.1086/159681}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}253},
+  \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}785}
+
 \bibitem[{{Bellm} {et~al.}(2019{\natexlab{a}}){Bellm}, {Kulkarni}, {Barlow},
   {Feindt}, {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince},
   {Riddle}, {Walters}, \& {Ye}}]{Bellm19a}
@@ -273,6 +279,12 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/830/1/27}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}830},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}27}
+
+\bibitem[{{Zheng} \& {Filippenko}(2017)}]{Zheng17}
+{Zheng}, W., \& {Filippenko}, A.~V. 2017,
+  \href{http://dx.doi.org/10.3847/2041-8213/aa6442}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}838},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}L4}
 
 \bibitem[{{Zheng} {et~al.}(2017){Zheng}, {Kelly}, \& {Filippenko}}]{Zheng17a}
 {Zheng}, W., {Kelly}, P.~L., \& {Filippenko}, A.~V. 2017,
