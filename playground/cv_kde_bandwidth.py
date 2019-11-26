@@ -36,7 +36,7 @@ def get_all_bandwidths(h5_file,
     if prior == 'uniformed':
         alpha_g = samples[:,2]
         alpha_r = samples[:,4]
-        delta_alpha = alpha_r - alpha_g
+        alpha_ratio = alpha_g/alpha_r
 
 
         alpha_g_bw = opt_bandwidth(alpha_g, 
@@ -47,7 +47,7 @@ def get_all_bandwidths(h5_file,
                                    log_min_grid=-2.7,
                                    log_max_grid=-0.3,
                                    n_jobs=n_cores)
-        delta_alpha_bw = opt_bandwidth(delta_alpha, 
+        alpha_ratio_bw = opt_bandwidth(alpha_ratio, 
                                        log_min_grid=-2.7,
                                        log_max_grid=-0.3,
                                        n_jobs=n_cores)
@@ -58,7 +58,7 @@ def get_all_bandwidths(h5_file,
         if prior == 'uniformed':
             print('{} = bw for alpha_g'.format(alpha_g_bw))
             print('{} = bw for alpha_r'.format(alpha_r_bw))
-            print('{} = bw for delta_alpha'.format(delta_alpha_bw))
+            print('{} = bw for alpha_ratio'.format(alpha_ratio_bw))
     
     return
 
