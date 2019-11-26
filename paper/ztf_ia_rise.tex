@@ -337,7 +337,7 @@ photometry. For this study, we ignore the corrections suggested in
 \citet{Yao19} and instead incorporate these values into our model so they can
 be marginalized over and effectively ignored.
 
-\section{Modeling the Early Rise of SNe Ia \label{sec:model}}
+\section{Modeling the Early Rise of SNe Ia}\label{sec:model}
 
 Following arguments first laid out in \citet{Goldhaber98a} and
 \citet{Riess99a}, the rest-frame optical flux of a SN Ia should evolve
@@ -640,12 +640,13 @@ the ZTF sample. This value increases to $\sim$2.1 when reducing the sample to
 the reliable group or the reliable-$z_\mathrm{host}$ group. The scatter in the
 population is 0.7, 0.5, and 0.6 for the full, reliable, and
 reliable-$z_\mathrm{host}$ subsamples, respectively. For $\alpha_r$ the
-weighted sample mean is XXX for the full sample of normal SNe Ia, which
-increases to XXX and XXX for the reliable and reliable-$z_\mathrm{host}$
-subgroups, respectively. The scatter in $\alpha_r$ is XXX, XXX, and XXX for
-the full, reliable, and reliable-$z_\mathrm{host}$ subsamples, respectively.
-As noted below, there is an extremely tight correlation between $\alpha_g$ and
-$\alpha_r$, and thus we do not show the individual PDFs for $\alpha_r$.
+weighted sample mean is $\sim$1.7 for the full sample of normal SNe Ia, which
+increases to $\sim$1.9 and $\sim$2.0 for the reliable and
+reliable-$z_\mathrm{host}$ subgroups, respectively. The scatter in $\alpha_r$
+is 0.8, 0.5, and 0.5 for the full, reliable, and reliable-$z_\mathrm{host}$
+subsamples, respectively. As noted below, there is an extremely tight
+correlation between $\alpha_g$ and $\alpha_r$, and thus we do not show the
+individual PDFs for $\alpha_r$.
 
 In both the \gztf\ and \rztf\ filters the rising power-law index for the
 initial evolution of the SN is remarkably close to 2, as would be expected in
@@ -722,17 +723,16 @@ correlation dramatically ($\rho > 0.9$). Thus, knowledge of the power-lax
 index in either filter provides a strong predictor for the power-law index
 in the other filter, which, again is not a surprising result.
 
-\subsection{Correlations with Redshift -- Systematics, Not Cosmic Evolution}
+\subsection{Correlations with Redshift -- Systematics, Not Cosmic Evolution}\label{sec:redshift_correlations}
 
 While less prominent, Figure~\ref{fig:model_parameters} additionally shows
-that both \trise\ and $\alpha$ are correlated with redshift. This result
-is somewhat surprising as it suggests some form of cosmic evolution in SNe
+that both \trise\ and $\alpha$ are correlated with redshift. This result is
+somewhat surprising: naively, it suggests some form of cosmic evolution in SNe
 Ia, with SNe at $z \approx 0.08$ having rise times that are several days
 shorter than SNe at $z \approx 0.02$. The small range of redshifts in our
-sample, and several previous studies (e.g., \todo{Riess ref on Ia
-evolution}), render this naive explanation in doubt. Instead, this
-correlation can be understood as the result of building a sample from a
-flux-limited survey.
+sample, and several previous studies (e.g., \todo{Riess ref on Ia evolution}),
+render this naive explanation in doubt. Instead, this correlation can be
+understood as the result of building a sample from a flux-limited survey.
 
 Given the fixed depth of ZTF observations ($g_\mathrm{lim} \la 21.5$\,mag;
 \citealt{Masci19,Bellm19}), SNe at progressively higher redshifts will be
@@ -744,21 +744,21 @@ curve, it is possible to adjust \tfl\ to successively larger values (i.e.,
 shorter rise times), while decreasing $A$ and $\alpha$, such that \tfl\ occurs
 around the epoch of first detection. 
 
-We illustrate the behavior described in the previous paragraph in
-Figure~\ref{fig:high_z_systematic}, which shows the inferred rise time for
-four low-$z$ SNe that have been shifted to successively higher redshifts. To
-simulate these SNe at higher redshift we make the (over-simplified) assumption
-that all detections are in the sky-background dominated regime, and therefore
-in any given epoch the $\mathrm{SNR} \propto d_L^2$, where $d_L$ is the
-luminosity distance. Under this assumption, multiplying the uncertainties by
-the ratio of the simulated distance to the actual distance squared provides
+We illustrate this behavior in Figure~\ref{fig:high_z_systematic}, which shows
+the inferred rise time for four low-$z$ SNe had they been observed at
+successively higher redshifts. To simulate these SNe at higher redshift we
+make the (over-simplified) assumption that all detections are in the
+sky-background dominated regime, and therefore in any given epoch the
+$\mathrm{SNR} \propto d_L^{-2}$, where $d_L$ is the luminosity distance to the
+SN. Under this assumption, multiplying the uncertainties by the ratio of the
+square of the simulated distance to the square of the actual distance provides
 the SNR for the SN at the simulated redshift.\footnote{Following
 \citet{Yao19}, we adopt a flat $\Lambda$CDM cosmology with $H_0 =
 73.24$\,km\,s$^{-1}$\,Mpc$^{-1}$ \citep{Riess16} and $\Omega_m = 0.275$
-\citep{Amanullah10} to calculate luminosity distances to the SNe.} Using these
-increased uncertainties, we randomly resample the observed flux values from a
-normal distribution with mean equal to the original flux and variance equal to
-the scaled uncertainty squared. This resampling is necessary, as the $\beta_d$
+\citep{Amanullah10} to calculate $d_L$ for the SNe.} Using these increased
+uncertainties, we randomly resample the observed flux values from a normal
+distribution with mean equal to the original flux and variance equal to the
+scaled uncertainty squared. This resampling is necessary, as the $\beta_d$
 term in Equation~\ref{eqn:flux_model} would otherwise reverse the increase in
 the uncertainties when maximizing the posterior. We then fit the noisier
 simulated data with the same procedure described in Section~\ref{sec:model}.
@@ -776,8 +776,7 @@ Only the models that converge are shown in Figure~\ref{fig:high_z_systematic}.
     redshift SNe are observed at $z = 0.05$, 0.075, 0.1, and 0.015 (see text
     for further details). \trise\ clearly decreases with increasing redshift,
     showing that the observed correlation between these parameters is due to
-    an observational systematic, namely a $\sim$fixed detection threshold,
-    and not cosmic evolution.}
+    the flux-limited ZTF search for SNe, and not cosmic evolution.}
     %
     \label{fig:high_z_systematic}
 \end{figure}
@@ -812,8 +811,18 @@ underestimated for every SN in the literature. Detailed simulations with
 realistic SN light curves are needed to test this posibility.
 \todo{Need to make sure this paragraph  is properly emphasized}
 
-
 \subsection{Correlations with Light Curve Shape}
+
+A defining characteristic of SNe Ia is that they can be described by a
+relatively simple luminosity-shape relation \citep{Phillips93}, which enables
+them to be used as standardizable candles. We examine the correlation between
+light curve shape, in this case the \texttt{SALT2} $X_1$ parameter, and the SN
+rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a
+clear correlation between shape and \trise, a result that has been reported
+previously (e.g., \citealt{Riess99a,Firth15,Zheng17a}). This result is also
+completely unsurprising as the $X_1$ shape parameter accounts for the width of
+both the SN rise and decline, and therefore, by definition should be
+correlated with the rise time.
 
 \begin{figure*}
     \centering
@@ -821,16 +830,44 @@ realistic SN light curves are needed to test this posibility.
     %
     \caption{Correlation between the \texttt{SALT2} $X_1$ shape parameter and
     $\alpha_g$ (top row) and \trise\ (bottom row). Symbols are the same as
-    Figure~\ref{fig:model_parameters}. \trise\ shows a strong correlation
-    with $X_1$, while there is no correlation between $\alpha_g$ and $X_1$.
-    The second, third, and fourth columns highlight SNe with redshifts $z \le
-    0.04$, $0.04 < z \le 0.065$, and $z > 0.065$, respectively. Dividing the
-    sample into different redshift bins shows that most of the observed
-    scatter in the first column is due to redshift, and not intrinsic scatter
-    in the correlation between \trise\ and $X_1$. }
+    Figure~\ref{fig:model_parameters}. \trise\ shows a strong correlation with
+    $X_1$, while there is no correlation between $\alpha_g$ and $X_1$. The
+    second, third, and fourth columns highlight reliable-$z_\mathrm{host}$ SNe
+    with redshifts $z \le 0.04$, $0.04 < z \le 0.065$, and $z > 0.065$,
+    respectively. Dividing the sample into different redshift bins shows that
+    most of the observed scatter between $X_1$ and the model parameters is due
+    to redshift and not intrinsic scatter. }
     %
-    \label{fig:high_z_systematic}
+    \label{fig:shape_correlations}
 \end{figure*}
+
+This observed correlation does stand in contrast to what was found in
+\citet{Hayden10}, where the slowest declining SNe are among the fastest
+risers, and a few fast-declining SNe have long rise times. This particular
+result may be understood in the context described in
+\S\ref{sec:redshift_correlations}. Slowly declining SNe are more luminous, and
+therefore will, on average, be found at higher redshifts than rapidly
+declining events in a flux limited survey. As
+Figure~\ref{fig:high_z_systematic} shows, for SNe all discovered by the same
+survey, the rise times are underestimated for higher redshift events. Indeed,
+such an effect is seen in the ZTF sample, as illustrated in the 3 right
+columns of Figure~\ref{fig:shape_correlations}. If the
+reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is clear
+that, at fixed values of $X_1$, the corresponding value of \trise\ decreases
+as the redshift increases. This bolsters the arguments in
+\S\ref{sec:redshift_correlations} that there is a systematic error in the
+estimate of \trise\ due to redshift, and means that the intrinsic scatter in
+the relation between $X_1$ and \trise\ is much smaller than the observed
+scatter seen in Figure~\ref{fig:shape_correlations}.
+
+There is no strong correlation between $\alpha$ and $X_1$. The Spearman
+rank-ordered correlation for these two parameters is $\rho \approx -0.2$
+whether looking at $\alpha_g$ or $\alpha_r$, or whether considering the full
+sample, the reliable group, or the reliable-$z_\mathrm{host}$ group.
+Subdividing the reliable-$z_\mathrm{host}$ group by redshift shows the same
+trend that was identified in Figure~\ref{fig:model_parameters}: higher
+redshift SNe have smaller values of $\alpha$ on average for the
+reliable-$z_\mathrm{host}$ group.
 
 
 
@@ -860,20 +897,21 @@ Dan F-M? Will Farr?
 
 \section{Quality Assurance \label{sec:qa}}
 
-As noted in \S\ref{sec:model}, the MCMC model converges for all but one
-ZTF SNe within the sample. However, visual inspection of both the corner
-plots and individual draws from the posterior quickly reveals that for some SNe the data do not provide strong constraints on the model parameters (see for example Figures~\ref{fig:bad_corner} and~\ref{fig:bad_lc}).
-In the most extreme cases, as shown in Figure~\ref{fig:biggap_lc}, large gaps
-in the observations make it nearly impossible to constrain the model
-parameters. For these cases, the model posteriors are essentially identical
-to the priors (there is always a weak constraint on \tfl\ from epochs where
-the SN is not detected).
+As noted in \S\ref{sec:model}, the MCMC model converges for all but one ZTF
+SNe within the sample. However, visual inspection of both the corner plots and
+individual draws from the posterior quickly reveals that for some SNe the data
+do not provide strong constraints on the model parameters (see the bottom row
+of Figure~\ref{fig:corner_LC}). In the most extreme cases, as shown in
+Figure~\ref{fig:biggap_lc}, large gaps in the observations make it nearly
+impossible to constrain the model parameters. For these cases, the model
+posteriors are essentially identical to the priors (there is always a weak
+constraint on \tfl\ from epochs where the SN is not detected).
 
 \begin{figure}
     \centering
     \includegraphics[width=3.4in]{./figures/ZTF18aaqffyp_model_lc.pdf}
     %
-    \caption{Same as Figure~\ref{fig:good_lc} for ZTF18aaqffyp, a SN with
+    \caption{Same as Figure~\ref{fig:corner_LC} for ZTF18aaqffyp, a SN with
     observations that place very weak constraints on \tfl. The marginalized
     posteriors for $A^\prime$ and $\alpha$ are essentially identical to the
     priors. Posteriors with little information beyond the prior are typical
