@@ -519,11 +519,12 @@ row), the data eventually reach the point where it is not possible to place
 meaninful constraints on \tfl\ or $\alpha$. We visually examine posterior
 models for each light curve and flag those that produce unreliable parameter
 constraints. We use this subset of sources to identify SNe that should be
-excluded from the full sample analysis described in \S\ref{sec:analysis}
+excluded from the full sample analysis described in \S\ref{sec:mean_parameters}
 below (see Appendix~\ref{sec:qa}). These flagged sources are noted in
 Table~\ref{tab:results}.
 
-\section{Sample Analysis \label{sec:analysis}}
+\section{The Mean Rise Time and Power-Law Index for SNe
+Ia\label{sec:mean_parameters}}
 
 Below we examine the results from our model fitting procedure to examine the
 typical characteristics of \textit{normal} SNe Ia. We define normal as those
@@ -659,27 +660,28 @@ there is no support for a single mean value of $\alpha$ capable of explaining
 every SN in our sample. This suggests that models using a fixed value of
 $\alpha$ are insufficient to explain the full population of normal SNe Ia.
 
-\subsection{Population correlations}
+\section{Population correlations}
 
- These
-correlations may reveal details about the explosion physics of SNe Ia (for
-example, if strong mixing in the SN ejecta leads to low values of $\alpha$,
-as found in \citealt{Piro16}, then any correlations with $\alpha$ may be
-related to ejecta mixing). Alternatively, these correlations may reveal
-inadequacies in the model. We can additionally search for correlations
-between the model parameters and redshift, which, if present, could reveal
-cosmic evolution of SNe Ia progenitors. \todo{move or remove this paragraph}
+In addition to looking at the typical values of \trise\ and $\alpha$ for SNe
+Ia, we also examine the correlations between these parameters, as well as how
+they change with redshift $z$. These correlations may reveal details about the
+explosion physics of SNe Ia (for example, if strong mixing in the SN ejecta
+leads to low values of $\alpha$, as found in \citealt{Piro16}, then any
+correlations with $\alpha$ may be related to ejecta mixing). Alternatively,
+these correlations may reveal inadequacies in the model. If the model
+parameters are correlated with redshift, that could be evidence for the cosmic
+evolution of SNe Ia progenitors.
 
-
-The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$
-is shown in Figure ~\ref{fig:model_parameters}. We do not show the
-correlation between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as
-this information is effectively redundant given the tight correlation
-between $\alpha_g$ and $\alpha_r$ (top right panel). 
+The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$ is
+shown in Figure~\ref{fig:model_parameters}. We do not show the correlation
+between $\alpha_r$ and $z$ or between $\alpha_g$ and \trise, as this
+information is effectively redundant given the tight correlation between
+$\alpha_g$ and $\alpha_r$ (top right panel of
+Figure~\ref{fig:model_parameters}).
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/param_correlations.pdf}
+    \includegraphics[width=6in]{./figures/param_correlations.pdf}
     %
     \caption{Correlation between redshift $z$, SN rise time
     $t_\mathrm{rise}$, and the power-law index in the \gztf\ and \rztf\
