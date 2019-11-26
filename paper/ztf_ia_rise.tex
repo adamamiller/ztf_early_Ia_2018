@@ -526,23 +526,14 @@ Table~\ref{tab:results}.
 \section{Sample Analysis \label{sec:analysis}}
 
 Below we examine the results from our model fitting procedure to examine the
-typical characteristics of a \textit{normal} SN Ia. We define normal as those
-SNe that are suitable for inclusion cosmographic measurements, which can be
+typical characteristics of \textit{normal} SNe Ia. We define normal as those
+SNe that are suitable for cosmography, which can be
 defined as $-2 \la X_1 \la 2$, where $X_1$ is the \texttt{SALT2} shape
 parameter. Specifically within the context of our sample, this means we
 exclude the SNe classified as SN\,1986G-like, SN\,2002cx-like, Ia-CSM, and
 super Chandra explosions in \citet{Yao19} from the analysis below. These
 events are specifically addressed in \S\ref{sec:rare}. Following the removal
 of these events, 120 SNe remain in the sample.
-
- These
-correlations may reveal details about the explosion physics of SNe Ia (for
-example, if strong mixing in the SN ejecta leads to low values of $\alpha$,
-as found in \citealt{Piro16}, then any correlations with $\alpha$ may be
-related to ejecta mixing). Alternatively, these correlations may reveal
-inadequacies in the model. We can additionally search for correlations
-between the model parameters and redshift, which, if present, could reveal
-cosmic evolution of SNe Ia progenitors. \todo{move or remove this paragraph}
 
 \subsection{Mean Rise Time of SNe Ia}
 
@@ -582,8 +573,7 @@ uncertainties in making the final estimation of \trise.
 
 In Figure~\ref{fig:rise_time} we show the PDF for \trise\ for the 120 normal
 SN in our sample. We highlight three subsets of the normal SNe in
-Figure~\ref{fig:rise_time}, SNe with reliable model parameters (see
-Appendix~\ref{sec:qa}) and known host galaxy redshifts (hereafter the
+Figure~\ref{fig:rise_time}, SNe with reliable model parameters (see~\ref{sec:qa}) and known host galaxy redshifts (hereafter the
 reliable-$z_\mathrm{host}$ group), SNe with reliable model parameters and
 unknown host galaxy redshifts (hereafter the reliable-$z_\mathrm{SN}$ group),
 and SNe with unreliable model parameters (hereafter the unreliable group). 
@@ -620,7 +610,66 @@ is then divided by $10^{-\alpha}$, and then re-normalized to integrate to 1
 on the interval from 0 to 10. This final normalized PDF provides an estimate
 of $\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/alpha_g.pdf}
+    %
+    \caption{Marginalized posterior distribution of the rising power-law
+    index in the \gztf-band $\alpha_g$ assuming a flat pqrior on $\alpha_g$
+    for individual SNe in our sample. The color scheme is the same as in
+    Figure~\ref{fig:rise_time}. While the
+    density of the PDFs tends towards 2, as would be expected in the simple
+    expanding fireball model, there is no support for a single mean power-law
+    index to describe all SNe Ia.}
+    %
+    \label{fig:alpha_rise}
+\end{figure}
+
+The PDFs for $\alpha_g$ for normal SN Ia is shown in
+Figure~\ref{fig:alpha_rise}. As in Figure~\ref{fig:rise_time}, we have
+highlighted 3 subsamples of the data. The tightest constraints on $\alpha_g$
+come from the reliable-$z_\mathrm{host}$ group, which are clustered around
+$\alpha_g \approx 2$. There are, however, individual SNe within this subgroup
+that provide support for $\alpha_g$ as low as $\sim$0.5 and as high as
+$\sim$4. The data therefore suggest that $\alpha_g$ can take on a wide range
+of values.
+
+The weighted sample mean is $\alpha_g \approx 1.9$ for the normal SNe Ia in
+the ZTF sample. This value increases to $\sim$2.1 when reducing the sample to
+the reliable group or the reliable-$z_\mathrm{host}$ group. The scatter in the
+population is 0.7, 0.5, and 0.6 for the full, reliable, and
+reliable-$z_\mathrm{host}$ subsamples, respectively. For $\alpha_r$ the
+weighted sample mean is XXX for the full sample of normal SNe Ia, which
+increases to XXX and XXX for the reliable and reliable-$z_\mathrm{host}$
+subgroups, respectively. The scatter in $\alpha_r$ is XXX, XXX, and XXX for
+the full, reliable, and reliable-$z_\mathrm{host}$ subsamples, respectively.
+As noted below, there is an extremely tight correlation between $\alpha_g$ and
+$\alpha_r$, and thus we do not show the individual PDFs for $\alpha_r$.
+
+In both the \gztf\ and \rztf\ filters the rising power-law index for the
+initial evolution of the SN is remarkably close to 2, as would be expected in
+the expanding fireball model. Similar results have been found in other studies
+(e.g., \citealt{Conley06,Hayden10,Ganeshalingam11,Zheng17a}), though there are
+some studies that have found that $\alpha$ is not consistent with 2
+\citep{Firth15}. While the mean value of $\alpha$ is $\approx$2, it is
+noteworthy that the PDF for several SNe in the reliable-$z_\mathrm{host}$
+sample provide no support for $\alpha = 2$. As was the case for \trise, if we
+multiply the individual PDFs of $\alpha_g$ or $\alpha_r$ together we find
+there is no support for a single mean value of $\alpha$ capable of explaining
+every SN in our sample. This suggests that models using a fixed value of
+$\alpha$ are insufficient to explain the full population of normal SNe Ia.
+
 \subsection{Population correlations}
+
+ These
+correlations may reveal details about the explosion physics of SNe Ia (for
+example, if strong mixing in the SN ejecta leads to low values of $\alpha$,
+as found in \citealt{Piro16}, then any correlations with $\alpha$ may be
+related to ejecta mixing). Alternatively, these correlations may reveal
+inadequacies in the model. We can additionally search for correlations
+between the model parameters and redshift, which, if present, could reveal
+cosmic evolution of SNe Ia progenitors. \todo{move or remove this paragraph}
+
 
 The correlation between $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, and $z$
 is shown in Figure ~\ref{fig:model_parameters}. We do not show the
@@ -782,21 +831,6 @@ realistic SN light curves are needed to test this posibility.
 \end{figure*}
 
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{./figures/alpha_g.pdf}
-    %
-    \caption{Marginalized posterior distribution of the rising power-law
-    index in the \gztf-band $\alpha_g$ assuming a flat pqrior on $\alpha_åg$
-    for individual SNe in our sample. The color scheme is the same as in
-    Figures~\ref{fig:model_parameters}~and~\ref{fig:rise_time}. While the
-    density of the PDFs tends towards 2, as would be expected in the simple
-    expanding fireball model, there is no support for a single mean power-law
-    index to describe all SNe Ia.}
-    %
-    \label{fig:alpha_rise}
-\end{figure}
 
 \acknowledgements
 
