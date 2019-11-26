@@ -192,6 +192,12 @@ McKinney, W. 2010, 51
 Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   Learning Research, 12, 2825
 
+\bibitem[{{Phillips}(1993)}]{Phillips93}
+{Phillips}, M.~M. 1993,
+  \href{http://dx.doi.org/10.1086/186970}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/1993ApJ...413L.105P}{\color{blue}413},
+  \href{http://adsabs.harvard.edu/abs/1993ApJ...413L.105P}{\color{blue}L105}
+
 \bibitem[{{Piro} \& {Morozova}(2016)}]{Piro16}
 {Piro}, A.~L., \& {Morozova}, V.~S. 2016,
   \href{http://dx.doi.org/10.3847/0004-637X/826/1/96}{\color{magenta}\apj},
