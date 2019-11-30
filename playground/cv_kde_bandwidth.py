@@ -17,6 +17,7 @@ def get_all_bandwidths(h5_file,
     '''optimal bandwidth for marginilized KDEs
     
        warning - lots of hard coding'''
+    sn = h5_file.split('/')[-1].split('_')[0]
     reader = emcee.backends.HDFBackend(h5_file)
     nsteps = thin_by*np.shape(reader.get_chain())[0]
     tau = reader.get_autocorr_time(tol=0)
@@ -36,7 +37,8 @@ def get_all_bandwidths(h5_file,
     if prior == 'uninformed':
         alpha_g = samples[:,2]
         alpha_r = samples[:,4]
-        alpha_ratio = alpha_g/alpha_r
+        delta_df = pd.read_hdf(data_path + '{}_{}_deltas.h5'.format(sn, prior))
+        delta = delta_df.delta.values
 
 
         alpha_g_bw = opt_bandwidth(alpha_g, 
@@ -47,18 +49,18 @@ def get_all_bandwidths(h5_file,
                                    log_min_grid=-2.7,
                                    log_max_grid=-0.3,
                                    n_jobs=n_cores)
-        alpha_ratio_bw = opt_bandwidth(alpha_ratio, 
-                                       log_min_grid=-2.7,
-                                       log_max_grid=-0.3,
-                                       n_jobs=n_cores)
+        delta_bw = opt_bandwidth(delta, 
+                                 log_min_grid=-2.7,
+                                 log_max_grid=-0.3,
+                                 n_jobs=n_cores)
     
-    sn = h5_file.split('/')[-1].split('_')[0]
+    
     with open(data_path + '{}_{}_bandwidth.txt'.format(sn, prior), 'w') as fw:
         print('{} = bw for time_fl'.format(time_bw))
         if prior == 'uninformed':
             print('{} = bw for alpha_g'.format(alpha_g_bw))
             print('{} = bw for alpha_r'.format(alpha_r_bw))
-            print('{} = bw for alpha_ratio'.format(alpha_ratio_bw))
+            print('{} = bw for delta'.format(delta_bw))
     
     return
 
