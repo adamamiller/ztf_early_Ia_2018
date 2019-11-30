@@ -56,11 +56,11 @@ def get_all_bandwidths(h5_file,
     
     
     with open(data_path + '{}_{}_bandwidth.txt'.format(sn, prior), 'w') as fw:
-        print('{} = bw for time_fl'.format(time_bw))
+        print('{} = bw for time_fl'.format(time_bw),file=fw)
         if prior == 'uninformed':
-            print('{} = bw for alpha_g'.format(alpha_g_bw))
-            print('{} = bw for alpha_r'.format(alpha_r_bw))
-            print('{} = bw for delta'.format(delta_bw))
+            print('{} = bw for alpha_g'.format(alpha_g_bw),file=fw)
+            print('{} = bw for alpha_r'.format(alpha_r_bw),file=fw)
+            print('{} = bw for delta'.format(delta_bw),file=fw)
     
     return
 
@@ -98,9 +98,9 @@ if __name__== "__main__":
     
     if prior == 'uninformed':
         backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
-        get_all_bandwidths(backend_filename, data_path, n_cores=n_cores)
+        get_all_bandwidths(backend_filename, data_path=data_path, n_cores=n_cores)
     elif prior == 'delta2':
         backend_filename = data_path + "/{}_emcee_40_tsquared.h5".format(ztf_name)
-        get_all_bandwidths(backend_filename, data_path, 
+        get_all_bandwidths(backend_filename, data_path=data_path, 
                            n_cores=n_cores, prior=prior)
         

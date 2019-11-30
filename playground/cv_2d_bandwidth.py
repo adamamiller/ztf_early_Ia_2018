@@ -81,4 +81,4 @@ if __name__== "__main__":
     
     if prior == 'uninformed':
         backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
-        get_2d_bandwidth(backend_filename, data_path, n_cores=n_cores)
+        get_2d_bandwidth(backend_filename, data_path=data_path, n_cores=n_cores)
