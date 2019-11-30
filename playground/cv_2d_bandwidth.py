@@ -20,6 +20,7 @@ def get_2d_bandwidth(h5_file,
     '''optimal bandwidth for marginilized KDEs
     
        warning - lots of hard coding'''
+    sn = h5_file.split('/')[-1].split('_')[0]
     reader = emcee.backends.HDFBackend(h5_file)
     nsteps = thin_by*np.shape(reader.get_chain())[0]
     tau = reader.get_autocorr_time(tol=0)
