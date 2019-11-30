@@ -75,7 +75,10 @@ def opt_bandwidth(marg_samples,
                                        grid_points)}
     grid_cv = GridSearchCV(KernelDensity(rtol=1e-4), 
                            params, cv=n_cv, n_jobs=n_jobs)
-    X_marg = np.reshape(marg_samples, (len(marg_samples), 1))
+    if len(np.shape(marg_samples)) == 1:
+        X_marg = np.reshape(marg_samples, (len(marg_samples), 1))
+    else: 
+        X_marg = marg_samples
     grid_cv.fit(X_marg)
 
     return grid_cv.best_estimator_.bandwidth
