@@ -117,7 +117,7 @@ def multifcqfid_lnposterior_simple(theta, f, t, f_err, fcqfid_arr):
 
 # multiplier term for the uncertainties
 def lnlike_big_unc(theta, f, t, f_err, prior='uninformative'):
-    if prior == 'uninformative':
+    if prior == 'uninformative' or prior == 'delta_alpha':
         t_0, a, a_prime, alpha_r, f_sigma = theta
     elif prior == 'delta2':
         alpha_r = 2
@@ -139,7 +139,7 @@ def nll_big_unc(theta, flux, time, flux_err, prior='uninformative'):
 
 #Define priors on parameters  
 def lnprior_big_unc(theta, prior='uninformative'):
-    if prior == 'uninformative':
+    if prior == 'uninformative' or prior == 'delta_alpha':
         t_0, a, a_prime, alpha_r, f_sigma = theta
     elif prior == 'delta2':
         alpha_r = 2
@@ -153,7 +153,7 @@ def lnprior_big_unc(theta, prior='uninformative'):
         a < -1e8 or
         a > 1e8):
         return -np.inf
-    elif prior == 'uninformative':
+    elif prior == 'uninformative' or prior == 'delta_alpha':
         return -np.log(a_prime) - np.log(f_sigma) - alpha_r*np.log(10)
     elif prior == 'delta2':
         return -np.log(a_prime) - np.log(f_sigma)
@@ -173,7 +173,7 @@ def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr,
     n_fcqid = len(np.unique(fcqfid_arr))
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
 
-    if prior == 'uninformative' and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+    if (prior == 'uninformative' or prior =  'delta_alpha') and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
     elif prior == 'delta2' and  len(theta) != 1 + n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
@@ -182,7 +182,7 @@ def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr,
     for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
         filt = int(fcqfid % 10)
 
-        if prior == 'uninformative':
+        if prior == 'uninformative' or prior == 'delta_alpha':
             theta_fcqfid = np.array([theta[0], 
                                      theta[1 + 2*n_filt + 2*fcqfid_num], 
                                      theta[2*filt-1], 
@@ -214,7 +214,7 @@ def multifcqfid_lnprior_big_unc(theta, fcqfid_arr,
     n_fcqid = len(np.unique(fcqfid_arr))
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
 
-    if prior == 'uninformative' and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+    if (prior == 'uninformative' or prior == 'delta_alpha') and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
     elif prior == 'delta2' and  len(theta) != 1 + n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
@@ -223,7 +223,7 @@ def multifcqfid_lnprior_big_unc(theta, fcqfid_arr,
     for fcqfid_num, fcqfid in enumerate(np.unique(fcqfid_arr)):
         filt = int(fcqfid % 10)
 
-        if prior == 'uninformative':
+        if prior == 'uninformative' or prior == 'delta_alpha':
             theta_fcqfid = np.array([theta[0], 
                                      theta[1 + 2*n_filt + 2*fcqfid_num], 
                                      theta[2*filt-1], 
@@ -236,6 +236,9 @@ def multifcqfid_lnprior_big_unc(theta, fcqfid_arr,
                                      theta[2 + n_filt + 2*fcqfid_num]])
         ln_p += lnprior_big_unc(theta_fcqfid, 
                                 prior=prior)
+    if prior == 'delta_alpha':
+        ln_p += np.log((2*np.pi*0.17**2)**(-0.5) * 
+                       np.exp((-0.17 - (theta[4]-theta[2]))**2/(-2*0.17**2)))
     return ln_p
 
 def multifcqfid_lnposterior_big_unc(theta, f, t, f_err, fcqfid_arr,
@@ -268,7 +271,7 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         ncores = cpu_count() - 1
     
     n_filt = len(np.unique(np.unique(fcqfid_data) % 10))
-    if prior == 'uninformative':
+    if prior == 'uninformative' or prior == 'delta_alpha':
         guess_0 = np.append([-t_fl] + [6e1, 2]*n_filt,
                             [1,1]*len(np.unique(fcqfid_data)))
     elif prior == 'delta2':
