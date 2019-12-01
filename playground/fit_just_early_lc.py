@@ -173,7 +173,7 @@ def multifcqfid_lnlike_big_unc(theta, f, t, f_err, fcqfid_arr,
     n_fcqid = len(np.unique(fcqfid_arr))
     n_filt = len(np.unique(np.unique(fcqfid_arr) % 10))
 
-    if (prior == 'uninformative' or prior =  'delta_alpha') and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
+    if (prior == 'uninformative' or prior == 'delta_alpha') and  len(theta) != 1 + 2*n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
     elif prior == 'delta2' and  len(theta) != 1 + n_filt + 2*n_fcqid:
         raise RuntimeError('Incorrect number of parameters entered')
