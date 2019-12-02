@@ -12,7 +12,7 @@ def get_all_bandwidths(h5_file,
                        thin_by=100, 
                        data_path = '',
                        n_cores=8,
-                       prior='uninformed',
+                       prior='uninformative',
                        **kwargs):
     '''optimal bandwidth for marginilized KDEs
     
@@ -34,7 +34,7 @@ def get_all_bandwidths(h5_file,
                             log_min_grid=-2.7,
                             log_max_grid=-0.3,
                             n_jobs=n_cores)
-    if prior == 'uninformed':
+    if prior == 'uninformative':
         alpha_g = samples[:,2]
         alpha_r = samples[:,4]
         delta_df = pd.read_hdf(data_path + '{}_{}_deltas.h5'.format(sn, prior))
@@ -57,7 +57,7 @@ def get_all_bandwidths(h5_file,
     
     with open(data_path + '{}_{}_bandwidth.txt'.format(sn, prior), 'w') as fw:
         print('{} = bw for time_fl'.format(time_bw),file=fw)
-        if prior == 'uninformed':
+        if prior == 'uninformative':
             print('{} = bw for alpha_g'.format(alpha_g_bw),file=fw)
             print('{} = bw for alpha_r'.format(alpha_r_bw),file=fw)
             print('{} = bw for delta'.format(delta_bw),file=fw)
@@ -88,7 +88,7 @@ def opt_bandwidth(marg_samples,
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     n_cores = 8
-    prior = 'uninformed'
+    prior = 'uninformative'
     if len(sys.argv) > 2:
         n_cores = int(sys.argv[2])
     if len(sys.argv) > 3:
@@ -96,7 +96,7 @@ if __name__== "__main__":
     
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/big_unc/"
     
-    if prior == 'uninformed':
+    if prior == 'uninformative':
         backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
         get_all_bandwidths(backend_filename, data_path=data_path, n_cores=n_cores)
     elif prior == 'delta2':

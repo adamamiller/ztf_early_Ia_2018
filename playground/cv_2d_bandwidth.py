@@ -15,7 +15,7 @@ def get_2d_bandwidth(h5_file,
                      thin_by=100, 
                      data_path = '',
                      n_cores=8,
-                     prior='uninformed',
+                     prior='uninformative',
                      **kwargs):
     '''optimal bandwidth for marginilized KDEs
     
@@ -49,7 +49,7 @@ def get_2d_bandwidth(h5_file,
     z = kde.score_samples(xy_sample)
     zz = np.reshape(z, xx.shape)
     
-    if prior == 'uninformed':
+    if prior == 'uninformative':
         cdf_g = np.cumsum(np.sum(np.exp(zz)*10**(xx+yy), axis=0)) # sum along g
         rand_uni = np.random.uniform(size=len(samples))
         alpha_g = np.interp(rand_uni, cdf_g/cdf_g[-1], xx[:,0])
@@ -73,12 +73,12 @@ def get_2d_bandwidth(h5_file,
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
     n_cores = 8
-    prior = 'uninformed'
+    prior = 'uninformative'
     if len(sys.argv) > 2:
         n_cores = int(sys.argv[2])
     
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/big_unc/"
     
-    if prior == 'uninformed':
+    if prior == 'uninformative':
         backend_filename = data_path + "/{}_emcee_40_varchange.h5".format(ztf_name)
         get_2d_bandwidth(backend_filename, data_path=data_path, n_cores=n_cores)
