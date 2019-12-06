@@ -524,7 +524,7 @@ below (see Appendix~\ref{sec:qa}). These flagged sources are noted in
 Table~\ref{tab:results}.
 
 \section{The Mean Rise Time and Power-Law Index for SNe
-Ia\label{sec:mean_parameters}}
+Ia}\label{sec:mean_parameters}
 
 Below we examine the results from our model fitting procedure to examine the
 typical characteristics of \textit{normal} SNe Ia. We define normal as those
@@ -817,57 +817,97 @@ A defining characteristic of SNe Ia is that they can be described by a
 relatively simple luminosity-shape relation \citep{Phillips93}, which enables
 them to be used as standardizable candles. We examine the correlation between
 light curve shape, in this case the \texttt{SALT2} $X_1$ parameter, and the SN
-rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a
-clear correlation between shape and \trise, a result that has been reported
-previously (e.g., \citealt{Riess99a,Firth15,Zheng17a}). This result is also
-completely unsurprising as the $X_1$ shape parameter accounts for the width of
-both the SN rise and decline, and therefore, by definition should be
-correlated with the rise time.
+rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a clear
+correlation between shape and \trise, a result that has been reported previously
+(e.g., \citealt{Riess99a,Firth15,Zheng17a}). This result is also completely
+unsurprising as the $X_1$ shape parameter accounts for the width of both the SN
+rise and decline, and therefore, by definition should be correlated with the
+rise time. The middle and right panels of Figure~\ref{fig:shape_correlations}
+divide the reliable-$z_\mathrm{host}$ group into low ($z < 0.06$) and high ($z
+\ge 0.06$) redshift bins. From these panels it is clear that some of the scatter
+in the $X_1$-\trise\ plane is the result of the redshift bias discussed in
+\S\ref{sec:redshift_correlations}, as higher redshift SNe have shorter rise
+times at fixed $X_1$. A correction for this redshift effect would reduce the
+overall scatter seen in the lower panels of Figure~\ref{fig:shape_correlations}.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1\linewidth]{./figures/shape_correlations.pdf}
+    \includegraphics[width=6in]{./figures/shape_correlations.pdf}
     %
     \caption{Correlation between the \texttt{SALT2} $X_1$ shape parameter and
     $\alpha_g$ (top row) and \trise\ (bottom row). Symbols are the same as
-    Figure~\ref{fig:model_parameters}. \trise\ shows a strong correlation with
-    $X_1$, while there is no correlation between $\alpha_g$ and $X_1$. The
-    second, third, and fourth columns highlight reliable-$z_\mathrm{host}$ SNe
-    with redshifts $z \le 0.04$, $0.04 < z \le 0.065$, and $z > 0.065$,
-    respectively. Dividing the sample into different redshift bins shows that
-    most of the observed scatter between $X_1$ and the model parameters is due
-    to redshift and not intrinsic scatter. }
+    Figure~\ref{fig:model_parameters}. For clarity, the uncertainties on $X_1$
+    are not shown. \trise\ shows a strong correlation with $X_1$, while there is
+    no correlation between $\alpha_g$ and $X_1$. The middle and right panels
+    highlight reliable-$z_\mathrm{host}$ SNe at low, $z < 0.06$, and high, $z
+    \ge 0.06$, redshift, respectively. Dividing the sample into different
+    redshift bins shows that most of the observed scatter between $X_1$ and the
+    model parameters is due to redshift and not intrinsic scatter. }
     %
     \label{fig:shape_correlations}
 \end{figure*}
 
-This observed correlation does stand in contrast to what was found in
-\citet{Hayden10}, where the slowest declining SNe are among the fastest
-risers, and a few fast-declining SNe have long rise times. This particular
-result may be understood in the context described in
-\S\ref{sec:redshift_correlations}. Slowly declining SNe are more luminous, and
-therefore will, on average, be found at higher redshifts than rapidly
-declining events in a flux limited survey. As
-Figure~\ref{fig:high_z_systematic} shows, for SNe all discovered by the same
-survey, the rise times are underestimated for higher redshift events. Indeed,
-such an effect is seen in the ZTF sample, as illustrated in the 3 right
-columns of Figure~\ref{fig:shape_correlations}. If the
-reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is clear
-that, at fixed values of $X_1$, the corresponding value of \trise\ decreases
-as the redshift increases. This bolsters the arguments in
-\S\ref{sec:redshift_correlations} that there is a systematic error in the
-estimate of \trise\ due to redshift, and means that the intrinsic scatter in
-the relation between $X_1$ and \trise\ is much smaller than the observed
-scatter seen in Figure~\ref{fig:shape_correlations}.
+\begin{figure*}
+    \centering
+    \includegraphics[width=6in]{./figures/dm15_rise.pdf}
+    %
+    \caption{Correlation between $\Delta m_{15}(g_\mathrm{ZTF})$ and \trise.
+    Symbols are the same as Figure~\ref{fig:model_parameters}. There is a clear
+    correlation between the rise and decline times of SNe Ia. Some of the
+    scatter in the relationship between these parameters can be explained as a
+    result of the redshift effect discussed in
+    \S\ref{sec:redshift_correlations}. \todo{remake figure with less white
+    space}}
+    %
+    \label{fig:dm15}
+\end{figure*}
 
-There is no strong correlation between $\alpha$ and $X_1$. The Spearman
-rank-ordered correlation for these two parameters is $\rho \approx -0.2$
-whether looking at $\alpha_g$ or $\alpha_r$, or whether considering the full
-sample, the reliable group, or the reliable-$z_\mathrm{host}$ group.
-Subdividing the reliable-$z_\mathrm{host}$ group by redshift shows the same
-trend that was identified in Figure~\ref{fig:model_parameters}: higher
-redshift SNe have smaller values of $\alpha$ on average for the
-reliable-$z_\mathrm{host}$ group.
+We compare independent measurements of the rise time and decline of SNe Ia in
+Figure~\ref{fig:dm15}, which shows the correlation between \trise\ and $\Delta
+m_{15}(g_\mathrm{ZTF})$, the observed decline in magnitudes of the \gztf\ light
+curve between the time of maximum light and 15\,d later. $\Delta
+m_{15}(g_\mathrm{ZTF})$ is measured via low-order polynomial fits to the \gztf\
+photometry from phase $= -5$ to $+20$\,d. Thus, unlike our measurements of
+$X_1$, the $\Delta m_{15}(g_\mathrm{ZTF})$ values that we infer utilize entirely
+different observations than those used to estimate \trise. For 15 of the 127 SNe
+in our sample this measurement is not possible due to an insufficient number of
+observations in the defined window. We additionally exclude 6 SNe from
+Figure~\ref{fig:dm15} where the relative uncertainty on $\Delta
+m_{15}(g_\mathrm{ZTF})$ is greater than 25\%. Figure~\ref{fig:dm15} shows that,
+on average, slowly declining SNe (i.e., smaller values of $\Delta
+m_{15}(g_\mathrm{ZTF})$) have longer rise times, confirming the trend shown in
+Figure~\ref{fig:shape_correlations}. Furthermore, Figure~\ref{fig:dm15}, like
+Figure~\ref{fig:shape_correlations}, shows that at least some of the scatter in
+this relation can be explained as a redshift effect because SNe at higher
+redshift have shorter rise times, on average, for a fixed value of $\Delta
+m_{15}(g_\mathrm{ZTF})$.
+
+The observed correlation between the rise time and the SN decline stands in
+contrast to what was found in \citet{Hayden10}, where the slowest declining SNe
+are among the fastest risers, and a few fast-declining SNe have long rise times.
+This particular result may be understood in the context described in
+\S\ref{sec:redshift_correlations}. Slowly declining SNe are more luminous, and
+therefore will, on average, be found at higher redshifts than rapidly declining
+events in a flux limited survey. As Figure~\ref{fig:high_z_systematic} shows,
+for SNe all discovered by the same survey, the rise times are underestimated for
+higher redshift events. Indeed, such an effect is seen in the ZTF sample, as
+illustrated in the 3 right columns of Figure~\ref{fig:shape_correlations}. If
+the reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is
+clear that, at fixed values of $X_1$, the corresponding value of \trise\
+decreases as the redshift increases. This bolsters the arguments in
+\S\ref{sec:redshift_correlations} that there is a systematic error in the
+estimate of \trise\ due to redshift, and means that the intrinsic scatter in the
+relation between $X_1$ and \trise\ is much smaller than the observed scatter
+seen in Figure~\ref{fig:shape_correlations}.
+
+There is no strong correlation between $\alpha$ and $X_1$
+(Figure~\ref{fig:shape_correlations}). The Spearman rank-ordered correlation for
+these two parameters is $\rho \approx -0.2$ whether looking at $\alpha_g$ or
+$\alpha_r$, or whether considering the full sample, the reliable group, or the
+reliable-$z_\mathrm{host}$ group. Subdividing the reliable-$z_\mathrm{host}$
+group by redshift shows the same trend that was identified in
+Figure~\ref{fig:model_parameters}: higher redshift SNe have smaller values of
+$\alpha$ on average for the reliable-$z_\mathrm{host}$ group.
 
 \section{Strong Priors}\label{sec:strong_priors}
 
@@ -885,7 +925,14 @@ trend is seen in this study (top right panel of
 Figure~\ref{fig:model_parameters}). Thus, strictly enforcing $\alpha_g =
 \alpha_r$ may impose non-physical structure in the models.}
 
-The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in Figure~\ref{fig:tsquared_rise}. As previously noted, the use of a strict prior significantly reduces the flexibility of the model. As a result, there are far fewer SNe with model parameters that can immediately be considered unreliable. When using the $\alpha = 2$ prior, we only flag SNe with an extrapolated flux using the maximum aposteriori model parameters $< 0.9 f_\mathrm{max}$ at \tbmax\ as having unreliable model parameters. Using this criterion we find \todo{add number of reliable SNe} SNe have unreliable model parameters. 
+The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in
+Figure~\ref{fig:tsquared_rise}. As previously noted, the use of a strict prior
+significantly reduces the flexibility of the model. As a result, there are far
+fewer SNe with model parameters that can immediately be considered unreliable.
+When using the $\alpha = 2$ prior, we only flag SNe with an extrapolated flux
+using the maximum aposteriori model parameters $< 0.9 f_\mathrm{max}$ at \tbmax\
+as having unreliable model parameters. Using this criterion we find \todo{add
+number of reliable SNe} SNe have unreliable model parameters.
 
 \begin{figure}
     \centering
@@ -934,7 +981,7 @@ Dan F-M? Will Farr?
 
 \appendix
 
-\section{Quality Assurance \label{sec:qa}}
+\section{Quality Assurance}\label{sec:qa}
 
 As noted in \S\ref{sec:model}, the MCMC model converges for all but one ZTF
 SNe within the sample. However, visual inspection of both the corner plots and
@@ -1022,7 +1069,7 @@ our two-step procedure identifies 51 SNe as reliable, while 76 are excluded
 from the final population analysis due to their unreliable constraints on the
 model parameters.
 
-\section{Systematics\label{sec:systematics}}
+\section{Systematics}\label{sec:systematics}
 
 
 \bibliography{/Users/adamamiller/Documents/tex_stuff/papers}
