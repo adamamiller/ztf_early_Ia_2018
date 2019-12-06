@@ -712,7 +712,7 @@ distribution (SED), and thus the evolution should be nearly identical in the
 two filters. SNe with reliable model parameters follow a tight locus around
 $\alpha_g - \alpha_r \approx 0.1$, with the only major outliers from this
 relation being SNe in the unreliable group (for further discussion of the
-early \gztf\ $-$ \rztf\ color evolution of this sample see M.~Bhulla et al.
+early \gztf\ $-$ \rztf\ color evolution of this sample see M.~Bulla et al.
 2019).
 
 The Spearman rank-ordered correlation coefficient \todo{REF} for $\alpha_g$
@@ -924,7 +924,7 @@ infinitely strong prior on the value of $\alpha$.\footnote{Strictly enforcing
 $\alpha_g = \alpha_r$ imposes non-physical structure on the models, as this
 condition effectively implies that there is no change in the $g - r$ colors
 during the initial rise of the SN. This is clearly observed not to be the case
-in many SNe (\S\ref{XXX}; see also Paper III in this series, Bhulla et al.\
+in many SNe (\S\ref{XXX}; see also Paper III in this series, Bulla et al.\
 2019, submitted). }
 
 The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in
@@ -1006,9 +1006,66 @@ light. \todo{actually fit linear relation and report the scatter?}
 
 \subsection{Model Selection}
 
-In adopting two very different priors that, in turn, produce significantly different posteriors, we are naturally left with the question:  which model is better? To some extent, the answer to this question rests with every individual as the prior quantifies a priori beliefs about the model parameters. We  posit that  it is extremely unlikely that thermonuclear explosions all identically produce $\alpha = 2$
+In adopting two very different priors that, in turn, produce significantly
+different posteriors, we are naturally left with the question: which model is
+better? To some extent, the answer to this question rests with every individual
+as the prior quantifies one's a priori belief about the model parameters. We
+posit that it is extremely unlikely that thermonuclear explosions all
+identically produce $\alpha = 2$ across a multitude of filters. Thus, adopting
+$\alpha = 2$ is very likely an overconfident position that produces slightly
+biased inference as a result.
 
-We can address the notion of which model  is  better by comparing  the model parameters  in a 
+Alternatively, we can address the question of which model is best via the use of
+model selection techniques based on information criteria. In our initial fit of
+the SN light curves we effectively included additional parameters in the model
+by allowing $\alpha$ to vary. Thus, for individual SNe, we can compare the trade
+off between increasing the model complexity relative to the overall improvement
+in the model fit to the data, in order to determine which model is superior.
+Following \citet{Spiegelhalter02}, we define the deviance $D$ as
+%
+$$D(\theta) = -2 \log (p(x\mid \theta)) + C,$$
+%
+where $\theta$ are the model parameters, $x$ are the observations, $p(x\bar
+\theta)$ is the likelihood, and $C$ is a constant that will drop out following
+model comparison. From here, the effective number\footnote{We adopt the Deviance
+Information Criterion, as opposed to the Akaike or Bayesian Information Criteria
+because our model includes many nuissance parameters that we ultimately
+marginalize out of our final inference. The DIC more natually accounts for these
+marginalized parameters.} of model parameters $p_D$ can be calculated as:
+%
+$$p_D = \langle D(\theta) \rangle - D(\langle \theta \rangle),$$
+%
+where $\langle D(\theta) \rangle$ is the mean posterior value of the deviance,
+and $D(\langle \theta \rangle)$ is the deviance of the mean posterior model
+parameters. We then define the deviation information criterion (DIC) as:
+%
+$$\mathrm{DIC} = p_D + \langle D(\theta) \rangle.$$
+Smaller values of  the DIC are  preferred to larger values.
+
+Following Jeffries \todo{REF} we consider SNe with
+%
+$$\exp(\mathrm{DIC}_{\alpha2} - \mathrm{DIC}_\mathrm{flat})/2) \ge 30,$$
+%
+where $\mathrm{DIC}_{\alpha2}$ is the DIC for the $\alpha = 2$ prior and
+$\mathrm{DIC}_\mathrm{flat}$ is the DIC for the uninformative prior, to exhibit
+a very strong preference for the uniformative prior. Of the 127 SNe in our
+sample, including the 7 SNe that are not considered normal SNe Ia, only 29 show
+a strong preference for the uniformative prior. Of these 29, however, 16 are
+part of the unreliable group, and indeed, visual inspection shows that these SNe
+have very few detections after \tfl. In these cases the uniformative prior leads
+to small values of $\alpha$ that effectively perfectly match the few detections
+of the SN (see e.g., Figure~\ref{fig:biggap_lc}). The other 13 SNe constitute
+the lowest redshift SNe in our sample with small, if any, gaps in the
+observational coverage.
+
+These results suggest that the preferred value of \tfl\ should come from the
+$\alpha = 2$ prior for the majority of the SNe in our sample, with the exception
+of the 13 SNe where the uniformative prior is preferred according to the DIC and
+the model parameters associated with that prior are considered reliable. This
+approach is how we define the distribution of \tfl\ in Paper III of this series
+(M.~Bulla et al.~2019, submitted).
+
+\section{Discussion}
 
 
 \acknowledgements

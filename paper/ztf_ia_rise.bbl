@@ -264,6 +264,12 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
 
+\bibitem[{Spiegelhalter {et~al.}(2002)Spiegelhalter, Best, Carlin, \& Van
+  Der~Linde}]{Spiegelhalter02}
+Spiegelhalter, D.~J., Best, N.~G., Carlin, B.~P., \& Van Der~Linde, A. 2002,
+  Journal of the royal statistical society: Series b (statistical methodology),
+  64, 583
+
 \bibitem[{{Yao} {et~al.}(2019){Yao}, {Miller}, {Kulkarni}, {Bulla}, {Masci},
   {Goldstein}, {Goobar}, {Nugent}, {Dugas}, {Blagorodnova}, {Neill}, {Rigault},
   {Sollerman}, {Nordin}, {Bellm}, {Cenko}, {De}, {Dhawan}, {Feindt},
@@ -279,12 +285,6 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/830/1/27}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}830},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}27}
-
-\bibitem[{{Zheng} \& {Filippenko}(2017)}]{Zheng17}
-{Zheng}, W., \& {Filippenko}, A.~V. 2017,
-  \href{http://dx.doi.org/10.3847/2041-8213/aa6442}{\color{magenta}\apjl},
-  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}838},
-  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}L4}
 
 \bibitem[{{Zheng} {et~al.}(2017){Zheng}, {Kelly}, \& {Filippenko}}]{Zheng17a}
 {Zheng}, W., {Kelly}, P.~L., \& {Filippenko}, A.~V. 2017,
