@@ -661,6 +661,65 @@ there is no support for a single mean value of $\alpha$ capable of explaining
 every SN in our sample. This suggests that models using a fixed value of
 $\alpha$ are insufficient to explain the full population of normal SNe Ia.
 
+\subsection{Mean Color Evolution}\label{sec:colors}
+
+Here we examine the mean initial color evolution of SNe Ia, \textit{under the
+assumption that the power-law model adopted in \S\ref{sec:model} is correct}.
+This analysis does not address the initial colors of SNe Ia; for a more detailed
+analysis of the early color and color evolution of SNe Ia see Paper III in this
+series (Bulla et al.~2019, submitted).
+
+Unlike \trise\ and $\alpha$, we do find evidence for a single mean value of the
+early color evolution of SNe Ia, as traced by $\alpha_r - \alpha_g$. If the
+early evolution in the \gztf\ and \rztf\ filters is a power-law in time, then
+the \gztf\ $-$ \rztf\ colors will evolve $\propto (\alpha_r - \alpha_g)
+\log_{10} (t - t_\mathrm{fl}$. Thus, negative values of $\alpha_r - \alpha_g$
+result in a SN that gets bluer with time, positive values produce a SN that gets
+redder, and $\alpha_r - \alpha_g = 0$ for a SN whose colors do not change.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/delta.pdf}
+    %
+    \caption{Marginalized posterior distribution of the early color evolution of
+    SNe Ia $\alpha_r - \alpha_g$ assuming flat priors on $\alpha_g$ and
+    $\alpha_r$. The color scheme is the same as in Figure~\ref{fig:rise_time}.
+    For SNe with reliable model parameters, there is support for a single mean
+    value of $\alpha_r - \alpha_g \approx -0.17$, as shown by the thick, solid
+    black line.}
+    %
+    \label{fig:delta}
+\end{figure}
+
+To estimate $\alpha_r - \alpha_g$ we use a similar procedure as above, however,
+we need to estimate the marginalized joint posterior on $\alpha_g$ and
+$\alpha_r$, $\pi(\alpha_g,\alpha_r \mid t_\mathrm{fl}, A^\prime_b, \beta_d)$, in
+order to correct the posterior estimates for the priors on $\alpha$. To do so we
+estimate the 2D joint posterior via a Gaussian KDE, correct this distribution
+for the priors on $\alpha_g$ and $\alpha_r$, and then obtain random draws from
+this distribution to estimate the 1D marginalized likelihood estimates on
+$\alpha_r - \alpha_g$. The distribution of this parameter for individual SNe is
+shown in Figure~\ref{fig:delta}.
+
+Unlike the estimates for \trise\ and $\alpha$ alone, $\alpha_r - \alpha_g$ is
+clearly clustered around a value of $\sim{-0.2}$ for the reliable subset of
+model parameters. Multiplying these likelihoods together produces support for a
+single mean value of $\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the
+uncertainties on that estimate represent the 90\% credible region. The
+distribution on this mean is shown as the thick, solid black line in
+Figure~\ref{fig:delta}. A mean value of $\alpha_r - \alpha_g$ means that the
+typical normal SN Ia becomes bluer in the days after explosion. Such an
+evolution makes sense for an optically thick, radioactively heated, expanding
+ejecta. There are, however, clear examples of individual SNe that do not exhibit
+this behavior (e.g., SN\,2017cbv and iPTF\,16abc; \citealt{Ho}), meaning this
+mean behavior is not perscriptive for every SN Ia. Finally, we note that the
+above results exclude SNe from the unreliable group, and their inclusion would
+remove any support for a single mean value of $\alpha_r - \alpha_g$. This is
+largely due to a small handful of events that feature extreme values of
+$\alpha_r - \alpha_g$ because there are gaps in the observational coverage of
+one of the two filters (see the upper right panel of
+Figure~\ref{fig:model_parameters}).
+
 \section{Population correlations}
 
 In addition to looking at the typical values of \trise\ and $\alpha$ for SNe
