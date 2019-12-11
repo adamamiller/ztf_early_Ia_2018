@@ -665,17 +665,17 @@ $\alpha$ are insufficient to explain the full population of normal SNe Ia.
 
 Here we examine the mean initial color evolution of SNe Ia, \textit{under the
 assumption that the power-law model adopted in \S\ref{sec:model} is correct}.
-This analysis does not address the initial colors of SNe Ia; for a more detailed
-analysis of the early color and color evolution of SNe Ia see Paper III in this
-series (Bulla et al.~2019, submitted).
+This analysis does not address the initial colors of SNe Ia; for a more
+detailed analysis of the early color and color evolution of SNe Ia see Paper
+III in this series (Bulla et al.~2019, submitted).
 
-Unlike \trise\ and $\alpha$, we do find evidence for a single mean value of the
-early color evolution of SNe Ia, as traced by $\alpha_r - \alpha_g$. If the
-early evolution in the \gztf\ and \rztf\ filters is a power-law in time, then
-the \gztf\ $-$ \rztf\ colors will evolve $\propto (\alpha_r - \alpha_g)
+Unlike \trise\ and $\alpha$, we do find evidence for a single mean value of
+the early color evolution of SNe Ia, as traced by $\alpha_r - \alpha_g$. If
+the early evolution in the \gztf\ and \rztf\ filters is a power-law in time,
+then the \gztf\ $-$ \rztf\ colors will evolve $\propto (\alpha_r - \alpha_g)
 \log_{10} (t - t_\mathrm{fl}$. Thus, negative values of $\alpha_r - \alpha_g$
-result in a SN that gets bluer with time, positive values produce a SN that gets
-redder, and $\alpha_r - \alpha_g = 0$ for a SN whose colors do not change.
+result in a SN that gets bluer with time, positive values produce a SN that
+gets redder, and $\alpha_r - \alpha_g = 0$ for a SN whose colors do not change.
 
 \begin{figure}
     \centering
@@ -691,33 +691,33 @@ redder, and $\alpha_r - \alpha_g = 0$ for a SN whose colors do not change.
     \label{fig:delta}
 \end{figure}
 
-To estimate $\alpha_r - \alpha_g$ we use a similar procedure as above, however,
-we need to estimate the marginalized joint posterior on $\alpha_g$ and
-$\alpha_r$, $\pi(\alpha_g,\alpha_r \mid t_\mathrm{fl}, A^\prime_b, \beta_d)$, in
-order to correct the posterior estimates for the priors on $\alpha$. To do so we
-estimate the 2D joint posterior via a Gaussian KDE, correct this distribution
-for the priors on $\alpha_g$ and $\alpha_r$, and then obtain random draws from
-this distribution to estimate the 1D marginalized likelihood estimates on
-$\alpha_r - \alpha_g$. The distribution of this parameter for individual SNe is
-shown in Figure~\ref{fig:delta}.
+To estimate $\alpha_r - \alpha_g$ we use a similar procedure as above,
+however, we need to estimate the marginalized joint posterior on $\alpha_g$
+and $\alpha_r$, $\pi(\alpha_g,\alpha_r \mid t_\mathrm{fl}, A^\prime_b,
+\beta_d)$, in order to correct the posterior estimates for the priors on
+$\alpha$. To do so we estimate the 2D joint posterior via a Gaussian KDE,
+correct this distribution for the priors on $\alpha_g$ and $\alpha_r$, and
+then obtain random draws from this distribution to estimate the 1D
+marginalized likelihood estimates on $\alpha_r - \alpha_g$. The distribution
+of this parameter for individual SNe is shown in Figure~\ref{fig:delta}.
 
 Unlike the estimates for \trise\ and $\alpha$ alone, $\alpha_r - \alpha_g$ is
 clearly clustered around a value of $\sim{-0.2}$ for the reliable subset of
-model parameters. Multiplying these likelihoods together produces support for a
-single mean value of $\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the
+model parameters. Multiplying these likelihoods together produces support for
+a single mean value of $\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the
 uncertainties on that estimate represent the 90\% credible region. The
 distribution on this mean is shown as the thick, solid black line in
 Figure~\ref{fig:delta}. A mean value of $\alpha_r - \alpha_g$ means that the
 typical normal SN Ia becomes bluer in the days after explosion. Such an
 evolution makes sense for an optically thick, radioactively heated, expanding
-ejecta. There are, however, clear examples of individual SNe that do not exhibit
-this behavior (e.g., SN\,2017cbv and iPTF\,16abc; \citealt{Ho}), meaning this
-mean behavior is not perscriptive for every SN Ia. Finally, we note that the
-above results exclude SNe from the unreliable group, and their inclusion would
-remove any support for a single mean value of $\alpha_r - \alpha_g$. This is
-largely due to a small handful of events that feature extreme values of
-$\alpha_r - \alpha_g$ because there are gaps in the observational coverage of
-one of the two filters (see the upper right panel of
+ejecta. There are, however, clear examples of individual SNe that do not
+exhibit this behavior (e.g., SN\,2017cbv and iPTF\,16abc; \citealt{Ho}),
+meaning this mean behavior is not perscriptive for every SN Ia. Finally, we
+note that the above results exclude SNe from the unreliable group, and their
+inclusion would remove any support for a single mean value of $\alpha_r -
+\alpha_g$. This is largely due to a small handful of events that feature
+extreme values of $\alpha_r - \alpha_g$ because there are gaps in the
+observational coverage of one of the two filters (see the upper right panel of
 Figure~\ref{fig:model_parameters}).
 
 \section{Population correlations}
@@ -876,18 +876,19 @@ A defining characteristic of SNe Ia is that they can be described by a
 relatively simple luminosity-shape relation \citep{Phillips93}, which enables
 them to be used as standardizable candles. We examine the correlation between
 light curve shape, in this case the \texttt{SALT2} $X_1$ parameter, and the SN
-rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a clear
-correlation between shape and \trise, a result that has been reported previously
-(e.g., \citealt{Riess99a,Firth15,Zheng17a}). This result is also completely
-unsurprising as the $X_1$ shape parameter accounts for the width of both the SN
-rise and decline, and therefore, by definition should be correlated with the
-rise time. The middle and right panels of Figure~\ref{fig:shape_correlations}
-divide the reliable-$z_\mathrm{host}$ group into low ($z < 0.06$) and high ($z
-\ge 0.06$) redshift bins. From these panels it is clear that some of the scatter
-in the $X_1$-\trise\ plane is the result of the redshift bias discussed in
-\S\ref{sec:redshift_correlations}, as higher redshift SNe have shorter rise
-times at fixed $X_1$. A correction for this redshift effect would reduce the
-overall scatter seen in the lower panels of Figure~\ref{fig:shape_correlations}.
+rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a
+clear correlation between shape and \trise, a result that has been reported
+previously (e.g., \citealt{Riess99a,Firth15,Zheng17a}). This result is also
+completely unsurprising as the $X_1$ shape parameter accounts for the width of
+both the SN rise and decline, and therefore, by definition should be
+correlated with the rise time. The middle and right panels of
+Figure~\ref{fig:shape_correlations} divide the reliable-$z_\mathrm{host}$
+group into low ($z < 0.06$) and high ($z \ge 0.06$) redshift bins. From these
+panels it is clear that some of the scatter in the $X_1$-\trise\ plane is the
+result of the redshift bias discussed in \S\ref{sec:redshift_correlations}, as
+higher redshift SNe have shorter rise times at fixed $X_1$. A correction for
+this redshift effect would reduce the overall scatter seen in the lower panels
+of Figure~\ref{fig:shape_correlations}.
 
 \begin{figure*}
     \centering
@@ -896,12 +897,13 @@ overall scatter seen in the lower panels of Figure~\ref{fig:shape_correlations}.
     \caption{Correlation between the \texttt{SALT2} $X_1$ shape parameter and
     $\alpha_g$ (top row) and \trise\ (bottom row). Symbols are the same as
     Figure~\ref{fig:model_parameters}. For clarity, the uncertainties on $X_1$
-    are not shown. \trise\ shows a strong correlation with $X_1$, while there is
-    no correlation between $\alpha_g$ and $X_1$. The middle and right panels
-    highlight reliable-$z_\mathrm{host}$ SNe at low, $z < 0.06$, and high, $z
-    \ge 0.06$, redshift, respectively. Dividing the sample into different
-    redshift bins shows that most of the observed scatter between $X_1$ and the
-    model parameters is due to redshift and not intrinsic scatter. }
+    are not shown. \trise\ shows a strong correlation with $X_1$, while there
+    is no correlation between $\alpha_g$ and $X_1$. The middle and right
+    panels highlight reliable-$z_\mathrm{host}$ SNe at low, $z < 0.06$, and
+    high, $z \ge 0.06$, redshift, respectively. Dividing the sample into
+    different redshift bins shows that most of the observed scatter between
+    $X_1$ and the model parameters is due to redshift and not intrinsic
+    scatter. }
     %
     \label{fig:shape_correlations}
 \end{figure*}
@@ -923,78 +925,80 @@ overall scatter seen in the lower panels of Figure~\ref{fig:shape_correlations}.
 
 We compare independent measurements of the rise time and decline of SNe Ia in
 Figure~\ref{fig:dm15}, which shows the correlation between \trise\ and $\Delta
-m_{15}(g_\mathrm{ZTF})$, the observed decline in magnitudes of the \gztf\ light
-curve between the time of maximum light and 15\,d later. $\Delta
-m_{15}(g_\mathrm{ZTF})$ is measured via low-order polynomial fits to the \gztf\
-photometry from phase $= -5$ to $+20$\,d. Thus, unlike our measurements of
-$X_1$, the $\Delta m_{15}(g_\mathrm{ZTF})$ values that we infer utilize entirely
-different observations than those used to estimate \trise. For 15 of the 127 SNe
-in our sample this measurement is not possible due to an insufficient number of
-observations in the defined window. We additionally exclude 6 SNe from
-Figure~\ref{fig:dm15} where the relative uncertainty on $\Delta
-m_{15}(g_\mathrm{ZTF})$ is greater than 25\%. Figure~\ref{fig:dm15} shows that,
-on average, slowly declining SNe (i.e., smaller values of $\Delta
+m_{15}(g_\mathrm{ZTF})$, the observed decline in magnitudes of the \gztf\
+light curve between the time of maximum light and 15\,d later. $\Delta
+m_{15}(g_\mathrm{ZTF})$ is measured via low-order polynomial fits to the
+\gztf\ photometry from phase $= -5$ to $+20$\,d. Thus, unlike our measurements
+of $X_1$, the $\Delta m_{15}(g_\mathrm{ZTF})$ values that we infer utilize
+entirely different observations than those used to estimate \trise. For 15 of
+the 127 SNe in our sample this measurement is not possible due to an
+insufficient number of observations in the defined window. We additionally
+exclude 6 SNe from Figure~\ref{fig:dm15} where the relative uncertainty on
+$\Delta m_{15}(g_\mathrm{ZTF})$ is greater than 25\%. Figure~\ref{fig:dm15}
+shows that, on average, slowly declining SNe (i.e., smaller values of $\Delta
 m_{15}(g_\mathrm{ZTF})$) have longer rise times, confirming the trend shown in
 Figure~\ref{fig:shape_correlations}. Furthermore, Figure~\ref{fig:dm15}, like
-Figure~\ref{fig:shape_correlations}, shows that at least some of the scatter in
-this relation can be explained as a redshift effect because SNe at higher
+Figure~\ref{fig:shape_correlations}, shows that at least some of the scatter
+in this relation can be explained as a redshift effect because SNe at higher
 redshift have shorter rise times, on average, for a fixed value of $\Delta
 m_{15}(g_\mathrm{ZTF})$.
 
 The observed correlation between the rise time and the SN decline stands in
-contrast to what was found in \citet{Hayden10}, where the slowest declining SNe
-are among the fastest risers, and a few fast-declining SNe have long rise times.
-This particular result may be understood in the context described in
+contrast to what was found in \citet{Hayden10}, where the slowest declining
+SNe are among the fastest risers, and a few fast-declining SNe have long rise
+times. This particular result may be understood in the context described in
 \S\ref{sec:redshift_correlations}. Slowly declining SNe are more luminous, and
-therefore will, on average, be found at higher redshifts than rapidly declining
-events in a flux limited survey. As Figure~\ref{fig:high_z_systematic} shows,
-for SNe all discovered by the same survey, the rise times are underestimated for
-higher redshift events. Indeed, such an effect is seen in the ZTF sample, as
-illustrated in the 3 right columns of Figure~\ref{fig:shape_correlations}. If
-the reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is
-clear that, at fixed values of $X_1$, the corresponding value of \trise\
-decreases as the redshift increases. This bolsters the arguments in
+therefore will, on average, be found at higher redshifts than rapidly
+declining events in a flux limited survey. As
+Figure~\ref{fig:high_z_systematic} shows, for SNe all discovered by the same
+survey, the rise times are underestimated for higher redshift events. Indeed,
+such an effect is seen in the ZTF sample, as illustrated in the 3 right
+columns of Figure~\ref{fig:shape_correlations}. If the
+reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is clear
+that, at fixed values of $X_1$, the corresponding value of \trise\ decreases
+as the redshift increases. This bolsters the arguments in
 \S\ref{sec:redshift_correlations} that there is a systematic error in the
-estimate of \trise\ due to redshift, and means that the intrinsic scatter in the
-relation between $X_1$ and \trise\ is much smaller than the observed scatter
-seen in Figure~\ref{fig:shape_correlations}.
+estimate of \trise\ due to redshift, and means that the intrinsic scatter in
+the relation between $X_1$ and \trise\ is much smaller than the observed
+scatter seen in Figure~\ref{fig:shape_correlations}.
 
 There is no strong correlation between $\alpha$ and $X_1$
-(Figure~\ref{fig:shape_correlations}). The Spearman rank-ordered correlation for
-these two parameters is $\rho \approx -0.2$ whether looking at $\alpha_g$ or
-$\alpha_r$, or whether considering the full sample, the reliable group, or the
-reliable-$z_\mathrm{host}$ group. Subdividing the reliable-$z_\mathrm{host}$
-group by redshift shows the same trend that was identified in
-Figure~\ref{fig:model_parameters}: higher redshift SNe have smaller values of
-$\alpha$ on average for the reliable-$z_\mathrm{host}$ group.
+(Figure~\ref{fig:shape_correlations}). The Spearman rank-ordered correlation
+for these two parameters is $\rho \approx -0.2$ whether looking at $\alpha_g$
+or $\alpha_r$, or whether considering the full sample, the reliable group, or
+the reliable-$z_\mathrm{host}$ group. Subdividing the
+reliable-$z_\mathrm{host}$ group by redshift shows the same trend that was
+identified in Figure~\ref{fig:model_parameters}: higher redshift SNe have
+smaller values of $\alpha$ on average for the reliable-$z_\mathrm{host}$ group.
 
 \section{Strong Priors}\label{sec:strong_priors}
 
 \subsection{Fixing $\alpha = 2$}
 
 In our previous effort to model the early evolution of SNe Ia we adopted a
-flexible model allowing $\alpha$ and \tfl\ to simultaneously vary despite
-theoretical \citep{Arnett82,Riess99a} and observational
-\citep{Conley06,Hayden10,Ganeshalingam11} evidence that $\alpha$ is consistent
-with $2$. Here we alter the model by fixing $\alpha_g = \alpha_r = 2$ (hereafter
-the ``$\alpha = 2$ prior''), and explore how this decision changes the results
-described in the previous sections. This decision is equivalent to placing an
-infinitely strong prior on the value of $\alpha$.\footnote{Strictly enforcing
-$\alpha_g = \alpha_r$ imposes non-physical structure on the models, as this
-condition effectively implies that there is no change in the $g - r$ colors
-during the initial rise of the SN. This is clearly observed not to be the case
-in many SNe (\S\ref{XXX}; see also Paper III in this series, Bulla et al.\
-2019, submitted). }
+flexible model (hereafter the ``uninformative prior'') allowing $\alpha$ and
+\tfl\ to simultaneously vary despite theoretical \citep{Arnett82,Riess99a} and
+observational \citep{Conley06,Hayden10,Ganeshalingam11} evidence that $\alpha$
+is consistent with $2$. Here we alter the model by fixing $\alpha_g = \alpha_r
+= 2$ (hereafter the ``$\alpha = 2$ prior''), and explore how this decision
+changes the results described in the previous sections. This decision is
+equivalent to placing an infinitely strong prior on the value of
+$\alpha$.\footnote{Strictly enforcing $\alpha_g = \alpha_r$ imposes
+non-physical structure on the models, as this condition effectively implies
+that there is no change in the $g - r$ colors during the initial rise of the
+SN. This is clearly observed not to be the case in many SNe
+(\S\ref{sec:colors}; see also Paper III in this series, Bulla et al.\ 2019,
+submitted).}
 
 The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in
-Figure~\ref{fig:tsquared_rise}. Adopting this strict prior significantly reduces
-the flexibility of the model. One consequence of this choice is that visual
-inspection of the posterior predictive flux values reveals that there are far
-fewer SNe with unreliable model parameters. When using the $\alpha = 2$ prior,
-we only flag SNe with an extrapolated flux using the maximum aposteriori model
-parameters $< 0.9 f_\mathrm{max}$ at \tbmax\ as having unreliable model
-parameters. From this criterion only 5 SNe are flagged as having unreliable
-model parameters.
+Figure~\ref{fig:tsquared_rise}. Adopting this strict prior significantly
+reduces the flexibility of the model. One consequence of this choice is that
+visual inspection of the posterior predictive flux values reveals that there
+are far fewer SNe with unreliable model parameters. When using the $\alpha =
+2$ prior, we only flag SNe with an extrapolated flux using the maximum
+aposteriori model parameters $< 0.9 f_\mathrm{max}$ at \tbmax\ as having
+unreliable model parameters. From this criterion only 5 SNe are flagged as
+having unreliable model parameters.
 
 \begin{figure}
     \centering
@@ -1011,31 +1015,32 @@ model parameters.
     \label{fig:tsquared_rise}
 \end{figure}
 
-Figure~\ref{fig:tsquared_rise} shows distinct differences in the distribution of
-rise times relative to Figure~\ref{fig:rise_time}. There are far more SNe with
-narrow PDFs for \trise\ when adopting the $\alpha = 2$ prior. Furthermore, the
-typical rise time is $\sim$3\,d longer than what is inferred from the
-uninformative priors. Nevertheless, as is the case when adopting uninformative
-priors, there is no support for a single mean rise time to describe all SNe Ia.
-We find a population mean \trise\;$\approx 21.0$\,d, using the same method
-described in \S\ref{sec:mean_rise}. This mean value does not significantly
-change when considering the full, reliable, or reliable-$z_\mathrm{host}$
-samples. The population scatter about this mean value is 1.7\,d, 1.8\,d, and
-2.0\,d for the full, reliable, and reliable-$z_\mathrm{host}$ subsamples,
-respectively. Another consequence of adopting the $\alpha = 2$ prior is that 3
-SNe in the sample have rise times that are consistent with 28\,d, which is
-considerably longer than the rise times inferred in any previous study of normal
-SNe Ia.
+Figure~\ref{fig:tsquared_rise} shows distinct differences in the distribution
+of rise times relative to Figure~\ref{fig:rise_time}. There are far more SNe
+with narrow PDFs for \trise\ when adopting the $\alpha = 2$ prior.
+Furthermore, the typical rise time is $\sim$3\,d longer than what is inferred
+from the uninformative priors. Nevertheless, as is the case when adopting
+uninformative priors, there is no support for a single mean rise time to
+describe all SNe Ia. We find a population mean \trise\;$\approx 21.0$\,d,
+using the same method described in \S\ref{sec:mean_rise}. This mean value does
+not significantly change when considering the full, reliable, or
+reliable-$z_\mathrm{host}$ samples. The population scatter about this mean
+value is 1.7\,d, 1.8\,d, and 2.0\,d for the full, reliable, and
+reliable-$z_\mathrm{host}$ subsamples, respectively. Another consequence of
+adopting the $\alpha = 2$ prior is that 3 SNe in the sample have rise times
+that are consistent with 28\,d, which is considerably longer than the rise
+times inferred in any previous study of normal SNe Ia.
 
-In Figure~\ref{fig:tsquared_z_evolution} scatter plots of the inferred value of
-\trise\ when adopting the $\alpha = 2$ prior are shown against both redshift and
-$X_1$. The previously observed correlation between \trise\ and redshift
-disappears when adopting $\alpha = 2$. The Spearman rank-order correlation
-coefficient for these two parameters is $\rho \la 0.2$ when considering any of
-the full, reliable, or reliable-$z_\mathrm{host}$ subsamples. The model is, in
-effect, no longer flexible enough to systematically adjust \tfl\ to be
-approximately equal to the epoch of first detection. The removal of this
-particular bias provides a benefit for fixing $\alpha = 2$.
+In Figure~\ref{fig:tsquared_z_evolution} scatter plots of the inferred value
+of \trise\ when adopting the $\alpha = 2$ prior are shown against both
+redshift and $X_1$. The previously observed correlation between \trise\ and
+redshift disappears when adopting $\alpha = 2$. The Spearman rank-order
+correlation coefficient for these two parameters is $\rho \la 0.2$ when
+considering any of the full, reliable, or reliable-$z_\mathrm{host}$
+subsamples. The model is, in effect, no longer flexible enough to
+systematically adjust \tfl\ to be approximately equal to the epoch of first
+detection. The removal of this particular bias provides a benefit for fixing
+$\alpha = 2$.
 
 \begin{figure*}
     \centering
@@ -1052,18 +1057,19 @@ particular bias provides a benefit for fixing $\alpha = 2$.
 \end{figure*}
 
 There is far less scatter in the correlation between $X_1$ and \trise\ when
-adopting the $\alpha = 2$ prior. The reduction in this scatter intuitively makes
-sense, given that it was due, at least in part, to the redshift bias in
+adopting the $\alpha = 2$ prior. The reduction in this scatter intuitively
+makes sense, given that it was due, at least in part, to the redshift bias in
 measuring \trise\ (\S\ref{sec:redshift_correlations}). Reducing, or possibly
 fully removing, that bias by adopting the $\alpha = 2$ prior allows a directly
-estimate the rise time from $X_1$ with a typical scatter $< 1$\,d. If relatively
-high precision measurements of \trise\ can be directly inferred from $X_1$, it
-would dramatically increase the sample of SNe Ia with measured rise times, as
-extremely early observations ($t < -10$\,d) would no longer be required given
-that $X_1$ can be inferred solely from observations around and post-peak maximum
-light. \todo{actually fit linear relation and report the scatter?}
+estimate the rise time from $X_1$ with a typical scatter $< 1$\,d. If
+relatively high precision measurements of \trise\ can be directly inferred
+from $X_1$, it would dramatically increase the sample of SNe Ia with measured
+rise times, as extremely early observations ($t < -10$\,d) would no longer be
+required given that $X_1$ can be inferred solely from observations around and
+post-peak maximum light. \todo{actually fit linear relation and report the
+scatter?}
 
-\subsection{Model Selection}
+\subsection{Model Selection}\label{sec:dic}
 
 In adopting two very different priors that, in turn, produce significantly
 different posteriors, we are naturally left with the question: which model is
@@ -1074,23 +1080,25 @@ identically produce $\alpha = 2$ across a multitude of filters. Thus, adopting
 $\alpha = 2$ is very likely an overconfident position that produces slightly
 biased inference as a result.
 
-Alternatively, we can address the question of which model is best via the use of
-model selection techniques based on information criteria. In our initial fit of
-the SN light curves we effectively included additional parameters in the model
-by allowing $\alpha$ to vary. Thus, for individual SNe, we can compare the trade
-off between increasing the model complexity relative to the overall improvement
-in the model fit to the data, in order to determine which model is superior.
-Following \citet{Spiegelhalter02}, we define the deviance $D$ as
+Alternatively, we can address the question of which model is best via the use
+of model selection techniques based on information criteria. In our initial
+fit of the SN light curves we effectively included additional parameters in
+the model by allowing $\alpha$ to vary. Thus, for individual SNe, we can
+compare the trade off between increasing the model complexity relative to the
+overall improvement in the model fit to the data, in order to determine which
+model is superior. Following \citet{Spiegelhalter02}, we define the deviance
+$D$ as
 %
-$$D(\theta) = -2 \log (p(x\mid \theta)) + C,$$
+$$D(\theta) = -2 \ln (p(x\mid \theta)) + C,$$
 %
 where $\theta$ are the model parameters, $x$ are the observations, $p(x\bar
 \theta)$ is the likelihood, and $C$ is a constant that will drop out following
-model comparison. From here, the effective number\footnote{We adopt the Deviance
-Information Criterion, as opposed to the Akaike or Bayesian Information Criteria
-because our model includes many nuissance parameters that we ultimately
-marginalize out of our final inference. The DIC more natually accounts for these
-marginalized parameters.} of model parameters $p_D$ can be calculated as:
+model comparison. From here, the effective number\footnote{We adopt the
+Deviance Information Criterion, as opposed to the Akaike or Bayesian
+Information Criteria because our model includes many nuissance parameters that
+we ultimately marginalize out of our final inference. The DIC more natually
+accounts for these marginalized parameters.} of model parameters $p_D$ can be
+calculated as:
 %
 $$p_D = \langle D(\theta) \rangle - D(\langle \theta \rangle),$$
 %
@@ -1106,23 +1114,23 @@ Following Jeffries \todo{REF} we consider SNe with
 $$\exp(\mathrm{DIC}_{\alpha2} - \mathrm{DIC}_\mathrm{flat})/2) \ge 30,$$
 %
 where $\mathrm{DIC}_{\alpha2}$ is the DIC for the $\alpha = 2$ prior and
-$\mathrm{DIC}_\mathrm{flat}$ is the DIC for the uninformative prior, to exhibit
-a very strong preference for the uniformative prior. Of the 127 SNe in our
-sample, including the 7 SNe that are not considered normal SNe Ia, only 29 show
-a strong preference for the uniformative prior. Of these 29, however, 16 are
-part of the unreliable group, and indeed, visual inspection shows that these SNe
-have very few detections after \tfl. In these cases the uniformative prior leads
-to small values of $\alpha$ that effectively perfectly match the few detections
-of the SN (see e.g., Figure~\ref{fig:biggap_lc}). The other 13 SNe constitute
-the lowest redshift SNe in our sample with small, if any, gaps in the
-observational coverage.
+$\mathrm{DIC}_\mathrm{flat}$ is the DIC for the uninformative prior, to
+exhibit a very strong preference for the uniformative prior. Of the 127 SNe in
+our sample, including the 7 SNe that are not considered normal SNe Ia, only 29
+show a strong preference for the uniformative prior. Of these 29, however, 16
+are part of the unreliable group, and indeed, visual inspection shows that
+these SNe have very few detections after \tfl. In these cases the uniformative
+prior leads to small values of $\alpha$ that effectively perfectly match the
+few detections of the SN (see e.g., Figure~\ref{fig:biggap_lc}). The other 13
+SNe constitute the lowest redshift SNe in our sample with small, if any, gaps
+in the observational coverage.
 
 These results suggest that the preferred value of \tfl\ should come from the
-$\alpha = 2$ prior for the majority of the SNe in our sample, with the exception
-of the 13 SNe where the uniformative prior is preferred according to the DIC and
-the model parameters associated with that prior are considered reliable. This
-approach is how we define the distribution of \tfl\ in Paper III of this series
-(M.~Bulla et al.~2019, submitted).
+$\alpha = 2$ prior for the majority of the SNe in our sample, with the
+exception of the 13 SNe where the uniformative prior is preferred according to
+the DIC and the model parameters associated with that prior are considered
+reliable. This approach is how we define the distribution of \tfl\ in Paper
+III of this series (M.~Bulla et al.~2019, submitted).
 
 \section{A Volume Limited Sample of Normal SNe Ia}
 
@@ -1130,8 +1138,8 @@ The ZTF sample of early SNe Ia are clearly biased due to Malmquist selection
 effects (see \citealt{Yao19}), and as such, the population results discussed
 above are also correspondingly biased. We can, however, approximate a volume
 limited subset of \textit{normal} SNe Ia. A full study of the completeness of
-the ZTF SNe Ia sample is beyond the scope of this paper and will be discussed in
-a future study (J.~Nordin et al., in prep.).
+the ZTF SNe Ia sample is beyond the scope of this paper and will be discussed
+in a future study (J.~Nordin et al., in prep.).
 
 The selection criteria presented in Paper I removes SNe Ia from the sample if
 they lack a \gztf\ detection $> 10$\,d prior to \tbmax\ \citep{Yao19}. By
@@ -1142,7 +1150,35 @@ typical limiting magnitude of \gztf$ \approx 20.0$\,mag during bright time
 \approx -2$ and brighter SNe to a distance modulus $\mu \approx 37$\,mag. For
 our adopted cosmology, this distance corresponds to a redshift $z \approx
 0.0585$. Thus, SNe with $z < 0.06$ should comprise a volume-limited subset of
-the ZTF sample. \todo{how many such SNe are there?}
+the ZTF sample. There are 28 normal SNe Ia within this redshift range.
+
+For the uninformative prior, 16 of the 28 low redshift SNe have reliable model
+parameters, and 15 of those 16 have known host redshifts. Using the same
+procedure as \S\ref{sec:mean_rise}, we estimate a weighted mean rise time of
+$18.18 \pm 0.05$\,d, $18.47 \pm 0.05$\,d, and $18.51 \pm 0.05$\,d when
+considering the volume complete subsets ($z < 0.06$) of the full sample, the
+reliable group, and the reliable-$z_\mathrm{host}$ group, respectively. For
+the same respective groups we find $2.05 \pm 0.03$, $2.13 \pm 0.03$, and $2.13
+\pm 0.03$ as the mean value of $\alpha_g$ and $1.95 \pm 0.03$, $2.01 \pm
+0.03$, and $2.02 \pm 0.03$ as the mean value of $\alpha_r$.
+
+For the $alpha = 2$ prior, 27 of the 28 low redshift SNe have reliable model
+parameters, and 24 of those 27 have known host redshifts. For this prior, we
+estimate a weighted mean rise time of $21.17 \pm 0.02$\,d, $21.17 \pm
+0.02$\,d, and $21.16 \pm 0.02$\,d when considering the volume complete subsets
+($z < 0.06$) of the full sample, the reliable group, and the
+reliable-$z_\mathrm{host}$ group, respectively. If we instead use the results
+from the $\alpha = 2$ prior, unless the DIC provides very strong evidence for
+the uninformative prior, as suggested at the end of \S\ref{sec:dic}, then we
+find mean rise times of $19.46 \pm 0.03$\,d, $19.46 \pm 0.03$\,d, and $19.36
+\pm 0.03$\,d when considering the volume complete subsets ($z < 0.06$) of the
+full sample, the reliable group, and the reliable-$z_\mathrm{host}$ group,
+respectively. If we reduce the sample to only those SNe for which the DIC
+prefers the uninformative prior, of which there are only 9 normal SNe with $z
+< 0.06$ (all of which have known $z_\mathrm{host}$) in our entire sample, we
+find a mean rise time of $18.84 \pm 0.02$. For this same subset we find mean
+values of $\alpha_g$ and $\alpha_r$ of $2.14 \pm 0.03$ and $2.02 \pm 0.03$,
+respectively.
 
 \section{Rare and Unusual SNe Ia}
 
