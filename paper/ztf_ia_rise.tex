@@ -250,7 +250,7 @@
 \correspondingauthor{Adam A. Miller}
 \email{amiller@northwestern.edu}
 
-\author[0000-0001-9515-478X]{Adam A. Miller}
+\author[0000-0001-9515-478X]{A. A. Miller}
 \affiliation{Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA) and Department of Physics and Astronomy, Northwestern University, 2145 Sheridan Road, Evanston, IL 60208, USA}
 \affiliation{The Adler Planetarium, Chicago, IL 60605, USA}
 
@@ -1091,7 +1091,7 @@ $D$ as
 %
 $$D(\theta) = -2 \ln (p(x\mid \theta)) + C,$$
 %
-where $\theta$ are the model parameters, $x$ are the observations, $p(x\bar
+where $\theta$ are the model parameters, $x$ are the observations, $p(x\mid
 \theta)$ is the likelihood, and $C$ is a constant that will drop out following
 model comparison. From here, the effective number\footnote{We adopt the
 Deviance Information Criterion, as opposed to the Akaike or Bayesian
@@ -1132,7 +1132,7 @@ the DIC and the model parameters associated with that prior are considered
 reliable. This approach is how we define the distribution of \tfl\ in Paper
 III of this series (M.~Bulla et al.~2019, submitted).
 
-\section{A Volume Limited Sample of Normal SNe Ia}
+\section{A Volume Limited Sample of Normal SNe Ia}\label{sec:volume_limited}
 
 The ZTF sample of early SNe Ia are clearly biased due to Malmquist selection
 effects (see \citealt{Yao19}), and as such, the population results discussed
@@ -1162,7 +1162,7 @@ the same respective groups we find $2.05 \pm 0.03$, $2.13 \pm 0.03$, and $2.13
 \pm 0.03$ as the mean value of $\alpha_g$ and $1.95 \pm 0.03$, $2.01 \pm
 0.03$, and $2.02 \pm 0.03$ as the mean value of $\alpha_r$.
 
-For the $alpha = 2$ prior, 27 of the 28 low redshift SNe have reliable model
+For the $\alpha = 2$ prior, 27 of the 28 low redshift SNe have reliable model
 parameters, and 24 of those 27 have known host redshifts. For this prior, we
 estimate a weighted mean rise time of $21.17 \pm 0.02$\,d, $21.17 \pm
 0.02$\,d, and $21.16 \pm 0.02$\,d when considering the volume complete subsets
@@ -1184,6 +1184,57 @@ respectively.
 
 \section{Discussion}
 
+\subsection{SNe Ia Rise Times}
+
+In the analysis above, we provide multiple measurements of the rise time of SNe
+Ia following the adoption of different priors. Within the literature, there are
+at least a half dozen entirely different methods that have been employed to
+answer precisely the same question. This naturally raises the question -- which
+method is best? Which raises an important offshoot as well -- is the method
+cheap to implement (i.e., does it provide reliable inference in the limit of
+poor sampling or low SNR)?
+
+The ideal method to derive the rise time of SNe Ia would only use observations
+obtained around maximum light, as these are relatively cheap to obtain and they
+maximize the sample size for a flux-limited survey.
+Figure~\ref{fig:tsquared_z_evolution} suggests that such a procedure may be
+possible as there is a relatively tight linear relation between the
+\texttt{SALT2} $X_1$ parameter and \trise\ (measured using the $\alpha = 2$
+prior). Even in the limit of only one or a few observations on the rise,
+\texttt{SALT2} can still measure $X_1$ (e.g., \citealt{Scolnic18a}). Thus, this
+represents a far ``cheaper'' method for estimating the rise time than the
+methods described above, which require high-cadence observations and the early
+detection of a SN Ia.
+
+For the volume-limited sample (see \S\ref{sec:volume_limited}) of normal SNe Ia
+with known host galaxy redshifts and reliable model parameters, we estimate the
+relation between \trise\ and $X_1$ via a maximum-likelihood linear-fit that
+accounts for the uncertainties on both \trise\ and $X_1$ (see \citealt{Hogg10}).
+From this fit we find
+%
+\begin{equation}
+    t_\mathrm{rise} = (20.9431 \pm 0.0304) + (1.4722 \pm 0.0278)X_1\,\mathrm{d}.
+    \label{eqn:rise_x1}
+\end{equation} 
+%
+This relation does not significantly change when including SNe with unknown
+host-galaxy redshifts or unreliable model parameters. \todo{check if high-z
+changes relation} The residual scatter about this relation, as estimated by the
+sample standard deviation, is 0.77\,d. Thus, if one assumes $\alpha = 2$, then
+\texttt{SALT2} can be used to estimate \trise\ with a typical uncertainty of
+$\sim$0.8\,d. This estimate is only slightly worse than the median uncertainty
+on \trise, $\sim$0.5\,d, for the $\alpha = 2$ prior. Furthermore, given that a
+$X_1 = 0$ SN is supposed to represent a ``mean'' SN Ia,
+Equation~\ref{eqn:rise_x1} suggests that the mean rise time of SNe Ia is
+$\sim$21\,d.
+
+If we repeat the same exercise using uninformative prior rise times for the
+volume limited sample, we find that the typical scatter about the linear
+\trise-$X_1$ relation is $\sim$1.7\,d and $\sim$1.4\,d for the full and reliable
+subsets of this sample. The mean rise time according to this relation is
+$\sim$18\,d, however, we caution that this scatter is likely too large and mean
+rise time too short, due to the systematic discussed in
+\S\ref{sec:redshift_correlations}.
 
 \acknowledgements
 
