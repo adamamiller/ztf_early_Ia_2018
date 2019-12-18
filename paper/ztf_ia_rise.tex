@@ -1180,7 +1180,7 @@ find a mean rise time of $18.84 \pm 0.02$. For this same subset we find mean
 values of $\alpha_g$ and $\alpha_r$ of $2.14 \pm 0.03$ and $2.02 \pm 0.03$,
 respectively.
 
-\section{Rare and Unusual SNe Ia}
+\section{Rare and Unusual Thermonuclear SNe}
 
 \section{Discussion}
 
@@ -1193,6 +1193,8 @@ answer precisely the same question. This naturally raises the question -- which
 method is best? Which raises an important offshoot as well -- is the method
 cheap to implement (i.e., does it provide reliable inference in the limit of
 poor sampling or low SNR)?
+
+\subsubsection{\texttt{SALT2} $X_1$ as a Proxy for \trise}
 
 The ideal method to derive the rise time of SNe Ia would only use observations
 obtained around maximum light, as these are relatively cheap to obtain and they
@@ -1213,20 +1215,20 @@ accounts for the uncertainties on both \trise\ and $X_1$ (see \citealt{Hogg10}).
 From this fit we find
 %
 \begin{equation}
-    t_\mathrm{rise} = (20.9431 \pm 0.0304) + (1.4722 \pm 0.0278)X_1\,\mathrm{d}.
+    t_\mathrm{rise} = (20.94 \pm 0.03) + (1.47 \pm 0.03)X_1\,\mathrm{d}.
     \label{eqn:rise_x1}
 \end{equation} 
 %
-This relation does not significantly change when including SNe with unknown
-host-galaxy redshifts or unreliable model parameters. \todo{check if high-z
-changes relation} The residual scatter about this relation, as estimated by the
-sample standard deviation, is 0.77\,d. Thus, if one assumes $\alpha = 2$, then
-\texttt{SALT2} can be used to estimate \trise\ with a typical uncertainty of
-$\sim$0.8\,d. This estimate is only slightly worse than the median uncertainty
-on \trise, $\sim$0.5\,d, for the $\alpha = 2$ prior. Furthermore, given that a
-$X_1 = 0$ SN is supposed to represent a ``mean'' SN Ia,
-Equation~\ref{eqn:rise_x1} suggests that the mean rise time of SNe Ia is
-$\sim$21\,d.
+The residual scatter about this relation, as estimated by the sample standard
+deviation, is 0.77\,d. We find the relation does not significantly change when
+including SNe with unknown host-galaxy redshifts or unreliable model parameters
+(though the scatter increases to $\sim$1.1\,d when including $z \ge 0.06$ SNe in
+the fit). Thus, if one assumes $\alpha = 2$, then \texttt{SALT2} can be used to
+estimate \trise\ with a typical uncertainty of $\sim$0.8\,d. This estimate is
+only slightly worse than the median uncertainty on \trise, $\sim$0.5\,d, for the
+$\alpha = 2$ prior. Furthermore, given that a $X_1 = 0$ SN is supposed to
+represent a ``mean'' SN Ia, Equation~\ref{eqn:rise_x1} suggests that the mean
+rise time of SNe Ia is $\sim$21\,d.
 
 If we repeat the same exercise using uninformative prior rise times for the
 volume limited sample, we find that the typical scatter about the linear
@@ -1235,6 +1237,56 @@ subsets of this sample. The mean rise time according to this relation is
 $\sim$18\,d, however, we caution that this scatter is likely too large and mean
 rise time too short, due to the systematic discussed in
 \S\ref{sec:redshift_correlations}.
+
+\subsubsection{Precise Estimates of \trise\ From Early Observations}
+
+While the \trise-$X_1$ relation provides a relatively cheap method to infer the
+rise time of normal SNe Ia, a significant advantage of early observations is
+that they can provide far more precise estimates of \trise, especially in the
+limit of low-redshift/high SNR. For the $\alpha = 2$ prior there are 14 SNe with
+a half 68\% credible region that is $< 3$\,hr. For the uninformative prior this
+number drops to two SNe. In either case, these measurements provide far more
+precision than possible from \texttt{SALT2}.
+
+\todo{consider moving paragraph elsewhere} While the methods adopted in this
+paper provide higher precision, it is impossible that they are both accurate.
+The median difference in the inferred \trise\ from the $\alpha = 2$ and
+uninformative priors for individual SNe is 4.7\,d. Even for the volume-limited
+subset of SNe with reliable model parameters from the uninformative prior (15
+total SNe) have a median difference in \trise\ estimates of 2.8\,d for the two
+priors. The systematic effect identified in \S\ref{sec:redshift_correlations}
+suggests that the uninformative prior does not provide accurate estimates of
+\trise, particularly for higher-$z$ SNe. The $\alpha = 2$ prior, on the other
+hand, explicitly assumes that there is no change in the early optical colors of
+SNe Ia. There is a large volume of observations to disprove this particular
+assumption, raising the possibility that neither method is accurate.
+
+Empirical evidence suggests that $\alpha = 2$ prior is likely more accurate than
+the uninformative prior (though again we caution that these estimates may still
+be inaccurate). A SN cannot be detected until it has exploded, and thus the
+epoch of discovery provides a lower limit on \trise. Between PTF/iPTF
+\citep{Papadogiannakis19} and ZTF \citep{Yao19}, there are $\sim$20 SNe Ia that
+are detected at least 18\,d prior to \tbmax, with a few detections as early as
+18\,d prior to \tbmax. If the uninformative prior is accurate, then each of
+these SNe would represent an incredibly lucky set of circumstances: (i) they
+each have longer rise times than average, and (ii) they were all discovered
+extremely soon after \tfl. A more probable explanation is that the mean rise
+time is $> 18$\,d, in which case the $\alpha = 2$ prior provides a more accurate
+inference of the rise time. The fact that each of the 4 SNe with $z < 0.03$,
+which should have the least biased rise time estimates (see
+\S\ref{sec:redshift_correlations}), have \trise$ > 18$\,d, further supports this
+claim.
+
+\subsubsection{Comparison to the Literature}
+
+As previously outlined, several studies in the literature have attempted to
+measure the mean rise time of SNe Ia. Here we compare our work to previous
+results. We exclude rise time estimates for individual SNe and instead focus on
+studies of relatively large samples ($\gtrsim 10$ normal SNe Ia).
+
+
+
+\subsection{The Expanding Fireball Model}
 
 \acknowledgements
 
