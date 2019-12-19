@@ -703,22 +703,22 @@ of this parameter for individual SNe is shown in Figure~\ref{fig:delta}.
 
 Unlike the estimates for \trise\ and $\alpha$ alone, $\alpha_r - \alpha_g$ is
 clearly clustered around a value of $\sim{-0.2}$ for the reliable subset of
-model parameters. Multiplying these likelihoods together produces support for
-a single mean value of $\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the
+model parameters. Multiplying these likelihoods together produces support for a
+single mean value of $\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the
 uncertainties on that estimate represent the 90\% credible region. The
 distribution on this mean is shown as the thick, solid black line in
 Figure~\ref{fig:delta}. A mean value of $\alpha_r - \alpha_g$ means that the
 typical normal SN Ia becomes bluer in the days after explosion. Such an
 evolution makes sense for an optically thick, radioactively heated, expanding
-ejecta. There are, however, clear examples of individual SNe that do not
-exhibit this behavior (e.g., SN\,2017cbv and iPTF\,16abc; \citealt{Ho}),
-meaning this mean behavior is not perscriptive for every SN Ia. Finally, we
-note that the above results exclude SNe from the unreliable group, and their
-inclusion would remove any support for a single mean value of $\alpha_r -
-\alpha_g$. This is largely due to a small handful of events that feature
-extreme values of $\alpha_r - \alpha_g$ because there are gaps in the
-observational coverage of one of the two filters (see the upper right panel of
-Figure~\ref{fig:model_parameters}).
+ejecta. There are, however, clear examples of individual SNe that do not exhibit
+this behavior (e.g., SN\,2017cbv and iPTF\,16abc;
+\citealt{Hosseinzadeh17,Miller18}), meaning this mean behavior is not
+perscriptive for every SN Ia. Finally, we note that the above results exclude
+SNe from the unreliable group, and their inclusion would remove any support for
+a single mean value of $\alpha_r - \alpha_g$. This is largely due to a small
+handful of events that feature extreme values of $\alpha_r - \alpha_g$ because
+there are gaps in the observational coverage of one of the two filters (see the
+upper right panel of Figure~\ref{fig:model_parameters}).
 
 \section{Population correlations}
 
@@ -1066,8 +1066,7 @@ relatively high precision measurements of \trise\ can be directly inferred
 from $X_1$, it would dramatically increase the sample of SNe Ia with measured
 rise times, as extremely early observations ($t < -10$\,d) would no longer be
 required given that $X_1$ can be inferred solely from observations around and
-post-peak maximum light. \todo{actually fit linear relation and report the
-scatter?}
+post-peak maximum light.
 
 \subsection{Model Selection}\label{sec:dic}
 
@@ -1279,13 +1278,65 @@ claim.
 
 \subsubsection{Comparison to the Literature}
 
-As previously outlined, several studies in the literature have attempted to
-measure the mean rise time of SNe Ia. Here we compare our work to previous
-results. This exercise is somewhat fraught with difficulty, in the sense that
-nearly every study uses a different method to estimate \trise, which, in turn,
-makes comparisons challenging. We exclude rise time estimates for individual SNe
-and instead focus on studies of relatively large samples ($\gtrsim 10$ normal
-SNe Ia).
+Several studies in the literature have attempted to measure the mean rise time
+of SNe Ia. Here we compare our work to previous results. This exercise is
+somewhat fraught with difficulty, in the sense that each study incorporates
+slight differences in implementation, which, in turn, makes comparisons
+challenging. Furthermore, these studies are typically conducted with different
+filter sets and over a wide range of redshifts, which may introduce difficult to
+understand biases across studies (as discussed above $K$-corrections are highly
+uncertain at very early epochs). Finally, the quality of the data in each of
+studies is vastyly different. For example, in the classic study by
+\citet{Riess99a} there are a total of 7 observations spread across all the SNe
+in their sample obtained more than 15\,d prior to \tbmax, while in contrast this
+study includes 31 SNe \textit{discovered $> 15$\,d before \tbmax} \citep{Yao19}.
+As we proceed with our cross-study comparison, we exclude rise time estimates
+for individual SNe and instead focus on studies with relatively large samples
+($\gtrsim 10$ normal SNe Ia).
+
+As previously outlined, there are broadly two different methods to measure the
+mean rise time of SNe Ia. The first uses ``shape-corrected'' light curves,
+whereby all individual light curves are stretched by some empirically measured
+factor, and the mean rise time represents a normal SN Ia after shape correction
+(e.g., \citep{Riess99a,Conley06,Hayden10,Ganeshalingam11}). The second method is
+to measure the rise time of every individual SNe Ia within a sample, and then
+take the mean of this distribution. These two methods are not equivalent, and
+therefore are likely to produce different results. If, for instance, nature
+produces more high-luminosity, slower-declining SNe Ia than low-luminosity,
+faster-declining events, then the population mean will produce longer rise times
+shape-corrected mean, as this latter method normalizes all the light curves to
+be the same. Even if nature is not biased, flux-limited surveys, such as ZTF,
+will always find more slower-declining SNe than fast decliners, leading to
+potentially longer rise time estimates for the population mean relative to a
+stretch-corrected estimate.
+
+Using different data sets obtained in very different redshift regimes,
+\citet{Riess99a} and \citet{Conley06} estimate consistent values of the
+shape-corrected mean \trise$ \approx 19.5$\,d. Each of these studies fixes
+$\alpha = 2$ when fitting for the rise time. This estimate is roughly half way
+inbetween our estimates of the mean rise time from the uninformative prior and
+the $\alpha = 2$ prior. As noted above, these two measurements are not the same,
+which likely explains their difference. Later studies by \citet{Hayden10} and
+\citet{Ganeshalingam11}, also provide estimates of the mean shape-corrected rise
+time and find smaller values of $\sim$17.5--18.0\,d. As noted by
+\citeauthor{Hayden10}, these methods are highly dependent on the template light
+curve used to stretch the individual SNe, and differences in the templates
+between these studies may explain the dissensus between these studies.
+
+
+The approach employed in \citet{Zheng17a}, \citet{Papadogiannakis19}, and
+\citet{Firth15} is more similar to the one adopted here, as each of these
+studies estimates the rise time for many individual SNe and then calculates the
+population mean. If the samples differ between any of these studies, and aside
+from 11 SNe that are included in both \citet{Papadogiannakis19} and
+\citet{Firth15} there is no overlap between any of studies or this one, then it
+should be expected that the population mean rise time estimates will differ.
+Furthermore, the \trise\ estimates in \citet{Papadogiannakis19} and
+\citet{Firth15} are not relative to \tbmax, and it is known that the rise time
+increases as one progressively moves to redder wavelengths (e.g.,
+\citealt{Ganeshalingam11}). Taken together, this confluence of factors makes it
+difficult to compare results between these studies, which we nevertheless do
+below.
 
 In \citet{Zheng17}, a semi-analytical, six parameter, broken power-law model is
 introduced to describe the optical evolution of SN Ia. This model has a distinct
@@ -1294,54 +1345,78 @@ need to be applied in flux-space (see \S\ref{sec:model}), though a post-peak cut
 must be applied as the model cannot reproduce the evolution of SNe into the
 nebular phase. A downside of this approach is that there are large degeneracies
 between the different model parameters, meaning it is difficult to find
-numerically stable solutions without fixing some of the model parameters to a
-single value \citep{Zheng17a}. For a sample of 56 well-observed low-$z$ SNe this
-method produces a mean rise time of 16.0\,d \citep{Zheng17a}, while the same
-technique applied to SNe Ia from PTF/iPTF finds a mean rise time of 16.8\,d
+numerically stable solutions without fixing individual parameters to a single
+value \citep{Zheng17a}. For a sample of 56 well-observed low-$z$ SNe this method
+produces a mean rise time of 16.0\,d \citep{Zheng17a}, while the same technique
+applied to SNe Ia from PTF/iPTF finds a mean rise time of 16.8\,d
 \citep{Papadogiannakis19}. These estimates are considerably lower than the ones
 presented here, and are almost certainly underestimates of the true mean rise
 time based on the large number of SNe with detections $>$16\,d before peak
-\citep{Yao19}. Indeed, close inspection of Figure~1 in \citet{Zheng17a} shows
-that the six-parameter model underestimates the flux at the very earliest epochs
-and underestimates \trise\ as a result.
+\citep{Papadogiannakis19, Yao19}. Indeed, close inspection of Figure~1 in
+\citet{Zheng17a} shows that the six-parameter model underestimates the flux at
+the very earliest epochs and underestimates \trise\ as a result.
 
-In \citet{Riess99a}, the early light curves of SNe Ia are fit while assuming
-$\alpha = 2$, similar to the $\alpha = 2$ prior method employed here. The
-primary difference, relative to this study, is that the light curves are
-``shape-corrected,'' to account for the variance in decline-rate for SNe Ia
-prior to fitting for the mean rise time. Using several shape corrections,
-\citet{Riess99a} find a mean rise time of 19.5\,d, which is roughly half way
-inbetween our estimates from the uninformative prior and the $\alpha = 2$ prior.
-Similar techniques are applied in \citet{Conley06}, where a mean rise of
-$\sim$19.5\,d is found for both low-$z$ and high-$z$ SNe. The definition of the
-mean rise time differs between \citet{Riess99a} and this study, in
-\citet{Riess99a} the mean is measured after shape correction whereas we take the
-mean of several individual measurements, which may explain the differing
-results. There are only 7 total observations more than 15\,d before \tbmax\ for
-all the SNe in \citet{Riess99a} combined, which may also account for a shorter
-mean rise time than what is inferred here (see
-\S\ref{sec:redshift_correlations}).
-
-Similar to \citet{Riess99a}, \citet{Hayden10} and \citet{Ganeshalingam11} shape
-correct the SN light curves before estimating \trise. Both studies develop
-template light curves to facilitate the shape correction, and estimate mean rise
-times of $\sim$17.4\,d and 17.9\,d for the \citet{Hayden10} and
-\citet{Ganeshalingam11} studies, respectively. These estimates are significantly
-shorter than those presented in \citet{Riess99a}, and \citet{Hayden10}
-attributes these differences to the different templates and methods used by
-these studies. \todo{need to discuss difference between population mean and
-shape-corrected mean}
-
-Finally, \citet{Firth15} use the most similar approach to the one described
-here. Using a sample of SNe discovered by PTF and the La Silla Quest (LSQ)
-survey, \citeauthor{Firth15} fit a model similar to
-Equation~\ref{eqn:flux_model}, in that \tfl\ and $\alpha$ are allowed to vary,
-to 18 SNe with early observations. The mean rise time of this sample is
-$\sim$19.0\,d. Contrary to this study, they find shorter rise times, and a mean
-of $\sim$17.9\,d, when fixing $\alpha = 2$. \todo{I don't understand the
-significance of this}
+The closest comparison to the methods used in this study can be drawn from
+\citet{Firth15}. Using a sample of 18 SNe discovered by PTF and the La Silla
+Quest (LSQ) survey, \citeauthor{Firth15} fit a model similar to
+Equation~\ref{eqn:flux_model}, in that \tfl\ and $\alpha$ are allowed to
+simultaneously vary. From these fits, they estimate a mean population \trise$ =
+18.98 \pm 0.54$\,d, which is consistent with our estimate of the rise time for
+the volume-complete $z_\mathrm{host}$ sample, $\sim$18.5\,d. Contrary to this
+study, they find shorter rise times, and a mean of $\sim$17.9\,d, when fixing
+$\alpha = 2$ (this is likely explained by their adopted fit procedure, see
+below). As explained in \S\ref{sec:redshift_correlations}, the \trise\ estimates
+in \citet{Firth15} are likely underestimated due to the bias introduced for
+models with uninformative priors.
 
 \subsection{The Expanding Fireball Model}
+
+The expanding fireball model (see \S\ref{sec:model}) is remarkable in its
+simplicity. The two underlying assumptions of the expanding fireball model, that
+the photospheric velocity and temperature of the ejecta are $\sim$constant
+during the early evolution of the SN, are clearly over-simplifications
+(\citealt{Parrent12} shows that the photospheric velocity declines by at least
+33\% in the $\sim$5\,d after explosion). This makes it all the more remarkable
+that numerous studies have found that $\alpha$ is consistent with 2, as
+predicted by the fireball model (e.g.,
+\citealt{Conley06,Hayden10,Ganeshalingam11,Gonzalez-Gaitan12,Zheng17a}).
+
+Indeed, we find the same in this study, $\alpha_r = 2.01 \pm 0.03$ (for the
+volume-limited subset of normal SNe Ia with reliable model parameters). We
+separately find $\alpha_g > 2$, which is sensible given that $\alpha_g =
+\alpha_r = 2$ implies no color change. Furthermore, following the arguments of
+\citet{Riess99a}, \rztf\ features less line absorption and is farther into the
+Rayleigh-Jeans tail, making it reasonable that the assumptions hold better there
+than in the \gztf\ filter.
+
+At the same time, there are individual SNe for which the expanding fireball
+model simply does not apply. This has been clearly shown for SN\,2013dy and
+iPTF\,16abc \citep{Zheng13,Miller18}, and within this study that is clearly the
+case for ZTF18aasdted (SN\,2018big), the lowest redshift SN in our sample, where
+the DIC clearly prefers $\alpha \approx 1.5$ to $\alpha = 2$. A reasonable
+conclusion, therefore, is that for SNe Ia $\alpha = 2$ provides an acceptible
+proxy for the early evolution of most SNe Ia. It also stands to reason that
+individual SNe exhibiting significant departures from $\alpha = 2$ are not
+typical, and they may be the result of exotic explosion or companion scenarios
+(see also \citealt{Miller18}). Moving forward, it may be that the most
+appropriate prior for fitting the early evolution of SNe Ia is to adopt a
+Gaussian centered at 2 for $\alpha$ in the redder filters, while also placing a
+prior on the difference in $\alpha$ across different filters (for ZTF $\alpha_r
+- \alpha_g \approx -0.17$ based on \S\ref{sec:colors}). More observations,
+especially of low-$z$ SNe, and testing, are needed to confirm whether or not
+such priors are in fact appropriate.
+
+Finally, we note that the analysis in \citet{Firth15} stands in contrast to this
+study, and those listed above, in that the mean value of $\alpha = 2.44 \pm
+0.13$, which is not consistent with 2. This result can be understood in the
+context of the \citet{Firth15} fitting procedure, whereby an initial estimate of
+\tfl\ is made by fixing $\alpha = 2$. Only obversations obtained 2 days before
+and after this initial \tfl\ estimate are included in the final model fit (i.e.,
+the entire baseline of non-detections is not used, as is done in this study).
+Truncating the baseline biases the model to longer rise times (as is observed in
+\citealt{Firth15}), and, as shown in Figure~\ref{fig:corner_LC}, longer rise
+times require larger values of $\alpha$ when adopting the model used in this
+study and \citep{Firth15}.
 
 \acknowledgements
 
@@ -1353,7 +1428,8 @@ Dan F-M? Will Farr?
           \texttt{matplotlib} \citep{Hunter07},
           \texttt{pandas} \citep{McKinney10},
           \texttt{emcee} \citep{Foreman-Mackey13},
-          \texttt{corner} \citep{Foreman-Mackey16}
+          \texttt{corner} \citep{Foreman-Mackey16},
+          \texttt{SALT2} \citep{Guy07}
           }
 
 %% For this sample we use BibTeX plus aasjournals.bst to generate the
