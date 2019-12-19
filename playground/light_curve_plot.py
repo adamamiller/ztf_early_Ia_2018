@@ -116,7 +116,7 @@ def plot_both_filt(theta,
     axPlot.tick_params(right=True, top=True, bottom=False, which='both', labelsize=11)
     
     axRes.set_xlim(-30, 1)
-    axRes.set_xlabel('$t - t_0 \; (\mathrm{restframe \; d})$', fontsize=14)
+    axRes.set_xlabel('$t - t_\mathrm{fl} \; (\mathrm{restframe \; d})$', fontsize=14)
     axRes.set_ylabel('$\mathrm{pull}$', fontsize=14)
     axRes.xaxis.set_minor_locator(MultipleLocator(1))
     axRes.yaxis.set_minor_locator(MultipleLocator(np.mean(np.diff(axRes.get_yticks()))/2))
