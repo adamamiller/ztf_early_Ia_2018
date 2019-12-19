@@ -127,6 +127,9 @@ Foreman-Mackey, D. 2016,
   \href{http://adsabs.harvard.edu/abs/2010ApJ...712..350H}{\color{blue}712},
   \href{http://adsabs.harvard.edu/abs/2010ApJ...712..350H}{\color{blue}350}
 
+\bibitem[{{Hogg} {et~al.}(2010){Hogg}, {Bovy}, \& {Lang}}]{Hogg10}
+{Hogg}, D.~W., {Bovy}, J., \& {Lang}, D. 2010, ArXiv e-prints
+
 \bibitem[{{Howell} {et~al.}(2014){Howell}, {Sobeck}, {Haas}, {Still},
   {Barclay}, {Mullally}, {Troeltzsch}, {Aigrain}, {Bryson}, {Caldwell},
   {Chaplin}, {Cochran}, {Huber}, {Marcy}, {Miglio}, {Najita}, {Smith},
@@ -180,6 +183,15 @@ McKinney, W. 2010, 51
   \href{http://dx.doi.org/10.1038/nature14455}{\color{magenta}\nat},
   \href{https://ui.adsabs.harvard.edu/abs/2015Natur.521..332O}{\color{blue}521},
   \href{https://ui.adsabs.harvard.edu/abs/2015Natur.521..332O}{\color{blue}332}
+
+\bibitem[{{Papadogiannakis} {et~al.}(2019){Papadogiannakis}, {Goobar},
+  {Amanullah}, {Bulla}, {Dhawan}, {Doran}, {Feindt}, {Ferretti}, {Hangard},
+  {Howell}, {Johansson}, {Kasliwal}, {Laher}, {Masci}, {Nyholm}, {Ofek},
+  {Sollerman}, \& {Yan}}]{Papadogiannakis19}
+{Papadogiannakis}, S., {Goobar}, A., {Amanullah}, R., {et~al.} 2019,
+  \href{http://dx.doi.org/10.1093/mnras/sty3301}{\color{magenta}\mnras},
+  \href{https://ui.adsabs.harvard.edu/abs/2019MNRAS.483.5045P}{\color{blue}483},
+  \href{https://ui.adsabs.harvard.edu/abs/2019MNRAS.483.5045P}{\color{blue}5045}
 
 \bibitem[{{Parrent} {et~al.}(2012){Parrent}, {Howell}, {Friesen}, {Thomas},
   {Fesen}, {Milisavljevic}, {Bianco}, {Dilday}, {Nugent}, {Baron}, {Arcavi},
@@ -253,6 +265,18 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}826},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}56}
 
+\bibitem[{{Scolnic} {et~al.}(2018){Scolnic}, {Jones}, {Rest}, {Pan},
+  {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},
+  {Berger}, {Brout}, {Challis}, {Drout}, {Finkbeiner}, {Lunnan}, {Kirshner},
+  {Sanders}, {Schlafly}, {Smartt}, {Stubbs}, {Tonry}, {Wood-Vasey}, {Foley},
+  {Hand}, {Johnson}, {Burgett}, {Chambers}, {Draper}, {Hodapp}, {Kaiser},
+  {Kudritzki}, {Magnier}, {Metcalfe}, {Bresolin}, {Gall}, {Kotak}, {McCrum}, \&
+  {Smith}}]{Scolnic18a}
+{Scolnic}, D.~M., {Jones}, D.~O., {Rest}, A., {et~al.} 2018,
+  \href{http://dx.doi.org/10.3847/1538-4357/aab9bb}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
+  \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
+
 \bibitem[{{Shappee} {et~al.}(2016){Shappee}, {Piro}, {Holoien}, {Prieto},
   {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper}, {Basu},
   {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong}, {Falco},
@@ -277,14 +301,21 @@ Spiegelhalter, D.~J., Best, N.~G., Carlin, B.~P., \& Van Der~Linde, A. 2002,
   {Kupfer}, {Laher}, {Perley}, {Rusholme}, {Shupe}, {Soumagnac}, {Taggart},
   {Walters}, \& {Yan}}]{Yao19}
 {Yao}, Y., {Miller}, A.~A., {Kulkarni}, S.~R., {et~al.} 2019,
-  \href{https://arxiv.org/abs/1910.02967}{\color{magenta}arXiv},
-  \href{https://ui.adsabs.harvard.edu/abs/2019arXiv191002967Y}{\color{blue}arXiv:1910.02967}
+  \href{http://dx.doi.org/10.3847/1538-4357/ab4cf5}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...886..152Y}{\color{blue}886},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...886..152Y}{\color{blue}152}
 
 \bibitem[{{Zackay} {et~al.}(2016){Zackay}, {Ofek}, \& {Gal-Yam}}]{Zackay16}
 {Zackay}, B., {Ofek}, E.~O., \& {Gal-Yam}, A. 2016,
   \href{http://dx.doi.org/10.3847/0004-637X/830/1/27}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}830},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...830...27Z}{\color{blue}27}
+
+\bibitem[{{Zheng} \& {Filippenko}(2017)}]{Zheng17}
+{Zheng}, W., \& {Filippenko}, A.~V. 2017,
+  \href{http://dx.doi.org/10.3847/2041-8213/aa6442}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}838},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...838L...4Z}{\color{blue}L4}
 
 \bibitem[{{Zheng} {et~al.}(2017){Zheng}, {Kelly}, \& {Filippenko}}]{Zheng17a}
 {Zheng}, W., {Kelly}, P.~L., \& {Filippenko}, A.~V. 2017,
