@@ -4,6 +4,16 @@
 \providecommand{\dodoi}[1]{}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{{Aldering} {et~al.}(2006){Aldering}, {Antilogus}, {Bailey}, {Baltay},
+  {Bauer}, {Blanc}, {Bongard}, {Copin}, {Gangler}, {Gilles}, {Kessler},
+  {Kocevski}, {Lee}, {Loken}, {Nugent}, {Pain}, {P{\'e}contal}, {Pereira},
+  {Perlmutter}, {Rabinowitz}, {Rigaudier}, {Scalzo}, {Smadja}, {Thomas},
+  {Wang}, \& {Weaver}}]{aldering05gj}
+{Aldering}, G., {Antilogus}, P., {Bailey}, S., {et~al.} 2006,
+  \href{http://dx.doi.org/10.1086/507020}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2006ApJ...650..510A}{\color{blue}650},
+  \href{http://adsabs.harvard.edu/abs/2006ApJ...650..510A}{\color{blue}510}
+
 \bibitem[{{Amanullah} {et~al.}(2010){Amanullah}, {Lidman}, {Rubin}, {Aldering},
   {Astier}, {Barbary}, {Burns}, {Conley}, {Dawson}, {Deustua}, {Doi}, {Fabbro},
   {Faccioli}, {Fakhouri}, {Folatelli}, {Fruchter}, {Furusawa}, {Garavini},
@@ -107,6 +117,16 @@ Foreman-Mackey, D. 2016,
   \href{https://ui.adsabs.harvard.edu/abs/1998AAS...193.4713G}{\color{blue}193},
   \href{https://ui.adsabs.harvard.edu/abs/1998AAS...193.4713G}{\color{blue}47.13}
 
+\bibitem[{{Gonz{\'a}lez-Gait{\'a}n} {et~al.}(2012){Gonz{\'a}lez-Gait{\'a}n},
+  {Conley}, {Bianco}, {Howell}, {Sullivan}, {Perrett}, {Carlberg}, {Astier},
+  {Balam}, {Balland}, {Basa}, {Fouchez}, {Fourmanoit}, {Graham}, {Guy},
+  {Hardin}, {Hook}, {Lidman}, {Pain}, {Palanque-Delabrouille}, {Pritchet},
+  {Regnault}, {Rich}, \& {Ruhlmann-Kleider}}]{Gonzalez-Gaitan12}
+{Gonz{\'a}lez-Gait{\'a}n}, S., {Conley}, A., {Bianco}, F.~B., {et~al.} 2012,
+  \href{http://dx.doi.org/10.1088/0004-637X/745/1/44}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}745},
+  \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}44}
+
 \bibitem[{{Goodman} \& {Weare}(2010)}]{Goodman10}
 {Goodman}, J., \& {Weare}, J. 2010,
   \href{http://dx.doi.org/10.2140/camcos.2010.5.65}{\color{magenta}CAMCS},
@@ -119,6 +139,16 @@ Foreman-Mackey, D. 2016,
   \href{http://adsabs.harvard.edu/abs/1993A%26AS...99...31G}{\color{blue}99},
   \href{http://adsabs.harvard.edu/abs/1993A%26AS...99...31G}{\color{blue}31}
 
+\bibitem[{{Guy} {et~al.}(2007){Guy}, {Astier}, {Baumont}, {Hardin}, {Pain},
+  {Regnault}, {Basa}, {Carlberg}, {Conley}, {Fabbro}, {Fouchez}, {Hook},
+  {Howell}, {Perrett}, {Pritchet}, {Rich}, {Sullivan}, {Antilogus}, {Aubourg},
+  {Bazin}, {Bronder}, {Filiol}, {Palanque-Delabrouille}, {Ripoche}, \&
+  {Ruhlmann-Kleider}}]{Guy07}
+{Guy}, J., {Astier}, P., {Baumont}, S., {et~al.} 2007,
+  \href{http://dx.doi.org/10.1051/0004-6361:20066930}{\color{magenta}\aap},
+  \href{https://ui.adsabs.harvard.edu/abs/2007A&A...466...11G}{\color{blue}466},
+  \href{https://ui.adsabs.harvard.edu/abs/2007A&A...466...11G}{\color{blue}11}
+
 \bibitem[{{Hayden} {et~al.}(2010){Hayden}, {Garnavich}, {Kessler}, {Frieman},
   {Jha}, {Bassett}, {Cinabro}, {Dilday}, {Kasen}, {Marriner}, {Nichol},
   {Riess}, {Sako}, {Schneider}, {Smith}, \& {Sollerman}}]{Hayden10}
@@ -129,6 +159,15 @@ Foreman-Mackey, D. 2016,
 
 \bibitem[{{Hogg} {et~al.}(2010){Hogg}, {Bovy}, \& {Lang}}]{Hogg10}
 {Hogg}, D.~W., {Bovy}, J., \& {Lang}, D. 2010, ArXiv e-prints
+
+\bibitem[{{Hosseinzadeh} {et~al.}(2017){Hosseinzadeh}, {Sand}, {Valenti},
+  {Brown}, {Howell}, {McCully}, {Kasen}, {Arcavi}, {Azalee Bostroem},
+  {Tartaglia}, {Hsiao}, {Davis}, {Shahbandeh}, \&
+  {Stritzinger}}]{Hosseinzadeh17}
+{Hosseinzadeh}, G., {Sand}, D.~J., {Valenti}, S., {et~al.} 2017,
+  \href{http://dx.doi.org/10.3847/2041-8213/aa8402}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...845L..11H}{\color{blue}845},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...845L..11H}{\color{blue}L11}
 
 \bibitem[{{Howell} {et~al.}(2014){Howell}, {Sobeck}, {Haas}, {Still},
   {Barclay}, {Mullally}, {Troeltzsch}, {Aigrain}, {Bryson}, {Caldwell},
@@ -167,6 +206,15 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
 
 \bibitem[{McKinney(2010)}]{McKinney10}
 McKinney, W. 2010, 51
+
+\bibitem[{{Miller} {et~al.}(2017){Miller}, {Kasliwal}, {Cao}, {Adams},
+  {Goobar}, {Kne{\v z}evi{\'c}}, {Laher}, {Lunnan}, {Masci}, {Nugent},
+  {Perley}, {Petrushevska}, {Quimby}, {Rebbapragada}, {Sollerman}, {Taddia}, \&
+  {Kulkarni}}]{Miller17a}
+{Miller}, A.~A., {Kasliwal}, M.~M., {Cao}, Y., {et~al.} 2017,
+  \href{http://dx.doi.org/10.3847/1538-4357/aa8c7e}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...848...59M}{\color{blue}848},
+  \href{http://adsabs.harvard.edu/abs/2017ApJ...848...59M}{\color{blue}59}
 
 \bibitem[{{Miller} {et~al.}(2018){Miller}, {Cao}, {Piro}, {Blagorodnova},
   {Bue}, {Cenko}, {Dhawan}, {Ferretti}, {Fox}, {Fremling}, {Goobar}, {Howell},
@@ -216,6 +264,19 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/1993ApJ...413L.105P}{\color{blue}413},
   \href{http://adsabs.harvard.edu/abs/1993ApJ...413L.105P}{\color{blue}L105}
 
+\bibitem[{{Phillips} {et~al.}(2007){Phillips}, {Li}, {Frieman}, {Blinnikov},
+  {DePoy}, {Prieto}, {Milne}, {Contreras}, {Folatelli}, {Morrell}, {Hamuy},
+  {Suntzeff}, {Roth}, {Gonz{\'a}lez}, {Krzeminski}, {Filippenko}, {Freedman},
+  {Chornock}, {Jha}, {Madore}, {Persson}, {Burns}, {Wyatt}, {Murphy}, {Foley},
+  {Ganeshalingam}, {Serduke}, {Krisciunas}, {Bassett}, {Becker}, {Dilday},
+  {Eastman}, {Garnavich}, {Holtzman}, {Kessler}, {Lampeitl}, {Marriner},
+  {Frank}, {Marshall}, {Miknaitis}, {Sako}, {Schneider}, {van der Heyden}, \&
+  {Yasuda}}]{Phillips07}
+{Phillips}, M.~M., {Li}, W., {Frieman}, J.~A., {et~al.} 2007,
+  \href{http://dx.doi.org/10.1086/518372}{\color{magenta}\pasp},
+  \href{http://adsabs.harvard.edu/abs/2007PASP..119..360P}{\color{blue}119},
+  \href{http://adsabs.harvard.edu/abs/2007PASP..119..360P}{\color{blue}360}
+
 \bibitem[{{Piro} \& {Morozova}(2016)}]{Piro16}
 {Piro}, A.~L., \& {Morozova}, V.~S. 2016,
   \href{http://dx.doi.org/10.3847/0004-637X/826/1/96}{\color{magenta}\apj},
@@ -233,6 +294,20 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.1088/0004-637X/784/1/85}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2014ApJ...784...85P}{\color{blue}784},
   \href{http://adsabs.harvard.edu/abs/2014ApJ...784...85P}{\color{blue}85}
+
+\bibitem[{{Prieto} {et~al.}(2007){Prieto}, {Garnavich}, {Phillips}, {DePoy},
+  {Parrent}, {Pooley}, {Dwarkadas}, {Baron}, {Bassett}, {Becker}, {Cinabro},
+  {DeJongh}, {Dilday}, {Doi}, {Frieman}, {Hogan}, {Holtzman}, {Jha}, {Kessler},
+  {Konishi}, {Lampeitl}, {Marriner}, {Marshall}, {Miknaitis}, {Nichol},
+  {Riess}, {Richmond}, {Romani}, {Sako}, {Schneider}, {Smith}, {Takanashi},
+  {Tokita}, {van der Heyden}, {Yasuda}, {Zheng}, {Wheeler}, {Barentine},
+  {Dembicky}, {Eastman}, {Frank}, {Ketzeback}, {McMillan}, {Morrell},
+  {Folatelli}, {Contreras}, {Burns}, {Freedman}, {Gonzalez}, {Hamuy},
+  {Krzeminski}, {Madore}, {Murphy}, {Persson}, {Roth}, \&
+  {Suntzeff}}]{prieto05gj}
+{Prieto}, J.~L., {Garnavich}, P.~M., {Phillips}, M.~M., {et~al.} 2007, ArXiv
+  e-prints,
+  \href{http://adsabs.harvard.edu/abs/2007arXiv0706.4088P}{\color{blue}706}
 
 \bibitem[{{Ricker} {et~al.}(2015){Ricker}, {Winn}, {Vanderspek}, {Latham},
   {Bakos}, {Bean}, {Berta-Thompson}, {Brown}, {Buchhave}, {Butler}, {Butler},
@@ -265,6 +340,17 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}826},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}56}
 
+\bibitem[{{Scalzo} {et~al.}(2010){Scalzo}, {Aldering}, {Antilogus}, {Aragon},
+  {Bailey}, {Baltay}, {Bongard}, {Buton}, {Childress}, {Chotard}, {Copin},
+  {Fakhouri}, {Gal-Yam}, {Gangler}, {Hoyer}, {Kasliwal}, {Loken}, {Nugent},
+  {Pain}, {P{\'e}contal}, {Pereira}, {Perlmutter}, {Rabinowitz}, {Rau},
+  {Rigaudier}, {Runge}, {Smadja}, {Tao}, {Thomas}, {Weaver}, \&
+  {Wu}}]{Scalzo10}
+{Scalzo}, R.~A., {Aldering}, G., {Antilogus}, P., {et~al.} 2010,
+  \href{http://dx.doi.org/10.1088/0004-637X/713/2/1073}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}713},
+  \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}1073}
+
 \bibitem[{{Scolnic} {et~al.}(2018){Scolnic}, {Jones}, {Rest}, {Pan},
   {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},
   {Berger}, {Brout}, {Challis}, {Drout}, {Finkbeiner}, {Lunnan}, {Kirshner},
@@ -287,6 +373,24 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/826/2/144}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
+
+\bibitem[{{Silverman} {et~al.}(2011){Silverman}, {Ganeshalingam}, {Li},
+  {Filippenko}, {Miller}, \& {Poznanski}}]{Silverman11}
+{Silverman}, J.~M., {Ganeshalingam}, M., {Li}, W., {et~al.} 2011,
+  \href{http://dx.doi.org/10.1111/j.1365-2966.2010.17474.x}{\color{magenta}\mnras},
+  \href{http://adsabs.harvard.edu/abs/2011MNRAS.410..585S}{\color{blue}410},
+  \href{http://adsabs.harvard.edu/abs/2011MNRAS.410..585S}{\color{blue}585}
+
+\bibitem[{{Silverman} {et~al.}(2013){Silverman}, {Nugent}, {Gal-Yam},
+  {Sullivan}, {Howell}, {Filippenko}, {Arcavi}, {Ben-Ami}, {Bloom}, {Cenko},
+  {Cao}, {Chornock}, {Clubb}, {Coil}, {Foley}, {Graham}, {Griffith}, {Horesh},
+  {Kasliwal}, {Kulkarni}, {Leonard}, {Li}, {Matheson}, {Miller}, {Modjaz},
+  {Ofek}, {Pan}, {Perley}, {Poznanski}, {Quimby}, {Steele}, {Sternberg}, {Xu},
+  \& {Yaron}}]{Silverman13}
+{Silverman}, J.~M., {Nugent}, P.~E., {Gal-Yam}, A., {et~al.} 2013,
+  \href{http://dx.doi.org/10.1088/0067-0049/207/1/3}{\color{magenta}\apjs},
+  \href{http://adsabs.harvard.edu/abs/2013ApJS..207....3S}{\color{blue}207},
+  \href{http://adsabs.harvard.edu/abs/2013ApJS..207....3S}{\color{blue}3}
 
 \bibitem[{Spiegelhalter {et~al.}(2002)Spiegelhalter, Best, Carlin, \& Van
   Der~Linde}]{Spiegelhalter02}
