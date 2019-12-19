@@ -1281,10 +1281,65 @@ claim.
 
 As previously outlined, several studies in the literature have attempted to
 measure the mean rise time of SNe Ia. Here we compare our work to previous
-results. We exclude rise time estimates for individual SNe and instead focus on
-studies of relatively large samples ($\gtrsim 10$ normal SNe Ia).
+results. This exercise is somewhat fraught with difficulty, in the sense that
+nearly every study uses a different method to estimate \trise, which, in turn,
+makes comparisons challenging. We exclude rise time estimates for individual SNe
+and instead focus on studies of relatively large samples ($\gtrsim 10$ normal
+SNe Ia).
 
+In \citet{Zheng17}, a semi-analytical, six parameter, broken power-law model is
+introduced to describe the optical evolution of SN Ia. This model has a distinct
+advantage over the methods employed here in that an artificial cutoff does not
+need to be applied in flux-space (see \S\ref{sec:model}), though a post-peak cut
+must be applied as the model cannot reproduce the evolution of SNe into the
+nebular phase. A downside of this approach is that there are large degeneracies
+between the different model parameters, meaning it is difficult to find
+numerically stable solutions without fixing some of the model parameters to a
+single value \citep{Zheng17a}. For a sample of 56 well-observed low-$z$ SNe this
+method produces a mean rise time of 16.0\,d \citep{Zheng17a}, while the same
+technique applied to SNe Ia from PTF/iPTF finds a mean rise time of 16.8\,d
+\citep{Papadogiannakis19}. These estimates are considerably lower than the ones
+presented here, and are almost certainly underestimates of the true mean rise
+time based on the large number of SNe with detections $>$16\,d before peak
+\citep{Yao19}. Indeed, close inspection of Figure~1 in \citet{Zheng17a} shows
+that the six-parameter model underestimates the flux at the very earliest epochs
+and underestimates \trise\ as a result.
 
+In \citet{Riess99a}, the early light curves of SNe Ia are fit while assuming
+$\alpha = 2$, similar to the $\alpha = 2$ prior method employed here. The
+primary difference, relative to this study, is that the light curves are
+``shape-corrected,'' to account for the variance in decline-rate for SNe Ia
+prior to fitting for the mean rise time. Using several shape corrections,
+\citet{Riess99a} find a mean rise time of 19.5\,d, which is roughly half way
+inbetween our estimates from the uninformative prior and the $\alpha = 2$ prior.
+Similar techniques are applied in \citet{Conley06}, where a mean rise of
+$\sim$19.5\,d is found for both low-$z$ and high-$z$ SNe. The definition of the
+mean rise time differs between \citet{Riess99a} and this study, in
+\citet{Riess99a} the mean is measured after shape correction whereas we take the
+mean of several individual measurements, which may explain the differing
+results. There are only 7 total observations more than 15\,d before \tbmax\ for
+all the SNe in \citet{Riess99a} combined, which may also account for a shorter
+mean rise time than what is inferred here (see
+\S\ref{sec:redshift_correlations}).
+
+Similar to \citet{Riess99a}, \citet{Hayden10} and \citet{Ganeshalingam11} shape
+correct the SN light curves before estimating \trise. Both studies develop
+template light curves to facilitate the shape correction, and estimate mean rise
+times of $\sim$17.4\,d and 17.9\,d for the \citet{Hayden10} and
+\citet{Ganeshalingam11} studies, respectively. These estimates are significantly
+shorter than those presented in \citet{Riess99a}, and \citet{Hayden10}
+attributes these differences to the different templates and methods used by
+these studies. \todo{need to discuss difference between population mean and
+shape-corrected mean}
+
+Finally, \citet{Firth15} use the most similar approach to the one described
+here. Using a sample of SNe discovered by PTF and the La Silla Quest (LSQ)
+survey, \citeauthor{Firth15} fit a model similar to
+Equation~\ref{eqn:flux_model}, in that \tfl\ and $\alpha$ are allowed to vary,
+to 18 SNe with early observations. The mean rise time of this sample is
+$\sim$19.0\,d. Contrary to this study, they find shorter rise times, and a mean
+of $\sim$17.9\,d, when fixing $\alpha = 2$. \todo{I don't understand the
+significance of this}
 
 \subsection{The Expanding Fireball Model}
 
