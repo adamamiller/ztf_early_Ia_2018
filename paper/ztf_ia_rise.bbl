@@ -33,15 +33,7 @@
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}253},
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}785}
 
-\bibitem[{{Bellm} {et~al.}(2019{\natexlab{a}}){Bellm}, {Kulkarni}, {Barlow},
-  {Feindt}, {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince},
-  {Riddle}, {Walters}, \& {Ye}}]{Bellm19a}
-{Bellm}, E.~C., {Kulkarni}, S.~R., {Barlow}, T., {et~al.} 2019{\natexlab{a}},
-  \href{http://dx.doi.org/10.1088/1538-3873/ab0c2a}{\color{magenta}\pasp},
-  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}131},
-  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}068003}
-
-\bibitem[{{Bellm} {et~al.}(2019{\natexlab{b}}){Bellm}, {Kulkarni}, {Graham},
+\bibitem[{{Bellm} {et~al.}(2019{\natexlab{a}}){Bellm}, {Kulkarni}, {Graham},
   {Dekany}, {Smith}, {Riddle}, {Masci}, {Helou}, {Prince}, {Adams},
   {Barbarino}, {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Blagorodnova},
   {Bodewits}, {Bolin}, {Brinnel}, {Brooke}, {Bue}, {Bulla}, {Burruss}, {Cenko},
@@ -60,11 +52,19 @@
   Velzen}, {Vestrand}, {Walters}, {Ward}, {Ye}, {Yu}, {Yan}, \&
   {Zolkower}}]{Bellm19}
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.}
-  2019{\natexlab{b}},
+  2019{\natexlab{a}},
   \href{http://dx.doi.org/10.1088/1538-3873/aaecbe}{\color{magenta}Publications
   of the Astronomical Society of the Pacific},
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}018002}
+
+\bibitem[{{Bellm} {et~al.}(2019{\natexlab{b}}){Bellm}, {Kulkarni}, {Barlow},
+  {Feindt}, {Graham}, {Goobar}, {Kupfer}, {Ngeow}, {Nugent}, {Ofek}, {Prince},
+  {Riddle}, {Walters}, \& {Ye}}]{Bellm19a}
+{Bellm}, E.~C., {Kulkarni}, S.~R., {Barlow}, T., {et~al.} 2019{\natexlab{b}},
+  \href{http://dx.doi.org/10.1088/1538-3873/ab0c2a}{\color{magenta}\pasp},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}131},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}068003}
 
 \bibitem[{{Bloom} {et~al.}(2012){Bloom}, {Kasen}, {Shen}, {Nugent}, {Butler},
   {Graham}, {Howell}, {Kolb}, {Holmes}, {Haswell}, {Burwitz}, {Rodriguez}, \&
@@ -155,6 +155,14 @@ Foreman-Mackey, D. 2016,
   \href{http://adsabs.harvard.edu/abs/2011MNRAS.416.2607G}{\color{blue}416},
   \href{http://adsabs.harvard.edu/abs/2011MNRAS.416.2607G}{\color{blue}2607}
 
+\bibitem[{{Ganeshalingam} {et~al.}(2010){Ganeshalingam}, {Li}, {Filippenko},
+  {Anderson}, {Foster}, {Gates}, {Griffith}, {Grigsby}, {Joubert}, {Leja},
+  {Lowe}, {Macomber}, {Pritchard}, {Thrasher}, \& {Winslow}}]{Ganeshalingam10}
+{Ganeshalingam}, M., {Li}, W., {Filippenko}, A.~V., {et~al.} 2010,
+  \href{http://dx.doi.org/10.1088/0067-0049/190/2/418}{\color{magenta}\apjs},
+  \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}190},
+  \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}418}
+
 \bibitem[{{Goldhaber} \& {Supernova Cosmology Project
   Collaboration}(1998)}]{Goldhaber98a}
 {Goldhaber}, G., \& {Supernova Cosmology Project Collaboration}. 1998, American
@@ -184,6 +192,29 @@ Foreman-Mackey, D. 2016,
   \href{http://dx.doi.org/10.2140/camcos.2010.5.65}{\color{magenta}CAMCS},
   \href{https://ui.adsabs.harvard.edu/abs/2010CAMCS...5...65G}{\color{blue}5},
   \href{https://ui.adsabs.harvard.edu/abs/2010CAMCS...5...65G}{\color{blue}65}
+
+\bibitem[{{Graham} {et~al.}(2019){Graham}, {Kulkarni}, {Bellm}, {Adams},
+  {Barbarino}, {Blagorodnova}, {Bodewits}, {Bolin}, {Brady}, {Cenko}, {Chang},
+  {Coughlin}, {De}, {Eadie}, {Farnham}, {Feindt}, {Franckowiak}, {Fremling},
+  {Gezari}, {Ghosh}, {Goldstein}, {Golkhou}, {Goobar}, {Ho}, {Huppenkothen},
+  {Ivezi{\'c}}, {Jones}, {Juric}, {Kaplan}, {Kasliwal}, {Kelley}, {Kupfer},
+  {Lee}, {Lin}, {Lunnan}, {Mahabal}, {Miller}, {Ngeow}, {Nugent}, {Ofek},
+  {Prince}, {Rauch}, {van Roestel}, {Schulze}, {Singer}, {Sollerman}, {Taddia},
+  {Yan}, {Ye}, {Yu}, {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Brinnel},
+  {Brooke}, {Bue}, {Bulla}, {Burruss}, {Connolly}, {Cromer}, {Cunningham},
+  {Dekany}, {Delacroix}, {Desai}, {Duev}, {Feeney}, {Flynn}, {Frederick},
+  {Gal-Yam}, {Giomi}, {Groom}, {Hacopians}, {Hale}, {Helou}, {Henning},
+  {Hover}, {Hillenbrand}, {Howell}, {Hung}, {Imel}, {Ip}, {Jackson}, {Kaspi},
+  {Kaye}, {Kowalski}, {Kramer}, {Kuhn}, {Landry}, {Laher}, {Mao}, {Masci},
+  {Monkewitz}, {Murphy}, {Nordin}, {Patterson}, {Penprase}, {Porter},
+  {Rebbapragada}, {Reiley}, {Riddle}, {Rigault}, {Rodriguez}, {Rusholme}, {van
+  Santen}, {Shupe}, {Smith}, {Soumagnac}, {Stein}, {Surace}, {Szkody}, {Terek},
+  {Van Sistine}, {van Velzen}, {Vestrand}, {Walters}, {Ward}, {Zhang}, \&
+  {Zolkower}}]{Graham19}
+{Graham}, M.~J., {Kulkarni}, S.~R., {Bellm}, E.~C., {et~al.} 2019,
+  \href{http://dx.doi.org/10.1088/1538-3873/ab006c}{\color{magenta}\pasp},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}131},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}078001}
 
 \bibitem[{{Guglielmo} {et~al.}(1993){Guglielmo}, {Epchtein}, {Le Bertre},
   {Fouque}, {Hron}, {Kerschbaum}, \& {Lepine}}]{Guglielmo93}
