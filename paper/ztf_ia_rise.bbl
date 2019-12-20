@@ -66,6 +66,23 @@
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}018002}
 
+\bibitem[{{Bloom} {et~al.}(2012){Bloom}, {Kasen}, {Shen}, {Nugent}, {Butler},
+  {Graham}, {Howell}, {Kolb}, {Holmes}, {Haswell}, {Burwitz}, {Rodriguez}, \&
+  {Sullivan}}]{Bloom12a}
+{Bloom}, J.~S., {Kasen}, D., {Shen}, K.~J., {et~al.} 2012,
+  \href{http://dx.doi.org/10.1088/2041-8205/744/2/L17}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/2012ApJ...744L..17B}{\color{blue}744},
+  \href{http://adsabs.harvard.edu/abs/2012ApJ...744L..17B}{\color{blue}L17}
+
+\bibitem[{{Cao} {et~al.}(2015){Cao}, {Kulkarni}, {Howell}, {Gal-Yam},
+  {Kasliwal}, {Valenti}, {Johansson}, {Amanullah}, {Goobar}, {Sollerman},
+  {Taddia}, {Horesh}, {Sagiv}, {Cenko}, {Nugent}, {Arcavi}, {Surace},
+  {Wo{\'z}niak}, {Moody}, {Rebbapragada}, {Bue}, \& {Gehrels}}]{Cao15}
+{Cao}, Y., {Kulkarni}, S.~R., {Howell}, D.~A., {et~al.} 2015,
+  \href{http://dx.doi.org/10.1038/nature14440}{\color{magenta}\nat},
+  \href{http://adsabs.harvard.edu/abs/2015Natur.521..328C}{\color{blue}521},
+  \href{http://adsabs.harvard.edu/abs/2015Natur.521..328C}{\color{blue}328}
+
 \bibitem[{{Conley} {et~al.}(2006){Conley}, {Howell}, {Howes}, {Sullivan},
   {Astier}, {Balam}, {Basa}, {Carlberg}, {Fouchez}, {Guy}, {Hook}, {Neill},
   {Pain}, {Perrett}, {Pritchet}, {Regnault}, {Rich}, {Taillet}, {Aubourg},
@@ -75,6 +92,34 @@
   \href{http://dx.doi.org/10.1086/507788}{\color{magenta}\aj},
   \href{https://ui.adsabs.harvard.edu/abs/2006AJ....132.1707C}{\color{blue}132},
   \href{https://ui.adsabs.harvard.edu/abs/2006AJ....132.1707C}{\color{blue}1707}
+
+\bibitem[{{De} {et~al.}(2019){De}, {Kasliwal}, {Polin}, {Nugent}, {Bildsten},
+  {Adams}, {Bellm}, {Blagorodnova}, {Burdge}, {Cannella}, {Cenko}, {Dekany},
+  {Feeney}, {Hale}, {Fremling}, {Graham}, {Ho}, {Jencson}, {Kulkarni}, {Laher},
+  {Masci}, {Miller}, {Patterson}, {Rebbapragada}, {Riddle}, {Shupe}, \&
+  {Smith}}]{De19}
+{De}, K., {Kasliwal}, M.~M., {Polin}, A., {et~al.} 2019,
+  \href{http://dx.doi.org/10.3847/2041-8213/ab0aec}{\color{magenta}\apjl},
+  \href{http://adsabs.harvard.edu/abs/2019ApJ...873L..18D}{\color{blue}873},
+  \href{http://adsabs.harvard.edu/abs/2019ApJ...873L..18D}{\color{blue}L18}
+
+\bibitem[{{Dessart} {et~al.}(2014){Dessart}, {Blondin}, {Hillier}, \&
+  {Khokhlov}}]{Dessart14}
+{Dessart}, L., {Blondin}, S., {Hillier}, D.~J., \& {Khokhlov}, A. 2014,
+  \href{http://dx.doi.org/10.1093/mnras/stu598}{\color{magenta}\mnras},
+  \href{http://adsabs.harvard.edu/abs/2014MNRAS.441..532D}{\color{blue}441},
+  \href{http://adsabs.harvard.edu/abs/2014MNRAS.441..532D}{\color{blue}532}
+
+\bibitem[{{Dilday} {et~al.}(2012){Dilday}, {Howell}, {Cenko}, {Silverman},
+  {Nugent}, {Sullivan}, {Ben-Ami}, {Bildsten}, {Bolte}, {Endl}, {Filippenko},
+  {Gnat}, {Horesh}, {Hsiao}, {Kasliwal}, {Kirkman}, {Maguire}, {Marcy},
+  {Moore}, {Pan}, {Parrent}, {Podsiadlowski}, {Quimby}, {Sternberg}, {Suzuki},
+  {Tytler}, {Xu}, {Bloom}, {Gal-Yam}, {Hook}, {Kulkarni}, {Law}, {Ofek},
+  {Polishook}, \& {Poznanski}}]{Dilday12}
+{Dilday}, B., {Howell}, D.~A., {Cenko}, S.~B., {et~al.} 2012,
+  \href{http://dx.doi.org/10.1126/science.1219164}{\color{magenta}Science},
+  \href{http://adsabs.harvard.edu/abs/2012Sci...337..942D}{\color{blue}337},
+  \href{http://adsabs.harvard.edu/abs/2012Sci...337..942D}{\color{blue}942}
 
 \bibitem[{{Fausnaugh} {et~al.}(2019){Fausnaugh}, {Vallely}, {Kochanek},
   {Shappee}, {Stanek}, {Tucker}, {Ricker}, {Vanderspek}, {Latham}, {Seager},
@@ -126,6 +171,13 @@ Foreman-Mackey, D. 2016,
   \href{http://dx.doi.org/10.1088/0004-637X/745/1/44}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}745},
   \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}44}
+
+\bibitem[{{Goobar} {et~al.}(2015){Goobar}, {Kromer}, {Siverd}, {Stassun},
+  {Pepper}, {Amanullah}, {Kasliwal}, {Sollerman}, \& {Taddia}}]{Goobar15}
+{Goobar}, A., {Kromer}, M., {Siverd}, R., {et~al.} 2015,
+  \href{http://dx.doi.org/10.1088/0004-637X/799/1/106}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2015ApJ...799..106G}{\color{blue}799},
+  \href{http://adsabs.harvard.edu/abs/2015ApJ...799..106G}{\color{blue}106}
 
 \bibitem[{{Goodman} \& {Weare}(2010)}]{Goodman10}
 {Goodman}, J., \& {Weare}, J. 2010,
@@ -207,6 +259,20 @@ Hunter, J.~D. 2007,
 Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
   Mathematical and Physical Sciences, 186, 453
 
+\bibitem[{Jeffreys(1961)}]{Jeffreys61}
+---. 1961, Theory of probability, Third edition (Clarendon Press, Oxford),
+  ix+447
+
+\bibitem[{{Jiang} {et~al.}(2017){Jiang}, {Doi}, {Maeda}, {Shigeyama}, {Nomoto},
+  {Yasuda}, {Jha}, {Tanaka}, {Morokuma}, {Tominaga}, {Ivezi{\'c}},
+  {Ruiz-Lapuente}, {Stritzinger}, {Mazzali}, {Ashall}, {Mould}, {Baade},
+  {Suzuki}, {Connolly}, {Patat}, {Wang}, {Yoachim}, {Jones}, {Furusawa}, \&
+  {Miyazaki}}]{Jiang17}
+{Jiang}, J.-A., {Doi}, M., {Maeda}, K., {et~al.} 2017,
+  \href{http://dx.doi.org/10.1038/nature23908}{\color{magenta}\nat},
+  \href{http://adsabs.harvard.edu/abs/2017Natur.550...80J}{\color{blue}550},
+  \href{http://adsabs.harvard.edu/abs/2017Natur.550...80J}{\color{blue}80}
+
 \bibitem[{{Jones} {et~al.}(2017){Jones}, {Scolnic}, {Riess}, {Kessler}, {Rest},
   {Kirshner}, {Berger}, {Ortega}, {Foley}, {Chornock}, {Challis}, {Burgett},
   {Chambers}, {Draper}, {Flewelling}, {Huber}, {Kaiser}, {Kudritzki},
@@ -219,6 +285,38 @@ Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
 \bibitem[{Jones {et~al.}(2001--)Jones, Oliphant, Peterson, {et~al.}}]{Jones01}
 Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   scientific tools for {Python}
+
+\bibitem[{{Kasen}(2010)}]{Kasen10a}
+{Kasen}, D. 2010,
+  \href{http://dx.doi.org/10.1088/0004-637X/708/2/1025}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2010ApJ...708.1025K}{\color{blue}708},
+  \href{http://adsabs.harvard.edu/abs/2010ApJ...708.1025K}{\color{blue}1025}
+
+\bibitem[{{Kromer} {et~al.}(2016){Kromer}, {Fremling}, {Pakmor},
+  {Taubenberger}, {Amanullah}, {Cenko}, {Fransson}, {Goobar}, {Leloudas},
+  {Taddia}, {R{\"o}pke}, {Seitenzahl}, {Sim}, \& {Sollerman}}]{Kromer16}
+{Kromer}, M., {Fremling}, C., {Pakmor}, R., {et~al.} 2016,
+  \href{http://dx.doi.org/10.1093/mnras/stw962}{\color{magenta}\mnras},
+  \href{http://adsabs.harvard.edu/abs/2016MNRAS.459.4428K}{\color{blue}459},
+  \href{http://adsabs.harvard.edu/abs/2016MNRAS.459.4428K}{\color{blue}4428}
+
+\bibitem[{{Law} {et~al.}(2009){Law}, {Kulkarni}, {Dekany}, {Ofek}, {Quimby},
+  {Nugent}, {Surace}, {Grillmair}, {Bloom}, {Kasliwal}, {Bildsten}, {Brown},
+  {Cenko}, {Ciardi}, {Croner}, {Djorgovski}, {van Eyken}, {Filippenko}, {Fox},
+  {Gal-Yam}, {Hale}, {Hamam}, {Helou}, {Henning}, {Howell}, {Jacobsen},
+  {Laher}, {Mattingly}, {McKenna}, {Pickles}, {Poznanski}, {Rahmer}, {Rau},
+  {Rosing}, {Shara}, {Smith}, {Starr}, {Sullivan}, {Velur}, {Walters}, \&
+  {Zolkower}}]{law09}
+{Law}, N.~M., {Kulkarni}, S.~R., {Dekany}, R.~G., {et~al.} 2009,
+  \href{http://dx.doi.org/10.1086/648598}{\color{magenta}\pasp},
+  \href{http://adsabs.harvard.edu/abs/2009PASP..121.1395L}{\color{blue}121},
+  \href{http://adsabs.harvard.edu/abs/2009PASP..121.1395L}{\color{blue}1395}
+
+\bibitem[{{Maoz} {et~al.}(2014){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz14}
+{Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2014,
+  \href{http://dx.doi.org/10.1146/annurev-astro-082812-141031}{\color{magenta}\araa},
+  \href{http://adsabs.harvard.edu/abs/2014ARA%26A..52..107M}{\color{blue}52},
+  \href{http://adsabs.harvard.edu/abs/2014ARA%26A..52..107M}{\color{blue}107}
 
 \bibitem[{{Masci} {et~al.}(2019){Masci}, {Laher}, {Rusholme}, {Shupe}, {Groom},
   {Surace}, {Jackson}, {Monkewitz}, {Beck}, {Flynn}, {Terek}, {Landry},
@@ -254,6 +352,25 @@ McKinney, W. 2010, 51
   \href{http://adsabs.harvard.edu/abs/2018ApJ...852..100M}{\color{blue}852},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...852..100M}{\color{blue}100}
 
+\bibitem[{{Noebauer} {et~al.}(2017){Noebauer}, {Kromer}, {Taubenberger},
+  {Baklanov}, {Blinnikov}, {Sorokina}, \& {Hillebrandt}}]{Noebauer17}
+{Noebauer}, U.~M., {Kromer}, M., {Taubenberger}, S., {et~al.} 2017,
+  \href{http://dx.doi.org/10.1093/mnras/stx2093}{\color{magenta}\mnras},
+  \href{http://adsabs.harvard.edu/abs/2017MNRAS.472.2787N}{\color{blue}472},
+  \href{http://adsabs.harvard.edu/abs/2017MNRAS.472.2787N}{\color{blue}2787}
+
+\bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
+  {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
+  {Filippenko}, {Silverman}, {Marcy}, {Howard}, {Isaacson}, {Maguire},
+  {Suzuki}, {Tarlton}, {Pan}, {Bildsten}, {Fulton}, {Parrent}, {Sand},
+  {Podsiadlowski}, {Bianco}, {Dilday}, {Graham}, {Lyman}, {James}, {Kasliwal},
+  {Law}, {Quimby}, {Hook}, {Walker}, {Mazzali}, {Pian}, {Ofek}, {Gal-Yam}, \&
+  {Poznanski}}]{Nugent11}
+{Nugent}, P.~E., {Sullivan}, M., {Cenko}, S.~B., {et~al.} 2011,
+  \href{http://dx.doi.org/10.1038/nature10644}{\color{magenta}\nat},
+  \href{http://adsabs.harvard.edu/abs/2011Natur.480..344N}{\color{blue}480},
+  \href{http://adsabs.harvard.edu/abs/2011Natur.480..344N}{\color{blue}344}
+
 \bibitem[{{Olling} {et~al.}(2015){Olling}, {Mushotzky}, {Shaya}, {Rest},
   {Garnavich}, {Tucker}, {Kasen}, {Margheim}, \& {Filippenko}}]{Olling15}
 {Olling}, R.~P., {Mushotzky}, R., {Shaya}, E.~J., {et~al.} 2015,
@@ -286,6 +403,17 @@ McKinney, W. 2010, 51
   Cournapeau, Brucher, Perrot, \& Duchesnay}]{Pedregosa11}
 Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   Learning Research, 12, 2825
+
+\bibitem[{{Perlmutter} {et~al.}(1999){Perlmutter}, {Aldering}, {Goldhaber},
+  {Knop}, {Nugent}, {Castro}, {Deustua}, {Fabbro}, {Goobar}, {Groom}, {Hook},
+  {Kim}, {Kim}, {Lee}, {Nunes}, {Pain}, {Pennypacker}, {Quimby}, {Lidman},
+  {Ellis}, {Irwin}, {McMahon}, {Ruiz-Lapuente}, {Walton}, {Schaefer}, {Boyle},
+  {Filippenko}, {Matheson}, {Fruchter}, {Panagia}, {Newberg}, {Couch}, \&
+  {Supernova Cosmology Project}}]{Perlmutter99}
+{Perlmutter}, S., {Aldering}, G., {Goldhaber}, G., {et~al.} 1999,
+  \href{http://dx.doi.org/10.1086/307221}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/1999ApJ...517..565P}{\color{blue}517},
+  \href{http://adsabs.harvard.edu/abs/1999ApJ...517..565P}{\color{blue}565}
 
 \bibitem[{{Phillips}(1993)}]{Phillips93}
 {Phillips}, M.~M. 1993,
@@ -324,6 +452,12 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2014ApJ...784...85P}{\color{blue}784},
   \href{http://adsabs.harvard.edu/abs/2014ApJ...784...85P}{\color{blue}85}
 
+\bibitem[{{Polin} {et~al.}(2019){Polin}, {Nugent}, \& {Kasen}}]{Polin19}
+{Polin}, A., {Nugent}, P., \& {Kasen}, D. 2019,
+  \href{http://dx.doi.org/10.3847/1538-4357/aafb6a}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2019ApJ...873...84P}{\color{blue}873},
+  \href{http://adsabs.harvard.edu/abs/2019ApJ...873...84P}{\color{blue}84}
+
 \bibitem[{{Prieto} {et~al.}(2007){Prieto}, {Garnavich}, {Phillips}, {DePoy},
   {Parrent}, {Pooley}, {Dwarkadas}, {Baron}, {Bassett}, {Becker}, {Cinabro},
   {DeJongh}, {Dilday}, {Doi}, {Frieman}, {Hogan}, {Holtzman}, {Jha}, {Kessler},
@@ -337,6 +471,15 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
 {Prieto}, J.~L., {Garnavich}, P.~M., {Phillips}, M.~M., {et~al.} 2007, ArXiv
   e-prints,
   \href{http://adsabs.harvard.edu/abs/2007arXiv0706.4088P}{\color{blue}706}
+
+\bibitem[{{Rau} {et~al.}(2009){Rau}, {Kulkarni}, {Law}, {Bloom}, {Ciardi},
+  {Djorgovski}, {Fox}, {Gal-Yam}, {Grillmair}, {Kasliwal}, {Nugent}, {Ofek},
+  {Quimby}, {Reach}, {Shara}, {Bildsten}, {Cenko}, {Drake}, {Filippenko},
+  {Helfand}, {Helou}, {Howell}, {Poznanski}, \& {Sullivan}}]{rau09}
+{Rau}, A., {Kulkarni}, S.~R., {Law}, N.~M., {et~al.} 2009,
+  \href{http://dx.doi.org/10.1086/605911}{\color{magenta}\pasp},
+  \href{http://adsabs.harvard.edu/abs/2009PASP..121.1334R}{\color{blue}121},
+  \href{http://adsabs.harvard.edu/abs/2009PASP..121.1334R}{\color{blue}1334}
 
 \bibitem[{{Ricker} {et~al.}(2015){Ricker}, {Winn}, {Vanderspek}, {Latham},
   {Bakos}, {Bean}, {Berta-Thompson}, {Brown}, {Buchhave}, {Butler}, {Butler},
@@ -353,6 +496,15 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{https://ui.adsabs.harvard.edu/abs/2015JATIS...1a4003R}{\color{blue}1},
   \href{https://ui.adsabs.harvard.edu/abs/2015JATIS...1a4003R}{\color{blue}014003}
 
+\bibitem[{{Riess} {et~al.}(1998){Riess}, {Filippenko}, {Challis},
+  {Clocchiatti}, {Diercks}, {Garnavich}, {Gilliland}, {Hogan}, {Jha},
+  {Kirshner}, {Leibundgut}, {Phillips}, {Reiss}, {Schmidt}, {Schommer},
+  {Smith}, {Spyromilio}, {Stubbs}, {Suntzeff}, \& {Tonry}}]{Riess98}
+{Riess}, A.~G., {Filippenko}, A.~V., {Challis}, P., {et~al.} 1998,
+  \href{http://dx.doi.org/10.1086/300499}{\color{magenta}\aj},
+  \href{http://adsabs.harvard.edu/abs/1998AJ....116.1009R}{\color{blue}116},
+  \href{http://adsabs.harvard.edu/abs/1998AJ....116.1009R}{\color{blue}1009}
+
 \bibitem[{{Riess} {et~al.}(1999){Riess}, {Filippenko}, {Li}, {Treffers},
   {Schmidt}, {Qiu}, {Hu}, {Armstrong}, {Faranda}, {Thouvenot}, \&
   {Buil}}]{Riess99a}
@@ -368,6 +520,12 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/826/1/56}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}826},
   \href{https://ui.adsabs.harvard.edu/abs/2016ApJ...826...56R}{\color{blue}56}
+
+\bibitem[{{Scalzo} {et~al.}(2014){Scalzo}, {Ruiter}, \& {Sim}}]{Scalzo14a}
+{Scalzo}, R.~A., {Ruiter}, A.~J., \& {Sim}, S.~A. 2014,
+  \href{http://dx.doi.org/10.1093/mnras/stu1808}{\color{magenta}\mnras},
+  \href{http://adsabs.harvard.edu/abs/2014MNRAS.445.2535S}{\color{blue}445},
+  \href{http://adsabs.harvard.edu/abs/2014MNRAS.445.2535S}{\color{blue}2535}
 
 \bibitem[{{Scalzo} {et~al.}(2010){Scalzo}, {Aldering}, {Antilogus}, {Aragon},
   {Bailey}, {Baltay}, {Bongard}, {Buton}, {Childress}, {Chotard}, {Copin},
@@ -392,13 +550,19 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
 
-\bibitem[{{Shappee} {et~al.}(2016){Shappee}, {Piro}, {Holoien}, {Prieto},
-  {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper}, {Basu},
-  {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong}, {Falco},
-  {Grupe}, {Hsiao}, {Kiyota}, {Morrell}, {Nicolas}, {Phillips}, {Pojmanski},
-  {Simonian}, {Stritzinger}, {Szczygie{\l}}, {Taddia}, {Thompson},
+\bibitem[{{Shappee} {et~al.}(2016{\natexlab{a}}){Shappee}, {Piro}, {Stanek},
+  {Patel}, {Margutti}, {Lipunov}, \& {Pogge}}]{Shappee16a}
+{Shappee}, B.~J., {Piro}, A.~L., {Stanek}, K.~Z., {et~al.} 2016{\natexlab{a}},
+  ArXiv e-prints
+
+\bibitem[{{Shappee} {et~al.}(2016{\natexlab{b}}){Shappee}, {Piro}, {Holoien},
+  {Prieto}, {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper},
+  {Basu}, {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong},
+  {Falco}, {Grupe}, {Hsiao}, {Kiyota}, {Morrell}, {Nicolas}, {Phillips},
+  {Pojmanski}, {Simonian}, {Stritzinger}, {Szczygie{\l}}, {Taddia}, {Thompson},
   {Thorstensen}, {Wagner}, \& {Wo{\'z}niak}}]{Shappee16}
-{Shappee}, B.~J., {Piro}, A.~L., {Holoien}, T.~W.-S., {et~al.} 2016,
+{Shappee}, B.~J., {Piro}, A.~L., {Holoien}, T.~W.-S., {et~al.}
+  2016{\natexlab{b}},
   \href{http://dx.doi.org/10.3847/0004-637X/826/2/144}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
@@ -426,6 +590,18 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
 Spiegelhalter, D.~J., Best, N.~G., Carlin, B.~P., \& Van Der~Linde, A. 2002,
   Journal of the royal statistical society: Series b (statistical methodology),
   64, 583
+
+\bibitem[{{Webbink}(1984)}]{Webbink84}
+{Webbink}, R.~F. 1984,
+  \href{http://dx.doi.org/10.1086/161701}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/1984ApJ...277..355W}{\color{blue}277},
+  \href{https://ui.adsabs.harvard.edu/abs/1984ApJ...277..355W}{\color{blue}355}
+
+\bibitem[{{Whelan} \& {Iben}(1973)}]{Whelan73}
+{Whelan}, J., \& {Iben}, Icko, J. 1973,
+  \href{http://dx.doi.org/10.1086/152565}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/1973ApJ...186.1007W}{\color{blue}186},
+  \href{https://ui.adsabs.harvard.edu/abs/1973ApJ...186.1007W}{\color{blue}1007}
 
 \bibitem[{{Yao} {et~al.}(2019){Yao}, {Miller}, {Kulkarni}, {Bulla}, {Masci},
   {Goldstein}, {Goobar}, {Nugent}, {Dugas}, {Blagorodnova}, {Neill}, {Rigault},

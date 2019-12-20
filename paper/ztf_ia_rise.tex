@@ -298,6 +298,89 @@
 
 \section{Introduction}
 
+The fact that supernovae (SNe) of Type Ia can be empirically calibrated as
+standardizable candles makes them arguably the most important tool in all of
+physics for the past $\sim$two decades. By unlocking our ability to accurately
+measure distances at high redshift, SNe Ia have completely revolutionized our
+understanding of the Universe \citep{Riess98,Perlmutter99}. While it is all but
+certain that SNe Ia are the result of thermonuclear explosions in C/O white
+dwarfs (WDs) in binary star systems \citep{} \todo{ref}, there remains a great
+deal about SNe Ia progenitors that we do not know. This leads to the tantalizing
+hope that an improved understanding of the binary progenitors may improve our
+ability to calibrate these explosions as standardizable candles.
+
+One clear avenue for better understanding the progenitors of SNe Ia is to obtain
+observations in the hours to days after explosion \citep{Maoz14}. Such
+detections provide an opportunity to probe the progenitor environment and binary
+companion, which is simply not possible as the SN evolves well into the
+homologous expansion phase (they are standardizable precisely because they are
+all nearly identical at maximum light). Indeed, in the landmark discovery of
+SN\,2011fe by the Palomar Transient Factory (PTF; \citealt{law09,rau09}),
+\citet{Nugent11} were able to constrain the time of explosion to $\pm 20$\,min.
+\citet{Bloom12a} would later combine the PTF observations with an early
+non-detection while comparing the limits to shock-breakout models to constrain
+the size of the progenitor to be $\lesssim 0.01 R_\odot$, providing the most
+direct evidence to date that SNe Ia come from WDs. These critical findings have
+demonstrated the importance of high-cadence time-domain surveys for discovering
+SNe shortly after explosion.
+
+Pinning down the binary companion to the exploding WD remains a challenge. There
+are likely two dominant pathways towards explosion. In the first, the WD
+accretes H from a non-degenerate companion and eventually explodes as it
+approaches the Chandrasekhar mass ($M_\mathrm{Ch}$; known as the single
+degenerate, or SD, scenario; \citealt{Whelan73}), while in the second the
+explosion follows the interaction or merger of two WD stars (known as the double
+degenerate, or DD, scenario; \citealt{Webbink84}). While the debate long focused
+on which of these two scenarios is correct, there is now strong empirical
+evidence in support of both channels. PTF\,11kx was a SN Ia with clear evidence
+of multiple shells of circumstellar material \citep{Dilday12}, which is
+precisely what one would expect in a WD$+$red giant system that had undergone
+multiple novae prior to the final, fatal thermonuclear explosion. On the other
+hand, detailed modelling of SNe Ia light curves \citep{Scalzo14a} and a
+blue-to-red-to-blue color evolution observed in a few SNe \citep{Jiang17,De19},
+point to sub-$M_\mathrm{Ch}$ mass explosions. Sub-$M_\mathrm{Ch}$ mass WDs can
+only explode in the DD scenario, either following a WD--WD collision or via the
+detonation of an accreted He-shell that, in turn, triggers an explosion in the
+C/O core of the WD (e.g., \citealt{Polin19}). Taken together, these results have
+changed the most pressing question to the following: which scenario, SD or DD,
+is dominant?
+
+Here too, early observations should prove useful. In the SD scenario the SN
+ejecta will collide with the nondegenerate companion creating a shock that gives
+rise to a bright ultraviolet/optical flash in the days after explosion
+\citep{Kasen10a}. The detection of this emission requires a favorable geometric
+alignment, and as a result is only expected in $\sim$10\% of SD explosions. Many
+studies have searched for signatures of an ejecta–companion interaction, and,
+despite large samples of SNe, have typically resulted in nondetections (e.g.,
+\citealt{Hayden10,Ganeshalingam11,Bloom12a,Zheng13,Goobar15,Olling15,Shappee16a})
+. A noteable exception is iPTF\,14atg, a SN Ia that showed a clearly declining
+UV pulse shortly after explosion \citep{Cao15}. This event is best interpreted
+as the result of an ejecta-companion collision (though see
+\citealt{Kromer16,Noebauer17} for alternative explanations).\footnote{There are
+several other claims of companion interaction in the literacture based on
+short-lived optical ``bumps'' in the early light curves. There are many
+alternative models (e.g., \citealt{Dessart14,Piro16}) that appeal to different
+physical scenarios to explain these bumps (see \citealt{Shappee16a,Miller18} and
+references therein for a more thorough review).} The lack of
+companion-interaction detections suggests that the SD scenario is relatively
+rare, or we simply need higher cadence observations to resolve the observational
+signatures in the hours after explosion.
+
+Measurements of the rise time, i.e., the time it takes the SN to evolve from
+first light, the moment when optical photons diffuse out of the photosphere, to
+maximum brightness, can also play a role in constraining the progenitor systems
+of SNe Ia. Initial measurements of SN rise times clearly demonstrated that early
+efforts to model WD explosions significantly underestimated the opacities in the
+SN ejecta (e.g., \citealt{Riess99a}).
+
+
+In a similar sense, different models provide very different predictions for the initial evolution of the SN (e.g., \citealt{Noebauer17}), and measures of the power-law index of the early emission can confirm, or reject, different explosion scenarios. 
+
+
+
+
+In this paper, the second in a series of three examining the photometric evolution of 127 SNe Ia discovered in 2018 with early observations from the Zwicky Transient Facility (ZTF; \citealt{}), we examine the rise time of SNe Ia and whether or not their early emission can be characterized as a simple power law. Paper I \citep{Yao19} describes the sample, while Paper III (M.\ Bulla et al. 2020, submitted) discusses the evolution of SNe Ia colors shortly after explosion. The approach here is largely empirical
+
 \section{ZTF Photometry}
 
 The sample of 127 SNe Ia utilized in this study was defined in \citet{Yao19},
@@ -773,7 +856,7 @@ relation being SNe in the unreliable group (for further discussion of the
 early \gztf\ $-$ \rztf\ color evolution of this sample see M.~Bulla et al.
 2019).
 
-The Spearman rank-ordered correlation coefficient \todo{REF} for $\alpha_g$
+The Spearman rank-ordered correlation coefficient for $\alpha_g$
 and $\alpha_r$ is highly significant for the entire population ($\rho >
 0.5$), confirming what can clearly be seen by eye. Restricting the sample to
 SNe with reliable model parameters increases the significance of the
@@ -788,7 +871,7 @@ that both \trise\ and $\alpha$ are correlated with redshift. This result is
 somewhat surprising: naively, it suggests some form of cosmic evolution in SNe
 Ia, with SNe at $z \approx 0.08$ having rise times that are several days
 shorter than SNe at $z \approx 0.02$. The small range of redshifts in our
-sample, and several previous studies (e.g., \todo{Riess ref on Ia evolution}),
+sample, and several previous studies (e.g., \citealt{Conley06} \todo{add Riess ref?}),
 render this naive explanation in doubt. Instead, this correlation can be
 understood as the result of building a sample from a flux-limited survey.
 
@@ -867,7 +950,6 @@ to test for such an effect. Due to the systematic identified here, it may be
 the case that the rise time, and by extension also $\alpha$, are
 underestimated for every SN in the literature. Detailed simulations with
 realistic SN light curves are needed to test this posibility.
-\todo{Need to make sure this paragraph  is properly emphasized}
 
 \subsection{Correlations with Light Curve Shape}
 
@@ -1107,7 +1189,7 @@ parameters. We then define the deviation information criterion (DIC) as:
 $$\mathrm{DIC} = p_D + \langle D(\theta) \rangle.$$
 Smaller values of  the DIC are  preferred to larger values.
 
-Following Jeffries \todo{REF} we consider SNe with
+Following \citet{Jeffreys61} we consider SNe with
 %
 $$\exp(\mathrm{DIC}_{\alpha2} - \mathrm{DIC}_\mathrm{flat})/2) \ge 30,$$
 %
@@ -1301,18 +1383,18 @@ a half 68\% credible region that is $< 3$\,hr. For the uninformative prior this
 number drops to two SNe. In either case, these measurements provide far more
 precision than possible from \texttt{SALT2}.
 
-\todo{consider moving paragraph elsewhere} While the methods adopted in this
-paper provide higher precision, it is impossible that they are both accurate.
-The median difference in the inferred \trise\ from the $\alpha = 2$ and
-uninformative priors for individual SNe is 4.7\,d. Even for the volume-limited
-subset of SNe with reliable model parameters from the uninformative prior (15
-total SNe) have a median difference in \trise\ estimates of 2.8\,d for the two
-priors. The systematic effect identified in \S\ref{sec:redshift_correlations}
-suggests that the uninformative prior does not provide accurate estimates of
-\trise, particularly for higher-$z$ SNe. The $\alpha = 2$ prior, on the other
-hand, explicitly assumes that there is no change in the early optical colors of
-SNe Ia. There is a large volume of observations to disprove this particular
-assumption, raising the possibility that neither method is accurate.
+While the methods adopted in this paper provide higher precision, it is
+impossible that they are both accurate. The median difference in the inferred
+\trise\ from the $\alpha = 2$ and uninformative priors for individual SNe is
+4.7\,d. Even for the volume-limited subset of SNe with reliable model parameters
+from the uninformative prior (15 total SNe) have a median difference in \trise\
+estimates of 2.8\,d for the two priors. The systematic effect identified in
+\S\ref{sec:redshift_correlations} suggests that the uninformative prior does not
+provide accurate estimates of \trise, particularly for higher-$z$ SNe. The
+$\alpha = 2$ prior, on the other hand, explicitly assumes that there is no
+change in the early optical colors of SNe Ia. There is a large volume of
+observations to disprove this particular assumption, raising the possibility
+that neither method is accurate.
 
 Empirical evidence suggests that $\alpha = 2$ prior is likely more accurate than
 the uninformative prior (though again we caution that these estimates may still
