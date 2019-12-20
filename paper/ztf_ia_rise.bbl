@@ -183,9 +183,38 @@ Hunter, J.~D. 2007,
   \href{http://dx.doi.org/10.1109/MCSE.2007.55}{\color{magenta}Computing In
   Science \& Engineering}, 9, 90
 
+\bibitem[{{Ivezi{\'c}} {et~al.}(2008){Ivezi{\'c}}, {Tyson}, {Acosta},
+  {Allsman}, {Anderson}, {Andrew}, {Angel}, {Axelrod}, {Barr}, {Becker},
+  {Becla}, {Beldica}, {Blandford}, {Bloom}, {Borne}, {Brandt}, {Brown},
+  {Bullock}, {Burke}, {Chandrasekharan}, {Chesley}, {Claver}, {Connolly},
+  {Cook}, {Cooray}, {Covey}, {Cribbs}, {Cutri}, {Daues}, {Delgado}, {Ferguson},
+  {Gawiser}, {Geary}, {Gee}, {Geha}, {Gibson}, {Gilmore}, {Gressler}, {Hogan},
+  {Huffer}, {Jacoby}, {Jain}, {Jernigan}, {Jones}, {Juric}, {Kahn}, {Kalirai},
+  {Kantor}, {Kessler}, {Kirkby}, {Knox}, {Krabbendam}, {Krughoff}, {Kulkarni},
+  {Lambert}, {Levine}, {Liang}, {Lim}, {Lupton}, {Marshall}, {Marshall}, {May},
+  {Miller}, {Mills}, {Monet}, {Neill}, {Nordby}, {O'Connor}, {Oliver},
+  {Olivier}, {Olsen}, {Owen}, {Peterson}, {Petry}, {Pierfederici},
+  {Pietrowicz}, {Pike}, {Pinto}, {Plante}, {Radeka}, {Rasmussen}, {Ridgway},
+  {Rosing}, {Saha}, {Schalk}, {Schindler}, {Schneider}, {Schumacher}, {Sebag},
+  {Seppala}, {Shipsey}, {Silvestri}, {Smith}, {Smith}, {Strauss}, {Stubbs},
+  {Sweeney}, {Szalay}, {Thaler}, {Vanden Berk}, {Walkowicz}, {Warner},
+  {Willman}, {Wittman}, {Wolff}, {Wood-Vasey}, {Yoachim}, {Zhan}, \& {for the
+  LSST Collaboration}}]{Ivezic08}
+{Ivezi{\'c}}, {\v Z}., {Tyson}, J.~A., {Acosta}, E., {et~al.} 2008, ArXiv
+  e-prints
+
 \bibitem[{Jeffreys(1946)}]{Jeffreys46}
 Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
   Mathematical and Physical Sciences, 186, 453
+
+\bibitem[{{Jones} {et~al.}(2017){Jones}, {Scolnic}, {Riess}, {Kessler}, {Rest},
+  {Kirshner}, {Berger}, {Ortega}, {Foley}, {Chornock}, {Challis}, {Burgett},
+  {Chambers}, {Draper}, {Flewelling}, {Huber}, {Kaiser}, {Kudritzki},
+  {Metcalfe}, {Wainscoat}, \& {Waters}}]{Jones17}
+{Jones}, D.~O., {Scolnic}, D.~M., {Riess}, A.~G., {et~al.} 2017,
+  \href{http://dx.doi.org/10.3847/1538-4357/aa767b}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2017ApJ...843....6J}{\color{blue}843},
+  \href{https://ui.adsabs.harvard.edu/abs/2017ApJ...843....6J}{\color{blue}6}
 
 \bibitem[{Jones {et~al.}(2001--)Jones, Oliphant, Peterson, {et~al.}}]{Jones01}
 Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
