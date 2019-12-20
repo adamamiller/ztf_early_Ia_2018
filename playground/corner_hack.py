@@ -17,7 +17,7 @@ __all__ = ["corner", "hist2d", "quantile"]
 
 def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_factor=1,
            smooth=None, smooth1d=None,
-           labels=None, label_kwargs=None,
+           labels=None, ticklabelsize=None, label_kwargs=None,
            show_titles=False, title_fmt=".2f", title_kwargs=None,
            truths=None, truth_color="#4682b4",
            scale_hist=False, quantiles=None, verbose=False, fig=None,
@@ -57,6 +57,8 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
     label_kwargs : dict
         Any extra keyword arguments to send to the `set_xlabel` and
         `set_ylabel` methods.
+    ticklabelsize : int
+        size of the tick labels
     show_titles : bool
         Displays a title above each 1-D histogram showing the 0.5 quantile
         with the upper and lower errors supplied by the quantiles argument.
@@ -424,6 +426,7 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
                         ax.xaxis.set_label_coords(0.5, 1.4)
                     else:
                         ax.xaxis.set_label_coords(0.5, -0.3)
+                        ax.tick_params(axis='x', labelsize=ticklabelsize)
 
                 # use MathText for axes ticks
                 ax.xaxis.set_major_formatter(
@@ -442,11 +445,15 @@ def corner_hack(xs, bins=20, range=None, weights=None, color="k", hist_bin_facto
                     else:
                         ax.set_ylabel(labels[i], **label_kwargs)
                         ax.yaxis.set_label_coords(-0.3, 0.5)
+                        ax.tick_params(axis='y', labelsize=ticklabelsize)
 
                 # use MathText for axes ticks
                 ax.yaxis.set_major_formatter(
                     ScalarFormatter(useMathText=use_math_text))
 
+    axes[-1, -1].xaxis.set_label_coords(0.5, -0.3) # stupid label hack
+    axes[-1, -1].tick_params(axis='x', labelsize=ticklabelsize)
+        
     return fig
 
 

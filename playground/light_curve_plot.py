@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
+import matplotlib.gridspec as gridspec
 
 import emcee
 import corner
@@ -35,8 +36,10 @@ def plot_both_filt(theta,
     res_min = 0.0
 
     fig = plt.figure()
-    axPlot = plt.axes([0.15, 0.37, 0.82, 0.60])
-    axRes = plt.axes([0.15, 0.11, 0.82, 0.25], sharex=axPlot)
+    gs = gridspec.GridSpec(3, 1)
+    
+    axPlot = fig.add_subplot(gs[0:2, :])
+    axRes = fig.add_subplot(gs[2, :], sharex=axPlot)
     
     n_fcqid = len(np.unique(fcqfid_arr[obs_for_model]))
     n_filt = len(np.unique(np.unique(fcqfid_arr[obs_for_model]) % 10))
@@ -116,7 +119,7 @@ def plot_both_filt(theta,
     axPlot.tick_params(right=True, top=True, bottom=False, which='both', labelsize=11)
     
     axRes.set_xlim(-30, 1)
-    axRes.set_xlabel('$t - t_\mathrm{fl} \; (\mathrm{restframe \; d})$', fontsize=14)
+    axRes.set_xlabel('$t - t_{B,\mathrm{max}} \; (\mathrm{restframe \; d})$', fontsize=14)
     axRes.set_ylabel('$\mathrm{pull}$', fontsize=14)
     axRes.xaxis.set_minor_locator(MultipleLocator(1))
     axRes.yaxis.set_minor_locator(MultipleLocator(np.mean(np.diff(axRes.get_yticks()))/2))
@@ -157,5 +160,7 @@ def plot_both_filt(theta,
                         color=color_dict[filt], zorder=10,
                         alpha=0.4)
     plt.setp(axPlot.get_xticklabels(), visible=False)
+    fig.align_ylabels()
+    fig.subplots_adjust(hspace=0.04,right=0.98, top=0.98)
 
     return fig
