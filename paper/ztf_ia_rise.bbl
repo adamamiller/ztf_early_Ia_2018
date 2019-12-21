@@ -390,6 +390,18 @@ McKinney, W. 2010, 51
   \href{http://adsabs.harvard.edu/abs/2017MNRAS.472.2787N}{\color{blue}472},
   \href{http://adsabs.harvard.edu/abs/2017MNRAS.472.2787N}{\color{blue}2787}
 
+\bibitem[{{Nomoto}(1982{\natexlab{a}})}]{Nomoto82}
+{Nomoto}, K. 1982{\natexlab{a}},
+  \href{http://dx.doi.org/10.1086/159682}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/1982ApJ...253..798N}{\color{blue}253},
+  \href{https://ui.adsabs.harvard.edu/abs/1982ApJ...253..798N}{\color{blue}798}
+
+\bibitem[{{Nomoto}(1982{\natexlab{b}})}]{Nomoto82a}
+---. 1982{\natexlab{b}},
+  \href{http://dx.doi.org/10.1086/160031}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/1982ApJ...257..780N}{\color{blue}257},
+  \href{https://ui.adsabs.harvard.edu/abs/1982ApJ...257..780N}{\color{blue}780}
+
 \bibitem[{{Nugent} {et~al.}(2011){Nugent}, {Sullivan}, {Cenko}, {Thomas},
   {Kasen}, {Howell}, {Bersier}, {Bloom}, {Kulkarni}, {Kandrashoff},
   {Filippenko}, {Silverman}, {Marcy}, {Howard}, {Isaacson}, {Maguire},
@@ -597,6 +609,16 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/826/2/144}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
+
+\bibitem[{{Shen} {et~al.}(2018){Shen}, {Boubert}, {G{\"a}nsicke}, {Jha},
+  {Andrews}, {Chomiuk}, {Foley}, {Fraser}, {Gromadzki}, {Guillochon}, {Kotze},
+  {Maguire}, {Siebert}, {Smith}, {Strader}, {Badenes}, {Kerzendorf}, {Koester},
+  {Kromer}, {Miles}, {Pakmor}, {Schwab}, {Toloza}, {Toonen}, {Townsley}, \&
+  {Williams}}]{Shen18}
+{Shen}, K.~J., {Boubert}, D., {G{\"a}nsicke}, B.~T., {et~al.} 2018,
+  \href{http://dx.doi.org/10.3847/1538-4357/aad55b}{\color{magenta}\apj},
+  \href{http://adsabs.harvard.edu/abs/2018ApJ...865...15S}{\color{blue}865},
+  \href{http://adsabs.harvard.edu/abs/2018ApJ...865...15S}{\color{blue}15}
 
 \bibitem[{{Silverman} {et~al.}(2011){Silverman}, {Ganeshalingam}, {Li},
   {Filippenko}, {Miller}, \& {Poznanski}}]{Silverman11}
