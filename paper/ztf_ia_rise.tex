@@ -272,7 +272,39 @@
 %% Mark off the abstract in the ``abstract'' environment. 
 \begin{abstract}
 
-\todo{write the abstract}
+While it is clear that Type Ia supernovae (SNe) are the result of thermonuclear
+explosions in C/O white dwarfs (WDs), a great deal remains uncertain about the
+binary companion that facilitates the explosive disruption of the WD.
+Observations obtained in the hours to days after explosion provide a promising
+avenue to better probe the progenitor systems of SNe Ia. In this paper, the
+second in series of three, we present an analysis of 127 SNe Ia discovered by
+the Zwicky Transient Facility (ZTF) $\lesssim 1$\,week after explosion. The ZTF
+light curves, which include 3 \gztf\ and 3 \rztf\ observations every night,
+provide a unique, and large, set of data to probe the early evolution of SNe Ia.
+Here we estimate the time of first light, i.e., the time when optical photons
+first diffuse out from the SN photosphere, measure the rise time, and examine
+the initial evolution of the SN luminosity. We develop a Bayesian framework to
+model the early rise as a power-law in time; the natural inclusion of priors in
+this framework is essential when there are significant gaps in the observations
+or low signal-to-noise. For a volume-limited subset of normal SNe Ia, we find
+the mean power-law index is consistent with 2 in the \rztf-band ($\alpha_r =
+2.01 \pm 0.02$), as expecte in the simple expanding fireball model. There are,
+however, individual SNe that are clearly inconsistent with $\alpha_r = 2$. We do
+not perform any shape corrections to the light curves, and estimate a mean rise
+time of 18.5\,d (with a range extending from $\sim$15--22\,d), when the
+power-law index is allowed to vary. We identify an important, previously
+unknown, bias for such models whereby the rise times for high redshift SNe are
+systematically underestimated. This systematic can be partially alleviated if
+the power-law index is fixed to $\alpha = 2$, in which case we estimate a mean
+rise time of 21.0\,d (with a range from $\sim$18--23\,d). The sample includes a
+handful or rare and peculiar SNe Ia. In line with previous studies we find that
+super-Chandrasekhar explosions and SNe Ia interacting with their circumstellar
+medium have longer rise times than normal SNe Ia. We also measure the rise time
+of ZTF18abclfee (SN\,2018cxk), a 2002cx-like/Iax SN, to be $10.01
+\pm^{0.4}_{0.33}$\,d. This is most precise rise time estimate for an 02cx-like
+SN to date. Finally, we conclude with a discussion of lessons learned from the
+ZTF sample that can eventually be applied to observations from the Large
+Synoptic Survey Telescope (LSST).
 
 \end{abstract}
 
@@ -304,7 +336,7 @@ physics for the past $\sim$two decades. By unlocking our ability to accurately
 measure distances at high redshift, SNe Ia have completely revolutionized our
 understanding of the Universe \citep{Riess98,Perlmutter99}. While it is all but
 certain that SNe Ia are the result of thermonuclear explosions in C/O white
-dwarfs (WDs) in binary star systems \citep{} \todo{ref}, there remains a great
+dwarfs (WDs) in binary star systems (see \citep{Maoz14,Livio18} for recent reviews), there remains a great
 deal about SNe Ia progenitors that we do not know. This leads to the tantalizing
 hope that an improved understanding of the binary progenitors may improve our
 ability to calibrate these explosions as standardizable candles.
@@ -316,13 +348,14 @@ companion, which is simply not possible as the SN evolves well into the
 expansion phase (they are standardizable precisely because they are all nearly
 identical at maximum light). Indeed, in the landmark discovery of SN\,2011fe by
 the Palomar Transient Factory (PTF; \citealt{law09,rau09}), \citet{Nugent11}
-were able to constrain the time of explosion to $\pm 20$\,min. \citet{Bloom12a}
-would later combine the PTF observations with an early non-detection while
-comparing the limits to shock-breakout models to constrain the size of the
-progenitor to be $\lesssim 0.01 R_\odot$, providing the most direct evidence to
-date that SNe Ia come from WDs. These critical findings have demonstrated the
-importance of high-cadence time-domain surveys for discovering SNe shortly after
-explosion.
+were able to constrain the time of explosion to $\pm 20$\,min (though see
+\citealt{Piro13} for an explanation of a potential early ``dark phase'').
+\citet{Bloom12a} would later combine the PTF observations with an early
+non-detection while comparing the limits to shock-breakout models to constrain
+the size of the progenitor to be $\lesssim 0.01 R_\odot$, providing the most
+direct evidence to date that SNe Ia come from WDs. These critical findings have
+demonstrated the importance of high-cadence time-domain surveys for discovering
+SNe shortly after explosion.
 
 Pinning down the binary companion to the exploding WD remains a challenge. There
 are likely two dominant pathways towards explosion. In the first, the WD
