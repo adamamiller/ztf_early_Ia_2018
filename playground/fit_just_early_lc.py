@@ -291,7 +291,9 @@ def fit_lc(t_data, f_data, f_unc_data, fcqfid_data,
         ncores = cpu_count() - 1
     
     n_filt = len(np.unique(np.unique(fcqfid_data) % 10))
-    if prior == 'uninformative' or prior == 'delta_alpha':
+    if (prior == 'uninformative' or 
+        prior == 'delta_alpha' or 
+        prior == 'alpha_r_plus_colors'):
         guess_0 = np.append([-t_fl] + [6e1, 2]*n_filt,
                             [1,1]*len(np.unique(fcqfid_data)))
     elif prior == 'delta2':
