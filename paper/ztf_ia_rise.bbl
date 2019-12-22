@@ -343,6 +343,12 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   \href{http://adsabs.harvard.edu/abs/2009PASP..121.1395L}{\color{blue}121},
   \href{http://adsabs.harvard.edu/abs/2009PASP..121.1395L}{\color{blue}1395}
 
+\bibitem[{{Livio} \& {Mazzali}(2018)}]{Livio18}
+{Livio}, M., \& {Mazzali}, P. 2018,
+  \href{http://dx.doi.org/10.1016/j.physrep.2018.02.002}{\color{magenta}\physrep},
+  \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}736},
+  \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}1}
+
 \bibitem[{{Maoz} {et~al.}(2014){Maoz}, {Mannucci}, \& {Nelemans}}]{Maoz14}
 {Maoz}, D., {Mannucci}, F., \& {Nelemans}, G. 2014,
   \href{http://dx.doi.org/10.1146/annurev-astro-082812-141031}{\color{magenta}\araa},
