@@ -333,6 +333,14 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   \href{http://adsabs.harvard.edu/abs/2010ApJ...708.1025K}{\color{blue}708},
   \href{http://adsabs.harvard.edu/abs/2010ApJ...708.1025K}{\color{blue}1025}
 
+\bibitem[{{Kasliwal} {et~al.}(2019){Kasliwal}, {Cannella}, {Bagdasaryan},
+  {Hung}, {Feindt}, {Singer}, {Coughlin}, {Fremling}, {Walters}, {Duev},
+  {Itoh}, \& {Quimby}}]{Kasliwal19}
+{Kasliwal}, M.~M., {Cannella}, C., {Bagdasaryan}, A., {et~al.} 2019,
+  \href{http://dx.doi.org/10.1088/1538-3873/aafbc2}{\color{magenta}\pasp},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131c8003K}{\color{blue}131},
+  \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131c8003K}{\color{blue}038003}
+
 \bibitem[{{Kromer} {et~al.}(2016){Kromer}, {Fremling}, {Pakmor},
   {Taubenberger}, {Amanullah}, {Cenko}, {Fransson}, {Goobar}, {Leloudas},
   {Taddia}, {R{\"o}pke}, {Seitenzahl}, {Sim}, \& {Sollerman}}]{Kromer16}
