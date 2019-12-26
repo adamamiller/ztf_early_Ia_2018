@@ -33,6 +33,12 @@
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}253},
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}785}
 
+\bibitem[{{Barbary} {et~al.}(2016){Barbary}, {Barclay}, {Biswas}, {Craig},
+  {Feindt}, {Friesen}, {Goldstein}, {Jha}, {Rodney}, {Sofiatti}, {Thomas}, \&
+  {Wood-Vasey}}]{Barbary16}
+{Barbary}, K., {Barclay}, T., {Biswas}, R., {et~al.} 2016, {SNCosmo: Python
+  library for supernova cosmology}
+
 \bibitem[{{Bellm} {et~al.}(2019{\natexlab{a}}){Bellm}, {Kulkarni}, {Graham},
   {Dekany}, {Smith}, {Riddle}, {Masci}, {Helou}, {Prince}, {Adams},
   {Barbarino}, {Barlow}, {Bauer}, {Beck}, {Belicki}, {Biswas}, {Blagorodnova},
@@ -163,13 +169,6 @@ Foreman-Mackey, D. 2016,
   \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}190},
   \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}418}
 
-\bibitem[{{Goldhaber} \& {Supernova Cosmology Project
-  Collaboration}(1998)}]{Goldhaber98a}
-{Goldhaber}, G., \& {Supernova Cosmology Project Collaboration}. 1998, American
-  Astronomical Society Meeting Abstracts,
-  \href{https://ui.adsabs.harvard.edu/abs/1998AAS...193.4713G}{\color{blue}193},
-  \href{https://ui.adsabs.harvard.edu/abs/1998AAS...193.4713G}{\color{blue}47.13}
-
 \bibitem[{{Gonz{\'a}lez-Gait{\'a}n} {et~al.}(2012){Gonz{\'a}lez-Gait{\'a}n},
   {Conley}, {Bianco}, {Howell}, {Sullivan}, {Perrett}, {Carlberg}, {Astier},
   {Balam}, {Balland}, {Basa}, {Fouchez}, {Fourmanoit}, {Graham}, {Guy},
@@ -215,12 +214,6 @@ Foreman-Mackey, D. 2016,
   \href{http://dx.doi.org/10.1088/1538-3873/ab006c}{\color{magenta}\pasp},
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}078001}
-
-\bibitem[{{Guglielmo} {et~al.}(1993){Guglielmo}, {Epchtein}, {Le Bertre},
-  {Fouque}, {Hron}, {Kerschbaum}, \& {Lepine}}]{Guglielmo93}
-{Guglielmo}, F., {Epchtein}, N., {Le Bertre}, T., {et~al.} 1993, \aaps,
-  \href{http://adsabs.harvard.edu/abs/1993A%26AS...99...31G}{\color{blue}99},
-  \href{http://adsabs.harvard.edu/abs/1993A%26AS...99...31G}{\color{blue}31}
 
 \bibitem[{{Guy} {et~al.}(2007){Guy}, {Astier}, {Baumont}, {Hardin}, {Pain},
   {Regnault}, {Basa}, {Carlberg}, {Conley}, {Fabbro}, {Fouchez}, {Hook},

@@ -474,8 +474,9 @@ very sophisticated. Accurate measurements of the observed distribution of SN Ia
 rise times can be compared with these models to rule out theoretical scenarios
 that evolve too quickly or too slowly. In a similar sense, every model produces
 unique predictions for the initial evolution of the SN (e.g.,
-\citealt{Noebauer17}). Measures of the power-law index of the early emission
-from SNe Ia can confirm, or reject, different explosion scenarios.
+\citealt{Noebauer17}). Similarly, if the early emission is modeled as a
+power-law in time (i.e., $f \propto t^\alpha$), measures of the power-law index
+$\alpha$ can confirm, or reject, different explosion scenarios.
 
 In this paper, the second in a series of three examining the photometric
 evolution of 127 SNe Ia discovered in 2018 with early observations from the
@@ -523,7 +524,7 @@ contain the SN position, even in epochs where the SN is not detected (i.e.,
 the signal-to-noise ratio [SNR] $\la$1). For this study, we normalize the SN
 flux to relative flux measurements by dividing out the peak observed flux in
 the \gztf- and \rztf-bands, respectively (peak fluxes were determined using
-\texttt{SALT2} \citealt{Guglielmo93}; see \citealt{Yao19} for our
+\texttt{SALT2} \citealt{Guy07}; see \citealt{Yao19} for our
 implementation details). The relative fluxes produced via this procedure are
 unique for every ZTF reference image (hereafter fcqf\,ID following the
 nomenclature in \citealt{Yao19}), as discussed below, we account for these
@@ -538,22 +539,21 @@ be marginalized over and effectively ignored.
 
 \section{Modeling the Early Rise of SNe Ia}\label{sec:model}
 
-Following arguments first laid out in \citet{Goldhaber98a} and
-\citet{Riess99a}, the rest-frame optical flux of a SN Ia should evolve
-$\propto t^2$ shortly after explosion. For an ideal, expanding fireball, the
-observed flux through a passband covering the Rayleigh-Jeans tail of the
-approximately blackbody emission will be $f \propto R^2 T = v^2 t^2 T$, where
-$f$ is the SN flux, $T$ is the blackbody temperature, $R$ is photosphere
-radius, $v$ is the ejecta velocity, and $t$ is time since explosion. While
-these idealized conditions are not perfectly met in nature, $T$ and $v$
-clearly change shortly after explosion (e.g., \citealt{Parrent12}), their
-relative change is small compared to $t$. Thus, the ``$t^2$-law'' should
-approximately hold, and indeed several studies of large samples of SNe Ia
-have shown that in the blue optical filters $f \propto t^2$ to within the
-uncertainties (e.g., \citealt{Conley06, Hayden10, Ganeshalingam11}). At the
-same time, several recent studies of individual, low-redshift SNe Ia show
-strong evidence that a power-law model for the SN flux only reproduces the
-data if the power-law index, $\alpha$, is significantly lower than 2 (e.g.,
+Following arguments first laid out in \citet{Riess99a}, the rest-frame optical
+flux of a SN Ia should evolve $\propto t^2$ shortly after explosion. For an
+ideal, expanding fireball, the observed flux through a passband covering the
+Rayleigh-Jeans tail of the approximately blackbody emission will be $f \propto
+R^2 T = v^2 t^2 T$, where $f$ is the SN flux, $T$ is the blackbody temperature,
+$R$ is photosphere radius, $v$ is the ejecta velocity, and $t$ is time since
+explosion. While these idealized conditions are not perfectly met in nature, $T$
+and $v$ clearly change shortly after explosion (e.g., \citealt{Parrent12}),
+their relative change is small compared to $t$. Thus, the ``$t^2$-law'' should
+approximately hold, and indeed several studies of large samples of SNe Ia have
+shown that in the blue optical filters $f \propto t^2$ to within the
+uncertainties (e.g., \citealt{Conley06, Hayden10, Ganeshalingam11}). At the same
+time, several recent studies of individual, low-redshift SNe Ia show strong
+evidence that a power-law model for the SN flux only reproduces the data if the
+power-law index, $\alpha$, is significantly lower than 2 (e.g.,
 \citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}).
 
 For this study, we characterize the early emission in a single filter from a
@@ -609,20 +609,19 @@ the likelihood by a prior and use an affine-invariant, ensemble Markov chain
 Monte Carlo (MCMC) technique \citep{Goodman10} to approximate the model
 posterior. 
 
-There is a strong degeneracy between $A_{b\mid d}$ and $\alpha_{b\mid d}$,
-which we find can be removed with the following change of variables
-$A^\prime_{b\mid d} = A_{b\mid d} 10^{\alpha_{b\mid d}}$ in
-Equation~\ref{eqn:flux_model}. We adopt Jeffreys prior \citep{Jeffreys46} for
-the scale invariant parameters $A_{b\mid d}$ and $\beta_d$, and wide flat
-priors for all other model parameters, as summarized in
-Table~\ref{tab:priors}. The MCMC integration is performed using
+There is a strong degeneracy between $A_{b\mid d}$ and $\alpha_{b\mid d}$, which
+we find can be removed with the following change of variables $A^\prime_{b\mid
+d} = A_{b\mid d} 10^{\alpha_{b\mid d}}$ in Equation~\ref{eqn:flux_model}. We
+adopt Jeffreys prior \citep{Jeffreys46} for the scale parameters $A_{b\mid d}$
+and $\beta_d$, and wide flat priors for all other model parameters, as
+summarized in Table~\ref{tab:priors}. The MCMC integration is performed using
 \texttt{emcee} \citep{Foreman-Mackey13}. Within the ensemble, we use 100
 walkers, each of which is run until convergence or 3 million steps, whichever
 comes first. We test for convergence by examining the average autocorrelation
 length of the individual chains $\tau$ after every 20,000 steps, and consider
 the chains converged if $n_\mathrm{steps} > 100 \,\tau$, where
-$n_\mathrm{steps}$ is the total number of steps in each chain, and the change
-in $\tau$ relative to the previous estimate has changed by $<1\%$.
+$n_\mathrm{steps}$ is the total number of steps in each chain, and the change in
+$\tau$ relative to the previous estimate has changed by $<1\%$.
 
 \input{./tables/prior.tex}
 
@@ -677,38 +676,37 @@ should be used for any analysis utilizing the results of our model fitting.
     \includegraphics[width=5.75in]{./figures/corner_LC.pdf}
     %
     \caption{\textit{Left column}: Corner plots showing the posterior
-    constraints on \tfl, $\alpha_g$, $\alpha_r$, and the respective constants
-    of proportionality, $A_g$ and $A_r$ for ZTF18abgmcmv (top), a SN that is
-    well fit by the model, ZTF18abukmty (middle), a typical SN in our sample,
-    and ZTF18aazabmh (bottom), a SN that does not significantly constrain the
-    model parameters. For clarity the $C_d$ and $\beta_d$ terms are excluded
-    (in general they do not exhibit strong covariance with the parameters
-    shown here as they are tightly constrained by the pre-SN observations).
-    Marginalized one-dimensional distributions are shown along the diagonal,
-    along with the median estimate and the 90\% credible region (shown with
-    vertical dashed lines). \textit{Right column}: ZTF light curves of
-    ZTF18abgmcmv (top), ZTF18abukmty (middle), and ZTF18aazabmh (bottom)
+    constraints on \tfl, $\alpha_g$, $\alpha_r$, and the respective constants of
+    proportionality, $A_g^\prime$ and $A_r^\prime$ for ZTF18abgmcmv (top), a SN
+    that is well fit by the model, ZTF18abukmty (middle), a typical SN in our
+    sample, and ZTF18aazabmh (bottom), a SN that does not significantly
+    constrain the model parameters. For clarity the $C_d$ and $\beta_d$ terms
+    are excluded (in general they do not exhibit strong covariance with the
+    parameters shown here as they are tightly constrained by the pre-SN
+    observations). Marginalized one-dimensional distributions are shown along
+    the diagonal, along with the median estimate and the 90\% credible region
+    (shown with vertical dashed lines). \textit{Right column}: ZTF light curves
+    of ZTF18abgmcmv (top), ZTF18abukmty (middle), and ZTF18aazabmh (bottom)
     showing the \gztf\ (filled, green circles) and \rztf\ (open, red circles)
-    evolution of the SN in the month prior to the time of $B$-band maximum
-    light (\tbmax). Observations included in the model fitting (i.e., those
-    with $f \le 0.4 f_\mathrm{max}$) are dark and solid, while those that are
-    not included are faint and semi-transparent. The maximum a posteriori
-    model is shown via a thick solid line, while random draws from the
-    posterior are shown with semi-transparent dashed lines. The vertical
-    dashed line shows the median 1-D marginalized posterior value of \tfl,
-    while the thin, light grey vertical line shows \tfl\ for the maximum
-    a posteriori model. The bottom panel shows residuals relative to the
-    maximum a posteriori model, where the factor $\beta_d$ has been included
-    in the calculation of the residuals.}
+    evolution of the SN in the month prior to the time of $B$-band maximum light
+    (\tbmax). Observations included in the model fitting (i.e., those with $f
+    \le 0.4 f_\mathrm{max}$) are dark and solid, while those that are not
+    included are faint and semi-transparent. The maximum a posteriori model is
+    shown via a thick solid line, while random draws from the posterior are
+    shown with semi-transparent dashed lines. The vertical dashed line shows the
+    median 1-D marginalized posterior value of \tfl, while the thin, light grey
+    vertical line shows \tfl\ for the maximum a posteriori model. The bottom
+    panel shows residuals relative to the maximum a posteriori model, where the
+    factor $\beta_d$ has been included in the calculation of the residuals.}
     %
     \label{fig:corner_LC}
 \end{figure*}
 
-The light curves used to constrain the model parameters shown in the left
-column of Figure~\ref{fig:corner_LC}, are shown in the right column of the
-same figure. In addition to the data, we also multiple models based on random
-draws from the posterior, and the residuals of the data relative to the
-maximum a posteriori estimate from the MCMC sampling. From the top row of
+The light curves used to constrain the model parameters shown in the left column
+of Figure~\ref{fig:corner_LC}, are shown in the right column of the same figure.
+In addition to the data, we also show multiple models based on random draws from
+the posterior, and the residuals (pull) of the data relative to the maximum a
+posteriori estimate from the MCMC sampling. From the top row of
 Figure~\ref{fig:corner_LC}, it is clear that in the limit of high SNR, which
 typically requires low redshift, and good sampling, it is possible to place
 tight constraints on the model parameters. As expected, as the SNR decreases
@@ -718,7 +716,7 @@ meaningful constraints on \tfl\ or $\alpha$. We visually examine posterior
 models for each light curve and flag those that produce unreliable parameter
 constraints. We use this subset of sources to identify SNe that should be
 excluded from the full sample analysis described in \S\ref{sec:mean_parameters}
-below (see Appendix~\ref{sec:qa}). 
+below (see Appendix~\ref{sec:qa}).
 % These flagged sources are noted in
 % Table~\ref{tab:results}.
 
@@ -801,14 +799,14 @@ full, reliable, and reliable-$z_\mathrm{host}$ subsamples, respectively.
 
 \subsection{Mean Power-Law Index of the Early Rise}
 
-We use a similar procedure to report the PDF of $\alpha_g$ and $\alpha_r$
-under the assumption of a flat prior. The posterior samples shown in
+We use a similar procedure to report the PDF of $\alpha_g$ and $\alpha_r$ under
+the assumption of a flat prior. The posterior samples for $\alpha$ shown in
 Figure~\ref{fig:corner_LC} include a factor of $10^{-\alpha}$ following the
-change of variables from $A$ to $A^\prime$. To remove this factor, we
-estimate the 1-D marginalized PDF of $\alpha$ using a KDE as above. This PDF
-is then divided by $10^{-\alpha}$, and then re-normalized to integrate to 1
-on the interval from 0 to 10. This final normalized PDF provides an estimate
-of $\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
+change of variables from $A$ to $A^\prime$. To remove this factor, we estimate
+the 1-D marginalized PDF of $\alpha$ using a KDE as above. This PDF is then
+divided by $10^{-\alpha}$, and then re-normalized to integrate to 1 on the
+interval from 0 to 10. This final normalized PDF provides an estimate of
+$\alpha_g$ and $\alpha_r$ assuming a $\mathcal{U}(0,10)$ prior.
 
 \begin{figure}
     \centering
@@ -872,7 +870,7 @@ Unlike \trise\ and $\alpha$, we do find evidence for a single mean value of
 the early color evolution of SNe Ia, as traced by $\alpha_r - \alpha_g$. If
 the early evolution in the \gztf\ and \rztf\ filters is a power-law in time,
 then the \gztf\ $-$ \rztf\ colors will evolve $\propto (\alpha_r - \alpha_g)
-\log_{10} (t - t_\mathrm{fl}$. Thus, negative values of $\alpha_r - \alpha_g$
+\log_{10} (t - t_\mathrm{fl})$. Thus, negative values of $\alpha_r - \alpha_g$
 result in a SN that gets bluer with time, positive values produce a SN that
 gets redder, and $\alpha_r - \alpha_g = 0$ for a SN whose colors do not change.
 
@@ -968,7 +966,7 @@ $\alpha_g$ and $\alpha_r$. This result is unsurprising because the \gztf\
 and \rztf\ filters sample adjacent portions of the SN spectral energy
 distribution (SED), and thus the evolution should be nearly identical in the
 two filters. SNe with reliable model parameters follow a tight locus around
-$\alpha_g - \alpha_r \approx 0.1$, with the only major outliers from this
+$\alpha_g - \alpha_r \approx 0.2$, with the only major outliers from this
 relation being SNe in the unreliable group (for further discussion of the
 early \gztf\ $-$ \rztf\ color evolution of this sample see M.~Bulla et al.
 2019).
@@ -1004,37 +1002,36 @@ around the epoch of first detection.
 
 We illustrate this behavior in Figure~\ref{fig:high_z_systematic}, which shows
 the inferred rise time for four low-$z$ SNe had they been observed at
-successively higher redshifts. To simulate these SNe at higher redshift we
-make the (over-simplified) assumption that all detections are in the
-sky-background dominated regime, and therefore in any given epoch the
-$\mathrm{SNR} \propto d_L^{-2}$, where $d_L$ is the luminosity distance to the
-SN. Under this assumption, multiplying the uncertainties by the ratio of the
-square of the simulated distance to the square of the actual distance provides
-the SNR for the SN at the simulated redshift.\footnote{Following
-\citet{Yao19}, we adopt a flat $\Lambda$CDM cosmology with $H_0 =
-73.24$\,km\,s$^{-1}$\,Mpc$^{-1}$ \citep{Riess16} and $\Omega_m = 0.275$
-\citep{Amanullah10} to calculate $d_L$ for the SNe.} Using these increased
-uncertainties, we randomly resample the observed flux values from a normal
-distribution with mean equal to the original flux and variance equal to the
-scaled uncertainty squared. This resampling is necessary, as the $\beta_d$
-term in Equation~\ref{eqn:flux_model} would otherwise reverse the increase in
-the uncertainties when maximizing the posterior. We then fit the noisier
-simulated data with the same procedure described in Section~\ref{sec:model}.
-This procedure is repeated at redshifts of $z = 0.05$, 0.075, 0.1, and 0.015.
-Only the models that converge are shown in Figure~\ref{fig:high_z_systematic}.
+successively higher redshifts. To simulate these SNe at higher redshift we make
+the (over-simplified) assumption that all detections are in the sky-background
+dominated regime, and therefore in any given epoch the $\mathrm{SNR} \propto
+d_L^{-2}$, where $d_L$ is the luminosity distance to the SN. Under this
+assumption, multiplying the uncertainties by the ratio of the square of the
+simulated distance to the square of the actual distance provides the SNR for the
+SN at the simulated redshift.\footnote{Following \citet{Yao19}, we adopt a flat
+$\Lambda$CDM cosmology with $H_0 = 73.24$\,km\,s$^{-1}$\,Mpc$^{-1}$
+\citep{Riess16} and $\Omega_m = 0.275$ \citep{Amanullah10} to calculate $d_L$
+for the SNe.} Using these increased uncertainties, we randomly resample the
+observed flux values from a normal distribution with mean equal to the original
+flux and variance equal to the scaled uncertainty squared. We then fit the
+noisier simulated data with the same procedure described in
+Section~\ref{sec:model}. This procedure is repeated at redshifts of $z = 0.05$,
+0.075, 0.1, and 0.15. Only the models that converge are shown in
+Figure~\ref{fig:high_z_systematic}.
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{./figures/high_z_systematic.pdf}
     %
-    \caption{Same as the bottom left panel of
-    Figure~\ref{fig:model_parameters}, though all SNe are shown in grey. The
-    large green circle, magenta diamond, orange triangle, and purple $X$ show
-    how marginalized posterior estimates of \trise\ change as the four lowest
-    redshift SNe are observed at $z = 0.05$, 0.075, 0.1, and 0.015 (see text
-    for further details). \trise\ clearly decreases with increasing redshift,
-    showing that the observed correlation between these parameters is due to
-    the flux-limited ZTF search for SNe, and not cosmic evolution.}
+    \caption{Same as the bottom left panel of Figure~\ref{fig:model_parameters},
+    though all SNe are shown in grey. The large green circle, magenta diamond,
+    orange triangle, and purple $X$ show how marginalized posterior estimates of
+    \trise\ change as the four lowest redshift SNe are observed at $z = 0.05$,
+    0.075, 0.1, and 0.15 (see text for further details). For clarity, slight
+    offsets in $z$ have been applied to the symbols, as the error bars would
+    otherwise fully overlap. \trise\ clearly decreases with increasing redshift,
+    showing that the observed correlation between these parameters is due to the
+    flux-limited ZTF search for SNe, and not cosmic evolution.}
     %
     \label{fig:high_z_systematic}
 \end{figure}
@@ -1150,7 +1147,7 @@ therefore will, on average, be found at higher redshifts than rapidly
 declining events in a flux limited survey. As
 Figure~\ref{fig:high_z_systematic} shows, for SNe all discovered by the same
 survey, the rise times are underestimated for higher redshift events. Indeed,
-such an effect is seen in the ZTF sample, as illustrated in the 3 right
+such an effect is seen in the ZTF sample, as illustrated in the 2 right
 columns of Figure~\ref{fig:shape_correlations}. If the
 reliable-$z_\mathrm{host}$ subsample is divided in redshift bins, it is clear
 that, at fixed values of $X_1$, the corresponding value of \trise\ decreases
@@ -1308,7 +1305,7 @@ Smaller values of  the DIC are  preferred to larger values.
 
 Following \citet{Jeffreys61} we consider SNe with
 %
-$$\exp(\mathrm{DIC}_{\alpha2} - \mathrm{DIC}_\mathrm{flat})/2) \ge 30,$$
+$$\exp\left(\frac{\mathrm{DIC}_{\alpha2} - \mathrm{DIC}_\mathrm{flat}}{2}\right) \ge 30,$$
 %
 where $\mathrm{DIC}_{\alpha2}$ is the DIC for the $\alpha = 2$ prior and
 $\mathrm{DIC}_\mathrm{flat}$ is the DIC for the uninformative prior, to
@@ -1340,14 +1337,14 @@ in a future study (J.~Nordin et al., in prep.).
 
 The selection criteria presented in Paper I removes SNe Ia from the sample if
 they lack a \gztf\ detection $> 10$\,d prior to \tbmax\ \citep{Yao19}. By
-construction, the faintest normal SNe Ia in the ZTF sample will have $X_1
-\approx -2$. For such SNe, $M_g \approx -17$\,mag at $t \approx -10$\,d. With a
-typical limiting magnitude of \gztf$ \approx 20.0$\,mag during bright time
-\citep{Bellm19}, the ZTF high-cadence survey should be complete to all $X_1
-\approx -2$ and brighter SNe to a distance modulus $\mu \approx 37$\,mag. For
-our adopted cosmology, this distance corresponds to a redshift $z \approx
-0.0585$. Thus, SNe with $z < 0.06$ should comprise a volume-limited subset of
-the ZTF sample. There are 28 normal SNe Ia within this redshift range.
+construction, the intrinsically faintest normal SNe Ia in the ZTF sample will
+have $X_1 \approx -2$. For such SNe, $M_g \approx -17$\,mag at $t \approx
+-10$\,d. With a typical limiting magnitude of \gztf$ \approx 20.0$\,mag during
+bright time \citep{Bellm19}, the ZTF high-cadence survey should be complete to
+all $X_1 \approx -2$ and brighter SNe to a distance modulus $\mu \approx
+37$\,mag. For our adopted cosmology, this distance corresponds to a redshift $z
+\approx 0.0585$. Thus, SNe with $z < 0.06$ should comprise a volume-limited
+subset of the ZTF sample. There are 28 normal SNe Ia within this redshift range.
 
 For the uninformative prior, 16 of the 28 low redshift SNe have reliable model
 parameters, and 15 of those 16 have known host redshifts. Using the same
@@ -1361,23 +1358,25 @@ the same respective groups we find $2.05 \pm 0.03$, $2.13 \pm 0.03$, and $2.13
 
 For the $\alpha = 2$ prior, 27 of the 28 low redshift SNe have reliable model
 parameters, and 24 of those 27 have known host redshifts. For this prior, we
-estimate a weighted mean rise time of $21.17 \pm 0.02$\,d, $21.17 \pm
-0.02$\,d, and $21.16 \pm 0.02$\,d when considering the volume complete subsets
-($z < 0.06$) of the full sample, the reliable group, and the
-reliable-$z_\mathrm{host}$ group, respectively. If we instead use the results
-from the $\alpha = 2$ prior, unless the DIC provides very strong evidence for
-the uninformative prior, as suggested at the end of \S\ref{sec:dic}, then we
-find mean rise times of $19.46 \pm 0.03$\,d, $19.46 \pm 0.03$\,d, and $19.36
-\pm 0.03$\,d when considering the volume complete subsets ($z < 0.06$) of the
-full sample, the reliable group, and the reliable-$z_\mathrm{host}$ group,
-respectively. If we reduce the sample to only those SNe for which the DIC
-prefers the uninformative prior, of which there are only 9 normal SNe with $z
-< 0.06$ (all of which have known $z_\mathrm{host}$) in our entire sample, we
-find a mean rise time of $18.84 \pm 0.02$. For this same subset we find mean
-values of $\alpha_g$ and $\alpha_r$ of $2.14 \pm 0.03$ and $2.02 \pm 0.03$,
-respectively.
+estimate a weighted mean rise time of $21.17 \pm 0.02$\,d, $21.17 \pm 0.02$\,d,
+and $21.16 \pm 0.02$\,d when considering the volume complete subsets ($z <
+0.06$) of the full sample, the reliable group, and the
+reliable-$z_\mathrm{host}$ group, respectively.
 
-\section{Rare and Unusual Thermonuclear SNe}
+If we instead use the results from the $\alpha = 2$ prior, unless the DIC
+provides very strong evidence for the uninformative prior, as suggested at the
+end of \S\ref{sec:dic}, then we find mean rise times of $19.46 \pm 0.03$\,d,
+$19.46 \pm 0.03$\,d, and $19.36 \pm 0.03$\,d when considering the volume
+complete subsets ($z < 0.06$) of the full sample, the reliable group, and the
+reliable-$z_\mathrm{host}$ group, respectively.
+
+Finally, if we reduce the sample to only those SNe for which the DIC prefers the
+uninformative prior, of which there are only 9 normal SNe with $z < 0.06$ (all
+of which have known $z_\mathrm{host}$) in our entire sample, we find a mean rise
+time of $18.84 \pm 0.02$. For this same subset we find mean values of $\alpha_g$
+and $\alpha_r$ of $2.14 \pm 0.03$ and $2.02 \pm 0.03$, respectively.
+
+\section{Rare and Unusual Thermonuclear SNe}\label{sec:rare}
 
 In \citet{Yao19}, we identified 6 peculiar SNe Ia, which were classified as
 either SN\,2002cx-like (hereafter 02cx-like or SN Iax), super-Chandrasekhar (SC)
@@ -1536,10 +1535,10 @@ of SNe Ia. Here we compare our work to previous results. This exercise is
 somewhat fraught with difficulty, in the sense that each study incorporates
 slight differences in implementation, which, in turn, makes comparisons
 challenging. Furthermore, these studies are typically conducted with different
-filter sets and over a wide range of redshifts, which may introduce difficult to
-understand biases across studies (as discussed above $K$-corrections are highly
-uncertain at very early epochs). Finally, the quality of the data in each of
-studies is vastly different. For example, in the classic study by
+filter sets and over a wide range of redshifts, which may introduce biases that
+are difficult to quantify across studies (as discussed above $K$-corrections are
+highly uncertain at very early epochs). Finally, the quality of the data in each
+of studies is vastly different. For example, in the classic study by
 \citet{Riess99a} there are a total of 7 observations spread across all the SNe
 in their sample obtained more than 15\,d prior to \tbmax, while in contrast this
 study includes 31 SNe \textit{discovered $> 15$\,d before \tbmax} \citep{Yao19}.
@@ -1548,20 +1547,22 @@ for individual SNe and instead focus on studies with relatively large samples
 ($\gtrsim 10$ normal SNe Ia).
 
 As previously outlined, there are broadly two different methods to measure the
-mean rise time of SNe Ia. The first uses ``shape-corrected'' light curves,
-whereby all individual light curves are stretched by some empirically measured
-factor, and the mean rise time represents a normal SN Ia after shape correction
-(e.g., \citep{Riess99a,Conley06,Hayden10,Ganeshalingam11}). The second method is
-to measure the rise time of every individual SNe Ia within a sample, and then
-take the mean of this distribution. These two methods are not equivalent, and
-therefore are likely to produce different results. If, for instance, nature
-produces more high-luminosity, slower-declining SNe Ia than low-luminosity,
-faster-declining events, then the population mean will produce longer rise times
-shape-corrected mean, as this latter method normalizes all the light curves to
-be the same. Even if nature is not biased, flux-limited surveys, such as ZTF,
-will always find more slower-declining SNe than fast decliners, leading to
-potentially longer rise time estimates for the population mean relative to a
-stretch-corrected estimate.
+mean rise time of SNe Ia. The first uses the well established luminosity-decline
+relation for SNe Ia \citep{Phillips93} to ``shape correct'' the SN light curves
+prior to fitting for the rise time. Thus, individual light curves are stretched
+by some empirically measured factor, and the mean rise time represents a normal
+SN Ia \textit{after shape correction} (e.g.,
+\citealt{Riess99a,Conley06,Hayden10,Ganeshalingam11}). The second method
+measures the rise time of each SNe Ia within a sample, and then takes the mean
+of this distribution. These two methods are not equivalent, and therefore are
+likely to produce different results. If, for instance, nature produces more
+high-luminosity, slower-declining SNe Ia than low-luminosity, faster-declining
+events, then the population mean will produce longer rise times shape-corrected
+mean, as this latter method normalizes all the light curves to be the same. Even
+if nature is not biased, flux-limited surveys, such as ZTF, will always find
+more slower-declining SNe than fast decliners, leading to potentially longer
+rise time estimates for the population mean relative to a shape-corrected
+estimate.
 
 Using different data sets obtained in very different redshift regimes,
 \citet{Riess99a} and \citet{Conley06} estimate consistent values of the
@@ -1574,7 +1575,7 @@ which likely explains their difference. Later studies by \citet{Hayden10} and
 time and find smaller values of $\sim$17.5--18.0\,d. As noted by
 \citeauthor{Hayden10}, these methods are highly dependent on the template light
 curve used to stretch the individual SNe, and differences in the templates
-between these studies may explain the dissensus between these studies.
+used by these studies may explain the dissensus between their findings.
 
 
 The approach employed in \citet{Zheng17a}, \citet{Papadogiannakis19}, and
@@ -1618,11 +1619,11 @@ simultaneously vary. From these fits, they estimate a mean population \trise$ =
 the volume-complete $z_\mathrm{host}$ sample, $\sim$18.5\,d. Contrary to this
 study, they find shorter rise times, and a mean of $\sim$17.9\,d, when fixing
 $\alpha = 2$ (this is likely explained by their adopted fit procedure, see
-below). As explained in \S\ref{sec:redshift_correlations}, the \trise\ estimates
-in \citet{Firth15} are likely underestimated due to the bias introduced for
-models with uninformative priors.
+\S\ref{sec:fireball_discussion}). Similar to what we find in
+\S\ref{sec:redshift_correlations}, it is likely that the \trise\ estimates in
+\citet{Firth15} are underestimated.
 
-\subsection{The Expanding Fireball Model}
+\subsection{The Expanding Fireball Model}\label{sec:fireball_discussion}
 
 The expanding fireball model (see \S\ref{sec:model}) is remarkable in its
 simplicity. The two underlying assumptions of the expanding fireball model, that
@@ -1669,7 +1670,7 @@ the entire baseline of non-detections is not used, as is done in this study).
 Truncating the baseline biases the model to longer rise times (as is observed in
 \citealt{Firth15}), and, as shown in Figure~\ref{fig:corner_LC}, longer rise
 times require larger values of $\alpha$ when adopting the model used in this
-study and \citep{Firth15}.
+study and \citet{Firth15}.
 
 \section{Conclusions}
 
@@ -1835,7 +1836,8 @@ by COO, IPAC, and UW.
           \texttt{pandas} \citep{McKinney10},
           \texttt{emcee} \citep{Foreman-Mackey13},
           \texttt{corner} \citep{Foreman-Mackey16},
-          \texttt{SALT2} \citep{Guy07}
+          \texttt{SALT2} \citep{Guy07},
+          \texttt{sncosmo} \citep{Barbary16}
           }
 
 %% For this sample we use BibTeX plus aasjournals.bst to generate the
