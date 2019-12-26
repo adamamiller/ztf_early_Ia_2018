@@ -1868,6 +1868,40 @@ by COO, IPAC, and UW.
 
 \appendix
 
+\section{Updated Priors Following the Change of Variables}\label{sec:prior}
+
+As mentioned in \S\ref{sec:model}, there is a strong degeneracy in the posterior
+estimates of $A$ and $\alpha$. This degeneracy can be removed under the change
+of variables from ($A, \alpha$) to ($A^\prime, \alpha^\prime$), where $A^\prime
+= A 10^\alpha$ and $\alpha^\prime = \alpha$. From the Jacobian of this
+transformation, we find
+%%
+$$P(A^\prime, \alpha^\prime) = 10^{-\alpha^\prime} P(A,\alpha).$$
+%%
+The change in variables should not affect the prior probability, therefore,
+%%
+\begin{equation} 
+    P(A^\prime, \alpha^\prime) = 10^{-\alpha^\prime} P(A^\prime
+10^{-\alpha^\prime},\alpha^\prime), 
+\label{eqn:change_prior} 
+\end{equation}
+%%
+which can be satisfied by:
+%%
+\begin{equation}
+    P(A^\prime, \alpha^\prime) \propto {A^\prime}^{-1} 10^{-\alpha^\prime}.
+\label{eqn:transform}
+\end{equation}
+%%
+While Equation~\ref{eqn:change_prior} is also satisfied by $P(A^\prime,
+\alpha^\prime) \propto {A^\prime}^{-1}$, adopting this as the joint prior on
+($A^\prime, \alpha^\prime$) does not remove the degeneracy between the
+parameters as $A^\prime$ absorbs the multiplicative factor of $10^\alpha$,
+effectively reducing the problem to be the same as it was before the change of
+variables. Thus, as listed in Table~\ref{tab:priors}, we adopt
+Equation~\ref{eqn:transform} as the prior on the transformed variables, which we
+find breaks the degeneracy (see Figure~\ref{fig:corner_LC}).
+
 \section{Quality Assurance}\label{sec:qa}
 
 As noted in \S\ref{sec:model}, the MCMC model converges for all but one ZTF
