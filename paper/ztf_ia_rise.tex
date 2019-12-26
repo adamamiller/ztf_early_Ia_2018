@@ -960,7 +960,7 @@ Figure~\ref{fig:model_parameters}).
     \label{fig:model_parameters}
 \end{figure*}
 
-\subsection{Correlation Between $\alpha_g$ and $\alpha_r$}
+\subsection{Correlation Between $\alpha_g$ and $\alpha_r$}\label{sec:alpha_correlation}
 
 The most striking, and also least surprising, feature in
 Figure~\ref{fig:model_parameters} is the tight correlation observed between
@@ -1937,8 +1937,90 @@ our two-step procedure identifies 51 SNe as reliable, while 76 are excluded
 from the final population analysis due to their unreliable constraints on the
 model parameters.
 
-% \section{Systematics}\label{sec:systematics}
+\section{Systematics}\label{sec:systematics}
 
+\subsection{Definition of ``Early'' for Model Fitting}
+
+In \S\ref{sec:model} we highlighted that there is no single agreed upon
+definition of which SN Ia observations are best for modeling the early evolution
+of SNe Ia. Throughout this study we have adopted a threshold,
+$f_\mathrm{thresh}$, relative to the maximum observed flux, $f_\mathrm{max}$,
+whereby we define all observations less than $f_\mathrm{thresh} = 0.4$ the
+maximum in each filter ($f_\mathrm{obs} \leq 0.4f_\mathrm{max}$) as the early
+portion of the light curve. As noted in \S\ref{sec:model}, setting
+$f_\mathrm{thresh} = 0.4$, is arbitrary (although consistent with some previous
+studies). Here we examine the effect of this particular choice if we had instead
+adopted $f_\mathrm{thresh} = 0.25$, 0.30, 0.35, 0.45, or 0.50 for the fitting
+procedure in \S\ref{sec:model}.
+
+There are 12 SNe for which the MCMC chains did not converge for one or more of
+the alternative flux thresholds. They are excluded from the analysis below. For
+the remaining 115 SNe in our sample, we consider the model parameters to be
+consistent if the marginalized, 1-dimensional 90\% credible regions for the
+three parameters that we care about, \tfl, $\alpha_g$, and $\alpha_r$, overlap
+with the estimates when $f_\mathrm{thresh} = 0.40$.\footnote{Given the strong
+correlation between $\alpha_g$ and $\alpha_r$ (see
+\S\ref{sec:alpha_correlation}), we discuss only $\alpha_g$ below.} This
+definition identifies substantial differences in the final model parameters
+while varying $f_\mathrm{thresh}$ over a reasonable range. Of the 115 SNe with
+converged chains, we find that 98 ($> 85\%$ of the sample) have marginalized, 1D
+posterior credible regions consistent with the results for $f_\mathrm{thresh} =
+0.40$, independent of the adopted value of $f_\mathrm{thresh}$. 15 of the 17 SNe
+that do not have consistent \tfl, $\alpha_g$, or $\alpha_r$ estimates feature
+gaps in observational coverage, which is the likely reason for the
+inconsistency. As $f_\mathrm{thresh}$ increases from 0.25--0.5, the information
+content dramatically changes before and after a gap leading to inconsistent
+parameter estimates.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=3.4in]{./figures/flux_frac.pdf}
+    %
+    \caption{Evolution of the inferred values of \tfl\ and $\alpha_g$ as
+    $f_\mathrm{thresh}$ is increased from 0.25 to 0.5. Only SNe with consistent
+    model parameters, that nevertheless show evidence for increasing or
+    decreasing with $f_\mathrm{thresh}$, are shown (see text for a definition of
+    consistent, increasing, and decreasing). Thin green lines show SNe where
+    \trise\ or $\alpha_g$ increases as more observations are included in the
+    model, while thick purple lines show SNe for which these values decline. We
+    find that for the vast majority of SNe, as additional observations are
+    included in the model fit, both \trise\ and $\alpha_g$ increase.}
+    %
+    \label{fig:flux_frac}
+\end{figure}
+
+If we alternatively consider the results to be consistent only if the 68\%
+credible regions agree with the $f_\mathrm{thresh} = 0.40$ results, then only 64
+SNe have consistent parameters as $f_\mathrm{thresh}$ varies. This suggests that
+while the results are largely consistent, the central mass of the posterior
+density is affected by which data are, and are not, included in the model fit.
+In Figure~\ref{fig:flux_frac}, we show how the estimates of \tfl\ and $\alpha_g$
+change as a function of $f_\mathrm{thresh}$ for SNe with consistent model
+parameters. Note that, by construction, the 90\% credible regions for each SN
+overlap at every value of $f_\mathrm{thresh}$, and thus, for clarity, we omit
+error bars.
+
+To identify trends with $f_\mathrm{thresh}$, we define SNe with both
+$\alpha_g(f_\mathrm{thresh} = 0.5)$ and $\alpha_g(f_\mathrm{thresh} = 0.45)$
+greater than both $\alpha_g(f_\mathrm{thresh} = 0.25)$ and
+$\alpha_g(f_\mathrm{thresh} = 0.3)$ to show evidence for $\alpha_g$ increasing
+with $f_\mathrm{thresh}$. We define $\alpha_g$ as decreasing in cases where the
+opposite is true. 75 of the 98 SNe with consistent model parameters show
+evidence for $\alpha_g$ increasing with $f_\mathrm{thresh}$, while only 7 show
+evidence for a decline. Using a similar definition for \trise\ (note that
+decreasing \tfl\ corresponds to increasing \trise), we find that in 68 SNe
+\trise\ increases with $f_\mathrm{thresh}$, while in 16 SNe \trise\ decreases as
+more observations are included in the fit. Thus, the vast majority of SNe
+exhibit an increase in $\alpha_g$ and \tfl\ as $f_\mathrm{thresh}$ is increased.
+Figure~\ref{fig:flux_frac} shows that the magnitude of this trend is much larger
+for $\alpha_g$ than \trise, which makes sense. When there are few SN detections,
+which is more likely when $f_\mathrm{thresh}$ is low, small values of $\alpha$
+fit the data well, as in Figure~\ref{fig:biggap_lc}. Including more information
+about the rise, by increasing $f_\mathrm{thresh}$, results in very-low values of
+$\alpha$ no longer being consistent with the data. \tfl, on the other hand, is
+strongly constrained by the first epoch of detection (see
+\S\ref{sec:redshift_correlations}). In this case the addition of more
+observations will not lead to as dramatic an effect.
 
 \bibliography{/Users/adamamiller/Documents/tex_stuff/papers}
 \bibliographystyle{aasjournal}
