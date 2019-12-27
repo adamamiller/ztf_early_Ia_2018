@@ -256,8 +256,8 @@ def multifcqfid_lnprior_big_unc(theta, fcqfid_arr,
         ln_p += np.log((2*np.pi*0.09**2)**(-0.5) * 
                        np.exp((-0.18 - (theta[4]-theta[2]))**2/(-2*0.09**2)))
     if prior == 'alpha_r_plus_colors':
-        ln_p += np.log((2*np.pi*0.5**2)**(-0.5) * 
-                        np.exp((2 - theta[4])**2/(-2*0.5**2)))
+        ln_p += np.log((2*np.pi*0.1**2)**(-0.5) * 
+                        np.exp((2 - theta[4])**2/(-2*0.1**2)))
     
     return ln_p
 
