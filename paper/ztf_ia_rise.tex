@@ -730,7 +730,7 @@ $\alpha$. We visually examine posterior models for each light curve and flag
 those that produce unreliable parameter constraints. We use this subset of
 sources to identify SNe that should be excluded from the full sample analysis
 described in \S\ref{sec:mean_parameters} below (see \ref{sec:qa}). These
-flagged sources are noted in Table~\ref{tab:results}.
+flagged sources are noted in Table~\ref{tab:uninformative}.
 
 \section{The Mean Rise Time and Power-Law Index for SNe
 Ia}\label{sec:mean_parameters}
@@ -814,6 +814,8 @@ $18.3$\,d when considering only the reliable and reliable-$z_\mathrm{host}$
 subsamples, respectively. The scatter, estimated via the sample standard
 deviation, about these mean values is 1.8\,d, 1.6\,d, and 1.8\,d for the
 full, reliable, and reliable-$z_\mathrm{host}$ subsamples, respectively.
+
+\input{./tables/uninformative.tex}
 
 \subsection{Mean Power-Law Index of the Early Rise}
 
@@ -1206,14 +1208,16 @@ SN. This is clearly observed not to be the case in many SNe
 submitted).}
 
 The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in
-Figure~\ref{fig:tsquared_rise}. Adopting this strict prior significantly
-reduces the flexibility of the model. One consequence of this choice is that
-visual inspection of the posterior predictive flux values reveals that there
-are far fewer SNe with unreliable model parameters. When using the $\alpha =
-2$ prior, we only flag SNe with an extrapolated flux using the maximum
-a posteriori model parameters $< 0.9 f_\mathrm{max}$ at \tbmax\ as having
-unreliable model parameters. From this criterion only 5 SNe are flagged as
-having unreliable model parameters.
+Figure~\ref{fig:tsquared_rise}, and reported in Table~\ref{tab:alpha2_rise}.
+Adopting this strict prior significantly reduces the flexibility of the model.
+One consequence of this choice is that visual inspection of the posterior
+predictive flux values reveals that there are far fewer SNe with unreliable
+model parameters. When using the $\alpha = 2$ prior, we only flag SNe with an
+extrapolated flux using the maximum a posteriori model parameters $< 0.9
+f_\mathrm{max}$ at \tbmax\ as having unreliable model parameters. From this
+criterion only 5 SNe are flagged as having unreliable model parameters.
+
+\input{./tables/alpha2.tex}
 
 \begin{figure}
     \centering
