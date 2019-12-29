@@ -1,0 +1,59 @@
+\begin{deluxetable*}{lrcccccccccrcc}
+\tabletypesize{\scriptsize}
+\tablewidth{0pt}
+\tablecaption{Population Mean and Scatter For $t_\mathrm{rise}$ and $\alpha$\label{tab:mean_params}}
+\tablehead{
+\colhead{}
+& \colhead{}
+& \multicolumn{8}{c}{Uninformative prior}
+& \colhead{}
+& \multicolumn{3}{c}{$\alpha = 2$ prior} \\
+\cline{2-10}
+\cline{12-14}
+\colhead{Subset}
+& \colhead{N}
+& \colhead{$t_\mathrm{rise}$\,(d)}
+& \colhead{$\sigma_{t_\mathrm{rise}}$\,(d)}
+& \colhead{$\alpha_g$}
+& \colhead{$\sigma_{\alpha_g}$}
+& \colhead{$\alpha_r$}
+& \colhead{$\sigma_{\alpha_r}$}
+& \colhead{$\alpha_r - \alpha_g$}
+& \colhead{$\sigma_{\alpha_r - \alpha_g}$}
+& \colhead{}
+& \colhead{N}
+& \colhead{$t_\mathrm{rise}$\,(d)}
+& \colhead{$\sigma_{t_\mathrm{rise}}$\,(d)}
+}
+\startdata
+normal &                    120 & $ 17.41\pm0.04 $ & 1.81 & $ 1.89\pm0.02 $ & 0.75 & $ 1.73\pm0.02 $ & 0.80 & $ -0.18\pm0.01 $ & 0.73 && 120 & $ 21.03\pm0.02 $ & 1.75 \\
+reliable &                   47 & $ 18.05\pm0.05 $ & 1.60 & $ 2.05\pm0.02 $ & 0.53 & $ 1.89\pm0.02 $ & 0.50 & $ -0.17\pm0.01 $ & 0.23 && 115 & $ 21.03\pm0.02 $ & 1.75 \\
+reliable-$z_\mathrm{host}$ & 25 & $ 18.29\pm0.05 $ & 1.83 & $ 2.12\pm0.02 $ & 0.59 & $ 1.99\pm0.03 $ & 0.54 & $ -0.18\pm0.02 $ & 0.17 &&  58 & $ 21.01\pm0.02 $ & 1.96 \\
+\hline
+\multicolumn{14}{c}{Volume-limited ($z < 0.06$) subset} \\
+\hline
+normal &                     28 & $ 18.18\pm0.05 $ & 2.23 & $ 2.05\pm0.03 $ & 0.76 & $ 1.95\pm0.03 $ & 0.67 & $ -0.21\pm0.01 $ & 0.86 && 28 & $ 21.17\pm0.02 $ & 1.46 \\
+reliable &                   16 & $ 18.48\pm0.05 $ & 1.73 & $ 2.13\pm0.03 $ & 0.54 & $ 2.01\pm0.03 $ & 0.52 & $ -0.18\pm0.02 $ & 0.08 && 27 & $ 21.17\pm0.02 $ & 1.43 \\
+reliable-$z_\mathrm{host}$ & 15 & $ 18.52\pm0.05 $ & 1.68 & $ 2.14\pm0.03 $ & 0.51 & $ 2.02\pm0.03 $ & 0.50 & $ -0.18\pm0.02 $ & 0.09 && 24 & $ 21.16\pm0.02 $ & 1.47 \\
+DIC preferred &  & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $              && 28 & $ 19.45\pm0.03 $ & 1.37 \\
+DIC--uninformative &          9 & $ 18.83\pm0.03 $ & 1.33 & $ 2.14\pm0.03 $ & 0.55 & $ 2.02\pm0.03 $ & 0.52 & $ -0.19\pm0.02 $ & 0.08 && $ \ldots $ & $ \ldots $ & $ \ldots $ \\
+\enddata
+\tablecomments{
+Table includes the weighted mean (see text), plus standard uncertainty in the weighted mean, 
+as well as the scatter (the sample standard deviation), for the 4 parameters of interest, 
+$t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, $\alpha_r - \alpha_g$, for the uninformative 
+and $\alpha = 2$ priors. $N$ is the number of SNe in each subset of the data, which are defined as follows 
+(see text for more detailed definitions):
+normal -- normal SNe Ia, 
+reliable -- SNe with reliable model parameters, 
+reliable-$z_\mathrm{host}$ -- reliable SNe with known host galaxy redshifts, 
+DIC preferred -- results from the $\alpha = 2$ prior, 
+\textit{unless the DIC prefers the uninformative prior} (see \S\ref{sec:dic}; only applies to $t_\mathrm{rise}$),
+DIC--uninformative -- only SNe where the DIC prefers the uninformative prior 
+(see \S\ref{sec:dic}; excludes the $\alpha = 2$ prior by construction).
+The volume limited subset includes only SNe with $z < 0.06$ (see \S\ref{sec:volume_limited}).
+Note that the  definition of reliable differs for the uninformative and $\alpha = 2$ priors, 
+see \ref{sec:qa} and \S\ref{sec:strong_priors}, respectively.
+}
+
+\end{deluxetable*}
