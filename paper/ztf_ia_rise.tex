@@ -273,6 +273,9 @@ University, Roslagstullsbacken 23, SE-106 91 Stockholm, Sweden}
 % \affiliation{Computational Cosmology Center, Lawrence Berkeley National Laboratory, 1 Cyclotron Road, Berkeley, CA 94720, USA}
 % \affiliation{Department of Astronomy, University of California, Berkeley, CA 94720-3411, USA}
 %
+% \author[0000-0001-8018-5348]{E.~C.~Bellm}
+% \affiliation{DIRAC Institute, Department of Astronomy, University of Washington, 3910 15th Avenue NE, Seattle, WA 98195, USA}
+% 
 % \author[0000-0002-4223-103X]{C.~Fremling}
 % \affiliation{Cahill Center for Astrophysics, California Institute of Technology, MC 249-17, 1200 E California Boulevard, Pasadena, CA 91125, USA}
 
@@ -281,20 +284,20 @@ University, Roslagstullsbacken 23, SE-106 91 Stockholm, Sweden}
 %              California Institute of Technology, Pasadena, CA
 %              91125, USA}
 %
-% \author[0000-0003-2451-5482]{Russ R. Laher}
+% \author[0000-0003-2451-5482]{R.~R.~Laher}
 % \affiliation{IPAC, California Institute of Technology, 1200 E.~California
 %              Blvd, Pasadena, CA 91125, USA}
 %
 %
-% \author[0000-0002-8532-9395]{Frank J. Masci}
+% \author[0000-0002-8532-9395]{F.~J.~Masci}
 % \affiliation{IPAC, California Institute of Technology, 1200 E.~California
 %              Blvd, Pasadena, CA 91125, USA}
 %
-% \author[0000-0001-7648-4142]{Ben Rusholme}
+% \author[0000-0001-7648-4142]{B.~Rusholme}
 % \affiliation{IPAC, California Institute of Technology, 1200 E.~California
 %              Blvd, Pasadena, CA 91125, USA}
 %
-% \author[0000-0003-4401-0430]{David L. Shupe}
+% \author[0000-0003-4401-0430]{D.~L.~Shupe}
 % \affiliation{IPAC, California Institute of Technology, 1200 E.~California
 %              Blvd, Pasadena, CA 91125, USA}
 %
@@ -502,7 +505,7 @@ least partially, alleviate this bias. Finally, we conclude with a discussion of
 lessons from ZTF that can be applied to the Large Synoptic Survey Telescope
 (LSST).
 
-\section{ZTF Photometry}
+\section{ZTF Photometry}\label{sec:ztf}
 
 The sample of 127 SNe Ia utilized in this study was defined in \citet{Yao19},
 for the full details on how the sample was created we refer the reader to that
@@ -518,28 +521,26 @@ Following cuts to limit the sample to only those SNe that were discovered
 maximum light in the $B$-band) and have high quality light curves, the sample
 was reduced to 127 SNe (see \citealt{Yao19} for the full details).
 
-In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF)
-photometry for each of the 127 SNe on every image where the SN was observed.
-Briefly, the PSF model was generated as part of the ZTF real-time image
-subtraction pipeline \citep{Masci19}, which uses an image-differencing
-technique based on \citet{Zackay16}. The forced PSF photometry procedure
-fixes the position of each SN and measures the PSF flux in all images that
-contain the SN position, even in epochs where the SN is not detected (i.e.,
-the signal-to-noise ratio [SNR] $\la$1). For this study, we normalize the SN
-flux to relative flux measurements by dividing out the peak observed flux in
-the \gztf- and \rztf-bands, respectively (peak fluxes were determined using
-\texttt{SALT2} \citealt{Guy07}; see \citealt{Yao19} for our
-implementation details). The relative fluxes produced via this procedure are
-unique for every ZTF reference image (hereafter fcqf\,ID following the
-nomenclature in \citealt{Yao19}), as discussed below, we account for these
-differences in modeling the SNe in cases where a SN was observed on multiple
-fcqf\,IDs in the same filter. In \citet{Yao19} we advocate for the use of
-corrective factors $C$, which accounts for a non-zero baseline in the pre-SN
-flux measurements, and $\chi^2_{\nu}$, which accounts for underestimated
-uncertainties in the flux measurements, when using the results of our forced
-photometry. For this study, we ignore the corrections suggested in
-\citet{Yao19} and instead incorporate these values into our model so they can
-be marginalized over and effectively ignored.
+In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF) photometry
+for each of the 127 SNe on every image where the SN was observed. Briefly, the
+PSF model was generated as part of the ZTF real-time image subtraction pipeline
+\citep{Masci19}, which uses an image-differencing technique based on
+\citet{Zackay16}. The forced PSF photometry procedure fixes the position of each
+SN and measures the PSF flux in all images that contain the SN position, even in
+epochs where the signal-to-noise ratio (SNR) $\la$1 and the SN is not detected.
+
+We normalize the SN flux relative to the observed peak flux in the \gztf- and
+\rztf-bands as measured by \texttt{SALT2} (\citealt{Guy07}; see \citealt{Yao19}
+for our \texttt{SALT2} implementation details). The relative fluxes produced via
+this procedure are unique for every ZTF reference image (hereafter fcqf\,ID
+following the nomenclature in \citealt{Yao19}). The ZTF field grid includes some
+overlap, and SNe that occur in overlap regions will have multiple fcqf\,IDs for
+a single filter. Estimates of the baseline flux must account for the individual
+fcqf\,IDs. In \citet{Yao19}, this baseline flux, $C$, and $\chi^2_{\nu}$, which
+accounts for underestimated uncertainties in the flux measurements, are used to
+correct the results of our forced photometry. For this study, we ignore the
+corrections suggested in \citet{Yao19} and instead incorporate these values into
+our model so they can be marginalized over and effectively ignored.
 
 \section{Modeling the Early Rise of SNe Ia}\label{sec:model}
 
@@ -560,7 +561,7 @@ within the uncertainties (e.g., \citealt{Conley06, Hayden10, Ganeshalingam11}).
 At the same time, several recent studies of individual, low-redshift SNe Ia show
 strong evidence that a power-law model for the SN flux only reproduces the data
 if the power-law index, $\alpha$, is significantly lower than 2 (e.g.,
-\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19}).
+\citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19,Dimitriadis19}).
 
 For this study, we characterize the early emission in a single filter from a
 SN Ia as a power law:
@@ -587,15 +588,11 @@ $t_{\mathrm{fl}, g} \ne t_{\mathrm{fl}, r}$, we expect these values to be nearly
 identical given the similarity of the SN ejecta opacity at these wavelengths
 (e.g., Figure~6 in \citealt{Magee18}), and assume we cannot resolve the
 difference with ZTF data. Therefore we adopt \tfl\ ($\approx t_{\mathrm{fl}, g}
-\approx t_{\mathrm{fl}, r}$) as a single parameter for our analysis. This
-assumption is supported by the models presented in \citet{Magee19} (see the
-top-left panel of their Figure~2). As discussed in \citet{Yao19}, $C$ depends on
-the reference co-addition used in image subtraction, and thus is not strictly a
-function of filter. Instead, it is a function of fcqf\,ID, which represents both
-the filter and ZTF field ID (see above). The ZTF field grid includes some
-overlap, and SNe that occur in overlap regions will have multiple fcqf\,IDs for a
-single filter. These light curves need to be treated separately in the model
-fitting, with independent values of $C$.
+\approx t_{\mathrm{fl}, r}$) as a single parameter for our analysis. 
+% This assumption is supported by the models presented in \citet{Magee19} (see the
+% top-left panel of their Figure~2).
+As discussed in \citet{Yao19}, $C$ is a function of fcqf\,ID, which represents
+both the filter and ZTF field ID (see also \S\ref{sec:ztf}).
 
 If we assume the observed deviations between the model flux and the data are the
 result of Gaussian scatter, the log-likelihood for the data is:
@@ -610,7 +607,7 @@ $\sigma_{d,i}$, and $\beta_d$ is a term we add to account for the fact that
 the uncertainties are underestimated (see \citealt{Yao19}). Finally,
 $f_d(t_i)$ is the model, Equation~\ref{eqn:flux_model} evaluated at the time
 of each observation $t_i$, with $C$ replaced by $C_d$, the baseline for the
-individual fcqf\,ID, and $A_b$ and $\alpha_b$ replaced by $A_{b\mid d}$ and
+individual fcqf\,IDs, and $A_b$ and $\alpha_b$ replaced by $A_{b\mid d}$ and
 $\alpha_{b\mid d}$, respectively, as these terms depend on fcqf\,ID, but
 only the filter $b$ and not the field ID.
 
@@ -664,24 +661,25 @@ f_\mathrm{max}$ for model fitting.} This choice, 40\% instead of 30\% or
 50\%, does affect the final inference that is made for individual SNe as
 discussed in further detail in \ref{sec:systematics}.
 
-Of the 127 SNe Ia in our sample, we find that the MCMC chains converge for
-all the SNe but one, ZTF18aaqnrum. Nevertheless, we retain it in our sample
-as $n_\mathrm{steps} \approx 81 \,\tau$ after 3 million steps, suggesting
-several independent samples within the chain (it will later be excluded from
-the sample, see \ref{sec:qa}). From the MCMC chains we can derive
-constraints on \tfl, $\alpha_g$, and $\alpha_r$. We show example corner plots
-illustrating good, typical, and poor constraints on the model parameters in
-Figure~\ref{fig:corner_LC}. In this context good, typical, and poor are
-defined relative to the width of the 90\% credible region for \tfl\
+Of the 127 SNe Ia in our sample, we find that the MCMC chains converge for all
+the SNe but one, ZTF18aaqnrum. Nevertheless, we retain it in our sample as
+$n_\mathrm{steps} \approx 81 \,\tau$ after 3 million steps, suggesting several
+independent samples within the chain (it will later be excluded from the sample,
+see \ref{sec:qa}). From the MCMC chains we can derive constraints on \tfl,
+$\alpha_g$, and $\alpha_r$. We show example corner plots illustrating good,
+typical, and poor constraints on the model parameters in
+Figure~\ref{fig:corner_LC}. In this context good, typical, and poor are defined
+relative to the width of the 90\% credible region for \tfl\
 ($\mathrm{CR}_{90}$). Roughly, the good models have $\mathrm{CR}_{90} \la
-1.5$\,d, the median models have $\mathrm{CR}_{90} \approx 2.5$\,d, and the
-poor models have $\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is
-clear that there is a positive correlation between $\alpha_g$ and $\alpha_r$,
-which makes sense given the relatively similar regions of the spectral energy
-distribution traced by these filters. Finally, \tfl\ exhibits significant
-covariance with each of the $\alpha$ parameters. While we report marginalized
-credible regions on all model parameters below, the full posterior samples
-should be used for any analysis utilizing the results of our model fitting. 
+1.5$\,d, the median models have $\mathrm{CR}_{90} \approx 2.5$\,d, and the poor
+models have $\mathrm{CR}_{90} \ga 4$\,d. From the corner plots it is clear that
+there is a positive correlation between $\alpha_g$ and $\alpha_r$, which makes
+sense given the relatively similar regions of the spectral energy distribution
+traced by these filters. Finally, \tfl\ exhibits significant covariance with
+each of the $\alpha$ parameters. While we report marginalized credible regions
+on all model parameters in Table~\ref{tab:uninformative}, the full posterior
+samples should be used for any analysis utilizing the results of our model
+fitting.
 
 \begin{figure*}
     \centering
@@ -715,22 +713,21 @@ should be used for any analysis utilizing the results of our model fitting.
     \label{fig:corner_LC}
 \end{figure*}
 
-The light curves used to constrain the model parameters shown in the left
-column of Figure~\ref{fig:corner_LC}, are shown in the right column of the
-same figure. In addition to the data, we also show multiple models based on
-random draws from the posterior, and the residuals (pull) of the data relative
-to the maximum a posteriori estimate from the MCMC sampling. As illustrated in
-top row of Figure~\ref{fig:corner_LC}, we can place tight constraints on the
-model parameters for light curves with a high signal-to-noise ratio (SNR).
-These SNe are typically found at low redshift, monitored with good sampling
-and at high photometric precision. As expected, as the SNR decreases (middle
-row) or the typical interval between observations increases (bottom row), it
-becomes more and more difficult to place meaningful constraints on \tfl\ or
-$\alpha$. We visually examine posterior models for each light curve and flag
-those that produce unreliable parameter constraints. We use this subset of
+The right column of Figure~\ref{fig:corner_LC} displays the light curves for the
+corresponding corner plots shown in the left column. In addition to the data, we
+also show multiple models based on random draws from the posterior, and the
+residuals (pull) of the data relative to the maximum a posteriori estimate from
+the MCMC sampling. As illustrated in the top row of Figure~\ref{fig:corner_LC},
+we can place tight constraints on the model parameters for light curves with a
+high SNR. These SNe are typically found at low redshift, monitored with good
+sampling and at high photometric precision. As expected, as the SNR decreases
+(middle row) or the typical interval between observations increases (bottom
+row), it becomes more and more difficult to place meaningful constraints on
+\tfl\ or $\alpha$. We visually examine posterior models for each light curve and
+flag those that produce unreliable parameter constraints. We use this subset of
 sources to identify SNe that should be excluded from the full sample analysis
-described in \S\ref{sec:mean_parameters} below (see \ref{sec:qa}). These
-flagged sources are noted in Table~\ref{tab:uninformative}.
+described in \S\ref{sec:mean_parameters} below (see \ref{sec:qa}). These flagged
+sources are noted in Table~\ref{tab:uninformative}.
 
 \section{The Mean Rise Time and Power-Law Index for SNe
 Ia}\label{sec:mean_parameters}
@@ -973,7 +970,7 @@ Figure~\ref{fig:model_parameters}).
     galaxy redshift is not known, and large orange circles show SNe with
     reliable fits with known host galaxy redshifts. The plots show that
     redshift is correlated with both $t_\mathrm{rise}$ and $\alpha_g$, which
-    would only be expected is SNe Ia undergo significant evolution from $z
+    would only be expected if SNe Ia undergo significant evolution from $z
     \approx 0.1$ to $0$. We later show this to be the result of a systematic
     selection effect (see text for further details). }
     %
@@ -1013,14 +1010,14 @@ sample, and several previous studies (e.g., \citealt{Conley06,Jones19}),
 render this naive explanation in doubt. Instead, this correlation can be
 understood as the result of building a sample from a flux-limited survey.
 
-Given the fixed depth of ZTF observations ($g_\mathrm{lim} \la 21$\,mag;
-\citealt{Masci19,Bellm19}), SNe at progressively higher redshifts discovered
-at a later phase in their evolution. The large degeneracies in the model
-presented in Equation~\ref{eqn:flux_model}, namely between \tfl, $A$, and
-$\alpha$, allow for a great deal of flexibility when fitting the data. For SNe
-discovered at later phases, it is possible to adjust \tfl\ while decreasing
-$A$ and $\alpha$, such that \tfl\ occurs around the epoch of first detection
-(resulting in a shorter rise time).
+Given that ZTF cannot detect SNe when their observed brightness is
+$g_\mathrm{ZTF} \ga 21.5$\,mag \citep{Masci19,Bellm19}, SNe at progressively
+higher redshifts are discovered at a later phase in their evolution. The large
+degeneracies in the model presented in Equation~\ref{eqn:flux_model}, namely
+between \tfl, $A$, and $\alpha$, allow for a great deal of flexibility when
+fitting the data. For SNe discovered at later phases, it is possible to adjust
+\tfl\ while decreasing $A$ and $\alpha$, such that \tfl\ occurs around the epoch
+of first detection (resulting in a shorter rise time).
 
 We illustrate this effect in Figure~\ref{fig:high_z_systematic}, which shows
 that the inferred rise time for identical SNe decreases as those SNe are
