@@ -14,6 +14,7 @@ if __name__== "__main__":
     thin_by = int(1)
     data_path = "/projects/p30796/ZTF/early_Ia/forced_lightcurves/sample_lc_v2/"
     backend_filename = data_path + "/{}_emcee.h5".format(ztf_name)
+    use_emcee_backend = True    
     rel_flux_cutoff=0.5
     prior = "uninformative"
     
