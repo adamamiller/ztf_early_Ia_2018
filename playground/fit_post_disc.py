@@ -5,7 +5,7 @@ from scipy.optimize import minimize
 from multiprocessing import Pool, cpu_count
 import time
 import sys
-from fit_just_early_lc import continue_chains, prep_light_curve
+from fit_just_early_lc import fit_lc, prep_light_curve
 
 if __name__== "__main__":
     ztf_name = str(sys.argv[1])
