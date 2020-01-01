@@ -2003,6 +2003,21 @@ emission should greatly over-predict the flux at maximum, which is why we
 adopt this criterion for flagging SNe with poorly constrained model
 parameters.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=3.5in]{./figures/final_sample.pdf}
+    %
+    \caption{Scatter plot showing the distribution of the 127 ZTF SNe Ia in
+    the $\mathrm{GM}(N_\mathrm{det})$--$\mathrm{CR}_{90}$ plane. Models with
+    flagged posterior parameters are shown as orange circles, while those
+    that are not flagged are shown via $+$ symbols. The dashed line shows the
+    adopted separation threshold for identifying reliable model fits (above
+    the line), and unreliable model fits. FP and FN (see text) SNe are
+    circled. }
+    %
+    \label{fig:flagged_sn}
+\end{figure}
+
 Numerically, the visually flagged SNe can, for the most part, be identified
 by a combination of two criteria: the 90\% credible region on \tfl,
 $\mathrm{CR}_{90}$, and the number of nights on which the SN was detected.
@@ -2016,21 +2031,6 @@ nights on which the SN was detected, $\mathrm{GM}(N_\mathrm{det})$. A scatter
 plot showing $\mathrm{GM}(N_\mathrm{det})$ vs.\ $\mathrm{CR}_{90}$ is shown
 in Figure~\ref{fig:flagged_sn}. Visually flagged SNe are shown as orange
 circles, while $+$ symbols show those that were not flagged.
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=5in]{./figures/final_sample.pdf}
-    %
-    \caption{Scatter plot showing the distribution of the 127 ZTF SNe Ia in
-    the $\mathrm{GM}(N_\mathrm{det})$--$\mathrm{CR}_{90}$ plane. Models with
-    flagged posterior parameters are shown as orange circles, while those
-    that are not flagged are shown via $+$ symbols. The dashed line shows the
-    adopted separation threshold for identifying reliable model fits (above
-    the line), and unreliable model fits. FP and FN (see text) SNe are
-    circled. }
-    %
-    \label{fig:flagged_sn}
-\end{figure*}
 
 The visual inspection procedure described above is not fully reproducible
 (visual inspection is by its very nature subjective). Therefore, we aim to
@@ -2056,7 +2056,7 @@ model parameters.
 
 \section{Systematics}\label{sec:systematics}
 
-\subsection{Definition of ``Early'' for Model Fitting}
+\subsection{Definition of ``Early'' for Model Fitting}\label{sec:flux_cut}
 
 In \S\ref{sec:model} we highlighted that there is no single agreed upon
 definition of which SN Ia observations are best for modeling the early evolution
@@ -2141,7 +2141,38 @@ observations will not lead to as dramatic an effect.
 
 \subsection{The Importance of Pre-Explosion Observations}
 
+A unique, and important, component of our ZTF data set is the nightly collection
+of multiple observations. \citet{Yao19} demonstrated that such an observational
+sequence enables low-SNR detections of the SN prior to the traditional $5\sigma$
+discovery epoch (see \citealt{Masci19}), which can provide critical constraints
+on \tfl. Many previous studies utilize filtered observations that are obtained
+$\sim$1\,d after the epoch of discovery (e.g.,
+\citealt{Riess99a,Aldering00,Ganeshalingam10,Zheng17a}). To demonstrate the
+importance of the ZTF sub-threshold detections, we re-fit the model from
+\S\ref{sec:model} to each of our ZTF light curves \textit{after removing all
+observations before and on the night the SN is first detected} (i.e., SNR\,$\geq
+5$, as defined in \citealt{Yao19}).
 
+Following the removal of these observations, the MCMC chains only converge (see
+\S\ref{sec:model}) for only 10 SNe. This is understandable as the removal of the
+``baseline'' observations makes it very difficult to constrain $C_d$ and
+$\beta_d$. The removal of these observations leads to dramatically different
+estimates of the model parameters for these 10 SNe. Thus, we report the results
+given the strong trends, though we caution that these results are somewhat
+preliminary, and they should be confirmed with more detailed simulations.
+
+With the baseline observations removed, the inferred value of \tfl\ increases
+(i.e., \trise\ decreases) for all 10 SNe relative to the results from
+\S\ref{sec:model}. The median difference of this shift is $\sim$3.5\,d. Using
+the definition of agreement from \ref{sec:flux_cut}, i.e., over lap in the 90\%
+credible regions, only 3 of the 10 SNe have estimates of \tfl\ that agree after
+removing the nondetections. Removing the baseline observations also decreases
+estimates of $\alpha$ (which agrees with the trend seen in
+Figure~\ref{fig:model_parameters}), with only 5 of the 10 SNe having estimates
+of $\alpha_g$ and $\alpha_r$ that agree. These trends suggest that pre-explosion
+observations are critically needed to produce accurate estimates of \trise\
+(though, again, we caution that these results should be confirmed with a larger
+sample of SNe).
 
 \bibliography{/Users/adamamiller/Documents/tex_stuff/papers}
 \bibliographystyle{aasjournal}
