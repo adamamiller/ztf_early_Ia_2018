@@ -40,6 +40,19 @@
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}253},
   \href{http://adsabs.harvard.edu/abs/1982ApJ...253..785A}{\color{blue}785}
 
+\bibitem[{{Astropy Collaboration} {et~al.}(2013){Astropy Collaboration},
+  {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
+  {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
+  {Barbary}, {Muna}, {Ferguson}, {Grollier}, {Parikh}, {Nair}, {Unther},
+  {Deil}, {Woillez}, {Conseil}, {Kramer}, {Turner}, {Singer}, {Fox}, {Weaver},
+  {Zabalza}, {Edwards}, {Azalee Bostroem}, {Burke}, {Casey}, {Crawford},
+  {Dencheva}, {Ely}, {Jenness}, {Labrie}, {Lim}, {Pierfederici}, {Pontzen},
+  {Ptak}, {Refsdal}, {Servillat}, \& {Streicher}}]{Astropy-Collaboration13}
+{Astropy Collaboration}, {Robitaille}, T.~P., {Tollerud}, E.~J., {et~al.} 2013,
+  \href{http://dx.doi.org/10.1051/0004-6361/201322068}{\color{magenta}\aap},
+  \href{http://adsabs.harvard.edu/abs/2013A%26A...558A..33A}{\color{blue}558},
+  \href{http://adsabs.harvard.edu/abs/2013A%26A...558A..33A}{\color{blue}A33}
+
 \bibitem[{{Barbary} {et~al.}(2016){Barbary}, {Barclay}, {Biswas}, {Craig},
   {Feindt}, {Friesen}, {Goldstein}, {Jha}, {Rodney}, {Sofiatti}, {Thomas}, \&
   {Wood-Vasey}}]{Barbary16}
@@ -78,6 +91,16 @@
   \href{http://dx.doi.org/10.1088/1538-3873/ab0c2a}{\color{magenta}\pasp},
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131f8003B}{\color{blue}068003}
+
+\bibitem[{{Bianco} {et~al.}(2011){Bianco}, {Howell}, {Sullivan}, {Conley},
+  {Kasen}, {Gonz{\'a}lez-Gait{\'a}n}, {Guy}, {Astier}, {Balland}, {Carlberg},
+  {Fouchez}, {Fourmanoit}, {Hardin}, {Hook}, {Lidman}, {Pain},
+  {Palanque-Delabrouille}, {Perlmutter}, {Perrett}, {Pritchet}, {Regnault},
+  {Rich}, \& {Ruhlmann-Kleider}}]{Bianco11}
+{Bianco}, F.~B., {Howell}, D.~A., {Sullivan}, M., {et~al.} 2011,
+  \href{http://dx.doi.org/10.1088/0004-637X/741/1/20}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2011ApJ...741...20B}{\color{blue}741},
+  \href{https://ui.adsabs.harvard.edu/abs/2011ApJ...741...20B}{\color{blue}20}
 
 \bibitem[{{Bloom} {et~al.}(2012){Bloom}, {Kasen}, {Shen}, {Nugent}, {Butler},
   {Graham}, {Howell}, {Kolb}, {Holmes}, {Haswell}, {Burwitz}, {Rodriguez}, \&
@@ -216,13 +239,6 @@ Foreman-Mackey, D. 2016,
   \href{http://dx.doi.org/10.1088/0004-637X/745/1/44}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}745},
   \href{https://ui.adsabs.harvard.edu/abs/2012ApJ...745...44G}{\color{blue}44}
-
-\bibitem[{{Goobar} {et~al.}(2015){Goobar}, {Kromer}, {Siverd}, {Stassun},
-  {Pepper}, {Amanullah}, {Kasliwal}, {Sollerman}, \& {Taddia}}]{Goobar15}
-{Goobar}, A., {Kromer}, M., {Siverd}, R., {et~al.} 2015,
-  \href{http://dx.doi.org/10.1088/0004-637X/799/1/106}{\color{magenta}\apj},
-  \href{http://adsabs.harvard.edu/abs/2015ApJ...799..106G}{\color{blue}799},
-  \href{http://adsabs.harvard.edu/abs/2015ApJ...799..106G}{\color{blue}106}
 
 \bibitem[{{Goodman} \& {Weare}(2010)}]{Goodman10}
 {Goodman}, J., \& {Weare}, J. 2010,
