@@ -102,6 +102,13 @@
   \href{https://ui.adsabs.harvard.edu/abs/2011ApJ...741...20B}{\color{blue}741},
   \href{https://ui.adsabs.harvard.edu/abs/2011ApJ...741...20B}{\color{blue}20}
 
+\bibitem[{{Blondin} {et~al.}(2013){Blondin}, {Dessart}, {Hillier}, \&
+  {Khokhlov}}]{Blondin13}
+{Blondin}, S., {Dessart}, L., {Hillier}, D.~J., \& {Khokhlov}, A.~M. 2013,
+  \href{http://dx.doi.org/10.1093/mnras/sts484}{\color{magenta}\mnras},
+  \href{https://ui.adsabs.harvard.edu/abs/2013MNRAS.429.2127B}{\color{blue}429},
+  \href{https://ui.adsabs.harvard.edu/abs/2013MNRAS.429.2127B}{\color{blue}2127}
+
 \bibitem[{{Bloom} {et~al.}(2012){Bloom}, {Kasen}, {Shen}, {Nugent}, {Butler},
   {Graham}, {Howell}, {Kolb}, {Holmes}, {Haswell}, {Burwitz}, {Rodriguez}, \&
   {Sullivan}}]{Bloom12a}
@@ -729,6 +736,14 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/0004-637X/826/2/144}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
+
+\bibitem[{{Shappee} {et~al.}(2019){Shappee}, {Holoien}, {Drout}, {Auchettl},
+  {Stritzinger}, {Kochanek}, {Stanek}, {Shaya}, {Narayan}, \&
+  {ASAS-SN}}]{Shappee19}
+{Shappee}, B.~J., {Holoien}, T.~W.~S., {Drout}, M.~R., {et~al.} 2019,
+  \href{http://dx.doi.org/10.3847/1538-4357/aaec79}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...870...13S}{\color{blue}870},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...870...13S}{\color{blue}13}
 
 \bibitem[{{Shen} {et~al.}(2018){Shen}, {Boubert}, {G{\"a}nsicke}, {Jha},
   {Andrews}, {Chomiuk}, {Foley}, {Fraser}, {Gromadzki}, {Guillochon}, {Kotze},
