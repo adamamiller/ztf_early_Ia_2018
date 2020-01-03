@@ -531,15 +531,16 @@ def prep_light_curve(lc_hdf,
     return_obs = np.intersect1d(np.where(has_baseline > 0), early_obs)
     not_included = np.setdiff1d(range(len(f_zp)), return_obs)    
 
-    # only grab obs after initial detection
-    initial_snr = (lc_df.Fmcmc.values - lc_df.offset.values)/(lc_df.Fmcmc_unc.values*lc_df['multiply'].values)
-    first_det = np.where(initial_snr >= 5)[0][0]
-    post_disc = np.where(lc_df.jdobs.values >= lc_df.jdobs.iloc[first_det] + 0.6)
-    early_post_disc = np.intersect1d(early_obs, post_disc)
 
     if return_masked:
         return time_rf, f_zp*flux_scale, f_zp_unc*flux_scale, lc_df.fcqfid.values, return_obs
     elif return_post_disc:
+        # only grab obs after initial detection
+        initial_snr = (lc_df.Fmcmc.values - lc_df.offset.values)/(lc_df.Fmcmc_unc.values*lc_df['multiply'].values)
+        first_det = np.where(initial_snr >= 5)[0][0]
+        post_disc = np.where(lc_df.jdobs.values >= lc_df.jdobs.iloc[first_det] + 0.6)
+        early_post_disc = np.intersect1d(early_obs, post_disc)
+        
         return time_rf[early_post_disc], f_zp[early_post_disc]*flux_scale, f_zp_unc[early_post_disc]*flux_scale, lc_df.fcqfid.values[early_post_disc]
     else:
         return time_rf[return_obs], f_zp[return_obs]*flux_scale, f_zp_unc[return_obs]*flux_scale, lc_df.fcqfid.values[return_obs]
