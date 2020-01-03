@@ -23,7 +23,7 @@
 %%
 %%
 %% using aastex version 6.3
-\documentclass[twocolumn]{./aastex63}
+\documentclass[twocolumn]{aastex63}
 
 \usepackage{amsmath}
 \usepackage{empheq}
@@ -401,6 +401,8 @@ Telescope observations.
 %% tied to the reference list via symbolic KEYs. The KEY corresponds
 %% to the KEY in the \bibitem in the reference list below. 
 
+\vspace{1em}
+
 \section{Introduction}
 
 The fact that supernovae (SNe) of Type Ia can be empirically calibrated as
@@ -460,7 +462,7 @@ Now the most pressing questions are the following: which scenario, SD or DD,
 and which mass explosion, $M_\mathrm{Ch}$ or sub-$M_\mathrm{Ch}$, is dominant?
 
 Here too, early observations should prove useful. In the SD scenario the SN
-ejecta will collide with the nondegenerate companion creating a shock that
+ejecta will collide with the non-degenerate companion creating a shock that
 gives rise to a bright ultraviolet/optical flash in the days after explosion
 \citep{Kasen10a}. To date, the search for such a signature in large samples
 typically results in a non-detection (e.g.,
@@ -616,7 +618,7 @@ light,\footnote{$t_\mathrm{fl}$ is not the time of explosion, but rather the
 time when optical emission begins for the SN, as the observed emission due to
 radioactive decay in the interior of the SN ejecta must first diffuse through
 the photosphere, see e.g., \citet{Piro13,Piro14}.} $H[t_\mathrm{fl}]$ is the
-heaviside function equal to 0 for $t < t_\mathrm{fl}$ and 1 for $t \ge
+Heaviside function equal to 0 for $t < t_\mathrm{fl}$ and 1 for $t \ge
 t_\mathrm{fl}$, $A_b$ is a constant of proportionality in filter $b$, and
 $\alpha_b$ is the power-law index describing the rise in filter $b$.
 
@@ -718,8 +720,9 @@ suggesting several independent samples within the chains (this SN is later
 excluded from the sample, see \ref{sec:qa}). From the MCMC chains we can
 derive constraints on \tfl, $\alpha_g$, and $\alpha_r$. We show example corner
 plots illustrating good, typical, and poor constraints on the model parameters
-in Figure~\ref{fig:corner_LC}. In this context good, typical, and poor are
-defined relative to the width of the 90\% credible region for \tfl\
+in Figures~\ref{fig:corner_good}, \ref{fig:corner_median}, and
+\ref{fig:corner_bad}, respectively. In this context good, typical, and poor
+are defined relative to the width of the 90\% credible region for \tfl\
 ($\mathrm{CR}_{90}$). Roughly, the good models have $\mathrm{CR}_{90} \la
 1.5$\,d (approximately 34 SNe), the median models have $\mathrm{CR}_{90}
 \approx 2.5$\,d ($\sim$61 SNe), and the poor models have $\mathrm{CR}_{90} \ga
@@ -734,53 +737,72 @@ fitting.
 
 \begin{figure*}
     \centering
-    \includegraphics[width=5.75in]{./figures/corner_LC.pdf}
+    \includegraphics[width=5.2in]{./figures/Fig1.pdf}
     %
-    \caption{\textit{Left column}: Corner plots showing the posterior
-    constraints on \tfl, $\alpha_g$, $\alpha_r$, and the respective constants
-    of proportionality, $A_g^\prime$ and $A_r^\prime$ for ZTF18abgmcmv
-    (SN\,2018eay), ZTF18abukmty (SN\,2018lpz), and ZTF18aazabmh (SN\,2018crr)
-    from top to bottom. These examples respectively show a SN that is well fit
-    by the model, a typical SN in our sample, and a SN that does not
-    significantly constrain the model parameters. For clarity, the $C_d$ and
-    $\beta_d$ terms are excluded (in general they do not exhibit strong
-    covariance with the parameters shown here as they are tightly constrained
-    by the pre-SN observations). Marginalized one-dimensional distributions
-    are shown along the diagonal, along with the median estimate and the 90\%
-    credible region (shown with vertical dashed lines). \textit{Right column}:
-    ZTF light curves of ZTF18abgmcmv (top), ZTF18abukmty (middle), and
-    ZTF18aazabmh (bottom) showing the \gztf\ (filled, green circles) and
-    \rztf\ (open, red circles) evolution of the SN in the month prior to
-    \tbmax. Observations included in the model fitting (i.e., those with $f
-    \le 0.4 f_\mathrm{max}$) are dark and solid, while those that are not
-    included are faint and semi-transparent. The maximum a posteriori model is
-    shown via a thick solid line, while random draws from the posterior are
-    shown with semi-transparent dashed lines. The vertical dashed line shows
-    the median 1-D marginalized posterior value of \tfl, while the thin, light
-    grey vertical line shows \tfl\ for the maximum a posteriori model. The
-    bottom panel shows residuals normalized by their uncertainties (pull)
-    relative to the maximum a posteriori model, where the factor $\beta_d$ has
-    been included in the calculation of the residuals.}
+    \caption{\textit{Top}: Corner plot showing the posterior constraints on
+    \tfl, $\alpha_g$, $\alpha_r$, and the respective constants of
+    proportionality, $A_g^\prime$ and $A_r^\prime$ for ZTF18abgmcmv
+    (SN\,2018eay). ZTF18abgmcmv is a SN that is well fit by the model. For
+    clarity, the $C_d$ and $\beta_d$ terms are excluded (in general they do
+    not exhibit strong covariance with the parameters shown here as they are
+    tightly constrained by the pre-SN observations). Marginalized
+    one-dimensional distributions are shown along the diagonal, along with the
+    median estimate and the 90\% credible region (shown with vertical dashed
+    lines). \textit{Bottom}: ZTF light curve for ZTF18abgmcmv showing the
+    \gztf\ (filled, green circles) and \rztf\ (open, red circles) evolution of
+    the SN in the month prior to \tbmax. Observations included in the model
+    fitting (i.e., those with $f \le 0.4 f_\mathrm{max}$) are dark and solid,
+    while those that are not included are faint and semi-transparent. The
+    maximum a posteriori model is shown via a thick solid line, while random
+    draws from the posterior are shown with semi-transparent dashed lines. The
+    vertical dashed line shows the median 1-D marginalized posterior value of
+    \tfl, while the thin, light grey vertical line shows \tfl\ for the maximum
+    a posteriori model. The bottom panel shows residuals normalized by their
+    uncertainties (pull) relative to the maximum a posteriori model, where the
+    factor $\beta_d$ has been included in the calculation of the residuals.}
     %
-    \label{fig:corner_LC}
+    \label{fig:corner_good}
 \end{figure*}
 
-The right column of Figure~\ref{fig:corner_LC} displays the light curves for
-the corresponding corner plots shown in the left column. In addition to the
-data, we also show multiple models based on random draws from the posterior,
-and the residuals normalized by their uncertainties (pull) of the data
-relative to the maximum a posteriori estimate from the MCMC sampling. As
-illustrated in the top row of Figure~\ref{fig:corner_LC}, we can place tight
-constraints on the model parameters for light curves with a high SNR. These
-SNe are typically found at low redshift, monitored with good sampling and at
-high photometric precision. As expected, as the SNR decreases (middle row) or
-the typical interval between observations increases (bottom row), it becomes
-more and more difficult to place meaningful constraints on \tfl\ or $\alpha$.
-We visually examine posterior models for each light curve and flag those that
-produce unreliable parameter constraints. We use this subset of sources to
-identify SNe that should be excluded from the full sample analysis described
-in \S\ref{sec:mean_parameters} below (see \ref{sec:qa}). These flagged sources
-are noted in Table~\ref{tab:uninformative}.
+\begin{figure*}
+    \centering
+    \includegraphics[width=5.2in]{./figures/Fig2.pdf}
+    %
+    \caption{Same as Figure~\ref{fig:corner_good} for ZTF18abukmty,
+    (SN\,2018lpz), a typical SN in our sample, and a SN that does not
+    significantly constrain the model parameters.}
+    %
+    \label{fig:corner_median}
+\end{figure*}
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=5.2in]{./figures/Fig3.pdf}
+    %
+    \caption{Same as Figure~\ref{fig:corner_good} for ZTF18aazabmh
+    (SN\,2018crr), a SN that does not significantly constrain the model
+    parameters.}
+    %
+    \label{fig:corner_bad}
+\end{figure*}
+
+The bottom panels of Figures~\ref{fig:corner_good}, \ref{fig:corner_median},
+and \ref{fig:corner_bad} display the light curves for the corresponding corner
+plots shown in the top panels. In addition to the data, we also show multiple
+models based on random draws from the posterior, and the residuals normalized
+by their uncertainties (pull) of the data relative to the maximum a posteriori
+estimate from the MCMC sampling. As illustrated in
+Figure~\ref{fig:corner_good}, we can place tight constraints on the model
+parameters for light curves with a high SNR. These SNe are typically found at
+low redshift, monitored with good sampling and at high photometric precision.
+As expected, as the SNR decreases (Figure~\ref{fig:corner_median}) or the
+typical interval between observations increases (Figure~\ref{fig:corner_bad}),
+it becomes more and more difficult to place meaningful constraints on \tfl\ or
+$\alpha$. We visually examine posterior models for each light curve and flag
+those that produce unreliable parameter constraints. We use this subset of
+sources to identify SNe that should be excluded from the full sample analysis
+described in \S\ref{sec:mean_parameters} below (see \ref{sec:qa}). These
+flagged sources are noted in Table~\ref{tab:uninformative}.
 
 \section{The Mean Rise Time and Power-Law Index for SNe
 Ia}\label{sec:mean_parameters}
@@ -793,7 +815,7 @@ are excluded from the analysis below. These 7 peculiar events are discussed in
 detail in \S\ref{sec:rare}. The remaining 120 normal SNe Ia in our sample
 have $-2 \la x_1 \la 2$, where $x_1$ is the \texttt{SALT2} shape parameter,
 which is well within the range of SNe that are typically used for cosmography
-(e.g., \citealt{Scolnic18}). Estimates of \trise\ and $\alpha$ for all SNe in
+(e.g., \citealt{Scolnic18a}). Estimates of \trise\ and $\alpha$ for all SNe in
 our sample, including the 7 peculiar SNe Ia discussed in \S\ref{sec:rare}, are
 presented in Table~\ref{tab:uninformative}.
 
@@ -874,7 +896,8 @@ sample standard deviation, about these mean values is $\sim$1.8\,d.
 
 We use a similar procedure to report the PDF of $\alpha_g$ and $\alpha_r$
 under the assumption of a flat prior. The posterior samples for $\alpha$ shown
-in Figure~\ref{fig:corner_LC} include a factor of $10^{-\alpha}$ following the
+in Figure~\ref{fig:corner_good}, \ref{fig:corner_median}, and
+\ref{fig:corner_bad} include a factor of $10^{-\alpha}$ following the
 change of variables from $A$ to $A^\prime$ (see Table~\ref{tab:priors} and
 \ref{sec:qa}). To remove this factor, we estimate the 1-D marginalized PDF of
 $\alpha$ using a KDE as above. This PDF is then divided by $10^{-\alpha}$, and
@@ -1482,10 +1505,10 @@ $\alpha_r = 0.98 \pm^{0.23}_{0.15}$.
     \centering
     \includegraphics[width=3.4in]{./figures/ZTF18abclfee_model_lc.pdf}
     %
-    \caption{Same as Figure~\ref{fig:corner_LC} for ZTF18abclfee (SN\,2018cxk),
-    an 02cx-like SN with strong constraints on \tfl, and a short rise time
-    ($\sim$10\,d). ZTF18abclfee has the tightest constraints on \trise\ of all
-    02cx-like SNe observed to date.}
+    \caption{Same as the bottom panel of Figure~\ref{fig:corner_good} for
+    ZTF18abclfee (SN\,2018cxk), an 02cx-like SN with strong constraints on
+    \tfl, and a short rise time ($\sim$10\,d). ZTF18abclfee has the tightest
+    constraints on \trise\ of all 02cx-like SNe observed to date.}
     %
     \label{fig:02cx}
 \end{figure}
@@ -1534,7 +1557,7 @@ flux-limited surveys, and Figure~\ref{fig:tsquared_z_evolution} suggests this
 might be feasible given the correlation between the \texttt{SALT2} $x_1$
 parameter and \trise\ (measured using the $\alpha = 2$ prior).\footnote{Other
 shape parameters, such as the stretch, $s$, or distance from a fiducial
-templte, $\Delta$, may work in place of $x_1$.} Even in the limit of only one
+template, $\Delta$, may work in place of $x_1$.} Even in the limit of only one
 or a few observations on the rise, \texttt{SALT2} can still measure $x_1$
 (e.g., \citealt{Scolnic18a}). Therefore, the correlation between $x_1$ and
 \trise\ eliminates the need for high-cadence observations to yield early ($>
@@ -1768,7 +1791,8 @@ obtained 2 days before and after this initial \tfl\ estimate are included in
 the final model fit (i.e., the entire baseline of non-detections is not used,
 as is done in this study). Truncating the baseline biases the model to longer
 rise times (as is observed in \citealt{Firth15}), and, as shown in
-Figure~\ref{fig:corner_LC}, longer rise times require larger values of
+Figures~\ref{fig:corner_good}, \ref{fig:corner_median}, and
+\ref{fig:corner_bad}, longer rise times require larger values of
 $\alpha$ when adopting the model used here and in \citet{Firth15}.
 
 The reason it is critical to test the expanding fireball model is that robust
@@ -1795,7 +1819,7 @@ evolution of SNe with different $^{56}$Ni distributions, provide good
 qualitative agreement to what we find for ZTF SNe. \citet{Magee19} find that
 the rising power-law index is larger in the $B$-band than the $R$-band
 (similar to what we see in \gztf\ and \rztf), and that the mean value of these
-distibutions is $\sim$2. As suggested in \citet{Magee19}, it may be the case
+distributions is $\sim$2. As suggested in \citet{Magee19}, it may be the case
 that the vast majority of the differences observed in the early ZTF light
 curves can be explained via variations in the $^{56}$Ni mixing in the SN
 ejecta.
@@ -1924,7 +1948,7 @@ our sample, and these 4 are nearly as valuable as the remainder of the sample
 for establishing the diversity of SNe Ia. As we improve our understanding of
 these priors, and combine that knowledge with the hitherto unimaginable
 statistical samples from LSST ($\sim$millions of SNe), we will definitively
-understand the early evolution and rise timedistribution of Type Ia SNe.
+understand the early evolution and rise time distribution of Type Ia SNe.
 
 \acknowledgements
 
@@ -2012,16 +2036,16 @@ While Equation~\ref{eqn:change_prior} is also satisfied by $P(A^\prime,
 parameters as $A^\prime$ absorbs the multiplicative factor of $10^\alpha$,
 effectively reducing the problem to be the same as it was before the change of
 variables. Thus, as listed in Table~\ref{tab:priors}, we adopt
-Equation~\ref{eqn:transform} as the prior on the transformed variables, which we
-find breaks the degeneracy (see Figure~\ref{fig:corner_LC}).
+Equation~\ref{eqn:transform} as the prior on the transformed variables, which
+we find breaks the degeneracy (see Figures\ref{fig:corner_good},
+\ref{fig:corner_median}, and \ref{fig:corner_bad}).
 
 \section{Quality Assurance}\label{sec:qa}
 
 As noted in \S\ref{sec:model}, the MCMC model converges for all but one ZTF
 SNe within the sample. However, visual inspection of both the corner plots and
 individual draws from the posterior quickly reveals that for some SNe the data
-do not provide strong constraints on the model parameters (see the bottom row
-of Figure~\ref{fig:corner_LC}). In the most extreme cases, as shown in
+do not provide strong constraints on the model parameters (see Figure~\ref{fig:corner_bad}). In the most extreme cases, as shown in
 Figure~\ref{fig:biggap_lc}, large gaps in the observations make it nearly
 impossible to constrain the model parameters. For these cases, the model
 posteriors are essentially identical to the priors (there is always a weak
@@ -2031,11 +2055,12 @@ constraint on \tfl\ from epochs where the SN is not detected).
     \centering
     \includegraphics[width=3.4in]{./figures/ZTF18aaqffyp_model_lc.pdf}
     %
-    \caption{Same as Figure~\ref{fig:corner_LC} for ZTF18aaqffyp
-    (SN\,2018bhr), a SN with observations that place very weak constraints on
-    \tfl. The marginalized posteriors for $A^\prime$ and $\alpha$ are
-    essentially identical to the priors. Posteriors with little information
-    beyond the prior are typical of SNe with significant observational gaps.}
+    \caption{Same as the bottom panel of Figure~\ref{fig:corner_good} for
+    ZTF18aaqffyp (SN\,2018bhr), a SN with observations that place very weak
+    constraints on \tfl. The marginalized posteriors for $A^\prime$ and
+    $\alpha$ are essentially identical to the priors. Posteriors with little
+    information beyond the prior are typical of SNe with significant
+    observational gaps.}
     %
     \label{fig:biggap_lc}
 \end{figure}
@@ -2237,5 +2262,3 @@ with a larger sample of SNe).
 %\listofchanges
 
 \end{document}
-
-% End of file `sample63.tex'.

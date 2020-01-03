@@ -688,34 +688,14 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}713},
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}1073}
 
-\bibitem[{{Scolnic} {et~al.}(2018{\natexlab{a}}){Scolnic}, {Kessler}, {Brout},
-  {Cowperthwaite}, {Soares-Santos}, {Annis}, {Herner}, {Chen}, {Sako},
-  {Doctor}, {Butler}, {Palmese}, {Diehl}, {Frieman}, {Holz}, {Berger},
-  {Chornock}, {Villar}, {Nicholl}, {Biswas}, {Hounsell}, {Foley}, {Metzger},
-  {Rest}, {Garc{\'{\i}}a-Bellido}, {M{\"o}ller}, {Nugent}, {Abbott}, {Abdalla},
-  {Allam}, {Bechtol}, {Benoit-L{\'e}vy}, {Bertin}, {Brooks}, {Buckley-Geer},
-  {Carnero Rosell}, {Carrasco Kind}, {Carretero}, {Castander}, {Cunha},
-  {D{\rsquo}Andrea}, {da Costa}, {Davis}, {Doel}, {Drlica-Wagner}, {Eifler},
-  {Flaugher}, {Fosalba}, {Gaztanaga}, {Gerdes}, {Gruen}, {Gruendl}, {Gschwend},
-  {Gutierrez}, {Hartley}, {Honscheid}, {James}, {Johnson}, {Johnson}, {Krause},
-  {Kuehn}, {Kuhlmann}, {Lahav}, {Li}, {Lima}, {Maia}, {March}, {Marshall},
-  {Menanteau}, {Miquel}, {Neilsen}, {Plazas}, {Sanchez}, {Scarpine},
-  {Schubnell}, {Sevilla-Noarbe}, {Smith}, {Smith}, {Sobreira}, {Suchyta},
-  {Swanson}, {Tarle}, {Thomas}, {Tucker}, {Walker}, \& {DES
-  Collaboration}}]{Scolnic18}
-{Scolnic}, D., {Kessler}, R., {Brout}, D., {et~al.} 2018{\natexlab{a}},
-  \href{http://dx.doi.org/10.3847/2041-8213/aa9d82}{\color{magenta}\apjl},
-  \href{http://adsabs.harvard.edu/abs/2018ApJ...852L...3S}{\color{blue}852},
-  \href{http://adsabs.harvard.edu/abs/2018ApJ...852L...3S}{\color{blue}L3}
-
-\bibitem[{{Scolnic} {et~al.}(2018{\natexlab{b}}){Scolnic}, {Jones}, {Rest},
-  {Pan}, {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},
+\bibitem[{{Scolnic} {et~al.}(2018){Scolnic}, {Jones}, {Rest}, {Pan},
+  {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},
   {Berger}, {Brout}, {Challis}, {Drout}, {Finkbeiner}, {Lunnan}, {Kirshner},
   {Sanders}, {Schlafly}, {Smartt}, {Stubbs}, {Tonry}, {Wood-Vasey}, {Foley},
   {Hand}, {Johnson}, {Burgett}, {Chambers}, {Draper}, {Hodapp}, {Kaiser},
   {Kudritzki}, {Magnier}, {Metcalfe}, {Bresolin}, {Gall}, {Kotak}, {McCrum}, \&
   {Smith}}]{Scolnic18a}
-{Scolnic}, D.~M., {Jones}, D.~O., {Rest}, A., {et~al.} 2018{\natexlab{b}},
+{Scolnic}, D.~M., {Jones}, D.~O., {Rest}, A., {et~al.} 2018,
   \href{http://dx.doi.org/10.3847/1538-4357/aab9bb}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
