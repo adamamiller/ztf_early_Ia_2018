@@ -35,7 +35,7 @@ def plot_both_filt(theta,
     res_max = 0.0
     res_min = 0.0
 
-    fig = plt.figure()
+    fig = plt.figure(figsize=(9,5))
     gs = gridspec.GridSpec(3, 1)
     
     axPlot = fig.add_subplot(gs[0:2, :])
@@ -161,6 +161,7 @@ def plot_both_filt(theta,
                         alpha=0.4)
     plt.setp(axPlot.get_xticklabels(), visible=False)
     fig.align_ylabels()
-    fig.subplots_adjust(hspace=0.04,right=0.98, top=0.98)
+    fig.subplots_adjust(hspace=0.04,
+                        left=0.08, right=0.99, top=0.98)
 
     return fig
