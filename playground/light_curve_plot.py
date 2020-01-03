@@ -14,7 +14,9 @@ def f_t(times, amplitude=25, t_0=0, alpha_r=2):
 def plot_both_filt(theta, 
                    t, f, f_unc, fcqfid_arr,
                    obs_for_model,
-                   samples, samp_nums
+                   samples, samp_nums,
+                   landscape=False, 
+                   poster=False
                   ):
 
     color_dict = {b'r': 'Crimson',
@@ -35,7 +37,12 @@ def plot_both_filt(theta,
     res_max = 0.0
     res_min = 0.0
 
-    fig = plt.figure(figsize=(9,5))
+    if landscape:
+        fig = plt.figure(figsize=(9,5))
+    elif poster:
+        fig = plt.figure(figsize=(10,8))
+    else:
+        fig = plt.figure()
     gs = gridspec.GridSpec(3, 1)
     
     axPlot = fig.add_subplot(gs[0:2, :])
@@ -163,5 +170,23 @@ def plot_both_filt(theta,
     fig.align_ylabels()
     fig.subplots_adjust(hspace=0.04,
                         left=0.08, right=0.99, top=0.98)
+    
+    if poster:
+        axPlot.axvspan(-1e4,1e4, facecolor='white')
+        axRes.axvspan(-1e4,1e4, facecolor='white')
+        
+        axPlot.set_ylabel('relative flux', fontsize=28)
+        axPlot.tick_params(right=True, top=True, bottom=False, which='both', labelsize=20)
+    
+        axRes.set_xlim(-30, 1)
+        axRes.set_xlabel('$t - t_{B,\mathrm{max}} \; (\mathrm{restframe \; d})$', fontsize=28)
+        axRes.set_ylabel('$\mathrm{pull}$', fontsize=28)
+        axRes.tick_params(right=True,which='both', labelsize=20)
+        
+        plt.setp(axPlot.get_xticklabels(), visible=False)
+        fig.align_ylabels()
+        fig.subplots_adjust(hspace=0.04,
+                            left=0.12, bottom=0.11, right=0.99, top=0.98)
+        
 
     return fig
