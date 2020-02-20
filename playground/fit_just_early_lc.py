@@ -133,7 +133,7 @@ def lnlike_big_unc(theta, f, t, f_err, prior='uninformative'):
     model[~pre_exp] = a + a_prime * (time_term)**alpha_r * 10.**(-alpha_r)
     assert np.all(model > -np.inf),"fewer model values than flux values\n{}\n{}\na{}A'{}alpha{}f_sigma{}".format(model, time_term,a,a_prime,alpha_r,f_sigma)
     
-    ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(np.sqrt(2*np.pi))
+    ln_l = -0.5*np.sum((f - model)**2 / ((f_sigma*f_err)**2)) - np.sum(np.log(f_sigma*f_err)) - 0.5*len(model)*np.log(2*np.pi)
     return ln_l
 
 def nll_big_unc(theta, flux, time, flux_err, prior='uninformative'):
