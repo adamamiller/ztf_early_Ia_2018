@@ -33,7 +33,7 @@ def plot_both_filt(theta,
                 b'g': 0.5}
     filt_dict = {1: b'g', 2: b'r'}
     
-    plot_min = 0.0
+    plot_min = -10
     res_max = 0.0
     res_min = 0.0
 
