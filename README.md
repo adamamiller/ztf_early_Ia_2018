@@ -5,4 +5,5 @@ This (terribly organized) repository contains the software necessary to replicat
 A rough map of the relevant files is as follows:
 
  * [fit_just_early_lc.py](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/fit_just_early_lc.py) –– main script for fitting the power-law rise
+ * [PlotPlayground.ipynb](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/PlotPlayground.ipynb) –– correlation plots (Figs 7, 9, 10) 
  * [MakeTables.ipynb](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/MakeTables.ipynb) –– creates the TeX tables in the paper
