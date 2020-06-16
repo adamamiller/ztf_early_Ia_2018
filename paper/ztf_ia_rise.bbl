@@ -79,8 +79,7 @@
   {Zolkower}}]{Bellm19}
 {Bellm}, E.~C., {Kulkarni}, S.~R., {Graham}, M.~J., {et~al.}
   2019{\natexlab{a}},
-  \href{http://dx.doi.org/10.1088/1538-3873/aaecbe}{\color{magenta}Publications
-  of the Astronomical Society of the Pacific},
+  \href{http://dx.doi.org/10.1088/1538-3873/aaecbe}{\color{magenta}\pasp},
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/\#abs/2019PASP..131a8002B}{\color{blue}018002}
 
@@ -154,6 +153,16 @@
   \href{http://dx.doi.org/10.3847/2041-8213/ab0aec}{\color{magenta}\apjl},
   \href{http://adsabs.harvard.edu/abs/2019ApJ...873L..18D}{\color{blue}873},
   \href{http://adsabs.harvard.edu/abs/2019ApJ...873L..18D}{\color{blue}L18}
+
+\bibitem[{{Dekany} {et~al.}(2020){Dekany}, {Smith}, {Riddle}, {Feeney},
+  {Porter}, {Hale}, {Zolkower}, {Belicki}, {Kaye}, {Henning}, {Walters},
+  {Cromer}, {Delacroix}, {Rodriguez}, {Reiley}, {Mao}, {Hover}, {Murphy},
+  {Burruss}, {Baker}, {Kowalski}, {Reif}, {Mueller}, {Bellm}, {Graham}, \&
+  {Kulkarni}}]{Dekany20}
+{Dekany}, R., {Smith}, R.~M., {Riddle}, R., {et~al.} 2020,
+  \href{http://dx.doi.org/10.1088/1538-3873/ab4ca2}{\color{magenta}\pasp},
+  \href{https://ui.adsabs.harvard.edu/abs/2020PASP..132c8001D}{\color{blue}132},
+  \href{https://ui.adsabs.harvard.edu/abs/2020PASP..132c8001D}{\color{blue}038001}
 
 \bibitem[{{Dessart} {et~al.}(2014){Dessart}, {Blondin}, {Hillier}, \&
   {Khokhlov}}]{Dessart14}
@@ -431,12 +440,6 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}736},
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}1}
 
-\bibitem[{{Magee} {et~al.}(2019){Magee}, {Maguire}, {Kotak}, {Sim},
-  {Gillanders}, {Prentice}, \& {Skillen}}]{Magee19}
-{Magee}, M.~R., {Maguire}, K., {Kotak}, R., {et~al.} 2019,
-  \href{https://arxiv.org/abs/1912.07603}{\color{magenta}arXiv},
-  \href{https://ui.adsabs.harvard.edu/abs/2019arXiv191207603M}{\color{blue}arXiv:1912.07603}
-
 \bibitem[{{Magee} {et~al.}(2018){Magee}, {Sim}, {Kotak}, \&
   {Kerzendorf}}]{Magee18}
 {Magee}, M.~R., {Sim}, S.~A., {Kotak}, R., \& {Kerzendorf}, W.~E. 2018,
@@ -695,19 +698,13 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
 
-\bibitem[{{Shappee} {et~al.}(2016{\natexlab{a}}){Shappee}, {Piro}, {Stanek},
-  {Patel}, {Margutti}, {Lipunov}, \& {Pogge}}]{Shappee16a}
-{Shappee}, B.~J., {Piro}, A.~L., {Stanek}, K.~Z., {et~al.} 2016{\natexlab{a}},
-  ArXiv e-prints
-
-\bibitem[{{Shappee} {et~al.}(2016{\natexlab{b}}){Shappee}, {Piro}, {Holoien},
-  {Prieto}, {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper},
-  {Basu}, {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong},
-  {Falco}, {Grupe}, {Hsiao}, {Kiyota}, {Morrell}, {Nicolas}, {Phillips},
-  {Pojmanski}, {Simonian}, {Stritzinger}, {Szczygie{\l}}, {Taddia}, {Thompson},
+\bibitem[{{Shappee} {et~al.}(2016){Shappee}, {Piro}, {Holoien}, {Prieto},
+  {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper}, {Basu},
+  {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong}, {Falco},
+  {Grupe}, {Hsiao}, {Kiyota}, {Morrell}, {Nicolas}, {Phillips}, {Pojmanski},
+  {Simonian}, {Stritzinger}, {Szczygie{\l}}, {Taddia}, {Thompson},
   {Thorstensen}, {Wagner}, \& {Wo{\'z}niak}}]{Shappee16}
-{Shappee}, B.~J., {Piro}, A.~L., {Holoien}, T.~W.-S., {et~al.}
-  2016{\natexlab{b}},
+{Shappee}, B.~J., {Piro}, A.~L., {Holoien}, T.~W.-S., {et~al.} 2016,
   \href{http://dx.doi.org/10.3847/0004-637X/826/2/144}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}826},
   \href{http://adsabs.harvard.edu/abs/2016ApJ...826..144S}{\color{blue}144}
