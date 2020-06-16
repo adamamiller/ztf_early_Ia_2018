@@ -408,10 +408,6 @@ Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
   \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...881...19J}{\color{blue}881},
   \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...881...19J}{\color{blue}19}
 
-\bibitem[{Jones {et~al.}(2001--)Jones, Oliphant, Peterson, {et~al.}}]{Jones01}
-Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
-  scientific tools for {Python}
-
 \bibitem[{{Kasen}(2010)}]{Kasen10a}
 {Kasen}, D. 2010,
   \href{http://dx.doi.org/10.1088/0004-637X/708/2/1025}{\color{magenta}\apj},
@@ -439,6 +435,13 @@ Jones, E., Oliphant, T., Peterson, P., {et~al.} 2001--, {SciPy}: Open source
   \href{http://dx.doi.org/10.1016/j.physrep.2018.02.002}{\color{magenta}\physrep},
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}736},
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}1}
+
+\bibitem[{{Magee} {et~al.}(2020){Magee}, {Maguire}, {Kotak}, {Sim},
+  {Gillanders}, {Prentice}, \& {Skillen}}]{Magee20}
+{Magee}, M.~R., {Maguire}, K., {Kotak}, R., {et~al.} 2020,
+  \href{http://dx.doi.org/10.1051/0004-6361/201936684}{\color{magenta}\aap},
+  \href{https://ui.adsabs.harvard.edu/abs/2020A&A...634A..37M}{\color{blue}634},
+  \href{https://ui.adsabs.harvard.edu/abs/2020A&A...634A..37M}{\color{blue}A37}
 
 \bibitem[{{Magee} {et~al.}(2018){Magee}, {Sim}, {Kotak}, \&
   {Kerzendorf}}]{Magee18}
@@ -698,6 +701,13 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
 
+\bibitem[{{Shappee} {et~al.}(2018){Shappee}, {Piro}, {Stanek}, {Patel},
+  {Margutti}, {Lipunov}, \& {Pogge}}]{Shappee18}
+{Shappee}, B.~J., {Piro}, A.~L., {Stanek}, K.~Z., {et~al.} 2018,
+  \href{http://dx.doi.org/10.3847/1538-4357/aaa1e9}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2018ApJ...855....6S}{\color{blue}855},
+  \href{https://ui.adsabs.harvard.edu/abs/2018ApJ...855....6S}{\color{blue}6}
+
 \bibitem[{{Shappee} {et~al.}(2016){Shappee}, {Piro}, {Holoien}, {Prieto},
   {Contreras}, {Itagaki}, {Burns}, {Kochanek}, {Stanek}, {Alper}, {Basu},
   {Beacom}, {Bersier}, {Brimacombe}, {Conseil}, {Danilet}, {Dong}, {Falco},
@@ -757,6 +767,18 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
 Spiegelhalter, D.~J., Best, N.~G., Carlin, B.~P., \& Van Der~Linde, A. 2002,
   Journal of the royal statistical society: Series b (statistical methodology),
   64, 583
+
+\bibitem[{{Virtanen} {et~al.}(2020){Virtanen}, {Gommers}, {Oliphant},
+  {Haberland}, {Reddy}, {Cournapeau}, {Burovski}, {Peterson}, {Weckesser},
+  {Bright}, {van der Walt}, {Brett}, {Wilson}, {Jarrod Millman}, {Mayorov},
+  {Nelson}, {Jones}, {Kern}, {Larson}, {Carey}, {Polat}, {Feng}, {Moore}, {Vand
+  erPlas}, {Laxalde}, {Perktold}, {Cimrman}, {Henriksen}, {Quintero}, {Harris},
+  {Archibald}, {Ribeiro}, {Pedregosa}, {van Mulbregt}, \&
+  {Contributors}}]{2020SciPy-NMeth}
+{Virtanen}, P., {Gommers}, R., {Oliphant}, T.~E., {et~al.} 2020,
+  \href{http://dx.doi.org/https://doi.org/10.1038/s41592-019-0686-2}{\color{magenta}Nature
+  Methods}, \href{https://rdcu.be/b08Wh}{\color{blue}17},
+  \href{https://rdcu.be/b08Wh}{\color{blue}261}
 
 \bibitem[{{Webbink}(1984)}]{Webbink84}
 {Webbink}, R.~F. 1984,
