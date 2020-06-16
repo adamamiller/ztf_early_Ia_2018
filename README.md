@@ -4,6 +4,9 @@ This (terribly organized) repository contains the software necessary to replicat
 
 A rough map of the relevant files is as follows:
 
- * [fit_just_early_lc.py](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/fit_just_early_lc.py) –– main script for fitting the power-law rise
- * [PlotPlayground.ipynb](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/PlotPlayground.ipynb) –– correlation plots (Figs 7, 9, 10) 
- * [MakeTables.ipynb](https://github.com/adamamiller/ztf_early_Ia_2018/blob/master/playground/MakeTables.ipynb) –– creates the TeX tables in the paper
+ * [fit_just_early_lc.py](playground/fit_just_early_lc.py) –– main script for fitting the power-law rise
+ * [mean_alpha.ipynb](playground/mean_alpha.ipynb) –– PDFs of model parameters (Figs 4, 5, 6) 
+ * [PlotPlayground.ipynb](playground/PlotPlayground.ipynb) –– correlation plots (Figs 7, 9, 10) 
+ * [playground/first_light_vs_first_detection.ipynb](playground/first_light_vs_first_detection.ipynb) –– systematic underestimation of rise time as a function of z (Fig 8) 
+ * [analyze_tsquared.ipynb](playground/analyze_tsquared.ipynb) –– results for the alpha=2 prior (Figs 11, 12) 
+ * [MakeTables.ipynb](playground/MakeTables.ipynb) –– creates the TeX tables in the paper
