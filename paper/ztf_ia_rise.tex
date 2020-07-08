@@ -469,11 +469,11 @@ gives rise to a bright ultraviolet/optical flash in the days after explosion
 typically results in a non-detection (e.g.,
 \citealt{Hayden10,Ganeshalingam11,Bianco11}).\footnote{There are claims of
 companion interaction based on short-lived optical ``bumps'' in the early
-light curves for individual SNe (e.g.,
+light curves of individual SNe (e.g.,
 \citealt{Cao15,Marion16,Hosseinzadeh17,Dimitriadis19}). Alternative models
-(e.g., \citealt{Dessart14,Piro16}) utilizing different physical scenarios can
-produce similar bumps, leading many (e.g.,
-\citealt{Kromer16,Shappee18,Noebauer17,Miller18,Shappee19}) to appeal to
+(e.g., \citealt{Dessart14,Piro16,Levanon17,Magee20a}) utilizing different
+physical scenarios can produce similar bumps, leading many (e.g.,
+\citealt{Kromer16,Noebauer17,Miller18,Shappee18,Shappee19}) to appeal to
 alternative explanations than ejecta-companion interaction.} For the DD
 scenario, some sub-$M_\mathrm{Ch}$ DD explosions exhibit a highly unusual
 color evolution, though this can only be observed a few days after explosion
@@ -525,8 +525,8 @@ reject, different explosion/ejecta-mixing scenarios \citet{Magee20}.
 
 In this paper, the second in a series of three examining the photometric
 evolution of 127 SNe Ia with early observations discovered by the Zwicky
-Transient Facility (ZTF; \citealt{Bellm19,Graham19,Dekany20}) in 2018, we examine the
-rise time of SNe Ia and whether or not their early emission can be
+Transient Facility (ZTF; \citealt{Bellm19,Graham19,Dekany20}) in 2018, we
+examine the rise time of SNe Ia and whether or not their early emission can be
 characterized as a simple power law. Paper I \citep{Yao19} describes the
 sample, while Paper III \citep{Bulla20} discusses the evolution of SNe Ia
 colors shortly after explosion. The sample, which is large, is equally
@@ -543,7 +543,7 @@ bias whereby the rise times of the higher redshift SNe within a flux-limited
 survey are typically underestimated. We show that the adoption of strong
 priors can, at least partially, alleviate this bias. Finally, we conclude with
 a discussion of lessons from ZTF that can be applied to the Vera C.~Rubin
-Observatory Large Survey of Space and Time (LSST).
+Observatory \edit1{Legacy} Survey of Space and Time (LSST).
 
 \section{ZTF Photometry}\label{sec:ztf}
 
@@ -561,26 +561,72 @@ more, in the SN rest frame, prior to the time of maximum light in the
 $B$-band, \tbmax) and have high quality light curves, the sample was reduced
 to 127 SNe (see \citealt{Yao19} for the full details).
 
-In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF) photometry
-for each of the 127 SNe on every image covering the position of the SN. The PSF
-model was generated as part of the ZTF real-time image subtraction pipeline
-\citep{Masci19}, which uses an image-differencing technique based on
-\citet{Zackay16}. The forced PSF photometry procedure fixes the position of each
-SN and measures the PSF flux in all images that contain the SN position, even in
-epochs where the signal-to-noise ratio (SNR)\,$\la 1$ and the SN is not detected.
+In \citet{Yao19}, we produced ``forced'' point-spread-function (PSF)
+photometry for each of the 127 SNe on every image covering the position of the
+SN. The PSF model was generated as part of the ZTF real-time image subtraction
+pipeline \citep{Masci19}, which uses an image-differencing technique based on
+\citet{Zackay16}. The forced PSF photometry procedure fixes the position of
+each SN and measures the PSF flux in all images that contain the SN position,
+even in epochs where the signal-to-noise ratio (SNR)\,$\la 1$ and the SN is
+not detected.
 
 We normalize the SN flux relative to the observed peak flux in the \gztf- and
-\rztf-bands as measured by \texttt{SALT2} (\citealt{Guy07}; see \citealt{Yao19}
-for our \texttt{SALT2} implementation details). The relative fluxes produced via
-this procedure are unique for every ZTF reference image (hereafter fcqf\,ID
-following the nomenclature in \citealt{Yao19}). The ZTF field grid includes some
-overlap, and SNe that occur in overlap regions will have multiple fcqf\,IDs for
-a single filter. Estimates of the baseline flux must account for the individual
-fcqf\,IDs. In \citet{Yao19}, this baseline flux, $C$, and $\chi^2_{\nu}$, which
-accounts for underestimated uncertainties in the flux measurements, are used to
-correct the results of the forced PSF photometry. For this study, we do not
-employ the corrections suggested in \citet{Yao19} and instead incorporate these
-values into our model so they can be marginalized over and effectively ignored.
+\rztf-bands as measured by \texttt{SALT2} (\citealt{Guy07}; see
+\citealt{Yao19} for our \texttt{SALT2} implementation details). The relative
+fluxes produced via this procedure are unique for every ZTF reference image
+(hereafter fcqf\,ID following the nomenclature in \citealt{Yao19}). The ZTF
+field grid includes some overlap, and SNe that occur in overlap regions will
+have multiple fcqf\,IDs for a single filter. Estimates of the baseline flux
+must account for the individual fcqf\,IDs. In \citet{Yao19}, this baseline
+flux, $C$, and $\chi^2_{\nu}$, which accounts for underestimated uncertainties
+in the flux measurements, are used to correct the results of the forced PSF
+photometry. For this study, we do not employ the corrections suggested in
+\citet{Yao19} and instead incorporate these values into our model so they can
+be marginalized over and effectively ignored.
+
+\section{A Search for Early Optical Flashes}\label{sec:flash}
+
+\edit1{We constrain the presence of extreme optical flashes in the initial
+phase of SNe\,Ia by searching our sample for sources with light curves that
+initially decline before following the typical rise of an SN\,Ia. While this
+simple criterion excludes events that exhibit an early bump, such as
+SNe\,2017cbv and 2018oh, ZTF has found SNe\,Ia with an early optical flash
+\citep[e.g., SN\,2019yvq;][]{Miller20a}. Furthermore, the detection of bumps,
+as opposed to ``flashes'' where the flux is observed to decline, requires
+physical models of the early emission \citep[e.g.,][]{Levanon17}, and cannot
+be captured by the empirical power-law models used in this study. A detailed
+search for ``bumps'' in the early light curves of this sample will be
+presented in a future study (M.~Deckers et al., in preparation).}
+
+\edit1{Of the 127 SNe in our sample, only two show a decline in flux following
+the epoch of discovery. When accounting for the uncertainties on the
+individual flux measurements, however, the observed decline in both
+ZTF18abklljv (SN\,2018lpk) and ZTF18abptsco (AT\,2018lpm) is statistically
+consistent with a constant flux during the first two nights of detection. We
+therefore conclude that an early optical flash is not detected in any of the
+SNe in our sample.}
+
+\edit1{While we have not detected an early flash in any of the SNe in our
+sample, we can still constrain the rate of such events using binonmial
+statistics. With no detections in 127 SNe, a naive estimate of the rate of
+optical flashes in SNe\,Ia is $\lesssim$3\%. However, not every SN in our
+sample is discovered sufficiently early to rule out the presence of a flash.
+Using the distance modulii from \citet{Yao19} and the host-galaxy reddening
+and $K$-corrections from \citet{Bulla20}, we split our sample based on the
+absolute magnitude at the epoch of discovery, and use these subsets to
+constrain the rate of optical flashes in SNe\,Ia as summarized in
+Table~\ref{tab:flash}.} 
+
+\input{./tables/flash_rate.tex}
+
+\edit1{With only 8 SNe fainter than $M = -15.5$\,mag at the epoch of
+discovery, we find a limit on faint optical flashes of $\lesssim$30\%. Flashes
+this faint are expected when the SN ejecta collide with main-sequence
+companions \citep[e.g.,][]{Kasen10a}. This limit is consistent with previous
+estimates \citep[e.g.,][]{Bianco11}, though not that constraining given that
+the companion-interaction signature is only expected in $\sim$10\% of SNe
+\citep{Kasen10a}.}
+
 
 \section{Modeling the Early Rise of SNe Ia}\label{sec:model}
 
@@ -1971,7 +2017,8 @@ conducted by COO, IPAC, and UW.
           \texttt{emcee} \citep{Foreman-Mackey13},
           \texttt{corner} \citep{Foreman-Mackey16},
           \texttt{SALT2} \citep{Guy07},
-          \texttt{sncosmo} \citep{Barbary16}
+          \texttt{sncosmo} \citep{Barbary16},
+          \texttt{statsmodels} \citep{Seabold10}
           }
 
 %% For this sample we use BibTeX plus aasjournals.bst to generate the

@@ -125,6 +125,11 @@
   \href{https://arxiv.org/abs/2001.00587}{\color{magenta}arXiv},
   \href{https://ui.adsabs.harvard.edu/abs/2020arXiv200100587B}{\color{blue}arXiv:2001.00587}
 
+\bibitem[{{Cai}(2005)}]{Cai05}
+{Cai}, T.~T. 2005,
+  \href{http://dx.doi.org/https://doi.org/10.1016/j.jspi.2004.01.005}{\color{magenta}Journal
+  of Statistical Planning and Inference}, 131, 63
+
 \bibitem[{{Cao} {et~al.}(2015){Cao}, {Kulkarni}, {Howell}, {Gal-Yam},
   {Kasliwal}, {Valenti}, {Johansson}, {Amanullah}, {Goobar}, {Sollerman},
   {Taddia}, {Horesh}, {Sagiv}, {Cenko}, {Nugent}, {Arcavi}, {Surace},
@@ -133,6 +138,11 @@
   \href{http://dx.doi.org/10.1038/nature14440}{\color{magenta}\nat},
   \href{http://adsabs.harvard.edu/abs/2015Natur.521..328C}{\color{blue}521},
   \href{http://adsabs.harvard.edu/abs/2015Natur.521..328C}{\color{blue}328}
+
+\bibitem[{{Clopper} \& {Pearson}(1934)}]{Clopper34}
+{Clopper}, C.~J., \& {Pearson}, E.~S. 1934,
+  \href{http://dx.doi.org/10.1093/biomet/26.4.404}{\color{magenta}Biometrika},
+  26, 404
 
 \bibitem[{{Conley} {et~al.}(2006){Conley}, {Howell}, {Howes}, {Sullivan},
   {Astier}, {Balam}, {Basa}, {Carlberg}, {Fouchez}, {Guy}, {Hook}, {Neill},
@@ -430,11 +440,22 @@ Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
   \href{http://adsabs.harvard.edu/abs/2016MNRAS.459.4428K}{\color{blue}459},
   \href{http://adsabs.harvard.edu/abs/2016MNRAS.459.4428K}{\color{blue}4428}
 
+\bibitem[{{Levanon} \& {Soker}(2017)}]{Levanon17}
+{Levanon}, N., \& {Soker}, N. 2017,
+  \href{http://dx.doi.org/10.1093/mnras/stx1387}{\color{magenta}\mnras},
+  \href{https://ui.adsabs.harvard.edu/abs/2017MNRAS.470.2510L}{\color{blue}470},
+  \href{https://ui.adsabs.harvard.edu/abs/2017MNRAS.470.2510L}{\color{blue}2510}
+
 \bibitem[{{Livio} \& {Mazzali}(2018)}]{Livio18}
 {Livio}, M., \& {Mazzali}, P. 2018,
   \href{http://dx.doi.org/10.1016/j.physrep.2018.02.002}{\color{magenta}\physrep},
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}736},
   \href{https://ui.adsabs.harvard.edu/abs/2018PhR...736....1L}{\color{blue}1}
+
+\bibitem[{{Magee} \& {Maguire}(2020)}]{Magee20a}
+{Magee}, M.~R., \& {Maguire}, K. 2020,
+  \href{https://arxiv.org/abs/2007.02101}{\color{magenta}arXiv},
+  \href{https://ui.adsabs.harvard.edu/abs/2020arXiv200702101M}{\color{blue}arXiv:2007.02101}
 
 \bibitem[{{Magee} {et~al.}(2020){Magee}, {Maguire}, {Kotak}, {Sim},
   {Gillanders}, {Prentice}, \& {Skillen}}]{Magee20}
@@ -499,6 +520,17 @@ McKinney, W. 2010, 51
   \href{http://dx.doi.org/10.3847/1538-4357/aaa01f}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...852..100M}{\color{blue}852},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...852..100M}{\color{blue}100}
+
+\bibitem[{{Miller} {et~al.}(2020){Miller}, {Magee}, {Polin}, {Maguire},
+  {Zimmerman}, {Yao}, {Sollerman}, {Schulze}, {Perley}, {Kromer}, {Bulla},
+  {Andreoni}, {Bellm}, {De}, {Dekany}, {Delacroix}, {Dhawan}, {Fremling},
+  {Gal-Yam}, {Goldstein}, {Golkhou}, {Goobar}, {Graham}, {Irani}, {Kasliwal},
+  {Kaye}, {Kim}, {Laher}, {Mahabal}, {Masci}, {Nugent}, {Ofek}, {Phinney},
+  {Prentice}, {Riddle}, {Rigault}, {Rusholme}, {Schweyer}, {Shupe},
+  {Soumagnac}, {Walters}, {Yan}, {Zolkower}, \& {Kulkarni}}]{Miller20a}
+{Miller}, A.~A., {Magee}, M.~R., {Polin}, A., {et~al.} 2020,
+  \href{https://arxiv.org/abs/2005.05972}{\color{magenta}arXiv},
+  \href{https://ui.adsabs.harvard.edu/abs/2020arXiv200505972M}{\color{blue}arXiv:2005.05972}
 
 \bibitem[{{Noebauer} {et~al.}(2017){Noebauer}, {Kromer}, {Taubenberger},
   {Baklanov}, {Blinnikov}, {Sorokina}, \& {Hillebrandt}}]{Noebauer17}
@@ -700,6 +732,9 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.3847/1538-4357/aab9bb}{\color{magenta}\apj},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}859},
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
+
+\bibitem[{Seabold \& Perktold(2010)}]{Seabold10}
+Seabold, S., \& Perktold, J. 2010
 
 \bibitem[{{Shappee} {et~al.}(2018){Shappee}, {Piro}, {Stanek}, {Patel},
   {Margutti}, {Lipunov}, \& {Pogge}}]{Shappee18}
