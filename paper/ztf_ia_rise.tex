@@ -756,7 +756,7 @@ fitting (see e.g., \citealt{Bulla20}).
     maximum a posteriori model is shown via a thick solid line, while random
     draws from the posterior are shown with semi-transparent dashed lines. The
     vertical dashed line shows the median 1-D marginalized posterior value of
-    \tfl, while the thin, light grey vertical line shows \tfl\ for the maximum
+    \tfl, while the thin, light gray vertical line shows \tfl\ for the maximum
     a posteriori model. The bottom panel shows residuals normalized by their
     uncertainties (pull) relative to the maximum a posteriori model, where the
     factor $\beta_d$ has been included in the calculation of the pull.}
@@ -852,7 +852,7 @@ uncertainties in making the final estimation of \trise.
     divided into three groups \edit1{(as described \ref{sec:qa}): thick,
     orange lines show SNe from the reliable-$z_\mathrm{host}$ group (top
     panel), dark blue lines show SNe from the reliable-$z_\mathrm{SN}$ group
-    (middle panel), and thin grey lines show SNe from the unreliable group
+    (middle panel), and thin gray lines show SNe from the unreliable group
     (bottom panel).} From the individual PDFs it is clear that there is no
     support for a single mean $t_\mathrm{rise}$ to describe every SN in the
     sample.}
@@ -1039,7 +1039,7 @@ Figure~\ref{fig:model_parameters}).
     $\alpha_r$ vs.~$z$ or $t_\mathrm{rise}$ vs.~$\alpha_g$, as these would
     largely be redundant given the very strong correlation between $\alpha_g$
     and $\alpha_r$ (upper right panel). The sample has been divided into three
-    groups: small, light grey circles show SNe from the unreliable group (see
+    groups: small, light gray circles show SNe from the unreliable group (see
     \ref{sec:qa}), dark blue circles show the reliable-$z_\mathrm{SN}$ group,
     and large orange circles show the reliable-$z_\mathrm{host}$ group. The
     plots show that redshift is correlated with both $t_\mathrm{rise}$ and
@@ -1117,7 +1117,7 @@ shown in Figure~\ref{fig:high_z_systematic}.
     \includegraphics[width=1\linewidth]{./figures/high_z_systematic.pdf}
     %
     \caption{Same as the bottom left panel of
-    Figure~\ref{fig:model_parameters}, though all SNe are shown in grey. The
+    Figure~\ref{fig:model_parameters}, though all SNe are shown in gray. The
     large green circle, magenta diamond, orange triangle, and purple $X$ show
     how marginalized posterior estimates of \trise\ change as the four lowest
     redshift SNe are observed at $z = 0.05$, 0.075, 0.1, and 0.15 (see text
@@ -1309,8 +1309,9 @@ One consequence of this choice is that visual inspection of the posterior
 predictive flux values reveals that there are far fewer SNe with unreliable
 model parameters. When using the $\alpha = 2$ prior, we only flag SNe with an
 extrapolated flux using the maximum a posteriori model parameters $< 0.9
-f_\mathrm{max}$ at \tbmax\ as having unreliable model parameters. From this
-criterion only 5 SNe are identified as having unreliable model parameters.
+f_\mathrm{max}$ \edit1{at $T_{g,\mathrm{max}}$ as} having unreliable model
+parameters. From this criterion only 5 SNe are identified as having unreliable
+model parameters.
 
 \input{./tables/alpha2.tex}
 
@@ -1329,18 +1330,37 @@ criterion only 5 SNe are identified as having unreliable model parameters.
     \label{fig:tsquared_rise}
 \end{figure}
 
-Figure~\ref{fig:tsquared_rise} shows rise times that are significantly longer,
-on average $\sim$3\,d, than those inferred from the uninformative prior (see
-Figure~\ref{fig:rise_time}). Adopting the $\alpha = 2$ prior also leads to far
-more SNe with narrow PDFs for \trise. Multiplying the individual likelihoods
-for \trise\ does not provide support for a single mean rise time. Following
-the same approach described in \S\ref{sec:mean_rise}, we find a population
-mean \trise\;$\approx 21.0$\,d, with a corresponding population scatter of
-$\sim$1.8\,d for the $\alpha = 2$ prior (see Table~\ref{tab:mean_params}).
-Another consequence of adopting the $\alpha = 2$ prior is that a small handful
-($\sim$5--6) of SNe have rise times consistent with 26\,d, which is
-considerably longer than the rise times inferred in any previous study of
-normal SNe Ia.
+\edit1{Figure~\ref{fig:trise_prior} shows how the inferred rise time changes
+when adopting the $\alpha = 2$ prior instead of the uninformative prior for
+every SN in our sample. The $\alpha = 2$ prior leads to larger rise times in
+each individual SN, with an average increase of $\sim$3\,d in \trise.}
+Adopting the $\alpha = 2$ prior also leads to far more SNe with narrow PDFs
+for \trise\ \edit1{(compare Figures~\ref{fig:tsquared_rise}
+and~\ref{fig:rise_time}).}
+
+Multiplying the individual likelihoods for \trise\ does not provide support
+for a single mean rise time. Following the same approach described in
+\S\ref{sec:mean_rise}, we find a population mean \trise\;$\approx 21.0$\,d,
+with a corresponding population scatter of $\sim$1.8\,d for the $\alpha = 2$
+prior (see Table~\ref{tab:mean_params}). Another consequence of adopting the
+$\alpha = 2$ prior is that a small handful ($\sim$5--6) of SNe have rise times
+consistent with 26\,d, which is considerably longer than the rise times
+inferred in any previous study of normal SNe Ia.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{./figures/trise_vs_prior.pdf}
+    %
+    \caption{\edit1{Comparison of the rise time inferred when adopting the
+    uninformative prior and the $\alpha = 2$ prior for the 120 normal SNe in
+    our sample. Adoption of the $\alpha = 2$ prior leads to larger values of
+    \trise\ for every SN, with an average increase of $\sim$3\,d. The
+    individual lines are colored orange, dark blue, and gray for the
+    uninformative prior reliable-$z_\mathrm{host}$, reliable-$z_\mathrm{SN}$,
+    and unreliable groups, respectively.}}
+    %
+    \label{fig:trise_prior}
+\end{figure}
 
 Figure~\ref{fig:tsquared_z_evolution} shows \trise\ as a function of redshift
 (left) and $x_1$ (right) when adopting the $\alpha = 2$ prior. The previously
@@ -1350,7 +1370,7 @@ parameters is $\rho \la 0.2$ for the full sample, and the reliable and
 reliable-$z_\mathrm{host}$ subsamples. The model is, in effect, no longer
 flexible enough to systematically adjust \tfl\ to be approximately equal to
 the epoch of first detection. The removal of this particular bias provides a
-benefit of fixing $\alpha = 2$.
+\edit1{potential} benefit of fixing $\alpha = 2$.
 
 \begin{figure*}
     \centering
