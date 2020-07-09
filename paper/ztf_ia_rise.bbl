@@ -4,6 +4,9 @@
 \providecommand{\dodoi}[1]{}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
+\bibitem[{Akaike(1973)}]{Akaike73}
+Akaike, H. 1973 (Budapest: Akad{\'e}miai Kiad{\'o}), 267
+
 \bibitem[{{Aldering} {et~al.}(2000){Aldering}, {Knop}, \&
   {Nugent}}]{Aldering00}
 {Aldering}, G., {Knop}, R., \& {Nugent}, P. 2000,
@@ -264,6 +267,9 @@ Foreman-Mackey, D. 2016,
   \href{http://dx.doi.org/10.1088/0067-0049/190/2/418}{\color{magenta}\apjs},
   \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}190},
   \href{http://adsabs.harvard.edu/abs/2010ApJS..190..418G}{\color{blue}418}
+
+\bibitem[{Gelman {et~al.}(2014)Gelman, Hwang, \& Vehtari}]{Gelman14}
+Gelman, A., Hwang, J., \& Vehtari, A. 2014, Statistics and computing, 24, 997
 
 \bibitem[{{Gonz{\'a}lez-Gait{\'a}n} {et~al.}(2012){Gonz{\'a}lez-Gait{\'a}n},
   {Conley}, {Bianco}, {Howell}, {Sullivan}, {Perrett}, {Carlberg}, {Astier},
@@ -720,6 +726,9 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://dx.doi.org/10.1088/0004-637X/713/2/1073}{\color{magenta}\apj},
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}713},
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}1073}
+
+\bibitem[{{Schwarz}(1978)}]{Schwarz78}
+{Schwarz}, G. 1978, The annals of statistics, 6, 461
 
 \bibitem[{{Scolnic} {et~al.}(2018){Scolnic}, {Jones}, {Rest}, {Pan},
   {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},

@@ -1470,12 +1470,20 @@ $$D(\theta) = -2 \ln (p(x\mid \theta)) + C,$$
 %
 where $\theta$ are the model parameters, $x$ are the observations, $p(x\mid
 \theta)$ is the likelihood, and $C$ is a constant that will drop out following
-model comparison. From here, the effective number\footnote{We adopt the
-Deviance Information Criterion, as opposed to the Akaike or Bayesian
-Information Criteria because our model includes many nuisance parameters that
-we ultimately marginalize over for our final inference. The DIC more naturally
-accounts for these marginalized parameters.} of model parameters $p_D$ can be
-calculated as:
+model comparison. From here, the effective number\footnote{\edit1{Many model
+selection techniques based on information criteria, such as the Akaike
+information criterion \citep[AIC;][]{Akaike73} or ``Bayesian'' information
+criterion \citep[BIC;][]{Schwarz78}, include a point estimate of the maximized
+likelihood and then subtract a penalty term related to the total number of
+parameters in the model. These methods aim to balance the goodness of fit
+while regulating the overall model complexity. The AIC and BIC cannot,
+however, easily be applied to the models adopted here, as the use of an
+informative prior distributions reduces the amount of overfitting and produces
+an ``effective'' number of parameters that is smaller than the number of
+variables in the parameterized model \citep{Gelman14}. We adopt the DIC, as
+opposed to the AIC or BIC, because it effectively marginalizes over the
+nuissance parameters and applies to the full set of posterior predictions.}}
+of model parameters $p_D$ can be calculated as:
 %
 $$p_D = \langle D(\theta) \rangle - D(\langle \theta \rangle),$$
 %
