@@ -367,25 +367,60 @@ Hunter, J.~D. 2007,
   \href{http://dx.doi.org/10.1109/MCSE.2007.55}{\color{magenta}Computing In
   Science \& Engineering}, 9, 90
 
-\bibitem[{{Ivezi{\'c}} {et~al.}(2008){Ivezi{\'c}}, {Tyson}, {Acosta},
-  {Allsman}, {Anderson}, {Andrew}, {Angel}, {Axelrod}, {Barr}, {Becker},
-  {Becla}, {Beldica}, {Blandford}, {Bloom}, {Borne}, {Brandt}, {Brown},
-  {Bullock}, {Burke}, {Chandrasekharan}, {Chesley}, {Claver}, {Connolly},
-  {Cook}, {Cooray}, {Covey}, {Cribbs}, {Cutri}, {Daues}, {Delgado}, {Ferguson},
-  {Gawiser}, {Geary}, {Gee}, {Geha}, {Gibson}, {Gilmore}, {Gressler}, {Hogan},
-  {Huffer}, {Jacoby}, {Jain}, {Jernigan}, {Jones}, {Juric}, {Kahn}, {Kalirai},
-  {Kantor}, {Kessler}, {Kirkby}, {Knox}, {Krabbendam}, {Krughoff}, {Kulkarni},
-  {Lambert}, {Levine}, {Liang}, {Lim}, {Lupton}, {Marshall}, {Marshall}, {May},
-  {Miller}, {Mills}, {Monet}, {Neill}, {Nordby}, {O'Connor}, {Oliver},
-  {Olivier}, {Olsen}, {Owen}, {Peterson}, {Petry}, {Pierfederici},
-  {Pietrowicz}, {Pike}, {Pinto}, {Plante}, {Radeka}, {Rasmussen}, {Ridgway},
-  {Rosing}, {Saha}, {Schalk}, {Schindler}, {Schneider}, {Schumacher}, {Sebag},
-  {Seppala}, {Shipsey}, {Silvestri}, {Smith}, {Smith}, {Strauss}, {Stubbs},
-  {Sweeney}, {Szalay}, {Thaler}, {Vanden Berk}, {Walkowicz}, {Warner},
-  {Willman}, {Wittman}, {Wolff}, {Wood-Vasey}, {Yoachim}, {Zhan}, \& {for the
-  LSST Collaboration}}]{Ivezic08}
-{Ivezi{\'c}}, {\v Z}., {Tyson}, J.~A., {Acosta}, E., {et~al.} 2008, ArXiv
-  e-prints
+\bibitem[{{Ivezi{\'c}} {et~al.}(2019){Ivezi{\'c}}, {Kahn}, {Tyson}, {Abel},
+  {Acosta}, {Allsman}, {Alonso}, {AlSayyad}, {Anderson}, {Andrew}, {Angel},
+  {Angeli}, {Ansari}, {Antilogus}, {Araujo}, {Armstrong}, {Arndt}, {Astier},
+  {Aubourg}, {Auza}, {Axelrod}, {Bard}, {Barr}, {Barrau}, {Bartlett}, {Bauer},
+  {Bauman}, {Baumont}, {Bechtol}, {Bechtol}, {Becker}, {Becla}, {Beldica},
+  {Bellavia}, {Bianco}, {Biswas}, {Blanc}, {Blazek}, {Bland ford}, {Bloom},
+  {Bogart}, {Bond}, {Booth}, {Borgland}, {Borne}, {Bosch}, {Boutigny},
+  {Brackett}, {Bradshaw}, {Brand t}, {Brown}, {Bullock}, {Burchat}, {Burke},
+  {Cagnoli}, {Calabrese}, {Callahan}, {Callen}, {Carlin}, {Carlson}, {Chand
+  rasekharan}, {Charles-Emerson}, {Chesley}, {Cheu}, {Chiang}, {Chiang},
+  {Chirino}, {Chow}, {Ciardi}, {Claver}, {Cohen-Tanugi}, {Cockrum}, {Coles},
+  {Connolly}, {Cook}, {Cooray}, {Covey}, {Cribbs}, {Cui}, {Cutri}, {Daly},
+  {Daniel}, {Daruich}, {Daubard}, {Daues}, {Dawson}, {Delgado}, {Dellapenna},
+  {de Peyster}, {de Val-Borro}, {Digel}, {Doherty}, {Dubois},
+  {Dubois-Felsmann}, {Durech}, {Economou}, {Eifler}, {Eracleous}, {Emmons},
+  {Fausti Neto}, {Ferguson}, {Figueroa}, {Fisher-Levine}, {Focke}, {Foss},
+  {Frank}, {Freemon}, {Gangler}, {Gawiser}, {Geary}, {Gee}, {Geha}, {Gessner},
+  {Gibson}, {Gilmore}, {Glanzman}, {Glick}, {Goldina}, {Goldstein}, {Goodenow},
+  {Graham}, {Gressler}, {Gris}, {Guy}, {Guyonnet}, {Haller}, {Harris},
+  {Hascall}, {Haupt}, {Hernand ez}, {Herrmann}, {Hileman}, {Hoblitt},
+  {Hodgson}, {Hogan}, {Howard}, {Huang}, {Huffer}, {Ingraham}, {Innes},
+  {Jacoby}, {Jain}, {Jammes}, {Jee}, {Jenness}, {Jernigan}, {Jevremovi{\'c}},
+  {Johns}, {Johnson}, {Johnson}, {Jones}, {Juramy-Gilles}, {Juri{\'c}},
+  {Kalirai}, {Kallivayalil}, {Kalmbach}, {Kantor}, {Karst}, {Kasliwal},
+  {Kelly}, {Kessler}, {Kinnison}, {Kirkby}, {Knox}, {Kotov}, {Krabbendam},
+  {Krughoff}, {Kub{\'a}nek}, {Kuczewski}, {Kulkarni}, {Ku}, {Kurita}, {Lage},
+  {Lambert}, {Lange}, {Langton}, {Le Guillou}, {Levine}, {Liang}, {Lim},
+  {Lintott}, {Long}, {Lopez}, {Lotz}, {Lupton}, {Lust}, {MacArthur}, {Mahabal},
+  {Mand elbaum}, {Markiewicz}, {Marsh}, {Marshall}, {Marshall}, {May},
+  {McKercher}, {McQueen}, {Meyers}, {Migliore}, {Miller}, {Mills}, {Miraval},
+  {Moeyens}, {Moolekamp}, {Monet}, {Moniez}, {Monkewitz}, {Montgomery},
+  {Morrison}, {Mueller}, {Muller}, {Mu{\~n}oz Arancibia}, {Neill}, {Newbry},
+  {Nief}, {Nomerotski}, {Nordby}, {O'Connor}, {Oliver}, {Olivier}, {Olsen},
+  {O'Mullane}, {Ortiz}, {Osier}, {Owen}, {Pain}, {Palecek}, {Parejko},
+  {Parsons}, {Pease}, {Peterson}, {Peterson}, {Petravick}, {Libby Petrick},
+  {Petry}, {Pierfederici}, {Pietrowicz}, {Pike}, {Pinto}, {Plante}, {Plate},
+  {Plutchak}, {Price}, {Prouza}, {Radeka}, {Rajagopal}, {Rasmussen},
+  {Regnault}, {Reil}, {Reiss}, {Reuter}, {Ridgway}, {Riot}, {Ritz}, {Robinson},
+  {Roby}, {Roodman}, {Rosing}, {Roucelle}, {Rumore}, {Russo}, {Saha},
+  {Sassolas}, {Schalk}, {Schellart}, {Schindler}, {Schmidt}, {Schneider},
+  {Schneider}, {Schoening}, {Schumacher}, {Schwamb}, {Sebag}, {Selvy},
+  {Sembroski}, {Seppala}, {Serio}, {Serrano}, {Shaw}, {Shipsey}, {Sick},
+  {Silvestri}, {Slater}, {Smith}, {Smith}, {Sobhani}, {Soldahl},
+  {Storrie-Lombardi}, {Stover}, {Strauss}, {Street}, {Stubbs}, {Sullivan},
+  {Sweeney}, {Swinbank}, {Szalay}, {Takacs}, {Tether}, {Thaler}, {Thayer},
+  {Thomas}, {Thornton}, {Thukral}, {Tice}, {Trilling}, {Turri}, {Van Berg},
+  {Vanden Berk}, {Vetter}, {Virieux}, {Vucina}, {Wahl}, {Walkowicz}, {Walsh},
+  {Walter}, {Wang}, {Wang}, {Warner}, {Wiecha}, {Willman}, {Winters},
+  {Wittman}, {Wolff}, {Wood-Vasey}, {Wu}, {Xin}, {Yoachim}, \&
+  {Zhan}}]{Ivezic19}
+{Ivezi{\'c}}, {\v{Z}}., {Kahn}, S.~M., {Tyson}, J.~A., {et~al.} 2019,
+  \href{http://dx.doi.org/10.3847/1538-4357/ab042c}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I}{\color{blue}873},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I}{\color{blue}111}
 
 \bibitem[{Jeffreys(1946)}]{Jeffreys46}
 Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
@@ -728,7 +763,7 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{https://ui.adsabs.harvard.edu/abs/2010ApJ...713.1073S}{\color{blue}1073}
 
 \bibitem[{{Schwarz}(1978)}]{Schwarz78}
-{Schwarz}, G. 1978, The annals of statistics, 6, 461
+{Schwarz}, G. 1978, The Annals of Statistics, 6, 461
 
 \bibitem[{{Scolnic} {et~al.}(2018){Scolnic}, {Jones}, {Rest}, {Pan},
   {Chornock}, {Foley}, {Huber}, {Kessler}, {Narayan}, {Riess}, {Rodney},
