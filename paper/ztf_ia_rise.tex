@@ -598,16 +598,16 @@ be captured by the empirical power-law models used in this study. A detailed
 search for ``bumps'' in the early light curves of this sample will be
 presented in a future study (M.~Deckers et al., in preparation).}
 
-\edit1{Of the 127 SNe in our sample, only two show a decline in flux following
-the epoch of discovery. When accounting for the uncertainties on the
-individual flux measurements, however, the observed decline in both
-ZTF18abklljv (SN\,2018lpk) and ZTF18abptsco (AT\,2018lpm) is statistically
-consistent with a constant flux during the first two nights of detection. We
-therefore conclude that an early optical flash is not detected in any of the
-SNe in our sample.}
+\edit1{Of the 127 SNe in our sample, only two (ZTF18abklljv and ZTF18abptsco)
+show a decline in flux following the epoch of discovery. When accounting for
+the uncertainties on the individual flux measurements, however, the observed
+decline in both ZTF18abklljv (SN\,2018lpk) and ZTF18abptsco (AT\,2018lpm) is
+statistically consistent with a constant flux during the first two nights of
+detection. We therefore conclude that an early optical flash is not detected
+in any of the SNe in our sample.}
 
 \edit1{While we have not detected an early flash in any of the SNe in our
-sample, we can still constrain the rate of such events using binonmial
+sample, we can still constrain the rate of such events using binomial
 statistics. With no detections in 127 SNe, a naive estimate of the rate of
 optical flashes in SNe\,Ia is $\lesssim$3\%. However, not every SN in our
 sample is discovered sufficiently early to rule out the presence of a flash.
@@ -788,24 +788,26 @@ fitting (see e.g., \citealt{Bulla20}).
     \caption{\textit{Top}: Corner plot showing the posterior constraints on
     \tfl, $\alpha_g$, $\alpha_r$, and the respective constants of
     proportionality, $A_g^\prime$ and $A_r^\prime$ for ZTF18abgmcmv
-    (SN\,2018eay). ZTF18abgmcmv is a SN that is well fit by the model. For
-    clarity, the $C_d$ and $\beta_d$ terms are excluded (in general they do
-    not exhibit strong covariance with the parameters shown here as they are
-    tightly constrained by the pre-SN observations). Marginalized
-    one-dimensional distributions are shown along the diagonal, along with the
-    median estimate and the 90\% credible region (shown with vertical dashed
-    lines). \textit{Bottom}: ZTF light curve for ZTF18abgmcmv showing the
-    \gztf\ (filled, green circles) and \rztf\ (open, red circles) evolution of
-    the SN in the month prior to \tbmax. Observations included in the model
-    fitting (i.e., those with $f \le 0.4 f_\mathrm{max}$) are dark and solid,
-    while those that are not included are faint and semi-transparent. The
-    maximum a posteriori model is shown via a thick solid line, while random
-    draws from the posterior are shown with semi-transparent dashed lines. The
-    vertical dashed line shows the median 1-D marginalized posterior value of
-    \tfl, while the thin, light gray vertical line shows \tfl\ for the maximum
-    a posteriori model. The bottom panel shows residuals normalized by their
-    uncertainties (pull) relative to the maximum a posteriori model, where the
-    factor $\beta_d$ has been included in the calculation of the pull.}
+    (SN\,2018eay). ZTF18abgmcmv is well fit by the model. For clarity, the
+    $C_d$ and $\beta_d$ terms are excluded (in general they do not exhibit
+    strong covariance with the parameters shown here as they are tightly
+    constrained by the pre-SN observations). Marginalized one-dimensional
+    distributions are shown along the diagonal, along with the median estimate
+    and the 90\% credible region (shown with vertical dashed lines).
+    \textit{Bottom}: ZTF light curve for ZTF18abgmcmv showing the \gztf\
+    (filled, green circles) and \rztf\ (open, red circles) evolution of the SN
+    in the month prior to \tbmax. Observations included in the model fitting
+    (i.e., those with $f \le 0.4 f_\mathrm{max}$) are dark and solid, while
+    those that are not included are faint and semi-transparent. The maximum a
+    posteriori model is shown via a thick solid line, while random draws from
+    the posterior are shown with semi-transparent dashed lines. The vertical
+    dashed line shows the median 1-D marginalized posterior value of \tfl,
+    while the thin, light gray vertical line shows \tfl\ for the maximum a
+    posteriori model \edit1{(these values are nearly identical for this SN,
+    and the thin gray line is not visible)}. The bottom panel shows residuals
+    normalized by their uncertainties (pull) relative to the maximum a
+    posteriori model, where the factor $\beta_d$ has been included in the
+    calculation of the pull.}
     %
     \label{fig:corner_good}
 \end{figure*}
@@ -815,7 +817,10 @@ fitting (see e.g., \citealt{Bulla20}).
     \includegraphics[width=5.2in]{./figures/Fig2.pdf}
     %
     \caption{Same as Figure~\ref{fig:corner_good} for ZTF18abukmty
-    (SN\,2018lpz), a typical SN in our sample.}
+    (SN\,2018lpz), a typical SN in our sample. \edit1{For ZTF18abukmty the
+    median 1-D marginalized posterior value of \tfl\ and the the maximum a
+    posteriori value of \tfl\ are nearly identical, so the thin
+    gray line showing the latter is not visible}. }
     %
     \label{fig:corner_median}
 \end{figure*}
@@ -874,7 +879,7 @@ this study \trise\ represents the rise time to $B$-band maximum, as we measure
 time relative to \tbmax\ and assume \tfl\ is the same in the $B$, \gztf, and
 \rztf\ filters. \edit1{This assumption is reasonable given that the opacities
 in a SN photosphere at frequencies $\lesssim 10^{15}$\,Hz are dominated by
-Thomson scattering \citep[see Figure~8 in][]{Magee18}. Furthermore, the
+Thomson scattering \citep[see Figure~6 in][]{Magee18}. Furthermore, the
 significant overlap between the $B$- and \gztf-bands suggests that \tfl\
 should be extremely similar, if not identical, in these two filters.} } An
 estimate of \trise\ must therefore account for the uncertainties on both \tfl\
@@ -2204,7 +2209,10 @@ early rise with $\alpha_g = 0.95 \pm^{0.32}_{0.19}$ and $\alpha_r = 0.98
     \caption{Same as the bottom panel of Figure~\ref{fig:corner_good} for
     ZTF18abclfee (SN\,2018cxk), an 02cx-like SN with strong constraints on
     \tfl, and a short rise time ($\sim$10\,d). ZTF18abclfee has the tightest
-    constraints on \trise\ of all 02cx-like SNe observed to date.}
+    constraints on \trise\ of all 02cx-like SNe observed to date. \edit1{The
+    median 1-D marginalized posterior value of \tfl\ and the the maximum a
+    posteriori value of \tfl\ are nearly identical for ZTF18abclfee, so the
+    thin gray line showing the latter is not visible.}}
     %
     \label{fig:02cx}
 \end{figure}
