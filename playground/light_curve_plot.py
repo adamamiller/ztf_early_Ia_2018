@@ -16,7 +16,8 @@ def plot_both_filt(theta,
                    obs_for_model,
                    samples, samp_nums,
                    landscape=False, 
-                   poster=False
+                   poster=False,
+                   gmax=False
                   ):
 
     color_dict = {b'r': 'Crimson',
@@ -126,7 +127,11 @@ def plot_both_filt(theta,
     axPlot.tick_params(right=True, top=True, bottom=False, which='both', labelsize=11)
     
     axRes.set_xlim(-30, 1)
-    axRes.set_xlabel('$t - t_{B,\mathrm{max}} \; (\mathrm{restframe \; d})$', fontsize=14)
+    if not gmax:
+        axRes.set_xlabel('$t - T_{B,\mathrm{max}} \; (\mathrm{restframe \; d})$', fontsize=14)
+    else:
+        axRes.set_xlabel('$t - T_{g,\mathrm{max}} \; (\mathrm{restframe \; d})$', fontsize=14)
+        
     axRes.set_ylabel('$\mathrm{pull}$', fontsize=14)
     axRes.xaxis.set_minor_locator(MultipleLocator(1))
     axRes.yaxis.set_minor_locator(MultipleLocator(np.mean(np.diff(axRes.get_yticks()))/2))
@@ -169,6 +174,10 @@ def plot_both_filt(theta,
     plt.setp(axPlot.get_xticklabels(), visible=False)
     fig.align_ylabels()
     fig.subplots_adjust(hspace=0.04,
+                        left=0.108, right=0.99, top=0.986, bottom=0.106)
+
+    if landscape:
+        fig.subplots_adjust(hspace=0.04,
                         left=0.08, right=0.99, top=0.98)
     
     if poster:
