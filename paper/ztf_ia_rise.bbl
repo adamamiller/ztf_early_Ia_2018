@@ -317,6 +317,13 @@ Gelman, A., Hwang, J., \& Vehtari, A. 2014, Statistics and computing, 24, 997
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}131},
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131g8001G}{\color{blue}078001}
 
+\bibitem[{{Gronow} {et~al.}(2020){Gronow}, {Collins}, {Ohlmann}, {Pakmor},
+  {Kromer}, {Seitenzahl}, {Sim}, \& {R{\"o}pke}}]{Gronow20}
+{Gronow}, S., {Collins}, C., {Ohlmann}, S.~T., {et~al.} 2020,
+  \href{http://dx.doi.org/10.1051/0004-6361/201936494}{\color{magenta}\aap},
+  \href{https://ui.adsabs.harvard.edu/abs/2020A&A...635A.169G}{\color{blue}635},
+  \href{https://ui.adsabs.harvard.edu/abs/2020A&A...635A.169G}{\color{blue}A169}
+
 \bibitem[{{Guy} {et~al.}(2007){Guy}, {Astier}, {Baumont}, {Hardin}, {Pain},
   {Regnault}, {Basa}, {Carlberg}, {Conley}, {Fabbro}, {Fouchez}, {Hook},
   {Howell}, {Perrett}, {Pritchet}, {Rich}, {Sullivan}, {Antilogus}, {Aubourg},
@@ -834,6 +841,14 @@ Seabold, S., \& Perktold, J. 2010
   \href{http://adsabs.harvard.edu/abs/2013ApJS..207....3S}{\color{blue}207},
   \href{http://adsabs.harvard.edu/abs/2013ApJS..207....3S}{\color{blue}3}
 
+\bibitem[{{Sim} {et~al.}(2013){Sim}, {Seitenzahl}, {Kromer},
+  {Ciaraldi-Schoolmann}, {R{\"o}pke}, {Fink}, {Hillebrandt}, {Pakmor},
+  {Ruiter}, \& {Taubenberger}}]{Sim13}
+{Sim}, S.~A., {Seitenzahl}, I.~R., {Kromer}, M., {et~al.} 2013,
+  \href{http://dx.doi.org/10.1093/mnras/stt1574}{\color{magenta}\mnras},
+  \href{https://ui.adsabs.harvard.edu/abs/2013MNRAS.436..333S}{\color{blue}436},
+  \href{https://ui.adsabs.harvard.edu/abs/2013MNRAS.436..333S}{\color{blue}333}
+
 \bibitem[{{Soker} {et~al.}(2013){Soker}, {Kashi}, {Garc{\'\i}a-Berro},
   {Torres}, \& {Camacho}}]{Soker13}
 {Soker}, N., {Kashi}, A., {Garc{\'\i}a-Berro}, E., {et~al.} 2013,
@@ -846,6 +861,13 @@ Seabold, S., \& Perktold, J. 2010
 Spiegelhalter, D.~J., Best, N.~G., Carlin, B.~P., \& Van Der~Linde, A. 2002,
   Journal of the royal statistical society: Series b (statistical methodology),
   64, 583
+
+\bibitem[{{Townsley} {et~al.}(2019){Townsley}, {Miles}, {Shen}, \&
+  {Kasen}}]{Townsley19}
+{Townsley}, D.~M., {Miles}, B.~J., {Shen}, K.~J., \& {Kasen}, D. 2019,
+  \href{http://dx.doi.org/10.3847/2041-8213/ab27cd}{\color{magenta}\apjl},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...878L..38T}{\color{blue}878},
+  \href{https://ui.adsabs.harvard.edu/abs/2019ApJ...878L..38T}{\color{blue}L38}
 
 \bibitem[{{Virtanen} {et~al.}(2020){Virtanen}, {Gommers}, {Oliphant},
   {Haberland}, {Reddy}, {Cournapeau}, {Burovski}, {Peterson}, {Weckesser},
