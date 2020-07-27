@@ -23,7 +23,7 @@
 %%
 %%
 %% using aastex version 6.3
-\documentclass[twocolumn]{aastex63}
+\documentclass[twocolumn]{./aastex63}
 
 \usepackage{amsmath}
 \usepackage{empheq}
@@ -128,8 +128,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
-\received{\today}
-% \revised{January 10, 2019}
+\received{January 17, 2020}
+\revised{\today}
 % \accepted{\today}
 %% Command to document which AAS Journal the manuscript was submitted to.
 %% Adds "Submitted to " the argument.
@@ -551,7 +551,7 @@ this study. It is available online at
 
 \section{ZTF Photometry}\label{sec:ztf}
 
-\edit1{\citet{Yao19} provides detailed selection criteria for the 127 SNe\,Ia
+\edit1{\citet{Yao19} provide detailed selection criteria for the 127 SNe\,Ia
 utilized in papers I, II, and III in this series on early observations of ZTF
 SNe\,Ia. Briefly, these 127 SNe} were observed as part of the high-cadence
 extragalactic experiment conducted by the ZTF partnership in 2018
@@ -629,11 +629,9 @@ summarized in Table~\ref{tab:flash}.}
 \edit1{With only 8 SNe fainter than $M = -15.5$\,mag at the epoch of
 discovery, we find a limit on faint optical flashes of $\lesssim$30\%. Flashes
 this faint are expected when the SN ejecta collide with main-sequence
-companions \citep[e.g.,][]{Kasen10a}. This limit is consistent with previous
-estimates \citep[e.g.,][]{Bianco11}, though not that constraining given that
-the companion-interaction signature is only expected in $\sim$10\% of SNe
-\citep{Kasen10a}.}
-
+companions \citep[e.g.,][]{Kasen10a}. This limit is not that constraining
+given that the companion-interaction signature is only expected in $\sim$10\%
+of SNe \citep{Kasen10a}.}
 
 \section{Modeling the Early Rise of SNe\,Ia}\label{sec:model}
 
@@ -886,14 +884,14 @@ relative to \tbmax, which itself has some measurement uncertainty.\footnote{In
 this study \trise\ represents the rise time to $B$-band maximum, as we measure
 time relative to \tbmax\ and assume \tfl\ is the same in the $B$, \gztf, and
 \rztf\ filters. \edit1{This assumption is reasonable given that the opacities
-in a SN photosphere at frequencies $\lesssim 10^{15}$\,Hz are dominated by
-Thomson scattering \citep[see Figure~6 in][]{Magee18}. Furthermore, the
-significant overlap between the $B$- and \gztf-bands suggests that \tfl\
-should be extremely similar, if not identical, in these two filters.} } An
-estimate of \trise\ must therefore account for the uncertainties on both \tfl\
-and \tbmax. \citet{Aldering00} critically showed that ignoring the
-uncertainties on the time of maximum could lead to \trise\ estimates that are
-incorrect by $\ga 2$\,d.
+in a SN photosphere at frequencies $\lesssim 10^{15}$\,Hz ($\gtrsim$
+3000\,\AA) are dominated by Thomson scattering \citep[see Figure~6
+in][]{Magee18}. Furthermore, the significant overlap between the $B$- and
+\gztf-bands suggests that \tfl\ should be extremely similar, if not identical,
+in these two filters.} } An estimate of \trise\ must therefore account for the
+uncertainties on both \tfl\ and \tbmax. \citet{Aldering00} critically showed
+that ignoring the uncertainties on the time of maximum could lead to \trise\
+estimates that are incorrect by $\ga 2$\,d.
 
 To measure \trise, we use a Gaussian kernel density estimation (KDE) to
 approximate the 1-D marginalized probability density function (PDF) for \tfl.
@@ -1060,23 +1058,24 @@ likelihood estimates on $\alpha_r - \alpha_g$. The PDFs for $\alpha_r -
 \alpha_g$ for individual SNe are shown in Figure~\ref{fig:delta}.
 
 Unlike the estimates for \trise\ and $\alpha$ alone, $\alpha_r - \alpha_g$ is
-clearly clustered around $\sim$${-0.2}$ for the reliable group. Multiplying
-these likelihoods together produces support for a single mean value of
-$\alpha_r - \alpha_g = -0.169 \pm 0.015$, where the uncertainties on that
-estimate represent the 90\% credible region. The mean PDF is shown as the
-thick, solid black line in Figure~\ref{fig:delta}. A mean value of $\alpha_r -
-\alpha_g$ suggests that a typical, normal SN Ia becomes bluer in the days
-after explosion. Such an evolution makes sense for an optically thick,
-radioactively heated, expanding ejecta (e.g., \citealt{Piro16,Magee20}). There
-are, however, clear examples of individual SNe that do not exhibit this
-behavior (e.g., SN\,2017cbv and iPTF\,16abc;
-\citealt{Hosseinzadeh17,Miller18}), meaning this mean behavior is not
-prescriptive for every SN Ia. These results exclude SNe from the unreliable
-group, and their inclusion would remove any support for a single mean value of
-$\alpha_r - \alpha_g$. This is largely due to a small handful of events that
-feature extreme values of $\alpha_r - \alpha_g$ because there are gaps in the
-observational coverage of one of the two filters (see the upper right panel of
-Figure~\ref{fig:model_parameters}).
+clearly clustered around $\sim$${-0.2}$ for the reliable group.
+\edit1{Multiplying the likelihoods of the reliable-$z_\mathrm{host}$ group
+together produces support for a single mean value of $\alpha_r - \alpha_g =
+-0.175^{+0.016}_{-0.015}$}, where the uncertainties on that estimate represent
+the 90\% credible region. The mean PDF \edit1{for the
+reliable-$z_\mathrm{host}$ group} is shown as the thick, solid black line in
+Figure~\ref{fig:delta}. A mean value of $\alpha_r - \alpha_g$ suggests that a
+typical, normal SN Ia becomes bluer in the days after explosion. Such an
+evolution makes sense for an optically thick, radioactively heated, expanding
+ejecta (e.g., \citealt{Piro16,Magee20}). There are, however, clear examples of
+individual SNe that do not exhibit this behavior (e.g., SN\,2017cbv and
+iPTF\,16abc; \citealt{Hosseinzadeh17,Miller18}), meaning this mean behavior is
+not prescriptive for every SN Ia. These results exclude SNe from the
+unreliable group, and their inclusion would remove any support for a single
+mean value of $\alpha_r - \alpha_g$. This is largely due to a small handful of
+events that feature extreme values of $\alpha_r - \alpha_g$ because there are
+gaps in the observational coverage of one of the two filters (see the upper
+right panel of Figure~\ref{fig:model_parameters}).
 
 \section{Population correlations}
 
@@ -2006,7 +2005,7 @@ understand} the early evolution and rise time distribution of Type Ia SNe.
 
 \acknowledgements
 
-\edit1{The authors would like to thank the anonymous referee for helpful
+\textbf{The authors would like to thank the anonymous referee for helpful
 comments that have improved this paper.} We thank M.~Magee for sharing details
 about the rise times of SNe\,Ia models. A.A.M.~would like to thank
 E.~A.~Chase, M.~Zevin, and C.~P.~L.~Berry for useful discussions on KDEs and

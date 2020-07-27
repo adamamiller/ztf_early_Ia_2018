@@ -570,15 +570,17 @@ McKinney, W. 2010, 51
   \href{http://adsabs.harvard.edu/abs/2018ApJ...852..100M}{\color{blue}100}
 
 \bibitem[{{Miller} {et~al.}(2020){Miller}, {Magee}, {Polin}, {Maguire},
-  {Zimmerman}, {Yao}, {Sollerman}, {Schulze}, {Perley}, {Kromer}, {Bulla},
-  {Andreoni}, {Bellm}, {De}, {Dekany}, {Delacroix}, {Dhawan}, {Fremling},
+  {Zimmerman}, {Yao}, {Sollerman}, {Schulze}, {Perley}, {Kromer}, {Dhawan},
+  {Bulla}, {Andreoni}, {Bellm}, {De}, {Dekany}, {Delacroix}, {Fremling},
   {Gal-Yam}, {Goldstein}, {Golkhou}, {Goobar}, {Graham}, {Irani}, {Kasliwal},
   {Kaye}, {Kim}, {Laher}, {Mahabal}, {Masci}, {Nugent}, {Ofek}, {Phinney},
   {Prentice}, {Riddle}, {Rigault}, {Rusholme}, {Schweyer}, {Shupe},
-  {Soumagnac}, {Walters}, {Yan}, {Zolkower}, \& {Kulkarni}}]{Miller20a}
+  {Soumagnac}, {Terreran}, {Walters}, {Yan}, {Zolkower}, \&
+  {Kulkarni}}]{Miller20a}
 {Miller}, A.~A., {Magee}, M.~R., {Polin}, A., {et~al.} 2020,
-  \href{https://arxiv.org/abs/2005.05972}{\color{magenta}arXiv},
-  \href{https://ui.adsabs.harvard.edu/abs/2020arXiv200505972M}{\color{blue}arXiv:2005.05972}
+  \href{http://dx.doi.org/10.3847/1538-4357/ab9e05}{\color{magenta}\apj},
+  \href{https://ui.adsabs.harvard.edu/abs/2020ApJ...898...56M}{\color{blue}898},
+  \href{https://ui.adsabs.harvard.edu/abs/2020ApJ...898...56M}{\color{blue}56}
 
 \bibitem[{{Noebauer} {et~al.}(2017){Noebauer}, {Kromer}, {Taubenberger},
   {Baklanov}, {Blinnikov}, {Sorokina}, \& {Hillebrandt}}]{Noebauer17}
