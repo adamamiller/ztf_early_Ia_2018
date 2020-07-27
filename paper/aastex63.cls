@@ -778,7 +778,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %% 
 \renewcommand\title[2][]{%
 \def\@title{\setbox0=\vbox{\let\footnote\tempfootnote #2}%
-{\Large%\uppercase % changed to \Large by Bin Ren to match 2019 ApJ publication font size for title
+{\let\footnote\tempfootnoteintitle\Large%\uppercase % changed to \Large by Bin Ren to match 2019 ApJ publication font size for title
 \bf{#2}}%% here??? % changed by Bin Ren
 \kickoutfootnotes
 \ifdoublespace\vskip 3\baselineskip\fi
@@ -817,7 +817,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 
 \def\frontmatter@affiliationfont{\normalfont\footnotesize
 %% changed october 2017
-\it
+%\it 						%commented out by Bin Ren to match publication font
 \iflongauthor\else
 \ifrnaas\else
 \rightskip-12pt plus 1fil
@@ -962,7 +962,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 %  ****************************************
 
 
-  \def\@keys@name{\textit{Keywords:}\/~\mbox{}}%
+  \def\@keys@name{\textit{Unified Astronomy Thesaurus concepts:}\/~\mbox{}}% Changed by Bin Ren from "Keywords" to "Unified Astronomy Thesaurus concepts"
 
 \newlength{\keys@width}
 \def\frontmatter@keys@format{\ifmodern\vskip0pt\else\vspace*{0.5mm}\fi%
@@ -972,7 +972,7 @@ footnote\the\fncount\endcsname{\if@two@col\hsize=.5\textwidth
 \leftskip=34pt
 \fi
 \parindent=0pt%
-    \hangindent=\keys@width\hangafter=1\normalsize}%
+    \hangindent=0\keys@width\hangafter=1\normalsize}% 0 before \keys is added by Bin Ren to avoid forced indenting after ":"
 \def\@keywords@produce#1{%
  \showKEYS@sw{%
   \begingroup%
@@ -1268,7 +1268,14 @@ the#1\endcsname}
 \def\thesubsection{\Alph{section}.\arabic{subsection}}
 \def\thesubsubsection{\Alph{section}.\arabic{subsubsection}}
 \def\theparagraph{\Alph{section}.\arabic{paragraph}}
+
+\counterwithin*{equation}{section} % Added by Bin Ren to reset equation counter in each section in appendix
+\counterwithin*{figure}{section} % Added by Bin Ren to reset figure counter in each section in appendix
+\counterwithin*{table}{section} % Added by Bin Ren to reset table counter in each section in appendix
+
+
 \def\theequation{\hbox{\Alph{section}\arabic{equation}}}
+\renewcommand{\theHfigure}{\Alph{section}\arabic{figure}} % Added by Bin Ren to properly link to appendix figures
 \def\thefigure{\hbox{\Alph{section}\arabic{figure}}}
 %% these are NOT supposed to reset to zero
 %\setcounter{table}{0}
@@ -1896,7 +1903,7 @@ the#1\endcsname}
 }%
 
 %% march 2019, added \it to tablenotemark
-\global\def\tablenotemark#1{{\normalfont\textsuperscript{\normalsize\it #1}}}
+\global\def\tablenotemark#1{{\normalfont\textsuperscript{\scriptsize #1}}} % changed by Bin Ren to \scriptsize to match published tablenotemark
 \global\def\tablenotetext#1#2{\footnotetext[#1]{\currtabletypesize\relax#2}}
 
 %% redefined by AH below, since it wasn't working with tabular table
@@ -2089,6 +2096,8 @@ width0pt\relax#1$}\ignorespaces}
   \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
   \do\Y\do\Z\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}
 
+%% for counting equations in different section in appendix % added by Bin Ren
+\usepackage{chngcntr}      % added by Bin Ren
 
 %% for tables continuing over pages
 \usepackage{longtable}
@@ -5268,14 +5277,14 @@ to\hsize{\hss\vtop{\hsize=\maxtablewidth\caption{\@tablecaption}}\hss}\vskip3pt\
 }
 
 \def\tablecomments#1{\vskip1pt{\small\vskip1sp\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\sc Note}---{#1}\vskip1pt}}
+width 0pt\currtabletypesize{\textbf{Note.}}{ #1}\vskip1pt}} % Adjusted by Bin Ren to match published tablecomments style
 
 \def\tablenotetext#1#2{\vskip1pt{\currtabletypesize\vskip1pt\indent\vrule
 height 11pt depth
-2pt width0pt\relax$^{\hbox to 5pt{$#1$}}$#2\vskip1pt}}
+2pt width0pt\relax{\normalfont\textsuperscript{\scriptsize #1}} #2\vskip1pt}} % Adjusted by Bin Ren to match published tablenotetext mark
 
 \def\tablerefs#1{{\small\vskip3pt\indent\vrule height 11pt depth 2pt
-width 0pt\currtabletypesize{\bf References}---{#1}\vskip1sp}}
+width 0pt\currtabletypesize{\textbf{References.}}{ #1}\vskip1sp}} % Adjusted by Bin Ren to match publication style
 
 \let\tablereferences\tablerefs
 
@@ -5764,7 +5773,7 @@ by 1\relax}\ignorespaces}%
 \newcommand*\submitjournal[1]
 {\def\@submitted{Submitted to #1}}%
 
-\newcommand*\acceptjournall[1]
+\newcommand*\acceptjournal[1]
 {\def\@submitted{Accepted to #1}}% Added by Bin Ren
 
 
