@@ -358,7 +358,8 @@ observations from the Vera C.~Rubin Observatory.
 %% Keywords should appear after the \end{abstract} command. 
 %% See the online documentation for the full list of available subject
 %% keywords and the rules for their use.
-\keywords{supernovae: general --- methods: observational --- surveys --- catalogs --- supernovae: individual (ZTF18abclfee/SN\,2018cxk)}
+\keywords{Surveys; Supernovae; Type Ia supernovae; White dwarf stars;
+Observational astronomy}
 
 %% From the front matter, we move on to the body of the paper.
 %% Sections are demarcated by \section and \subsection, respectively.
@@ -456,13 +457,15 @@ color evolution, though this can only be observed a few days after explosion
 Measurements of the rise time, i.e., the time it takes the SN to evolve from
 first light, the moment when optical photons diffuse out of the photosphere,
 to maximum brightness, can also play a role in constraining SNe\,Ia
-progenitors. Initial work to estimate the rise times of SNe\,Ia clearly
-demonstrated that early efforts to model WD explosions significantly
-underestimated the opacities in the SN ejecta (e.g., \citealt{Riess99a}).
-Furthermore, while the famous luminosity-decline relationship for SNe\,Ia makes
-them standardizable \citep{Phillips93}, recent evidence suggests that the
-rise, rather than the decline, of SNe\,Ia is a better indicator of their peak
-luminosity \citep{Hayden19}. 
+progenitors. \edit1{The combination of the rise time and the peak bolometric
+luminosity provide a direct estimate of the ejecta mass
+\citep[e.g.,][]{Arnett82,Jeffery99}.} Furthermore, initial work to estimate
+the rise times of SNe\,Ia clearly demonstrated that early efforts to model WD
+explosions significantly underestimated the opacities in the SN ejecta (e.g.,
+\citealt{Riess99a}). Finally, while the famous luminosity-decline relationship
+for SNe\,Ia makes them standardizable \citep{Phillips93}, recent evidence
+suggests that the rise, rather than the decline, of SNe\,Ia is a better
+indicator of their peak luminosity \citep{Hayden19}.
 % Rise time measurements are most precise when a SN
 % is discovered shortly after explosion, which only becomes routine with
 % high-cadence observations.
@@ -473,9 +476,10 @@ luminosity-decline relation} (we hereafter refer to these corrections as shape
 corrections). Follow-up studies estimated a similar mean rise time for
 high-redshift SNe\,Ia \citep{Aldering00,Conley06}.\footnote{\citet{Aldering00}
 importantly point out that rise time estimates can be significantly biased if
-uncertainties in the time of maximum light are ignored.} In \citet{Hayden10}
-and \citet{Ganeshalingam11}, similar approaches were applied to significantly
-larger samples of SNe, and shorter shape-corrected mean rise times were found.
+uncertainties in the time of maximum light are ignored.} In \citet{Hayden10},
+\citet{Ganeshalingam11}, and \citet{Gonzalez-Gaitan12} similar approaches were
+applied to significantly larger samples of SNe, and shorter shape-corrected
+mean rise times were found.
 
 As observational cadences have increased over the past $\sim$decade, there has
 been a surge of SNe\,Ia discovered shortly after explosion. This has led more
@@ -621,12 +625,12 @@ been corrected to the SN rest frame.} While these idealized conditions are not
 perfectly met in nature, $T$ and $v$ clearly change shortly after explosion
 (e.g., \citealt{Parrent12}), their relative change is small compared to $t$.
 Thus, the ``$t^2$-law'' should approximately hold, and indeed many studies of
-large samples of SNe\,Ia have shown that in the blue optical filters $f \propto
-t^2$ to within the uncertainties (e.g., \citealt{Conley06, Hayden10,
-Ganeshalingam11}). At the same time, several recent studies of individual,
-low-redshift SNe\,Ia show strong evidence that a power-law model for the SN
-flux only reproduces the data if the power-law index, $\alpha$, is
-significantly lower than 2 (e.g.,
+large samples of SNe\,Ia have shown that in the blue optical filters $f
+\propto t^2$ to within the uncertainties (e.g., \citealt{Conley06, Hayden10,
+Ganeshalingam11, Gonzalez-Gaitan12}). At the same time, several recent studies
+of individual, low-redshift SNe\,Ia show strong evidence that a power-law
+model for the SN flux only reproduces the data if the power-law index,
+$\alpha$, is significantly lower than 2 (e.g.,
 \citealt{Zheng13,Zheng14,Shappee16,Miller18,Fausnaugh19,Dimitriadis19}).
 
 For this study, we characterize the early emission in a single filter from a
@@ -1119,9 +1123,9 @@ somewhat surprising: naively, it suggests some form of cosmic evolution in SNe
 Ia, with SNe at $z \approx 0.08$ having rise times that are several days
 shorter than SNe at $z \approx 0.02$. The small range of redshifts in our
 sample, and several previous studies (e.g.,
-\citealt{Aldering00,Conley06,Jones19}), render this naive explanation in
-doubt. Instead, these correlations are the result of building a sample from a
-flux-limited survey.
+\citealt{Aldering00,Conley06,Gonzalez-Gaitan12,Jones19}), render this naive
+explanation in doubt. Instead, these correlations are the result of building a
+sample from a flux-limited survey.
 
 Given that ZTF cannot detect SNe when their observed brightness is
 $g_\mathrm{ZTF} \ga 21.5$\,mag \citep{Masci19,Bellm19}, SNe at progressively
@@ -1210,7 +1214,8 @@ and $\alpha_r$ are correlated (and by extension \trise\ and $\alpha_g$ are
 also correlated). The Spearman correlation coefficient for \trise\ and
 $\alpha_r$ is significant ($\rho \gtrsim 0.5$) for both the entire population
 of SNe in this study and the reliable subset as well. Similar values are found
-for \trise\ and $\alpha_g$.
+for \trise\ and $\alpha_g$. \edit1{The positive correlation between \trise\
+and $\alpha$ is also found in \citet{Gonzalez-Gaitan12}.}
 
 The origins of such a correlation may be a consequence of the $^{56}$Ni
 distribution in the SN ejecta. In \citet{Magee20} a suite of models is
@@ -1234,10 +1239,10 @@ them to be used as standardizable candles. We examine the correlation between
 light curve shape, in this case the \texttt{SALT2} $x_1$ parameter, and the SN
 rise time and $\alpha$ in Figure~\ref{fig:shape_correlations}. There is a
 clear correlation between shape and \trise, which has been hinted at in other
-smaller samples (e.g., \citealt{Riess99a,Firth15,Zheng17a}). The Spearman
-coefficient for $x_1$ and \trise\ is significant for the entire population
-\edit1{($\rho > 0.5$)}, and increases when considering the \edit1{reliable
-group ($\rho > 0.6$)}.
+samples (e.g., \citealt{Riess99a,Gonzalez-Gaitan12,Firth15,Zheng17a}). The
+Spearman coefficient for $x_1$ and \trise\ is significant for the entire
+population \edit1{($\rho > 0.5$)}, and increases when considering the
+\edit1{reliable group ($\rho > 0.6$)}.
 
 The $x_1$ shape parameter accounts for the width of both the SN rise and
 decline, and therefore, by definition, it should be correlated with the rise
@@ -1299,12 +1304,9 @@ for the reliable-$z_\mathrm{host}$ group)}.
 % lowest-redshift ($z < 0.06$) reliable-$z_\mathrm{host}$ SNe (middle panel of
 % Figure~\ref{fig:dm15}).
 
-The observed correlation between the rise time and the SN decline rate stands
-in contrast to what was found in \citet{Hayden10}, where the slowest declining
-SNe are among the fastest risers, and a few fast-declining SNe have long rise
-times. Interrogation of the low-$z$ SNe in our sample reveals individual SNe
-in our sample that do conform with the behavior described in \citet{Hayden10}.
-For example, ZTF18abkhcrj (SN\,2018emi) has \edit1{$\Delta
+\edit1{While \trise\ and $\Delta m_{15}(g_\mathrm{ZTF})$ exhibit a moderate
+correlation, a few SNe emerge as outliers relative to this relation. Among the
+low-$z$ SNe in our sample, ZTF18abkhcrj (SN\,2018emi) has $\Delta
 m_{15}(g_\mathrm{ZTF}) \approx 0.6$}, making it a slow-declining SN, yet the
 rise time is a relatively short $\sim$\edit1{16.3\,d}. In this particular case
 the short rise time may be the result of larger photometric uncertainties than
@@ -1312,9 +1314,19 @@ is typical for ZTF SNe. ZTF18abkhcrj (SN\,2018emi) was discovered on top of
 the nucleus of its host galaxy during full moon. These two effects would
 contribute additional noise, delaying the phase at which the SN is discovered,
 and, similar to the affects discussed in \S\ref{sec:redshift_correlations},
-yield a shorter estimate for \trise. We conclude that additional examples are
-needed to better understand the relationship between rise and decline of SNe
-Ia.
+yield a shorter estimate for \trise.
+
+\edit1{\citet{Hayden10} find many SNe similar to ZTF18abkhcrj, in the sense
+that several of the slowest declining SNe are among the fastest risers.
+\citet{Hayden10} also finds that the fastest declining SN in their sample has
+\trise\ $> 20$\,d. \citet{Gonzalez-Gaitan12} also find marginal evidence that
+slow-declining SNe have faster rise times than their fast-declining
+counterparts. The rise times in both \citet{Hayden10} and
+\citet{Gonzalez-Gaitan12} are measured after shape correction, making it
+difficult to directly compare to our ZTF sample. Nevertheless, if there is
+no clear correlation, then that would suggest that the rise and fall of
+SNe\,Ia is set by different physics. Additional samples should be collected to
+test for this possibility.}
 
 There is no strong correlation between $\alpha$ and $x_1$
 (Figure~\ref{fig:shape_correlations}). The Spearman correlation for these two
@@ -1331,16 +1343,16 @@ $\alpha$ on average for the reliable-$z_\mathrm{host}$ group.
 
 In our previous effort to model the early evolution of SNe\,Ia we adopted a
 flexible model (hereafter the ``uninformative prior'') allowing $\alpha$ and
-\tfl\ to simultaneously vary, despite theoretical \citep{Arnett82,Riess99a} and
-observational \citep{Conley06,Hayden10,Ganeshalingam11} evidence that $\alpha$
-is consistent with $2$. Here we alter the model by fixing $\alpha_g = \alpha_r
-= 2$ (hereafter the ``$\alpha = 2$ prior''), and explore how this decision
-changes the results described in the previous sections. This decision is
-equivalent to placing an infinitely strong prior on the value of
-$\alpha$.\footnote{Strictly enforcing $\alpha_g = \alpha_r$ imposes
-non-physical structure on the models, as this condition effectively implies
-that there is no change in the $g - r$ color during the initial rise of the
-SN. This is clearly observed not to be the case in many SNe
+\tfl\ to simultaneously vary, despite theoretical \citep{Arnett82,Riess99a}
+and observational \citep{Conley06,Hayden10,Ganeshalingam11,Gonzalez-Gaitan12}
+evidence that $\alpha$ is consistent with $2$. Here we alter the model by
+fixing $\alpha_g = \alpha_r = 2$ (hereafter the ``$\alpha = 2$ prior''), and
+explore how this decision changes the results described in the previous
+sections. This decision is equivalent to placing an infinitely strong prior on
+the value of $\alpha$.\footnote{Strictly enforcing $\alpha_g = \alpha_r$
+imposes non-physical structure on the models, as this condition effectively
+implies that there is no change in the $g - r$ color during the initial rise
+of the SN. This is clearly observed not to be the case in many SNe
 (\S\ref{sec:colors}; see also Paper III in this series, \citealt{Bulla20}).}
 
 The distribution of rise time PDFs using the $\alpha = 2$ prior is shown in
@@ -1687,14 +1699,14 @@ well established luminosity-decline relation for SNe\,Ia \citep{Phillips93} to
 ``shape correct'' the SN light curves prior to fitting for the rise time.
 Thus, individual light curves are stretched by some empirically measured
 factor, and the mean rise time represents a normal SN Ia \textit{after shape
-correction} (e.g.,
-\citealt{Riess99a,Aldering00,Conley06,Hayden10,Ganeshalingam11}). The second
-method measures the rise time of each SN Ia within a sample, and then takes
-the mean of this distribution. These two methods are not equivalent, and
-therefore are likely to produce different results. If, for instance, a
-flux-limited survey finds more high-luminosity, slower-declining SNe than
-low-luminosity, faster-declining events, then the population mean will produce
-longer rise times than the shape-corrected mean.
+correction} \citep[e.g.,][]
+{Riess99a,Aldering00,Conley06,Hayden10,Ganeshalingam11,Gonzalez-Gaitan12}.
+The second method measures the rise time of each SN Ia within a sample, and
+then takes the mean of this distribution. These two methods are not
+equivalent, and therefore are likely to produce different results. If, for
+instance, a flux-limited survey finds more high-luminosity, slower-declining
+SNe than low-luminosity, faster-declining events, then the population mean
+will produce longer rise times than the shape-corrected mean.
 
 Using different data sets obtained in very different redshift regimes,
 \citet{Riess99a}, \citet{Aldering00}, and \citet{Conley06} estimate consistent
@@ -2343,8 +2355,7 @@ decreases estimates of $\alpha$ (which agrees with the trend seen in
 Figure~\ref{fig:model_parameters}), with only 5 of the 10 SNe having estimates
 of $\alpha_g$ and $\alpha_r$ that agree. These trends suggest that
 pre-explosion observations are critically needed to produce accurate estimates
-of \trise\ (though, again, we caution that these results should be confirmed
-with a larger sample of SNe).
+of \trise\ \edit1{\citep[see also][]{Gonzalez-Gaitan12}}.
 
 \bibliography{/Users/adamamiller/Documents/tex_stuff/papers}
 \bibliographystyle{aasjournal}
