@@ -4,8 +4,8 @@
 \providecommand{\dodoi}[1]{}
 \providecommand{\doarXiv}[1]{\href{https://arxiv.org/abs/#1}{\nolinkurl{https://arxiv.org/abs/#1}}}
 
-\bibitem[{Akaike(1973)}]{Akaike73}
-Akaike, H. 1973 (Budapest: Akad{\'e}miai Kiad{\'o}), 267
+\bibitem[{{Akaike}(1974)}]{Akaike74}
+{Akaike}, H. 1974, IEEE Transactions on Automatic Control, 19, 716
 
 \bibitem[{{Aldering} {et~al.}(2000){Aldering}, {Knop}, \&
   {Nugent}}]{Aldering00}
@@ -244,7 +244,7 @@ Akaike, H. 1973 (Budapest: Akad{\'e}miai Kiad{\'o}), 267
 
 \bibitem[{Foreman-Mackey(2016)}]{Foreman-Mackey16}
 Foreman-Mackey, D. 2016,
-  \href{http://dx.doi.org/10.21105/joss.00024}{\color{magenta}JOSS}, 24
+  \href{http://dx.doi.org/10.21105/joss.00024}{\color{magenta}JOSS}, 1, 24
 
 \bibitem[{{Foreman-Mackey} {et~al.}(2013){Foreman-Mackey}, {Hogg}, {Lang}, \&
   {Goodman}}]{Foreman-Mackey13}
@@ -546,7 +546,7 @@ Jeffreys, H. 1946, Proceedings of the Royal Society of London. Series A.
   \href{https://ui.adsabs.harvard.edu/abs/2019PASP..131a8003M}{\color{blue}018003}
 
 \bibitem[{McKinney(2010)}]{McKinney10}
-McKinney, W. 2010, 51
+McKinney, W. 2010, in Proc. 9th Python in Science Conf.,ed. S. van der Walt & J. Millman, 56
 
 \bibitem[{{Miller} {et~al.}(2017){Miller}, {Kasliwal}, {Cao}, {Adams},
   {Goobar}, {Kne{\v z}evi{\'c}}, {Laher}, {Lunnan}, {Masci}, {Nugent},
@@ -784,7 +784,7 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., {et~al.} 2011, Journal of Machine
   \href{http://adsabs.harvard.edu/abs/2018ApJ...859..101S}{\color{blue}101}
 
 \bibitem[{Seabold \& Perktold(2010)}]{Seabold10}
-Seabold, S., \& Perktold, J. 2010
+Seabold, S., & Perktold, J. 2010, in Proc. 9th Python in Science Conf.,ed. S. van der Walt & J. Millman, 92
 
 \bibitem[{{Shappee} {et~al.}(2018){Shappee}, {Piro}, {Stanek}, {Patel},
   {Margutti}, {Lipunov}, \& {Pogge}}]{Shappee18}
