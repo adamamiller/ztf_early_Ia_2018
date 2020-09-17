@@ -5,15 +5,29 @@
 \tablehead{
 \colhead{}
 & \colhead{}
-& \multicolumn{8}{c}{Uninformative prior}
+& \multicolumn{8}{c}{Uninformative Prior}
 & \colhead{}
-& \multicolumn{3}{c}{$\alpha = 2$ prior} \\
+& \multicolumn{3}{c}{$\alpha = 2$ Prior} \\
 \cline{2-10}
 \cline{12-14}
+\colhead{}
+& \colhead{}
+& \colhead{$t_\mathrm{rise}$}
+& \colhead{$\sigma_{t_\mathrm{rise}}$}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{}
+& \colhead{$t_\mathrm{rise}$}
+& \colhead{$\sigma_{t_\mathrm{rise}}$} \\
 \colhead{Subset}
 & \colhead{N}
-& \colhead{$t_\mathrm{rise}$\,(d)}
-& \colhead{$\sigma_{t_\mathrm{rise}}$\,(d)}
+& \colhead{(d)}
+& \colhead{(d)}
 & \colhead{$\alpha_g$}
 & \colhead{$\sigma_{\alpha_g}$}
 & \colhead{$\alpha_r$}
@@ -22,37 +36,37 @@
 & \colhead{$\sigma_{\alpha_r - \alpha_g}$}
 & \colhead{}
 & \colhead{N}
-& \colhead{$t_\mathrm{rise}$\,(d)}
-& \colhead{$\sigma_{t_\mathrm{rise}}$\,(d)}
+& \colhead{(d)}
+& \colhead{(d)}
 }
 \startdata
-normal &                    120 & $ 17.92\pm0.04 $ & 1.81 & $ 1.89\pm0.02 $ & 0.75 & $ 1.73\pm0.02 $ & 0.80 & $ -0.18\pm0.01 $ & 0.73 && 120 & $ 21.59\pm0.02 $ & 1.89 \\
-reliable &                   47 & $ 18.53\pm0.05 $ & 1.62 & $ 2.05\pm0.02 $ & 0.53 & $ 1.89\pm0.02 $ & 0.50 & $ -0.17\pm0.01 $ & 0.23 && 115 & $ 21.59\pm0.02 $ & 1.90 \\
-reliable-$z_\mathrm{host}$ & 25 & $ 18.73\pm0.05 $ & 1.85 & $ 2.12\pm0.02 $ & 0.59 & $ 1.99\pm0.03 $ & 0.54 & $ -0.18\pm0.02 $ & 0.17 &&  58 & $ 21.54\pm0.02 $ & 2.09 \\
+Normal &                    120 & $ 17.92\pm0.04 $ & 1.81 & $ 1.89\pm0.02 $ & 0.75 & $ 1.73\pm0.02 $ & 0.80 & $ -0.18\pm0.01 $ & 0.73 && 120 & $ 21.59\pm0.02 $ & 1.89 \\
+Reliable &                   47 & $ 18.53\pm0.05 $ & 1.62 & $ 2.05\pm0.02 $ & 0.53 & $ 1.89\pm0.02 $ & 0.50 & $ -0.17\pm0.01 $ & 0.23 && 115 & $ 21.59\pm0.02 $ & 1.90 \\
+Reliable-$z_\mathrm{host}$ & 25 & $ 18.73\pm0.05 $ & 1.85 & $ 2.12\pm0.02 $ & 0.59 & $ 1.99\pm0.03 $ & 0.54 & $ -0.18\pm0.02 $ & 0.17 &&  58 & $ 21.54\pm0.02 $ & 2.09 \\
 \hline
 \multicolumn{14}{c}{Volume-limited ($z < 0.06$) subset} \\
 \hline
-normal &                     28 & $ 18.61\pm0.05 $ & 2.26 & $ 2.05\pm0.03 $ & 0.76 & $ 1.95\pm0.03 $ & 0.67 & $ -0.21\pm0.01 $ & 0.86 && 28 & $ 21.68\pm0.02 $ & 1.53 \\
-reliable &                   16 & $ 18.91\pm0.05 $ & 1.75 & $ 2.13\pm0.03 $ & 0.54 & $ 2.01\pm0.03 $ & 0.52 & $ -0.18\pm0.02 $ & 0.08 && 27 & $ 21.68\pm0.02 $ & 1.51 \\
-reliable-$z_\mathrm{host}$ & 15 & $ 18.95\pm0.05 $ & 1.71 & $ 2.14\pm0.03 $ & 0.51 & $ 2.02\pm0.03 $ & 0.50 & $ -0.18\pm0.02 $ & 0.09 && 24 & $ 21.67\pm0.02 $ & 1.56 \\
+Normal &                     28 & $ 18.61\pm0.05 $ & 2.26 & $ 2.05\pm0.03 $ & 0.76 & $ 1.95\pm0.03 $ & 0.67 & $ -0.21\pm0.01 $ & 0.86 && 28 & $ 21.68\pm0.02 $ & 1.53 \\
+Reliable &                   16 & $ 18.91\pm0.05 $ & 1.75 & $ 2.13\pm0.03 $ & 0.54 & $ 2.01\pm0.03 $ & 0.52 & $ -0.18\pm0.02 $ & 0.08 && 27 & $ 21.68\pm0.02 $ & 1.51 \\
+Reliable-$z_\mathrm{host}$ & 15 & $ 18.95\pm0.05 $ & 1.71 & $ 2.14\pm0.03 $ & 0.51 & $ 2.02\pm0.03 $ & 0.50 & $ -0.18\pm0.02 $ & 0.09 && 24 & $ 21.67\pm0.02 $ & 1.56 \\
 DIC preferred &  & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $ & $ \ldots $              && 28 & $ 19.87\pm0.03 $ & 1.46 \\
 DIC--uninformative &          9 & $ 19.20\pm0.06 $ & 1.38 & $ 2.14\pm0.03 $ & 0.55 & $ 2.02\pm0.03 $ & 0.52 & $ -0.19\pm0.02 $ & 0.08 && $ \ldots $ & $ \ldots $ & $ \ldots $ \\
 \enddata
 \tablecomments{
 Table includes the weighted mean (see text), plus standard uncertainty in the weighted mean, 
-as well as the scatter (the sample standard deviation), for the 4 parameters of interest, 
+as well as the scatter (the sample standard deviation), for the four parameters of interest, 
 $t_\mathrm{rise}$, $\alpha_g$, $\alpha_r$, $\alpha_r - \alpha_g$, for the uninformative 
 and $\alpha = 2$ priors. $N$ is the number of SNe in each subset of the data, which are defined as follows 
 (see text for more detailed definitions):
-normal -- normal SNe Ia, 
-reliable -- SNe with reliable model parameters, 
-reliable-$z_\mathrm{host}$ -- reliable SNe with known host galaxy redshifts, 
+normal -- normal SNe\,Ia; 
+reliable -- SNe with reliable model parameters; 
+reliable-$z_\mathrm{host}$ -- reliable SNe with known host galaxy redshifts; 
 DIC preferred -- results from the $\alpha = 2$ prior, 
-\textit{unless the DIC prefers the uninformative prior} (see \S\ref{sec:dic}; only applies to $t_\mathrm{rise}$),
+\textit{unless the DIC prefers the uninformative prior} (see \S\ref{sec:dic}; only applies to $t_\mathrm{rise}$);
 DIC--uninformative -- only SNe where the DIC prefers the uninformative prior 
 (see \S\ref{sec:dic}; excludes the $\alpha = 2$ prior by construction).
-The volume limited subset includes only SNe with $z < 0.06$ (see \S\ref{sec:volume_limited}).
-Note that the  definition of reliable differs for the uninformative and $\alpha = 2$ priors, 
+The volume-limited subset includes only SNe with $z < 0.06$ (see \S\ref{sec:volume_limited}).
+Note that the  definition of reliable differs for the uninformative and $\alpha = 2$ priors; 
 see \ref{sec:qa} and \S\ref{sec:strong_priors}, respectively.
 }
 
